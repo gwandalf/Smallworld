@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm11="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="010f6a6e-5d77-414f-92e2-37b3e04275a2"
+  name="Vue" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="662013b8-b65b-484c-acc8-b12f6555bf1d"
+        name="VuePartie"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="d3483b43-41fd-4827-ab65-b58045117386">
+            <interfaceMoniker
+              Id="16041532-4b29-48bc-a817-81886f764ff0"
+              LastKnownName="VuePartieInterface"
+              LastKnownLocation="Package2_1640.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="bf92631e-9a13-425d-bf84-53f3e3662908"
+        name="VueUnite"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="85c52723-420d-47b5-906e-acf0e254503c">
+            <interfaceMoniker
+              Id="716859ad-9709-4f21-a097-3b74491d7eb4"
+              LastKnownName="VueUniteInterface"
+              LastKnownLocation="Package2_1640.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="48bfadde-614a-43cc-9ab2-5d1cd42c9f57"
+        name="VueCarte"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="2acb8a57-c63f-441d-a647-67ae971c045c">
+            <interfaceMoniker
+              Id="7c27d5c5-b0ab-4bff-a95e-7e8879bdfdaa"
+              LastKnownName="VueCarteInterface"
+              LastKnownLocation="Package2_1640.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

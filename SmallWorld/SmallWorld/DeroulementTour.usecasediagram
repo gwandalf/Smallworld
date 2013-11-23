@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="950a6d12-eda3-494b-b9c9-c3953847a071" name="UMLUseCaseDiagram1" linkedPackageId="22b0ce7e-68c0-4a46-95e9-accbe3d71f05" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <ownedCommentsInternal>
+    <comment Id="7d1715b0-467a-45d9-9176-c9252c71cf99">
+      <elementDefinition Id="06652ca4-ac39-403a-ade0-f2dd71bb2e6f" />
+      <body>*</body>
+      <annotatedElements>
+        <useCaseMoniker Id="0b1fec84-621d-4ba7-8692-103b83dcd40b" LastKnownName="Sélectionner une nouvelle unité" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <appliedStereotypesInternal>
+    <stereotypeInstance Id="f07b1f76-3cee-4a81-8e75-c6e45a054cad" name="namespace" profile="CSharpProfile">
+      <elementDefinition Id="3e5b1d5a-57eb-4603-b70d-07d32e3c224a" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="e393a6db-8a64-4959-a014-bbb9a19330e3">
+          <propertyInstance Id="64adaa0a-f436-4622-b2c7-06458b8b14b5" name="BaseName">
+            <elementDefinition Id="7bf15cdc-b40a-43c1-a861-4153980d1a22" />
+          </propertyInstance>
+          <elementDefinition Id="a1d78dc4-0788-4002-9c7a-ccba0d5ae889" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="8d881a6c-396a-4bbf-8fed-1e6fd6d7edea">
+          <propertyInstance Id="374f9082-2d55-431a-b713-732f88bff4c1" name="ClrAttributes">
+            <elementDefinition Id="2429e86a-27ff-4ce3-8367-1afc8c23c786" />
+          </propertyInstance>
+          <elementDefinition Id="44af0d70-24de-4e97-ad5b-d9ecfecc1c12" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="b98f9a9e-db0a-4e60-954e-e06592f6a2b6">
+          <propertyInstance Id="3ba8a54f-b125-42e5-8337-48892e285cde" name="Usings">
+            <elementDefinition Id="08b67964-acf3-4573-ba8b-5e634e4d4099" />
+          </propertyInstance>
+          <elementDefinition Id="11437ecf-6944-43f4-9be2-cf529a2fe9cf" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+    <stereotypeInstance Id="d1dab9cf-ec40-4ad3-9a92-f85c21df8ac7" name="TextTemplateBindings" profile="TextTemplateBindings">
+      <elementDefinition Id="bb68603a-ccf2-40e7-8f5f-d22786be7c40" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="4fd069a2-91d7-4045-b414-15419e652721">
+          <propertyInstance Id="526b95be-2f8b-4bb4-9a3c-8ae941db210e" name="Alias" value="ClassTemplate|EnumTemplate|InterfaceTemplate|StructTemplate">
+            <elementDefinition Id="a289244c-533e-4ad5-b924-0066f64e1361" />
+          </propertyInstance>
+          <elementDefinition Id="f3080fb6-ceee-4613-9bbf-9650b77a62cc" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="e9143086-10f9-480c-9c27-df2c4169cf2e">
+          <propertyInstance Id="a3afdec5-12c6-467d-a0e2-097a2de856d9" name="TemplateFilePath" value="ClassTemplate=C:\PROGRAM FILES\MICROSOFT VISUAL STUDIO 11.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4|EnumTemplate=C:\PROGRAM FILES\MICROSOFT VISUAL STUDIO 11.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4|InterfaceTemplate=C:\PROGRAM FILES\MICROSOFT VISUAL STUDIO 11.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4|StructTemplate=C:\PROGRAM FILES\MICROSOFT VISUAL STUDIO 11.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4">
+            <elementDefinition Id="9e6b9059-7c69-4516-94bc-d5038a3c92b2" />
+          </propertyInstance>
+          <elementDefinition Id="95b88bbe-e63a-43cc-892d-38021cea7f44" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="012d7af1-402d-444b-8b67-0852752eec32">
+          <propertyInstance Id="afd1f7e2-2dde-4680-a1b4-8df337d5ace7" name="ProjectPath" value="ClassTemplate=..\SmallWorldLib\SmallWorldLib.csproj|EnumTemplate=..\SmallWorldLib\SmallWorldLib.csproj|InterfaceTemplate=..\SmallWorldLib\SmallWorldLib.csproj|StructTemplate=..\SmallWorldLib\SmallWorldLib.csproj">
+            <elementDefinition Id="992ce560-955f-4d33-b767-e15c015ede0f" />
+          </propertyInstance>
+          <elementDefinition Id="0293165e-3e9a-4251-8be3-f9d684542e12" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="c0b9253f-4025-42e9-9713-64c182752270">
+          <propertyInstance Id="c2600dfe-430b-401e-99d2-870776970bd5" name="TargetDirectory" value="ClassTemplate=GeneratedCode\{PackageStructure}|EnumTemplate=GeneratedCode\{PackageStructure}|InterfaceTemplate=GeneratedCode\{PackageStructure}|StructTemplate=GeneratedCode\{PackageStructure}">
+            <elementDefinition Id="f90283c4-3d42-4733-b412-a4e26c7a4f5e" />
+          </propertyInstance>
+          <elementDefinition Id="0075db0b-c30e-4a9b-9754-fac927753351" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="98249f48-727f-4be3-8614-ce1499240761">
+          <propertyInstance Id="c348c53b-d50e-404c-9b77-c8c58e38a5fb" name="TargetName" value="ClassTemplate={Name}|EnumTemplate={Name}|InterfaceTemplate={Name}|StructTemplate={Name}">
+            <elementDefinition Id="ad0ccebd-7981-4614-bbdf-97f807712214" />
+          </propertyInstance>
+          <elementDefinition Id="63c20a9c-7c7b-4a6d-82bd-fa120cbab2c3" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="5048ef95-25fb-470c-be55-378709bf97de">
+          <propertyInstance Id="4c29b433-44bb-4997-837c-80832c455ff9" name="Overwrite" value="ClassTemplate=True|EnumTemplate=True|InterfaceTemplate=True|StructTemplate=True">
+            <elementDefinition Id="0f5af977-7f5c-4fc9-9761-fecaad50bff0" />
+          </propertyInstance>
+          <elementDefinition Id="df838a46-3569-4843-8b6a-306cb2b99324" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="c0992a6e-46c9-4cc3-a4bb-3f95175e2423">
+          <propertyInstance Id="e601a825-cee3-4f9a-9265-8b3e963cbfa1" name="Parameters">
+            <elementDefinition Id="923d0486-bbd6-42ab-b479-1c5bacb839d7" />
+          </propertyInstance>
+          <elementDefinition Id="1ccd35d6-b7ad-45fe-a525-19c3ae4761fa" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+  </appliedStereotypesInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="feb715d8-473e-4329-b380-f41cebdf465a">
+      <profileInstance Id="189ea44c-827f-4700-bcb4-550212561027" name="CSharpProfile">
+        <elementDefinition Id="51613ed0-2a34-481a-9458-72c1924d5880" />
+      </profileInstance>
+      <elementDefinition Id="8e44da91-0a65-4079-9445-e792704a9ccf" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="3ed3569a-3f71-4157-978c-60cabaf844c5">
+      <profileInstance Id="69cdcee3-090c-496f-ad4e-1817b67c2979" name="TextTemplateBindings">
+        <elementDefinition Id="dd525bee-a803-47c9-a15b-713be1b064f0" />
+      </profileInstance>
+      <elementDefinition Id="f182c375-68b7-411a-aae3-cfb9dce29040" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="db03de7d-621f-4a45-9ec3-6f0a6e4bf1d0" name="Joueur ayant la main" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="09fc9741-5904-4ca6-8498-c0fe12f0c144" />
+        <targetEnds>
+          <association Id="04ae6fc1-e200-4df6-ab2b-3b3e9a7876e5" isDerived="false" sourceEndRoleName="Joueur ayant la main" targetEndRoleName="Sélectionner une unité" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="0b1fec84-621d-4ba7-8692-103b83dcd40b" LastKnownName="Sélectionner une nouvelle unité" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="dc65a0f8-f617-465d-9cb2-5a62361983e8" name="Joueur ayant la main" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="6a564d63-c3ae-40c0-ab06-d3992f75b2c8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="57b59273-30de-4389-b2c5-bd99442ffec3" name="Sélectionner une unité" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="0bee803d-2985-4c9d-997a-f1ebe083b3c8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="ff81ca7e-378f-405f-bf10-42d38564db2e" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="295c8005-d6ea-4d01-a214-61bd5cea5e7f" name="Déplacement" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="82976f56-8af7-4eeb-abc4-07d708c0be55" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="fd0f79c3-0076-4d97-af5b-1abc66379b2a" name="Attaquer adversaire" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b919027b-5f7e-41df-9670-3e04a89866f2" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="a01188c5-d3ab-4b84-9280-68fca4929135" name="Tour d'unité" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6bb67d0e-4f48-4908-a4b8-aab67d168f60" />
+        <additions>
+          <include Id="c4eefc6a-0b12-4a9b-acd0-d127be50f130">
+            <useCaseMoniker Id="0b1fec84-621d-4ba7-8692-103b83dcd40b" LastKnownName="Sélectionner une nouvelle unité" />
+            <elementDefinition Id="d562c8f9-092b-4cfb-ac8e-65bcdf2b57e5" />
+          </include>
+          <include Id="deef51d3-6684-4c63-a5cc-1e762690dec4">
+            <useCaseMoniker Id="295c8005-d6ea-4d01-a214-61bd5cea5e7f" LastKnownName="Déplacement" />
+            <elementDefinition Id="28f57d7d-3c6d-429d-89fd-bc834964b247" />
+          </include>
+          <include Id="527a5fef-eda3-4a94-9e47-6a32087a38e5">
+            <useCaseMoniker Id="fd0f79c3-0076-4d97-af5b-1abc66379b2a" LastKnownName="Attaquer adversaire" />
+            <elementDefinition Id="417cacee-e43e-4761-a15b-67eda3d69b8f" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="4c94aea0-9070-4ae6-b703-c6afd8a0eaa3" name="Pas de cases  compatibles avce le déplacement" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fb365fa3-e3f0-4eee-a10b-d2bea12dffc8" />
+        <extendedCases>
+          <extend Id="714a00b3-bd5d-41d1-ae6b-29fc66a79616">
+            <useCaseMoniker Id="295c8005-d6ea-4d01-a214-61bd5cea5e7f" LastKnownName="Déplacement" />
+            <elementDefinition Id="4e2e2101-ad35-4d74-a011-d612a06a87e6" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="9fc1d7ac-a1d9-4ad9-876a-ca4d3018f7af" name="Pas d'adversaires adjacents" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f6375ae5-f336-4a07-ab9e-f8a92bdcd9be" />
+        <extendedCases>
+          <extend Id="ddf2bb15-f2df-453f-a546-7cc76f0d55a5">
+            <useCaseMoniker Id="fd0f79c3-0076-4d97-af5b-1abc66379b2a" LastKnownName="Attaquer adversaire" />
+            <elementDefinition Id="e29894e1-827b-4a36-97bb-1948731f60be" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="222ca0c9-22f0-4be6-893c-f5e8918d0980" name="Passer le tour de l'unité" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f9b36af1-5efb-4c6e-aef3-7efdd55883e6" />
+        <extendedCases>
+          <extend Id="aa7ce1d7-f4e2-47e1-9a6b-0c08bf826400">
+            <useCaseMoniker Id="a01188c5-d3ab-4b84-9280-68fca4929135" LastKnownName="Tour d'unité" />
+            <elementDefinition Id="636dc934-d0ed-48a7-be49-29419db4ba46" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="0b1fec84-621d-4ba7-8692-103b83dcd40b" name="Sélectionner une nouvelle unité" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2a04e1e2-7bc5-439a-a5da-ed9ba53987b3" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="a495cb56-e692-47bd-b6e7-b517ad4b2c2d" name="Plus de nouvelle unité à sélectionner " isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d00c2116-6dde-46fd-8619-e1fc1ca7d4d6" />
+        <extendedCases>
+          <extend Id="9484c193-faaf-49dc-8cd0-8c65d73313ab">
+            <useCaseMoniker Id="0b1fec84-621d-4ba7-8692-103b83dcd40b" LastKnownName="Sélectionner une nouvelle unité" />
+            <elementDefinition Id="37536b19-8e66-439d-a2f4-a67f736f49f3" />
+          </extend>
+        </extendedCases>
+        <additions>
+          <include Id="11a59fca-4146-420f-a03d-7797f1f9facb">
+            <useCaseMoniker Id="3c2ec135-f802-4438-9399-3b3770a2e65d" LastKnownName="Passer la main" />
+            <elementDefinition Id="e71e4a27-68dd-4fb6-ac76-5389d32efde1" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="17619f7c-751d-4383-ab82-d8630fed8a97" name="Plus de points de mouvement" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="52108ea5-4759-4bce-996f-b89640e7d089" />
+        <extendedCases>
+          <extend Id="56bd059b-a11b-454b-ab44-60a0b600d596">
+            <useCaseMoniker Id="fd0f79c3-0076-4d97-af5b-1abc66379b2a" LastKnownName="Attaquer adversaire" />
+            <elementDefinition Id="7d274d62-705d-4604-839a-122977363658" />
+          </extend>
+          <extend Id="8fe87dc4-cc39-47da-9f48-7f7adeb13362">
+            <useCaseMoniker Id="295c8005-d6ea-4d01-a214-61bd5cea5e7f" LastKnownName="Déplacement" />
+            <elementDefinition Id="004d2f2e-9a9a-49bf-9b40-edd0bfd28c22" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="d09979e0-c127-403d-b899-39c4ced03beb" name="Un joueur n'a plus d'unités" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="68ad13a4-0c9f-4cfa-b0df-d65b7f6ee730" />
+        <extendedCases>
+          <extend Id="e123bcc9-364f-42f0-b7a5-c0c9f9e635e8">
+            <useCaseMoniker Id="0b1fec84-621d-4ba7-8692-103b83dcd40b" LastKnownName="Sélectionner une nouvelle unité" />
+            <elementDefinition Id="c523c7ef-7008-40d3-97e0-7fca6f6667e9" />
+          </extend>
+        </extendedCases>
+        <additions>
+          <include Id="6141795e-f504-4cf2-aab3-544922da3ad5">
+            <useCaseMoniker Id="3d65458a-f4a2-4367-bf59-e17f8db73cb7" LastKnownName="Détermination du gagnant" />
+            <elementDefinition Id="c2768eb3-2de2-4728-a5f2-3473ba53ceba" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5f96e95d-0917-4010-aba7-9eea5253b8cd" name="Nombre maximal de tours atteint" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9d92e31a-8c8e-4ed3-958f-3cc97e16d88f" />
+        <extendedCases>
+          <extend Id="e8432016-1514-4102-8c28-235c4f899601">
+            <useCaseMoniker Id="3c2ec135-f802-4438-9399-3b3770a2e65d" LastKnownName="Passer la main" />
+            <elementDefinition Id="78a765ad-4298-4206-a4f8-9db5333bbfb8" />
+          </extend>
+        </extendedCases>
+        <additions>
+          <include Id="4f803815-f75e-40b4-a743-5bbb5686003e">
+            <useCaseMoniker Id="3d65458a-f4a2-4367-bf59-e17f8db73cb7" LastKnownName="Détermination du gagnant" />
+            <elementDefinition Id="1d3781ec-b2d2-48cd-ae01-8c794d9cd685" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="3c2ec135-f802-4438-9399-3b3770a2e65d" name="Passer la main" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="25ec351f-3f83-4034-ae7a-92707ec2b8ad" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="3d65458a-f4a2-4367-bf59-e17f8db73cb7" name="Détermination du gagnant" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="688ba174-c0b8-49f6-a499-c52f88086046" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="22b0ce7e-68c0-4a46-95e9-accbe3d71f05" name="SmallWorld">
+    <elementDefinition Id="c035be83-ec2e-4b78-aed1-6d2cab104500" />
+    <profileInstances>
+      <packageHasProfileInstances Id="2586bd2f-1ca8-4e4c-9c2c-479accf5336a">
+        <profileInstance Id="0e6ab84a-a040-40f3-a31f-a22de9b1e345" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="e0fdae67-255b-4613-822a-966398e497e5">
+        <profileInstance Id="3c179b0d-acfb-474b-a8e6-2c3a696aa518" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</useCaseModelRoot>

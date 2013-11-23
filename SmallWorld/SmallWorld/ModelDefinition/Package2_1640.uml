@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm11="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="48db8b8f-d712-41d4-b7aa-ed12dd804443"
+  name="Jeu" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <Interface
+        Id="7c27d5c5-b0ab-4bff-a95e-7e8879bdfdaa"
+        name="VueCarteInterface"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="a64806eb-6eb8-4a17-9810-7768c5a9b684"
+            isSubstitutable="false">
+            <interfaceMoniker
+              Id="9b3b4714-bc1d-4a64-a5dc-0c0d3abf53be"
+              LastKnownName="Vue"
+              LastKnownLocation="Package2_1640.uml" />
+          </generalization>
+        </generalsInternal>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="716859ad-9709-4f21-a097-3b74491d7eb4"
+        name="VueUniteInterface"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="16041532-4b29-48bc-a817-81886f764ff0"
+        name="VuePartieInterface"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="1bfff430-a4c1-4a3b-a8ab-d74be8fabad3"
+            isSubstitutable="false">
+            <interfaceMoniker
+              Id="9b3b4714-bc1d-4a64-a5dc-0c0d3abf53be"
+              LastKnownName="Vue"
+              LastKnownLocation="Package2_1640.uml" />
+          </generalization>
+        </generalsInternal>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="1167cc3b-c868-423e-b067-1cb48521ad3d"
+        name="bool" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="cd42bf57-8d45-4227-95e4-fe585421b71c"
+        name="Observer"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedOperations>
+          <operation
+            Id="efcdd5e9-2731-466c-9074-2aa0695677b8"
+            name="update"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="9b3b4714-bc1d-4a64-a5dc-0c0d3abf53be"
+        name="Vue"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="c128ce8c-fc2a-443a-9aa2-d422560c66e1"
+            isSubstitutable="false">
+            <interfaceMoniker
+              Id="cd42bf57-8d45-4227-95e4-fe585421b71c"
+              LastKnownName="Observer"
+              LastKnownLocation="Package2_1640.uml" />
+          </generalization>
+        </generalsInternal>
+      </Interface>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="cf2ae52e-0ca4-4146-86e7-a960fa554ac1"
+  name="Modele" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="e17398dd-134c-4763-82b3-c44de4158d12"
+        name="FabriqueGaulois1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="7a6cfdcb-b83e-47f5-bddd-b477151dfbd1"
+        name="List&lt;Joueur&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="07f4b53e-5223-4c7d-8f91-d011623472df"
+        LastKnownName="Creation"
+        LastKnownLocation="Package_1741.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="bcb59027-16df-40e2-831f-229c6b7b212c"
+        name="Class1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="ac7831c8-3f98-4b07-8174-5827ff93f20f"
+        name="Position"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="91b72d16-49f7-4d8a-85ea-2042f6fdb397"
+            isDerived="false"
+            sourceEndRoleName="Case"
+            targetEndRoleName="Unite"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="a8468f76-a788-4dc3-8177-acfe6c5019fb"
+              LastKnownName="Unite"
+              LastKnownLocation="Package_1442.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3cadbf40-5754-4e41-b571-08501fbe7ec7"
+                  name="Case"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a1dd362b-99ad-4ef0-9a9e-21b7ebc15836"
+                  name="Unite"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="2c068563-70e2-4907-a3e7-dd6ad17b13d5"
+        name="Class2"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="1ef30b7d-ef62-44e9-814c-6b9652964d66"
+        LastKnownName="Jeu"
+        LastKnownLocation="Package_1442.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="b0652b18-3bee-4063-bf58-e3bd78416bcb"
+        name="Sujet"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedOperations>
+          <operation
+            Id="2520d005-7347-4858-bdb0-83f092609ac7"
+            name="attacher"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1dbb51bc-867b-496d-b20c-3518de8a51ef"
+                  name="observer"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="ce5ef7d1-4a14-4fa8-be67-aab1e2132b8b"
+                      LastKnownName="Observer"
+                      LastKnownLocation="Package_1512.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="7d00c57e-275d-4bff-aa39-d18b0791c1ed"
+            name="detacher"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2cfee6ea-47b9-4cc2-ae9e-cfa3f3738693"
+                  name="observer"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="ce5ef7d1-4a14-4fa8-be67-aab1e2132b8b"
+                      LastKnownName="Observer"
+                      LastKnownLocation="Package_1512.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="3b3ace35-1c21-471e-9000-6e6a306147a1"
+            name="notifier"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="ce5ef7d1-4a14-4fa8-be67-aab1e2132b8b"
+        name="Observer" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

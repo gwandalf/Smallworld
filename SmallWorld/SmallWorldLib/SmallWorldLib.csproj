@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EE92E037-B0F4-40D4-8B9D-759A4E5A5A74}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmallWorldLib</RootNamespace>
+    <AssemblyName>SmallWorldLib</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GeneratedCode\Modele\Creation\FabriqueGaulois.cs" />
+    <Compile Include="GeneratedCode\Modele\Creation\FabriqueNain.cs" />
+    <Compile Include="GeneratedCode\Modele\Creation\FabriqueUnite.cs" />
+    <Compile Include="GeneratedCode\Modele\Creation\FabriqueUniteI.cs" />
+    <Compile Include="GeneratedCode\Modele\Creation\FabriqueViking.cs" />
+    <Compile Include="GeneratedCode\Modele\Creation\GameInitiator.cs" />
+    <Compile Include="GeneratedCode\Modele\Creation\GameInitiatorI.cs" />
+    <Compile Include="GeneratedCode\Modele\Creation\MonteurPartie.cs" />
+    <Compile Include="GeneratedCode\Modele\Creation\MonteurPartieDemo.cs" />
+    <Compile Include="GeneratedCode\Modele\Creation\MonteurPartieI.cs" />
+    <Compile Include="GeneratedCode\Modele\Creation\MonteurPartieNormale.cs" />
+    <Compile Include="GeneratedCode\Modele\Creation\MonteurPartiePetite.cs" />
+    <Compile Include="GeneratedCode\Modele\Jeu\Carte.cs" />
+    <Compile Include="GeneratedCode\Modele\Jeu\CarteI.cs" />
+    <Compile Include="GeneratedCode\Modele\Jeu\Desert.cs" />
+    <Compile Include="GeneratedCode\Modele\Jeu\Eau.cs" />
+    <Compile Include="GeneratedCode\Modele\Jeu\FabriqueCase.cs" />
+    <Compile Include="GeneratedCode\Modele\Jeu\FabriqueCaseI.cs" />
+    <Compile Include="GeneratedCode\Modele\Jeu\Foret.cs" />
+    <Compile Include="GeneratedCode\Modele\Jeu\Gaulois.cs" />
+    <Compile Include="GeneratedCode\Modele\Jeu\Joueur.cs" />
+    <Compile Include="GeneratedCode\Modele\Jeu\JoueurI.cs" />
+    <Compile Include="GeneratedCode\Modele\Jeu\Montagne.cs" />
+    <Compile Include="GeneratedCode\Modele\Jeu\Nain.cs" />
+    <Compile Include="GeneratedCode\Modele\Jeu\Partie.cs" />
+    <Compile Include="GeneratedCode\Modele\Jeu\PartieI.cs" />
+    <Compile Include="GeneratedCode\Modele\Jeu\Plaine.cs" />
+    <Compile Include="GeneratedCode\Modele\Jeu\Unite.cs" />
+    <Compile Include="GeneratedCode\Modele\Jeu\UniteI.cs" />
+    <Compile Include="GeneratedCode\Modele\Jeu\Viking.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
