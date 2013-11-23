@@ -20,7 +20,7 @@ namespace Modele.Creation
             set
             {
                 fabriqueUnite1 = value;
-                ((FabriqueUnite)fabriqueUnite1).Nombre = 6;
+                fabriqueUnite1.setNombre(6);
             }
         }
 
@@ -30,7 +30,7 @@ namespace Modele.Creation
             set
             {
                 fabriqueUnite1 = value;
-                fabriqueUnite1.Nombre = 6;
+                fabriqueUnite1.setNombre(6);
             }
         }
 

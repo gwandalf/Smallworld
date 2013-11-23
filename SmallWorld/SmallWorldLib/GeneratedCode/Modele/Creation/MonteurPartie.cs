@@ -47,6 +47,21 @@ namespace Modele.Creation
             return res;
 		}
 
+        public void setFabriqueUnite(int i, FabriqueUniteI fu)
+        {
+            switch (i)
+            {
+                case 1:
+                    this.FabriqueUnite1 = fu;
+                    break;
+                case 2:
+                    this.FabriqueUnite2 = fu;
+                    break;
+                default:
+                    break;
+            }
+        }
+
 		public MonteurPartie()
 		{
 		}

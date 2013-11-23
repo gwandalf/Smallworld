@@ -25,6 +25,16 @@ namespace Modele.Creation
 
 		public abstract List<UniteI> fabriquer(CarteI carte);
 
+        public void setNombre(int nombre)
+        {
+            this.Nombre = nombre;
+        }
+
+        public int getNombre()
+        {
+            return this.Nombre;
+        }
+
 		public FabriqueUnite()
 		{
 		}

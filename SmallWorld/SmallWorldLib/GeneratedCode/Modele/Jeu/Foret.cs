@@ -11,7 +11,7 @@ namespace Modele.Jeu
 	using System.Linq;
 	using System.Text;
 
-	public class Foret
+	public class Foret : Case
 	{
 	}
 }

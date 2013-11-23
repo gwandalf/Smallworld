@@ -49,8 +49,8 @@ namespace Modele.Creation
 
 		public virtual void creerPartie()
 		{
-            ((MonteurPartie)monteurPartie).FabriqueUnite1 = fabriqueUnite1;
-            ((MonteurPartie)monteurPartie).FabriqueUnite2 = fabriqueUnite2;
+            monteurPartie.setFabriqueUnite(1, fabriqueUnite1);
+            monteurPartie.setFabriqueUnite(2, fabriqueUnite2);
             CarteI carte = monteurPartie.makeCarte();
             List<JoueurI> joueurs = monteurPartie.makeJoueurs(carte);
 		}

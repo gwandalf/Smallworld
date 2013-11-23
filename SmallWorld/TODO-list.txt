@@ -1,2 +1,0 @@
-- Faire le diagramme de séquence pour le déroulement d'une partie (centrée sur l'objet :Partie)
-- diagramme de séquence d'erreur ?

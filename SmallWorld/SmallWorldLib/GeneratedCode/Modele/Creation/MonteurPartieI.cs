@@ -20,6 +20,8 @@ namespace Modele.Creation
 
 		List<JoueurI> makeJoueurs(CarteI carte);
 
+        void setFabriqueUnite(int i, FabriqueUniteI fu);
+
 	}
 }
 
