@@ -4,14 +4,13 @@
 //     Les modifications apportées à ce fichier seront perdues si le code est régénéré.
 // </auto-generated>
 //------------------------------------------------------------------------------
-namespace Modele.Jeu
+namespace Modele.Jeu.Joueur
 {
 	using Modele.Creation;
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
-	using Vue;
 
 	public abstract class Unite : UniteI
 	{
@@ -27,8 +26,9 @@ namespace Modele.Jeu
 			set;
 		}
 
-		public virtual VueUnite vueUnite
-		{
+        public virtual Joueur joueur;
+        public virtual Joueur Joueur
+        {
 			get;
 			set;
 		}

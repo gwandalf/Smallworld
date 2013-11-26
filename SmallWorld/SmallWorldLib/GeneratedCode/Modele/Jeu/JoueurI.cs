@@ -11,7 +11,6 @@ namespace Modele.Jeu
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
-	using Vue.Jeu;
 
 	public interface JoueurI 
 	{
@@ -25,7 +24,7 @@ namespace Modele.Jeu
 
 		void fin();
 
-		bool unitesSelectionnables();
+        bool unitesSelectionnables(int lig, int col);
 
 	}
 }
