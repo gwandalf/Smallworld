@@ -35,7 +35,7 @@ namespace Modele.Jeu.Joueur
 		}
 
         //instances of Unite that are in the current instance of Joueur army
-		private List<Unite> unites;
+		private List<UniteI> unites;
         private List<Unite> Unites
 		{
 			get;
@@ -56,11 +56,9 @@ namespace Modele.Jeu.Joueur
          */
         public Joueur(List<UniteI> unites)
 		{
-            foreach (UniteI unite in unites)
-            {
-                this.unites.Add((Unite)unite);
-                this.unites[this.unites.Count].Joueur = this;
-            }
+            this.unites = unites;
+            foreach (UniteI unite in this.unites)
+                this.unites[this.unites.Count].defineJoueur(this);
 		}
 
         /**

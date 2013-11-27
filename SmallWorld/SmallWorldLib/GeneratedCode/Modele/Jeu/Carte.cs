@@ -12,8 +12,6 @@ namespace Modele.Jeu
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
-	using Vue;
-	using Vue.Jeu;
 
 	public class Carte : CarteI
 	{
@@ -29,25 +27,13 @@ namespace Modele.Jeu
 			set;
 		}
 
-		public virtual Position Position
-		{
-			get;
-			set;
-		}
-
-		public virtual IEnumerable<Unite> positUnite
+		public virtual List<UniteI> positUnite
 		{
 			get;
 			set;
 		}
 
 		public virtual FabriqueCaseI fabrique
-		{
-			get;
-			set;
-		}
-
-		public virtual VueCarte vueCarte
 		{
 			get;
 			set;

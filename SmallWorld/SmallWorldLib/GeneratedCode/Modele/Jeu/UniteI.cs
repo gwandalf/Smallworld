@@ -13,7 +13,7 @@ namespace Modele.Jeu
 	using System.Linq;
 	using System.Text;
 
-	public interface UniteI  : Sujet
+	public interface UniteI
 	{
 		void selectionner();
 
@@ -36,6 +36,8 @@ namespace Modele.Jeu
 		void afficher();
 
 		int rapporterPoints();
+
+        void defineJoueur(JoueurI joueur);
 
 	}
 }

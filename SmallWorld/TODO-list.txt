@@ -1,0 +1,6 @@
+- git toolkit for Visual Studio
+- terminer la dll en priorité
+- ensuite, mettre en place des tests unitaires
+- puis coder
+
+améliorer l'algorithme de création de carte pour avoir au moins une fois chaque type de case
