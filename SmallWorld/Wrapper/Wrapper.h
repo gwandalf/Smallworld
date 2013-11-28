@@ -2,12 +2,17 @@
 
 #pragma once
 #include "..\LibC++\Carte.h"
-#include "..\LibC++\Carte.cpp"
 
 using namespace System;
 
 namespace Wrapper {
 
+	/**
+	*
+	* \class Carte
+	* \brief Minimalist representation of the C# "Carte"
+	*
+	*/
 	public ref class CarteWrapper
 	{
 

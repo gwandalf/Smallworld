@@ -1,21 +1,30 @@
-﻿La génération a démarré 13/11/2013 08:59:00.
-     1>Projet "C:\Users\Gwendal\Documents\Visual Studio 2012\Projects\SmallWorld\Wrapper\Wrapper.vcxproj" sur le nœud 2 (Build cible(s)).
+﻿La génération a démarré 28/11/2013 23:38:00.
+     1>Projet "C:\Users\Gwendal\git\Smallworld\SmallWorld\Wrapper\Wrapper.vcxproj" sur le nœud 2 (Build cible(s)).
      1>ClCompile:
-         C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /AI"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files\Windows Kits\8.0\References\CommonConfiguration\Neutral" /AI"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Release\Wrapper.pch" /Fo"Release\\" /Fd"Release\vc110.pdb" /TP /FU"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /analyze- /errorReport:prompt /clr:nostdlib Wrapper.cpp
+         C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /AI"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files\Windows Kits\8.0\References\CommonConfiguration\Neutral" /AI"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Release\Wrapper.pch" /Fo"Release\\" /Fd"Release\vc110.pdb" /TP /FU"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /analyze- /errorReport:prompt /clr:nostdlib TestWrapper.cpp Wrapper.cpp
+         TestWrapper.cpp
          Wrapper.cpp
-         C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /TP /analyze- /errorReport:prompt "C:\Users\Gwendal\AppData\Local\Temp\.NETFramework,Version=v4.5.AssemblyAttributes.cpp"
-         .NETFramework,Version=v4.5.AssemblyAttributes.cpp
-       ResourceCompile:
-         C:\Program Files\Windows Kits\8.0\bin\x86\rc.exe /D _UNICODE /D UNICODE /l"0x0409" /nologo /fo"Release\app.res" app.rc 
+         Génération de code en cours...
        Link:
-         C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Gwendal\Documents\Visual Studio 2012\Projects\SmallWorld\Release\Wrapper.dll" /INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Gwendal\Documents\Visual Studio 2012\Projects\SmallWorld\Release\Wrapper.pdb" /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 /SAFESEH /DLL Release\app.res
+         C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Gwendal\git\Smallworld\SmallWorld\Release\Wrapper.dll" /INCREMENTAL:NO /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Gwendal\git\Smallworld\SmallWorld\Release\Wrapper.pdb" /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 /SAFESEH /DLL Release\app.res
          Release\AssemblyInfo.obj
+         Release\TestWrapper.obj
          Release\Stdafx.obj
          Release\Wrapper.obj
          "Release\.NETFramework,Version=v4.5.AssemblyAttributes.obj"
-         Wrapper.vcxproj -> C:\Users\Gwendal\Documents\Visual Studio 2012\Projects\SmallWorld\Release\Wrapper.dll
-     1>Génération du projet "C:\Users\Gwendal\Documents\Visual Studio 2012\Projects\SmallWorld\Wrapper\Wrapper.vcxproj" terminée (Build cible(s)).
+     1>Wrapper.obj : error LNK2028: jeton non résolu (0A000371) "public: void __thiscall Carte::placeUnites(class std::vector<int,class std::allocator<int> >,int,int)" (?placeUnites@Carte@@$$FQAEXV?$vector@HV?$allocator@H@std@@@std@@HH@Z) référencé dans la fonction "public: void __clrcall Wrapper::CarteWrapper::placeUnites(class std::vector<int,class std::allocator<int> >,int,int)" (?placeUnites@CarteWrapper@Wrapper@@$$FQ$AAMXV?$vector@HV?$allocator@H@std@@@std@@HH@Z)
+     1>Wrapper.obj : error LNK2028: jeton non résolu (0A000372) "public: void __thiscall Carte::generateCases(int)" (?generateCases@Carte@@$$FQAEXH@Z) référencé dans la fonction "public: void __clrcall Wrapper::CarteWrapper::generateCases(int)" (?generateCases@CarteWrapper@Wrapper@@$$FQ$AAMXH@Z)
+     1>Wrapper.obj : error LNK2028: jeton non résolu (0A000373) "extern "C" void __cdecl Carte_Delete(class Carte *)" (?Carte_Delete@@$$J0YAXPAVCarte@@@Z) référencé dans la fonction "private: __clrcall Wrapper::CarteWrapper::~CarteWrapper(void)" (??1CarteWrapper@Wrapper@@$$FA$AAM@XZ)
+     1>Wrapper.obj : error LNK2028: jeton non résolu (0A000374) "extern "C" class Carte * __cdecl Carte_New(int,class std::vector<int,class std::allocator<int> >,class std::vector<int,class std::allocator<int> >)" (?Carte_New@@$$J0YAPAVCarte@@HV?$vector@HV?$allocator@H@std@@@std@@0@Z) référencé dans la fonction "public: __clrcall Wrapper::CarteWrapper::CarteWrapper(int,class std::vector<int,class std::allocator<int> >,class std::vector<int,class std::allocator<int> >)" (??0CarteWrapper@Wrapper@@$$FQ$AAM@HV?$vector@HV?$allocator@H@std@@@std@@0@Z)
+     1>Wrapper.obj : error LNK2028: jeton non résolu (0A000375) "extern "C" class Carte * __cdecl Carte_New_default(void)" (?Carte_New_default@@$$J0YAPAVCarte@@XZ) référencé dans la fonction "public: __clrcall Wrapper::CarteWrapper::CarteWrapper(void)" (??0CarteWrapper@Wrapper@@$$FQ$AAM@XZ)
+     1>Wrapper.obj : error LNK2019: symbole externe non résolu "extern "C" class Carte * __cdecl Carte_New_default(void)" (?Carte_New_default@@$$J0YAPAVCarte@@XZ) référencé dans la fonction "public: __clrcall Wrapper::CarteWrapper::CarteWrapper(void)" (??0CarteWrapper@Wrapper@@$$FQ$AAM@XZ)
+     1>Wrapper.obj : error LNK2019: symbole externe non résolu "extern "C" void __cdecl Carte_Delete(class Carte *)" (?Carte_Delete@@$$J0YAXPAVCarte@@@Z) référencé dans la fonction "private: __clrcall Wrapper::CarteWrapper::~CarteWrapper(void)" (??1CarteWrapper@Wrapper@@$$FA$AAM@XZ)
+     1>Wrapper.obj : error LNK2019: symbole externe non résolu "public: void __thiscall Carte::generateCases(int)" (?generateCases@Carte@@$$FQAEXH@Z) référencé dans la fonction "public: void __clrcall Wrapper::CarteWrapper::generateCases(int)" (?generateCases@CarteWrapper@Wrapper@@$$FQ$AAMXH@Z)
+     1>Wrapper.obj : error LNK2019: symbole externe non résolu "extern "C" class Carte * __cdecl Carte_New(int,class std::vector<int,class std::allocator<int> >,class std::vector<int,class std::allocator<int> >)" (?Carte_New@@$$J0YAPAVCarte@@HV?$vector@HV?$allocator@H@std@@@std@@0@Z) référencé dans la fonction "public: __clrcall Wrapper::CarteWrapper::CarteWrapper(int,class std::vector<int,class std::allocator<int> >,class std::vector<int,class std::allocator<int> >)" (??0CarteWrapper@Wrapper@@$$FQ$AAM@HV?$vector@HV?$allocator@H@std@@@std@@0@Z)
+     1>Wrapper.obj : error LNK2019: symbole externe non résolu "public: void __thiscall Carte::placeUnites(class std::vector<int,class std::allocator<int> >,int,int)" (?placeUnites@Carte@@$$FQAEXV?$vector@HV?$allocator@H@std@@@std@@HH@Z) référencé dans la fonction "public: void __clrcall Wrapper::CarteWrapper::placeUnites(class std::vector<int,class std::allocator<int> >,int,int)" (?placeUnites@CarteWrapper@Wrapper@@$$FQ$AAMXV?$vector@HV?$allocator@H@std@@@std@@HH@Z)
+     1>C:\Users\Gwendal\git\Smallworld\SmallWorld\Release\Wrapper.dll : fatal error LNK1120: 10 externes non résolus
+     1>Génération du projet "C:\Users\Gwendal\git\Smallworld\SmallWorld\Wrapper\Wrapper.vcxproj" terminée (Build cible(s)) -- ÉCHEC.
 
-La génération a réussi.
+ÉCHEC de la build.
 
-Temps écoulé 00:00:03.77
+Temps écoulé 00:00:03.35
