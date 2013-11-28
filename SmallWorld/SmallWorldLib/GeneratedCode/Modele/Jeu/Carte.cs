@@ -12,7 +12,7 @@ namespace Modele.Jeu
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
-    // Try git on SVN
+   
 	public class Carte : CarteI
 	{
 		private int[][] cases

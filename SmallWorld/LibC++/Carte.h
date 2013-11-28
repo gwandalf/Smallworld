@@ -35,6 +35,6 @@ public:
 	~Carte(void);
 
 	void generateCases(int nbTypes);
-	void placeUnites(int amryId, vector<int> unites, int lig, int col);
+	void placeUnites(vector<int> unites, int lig, int col);
 };
 

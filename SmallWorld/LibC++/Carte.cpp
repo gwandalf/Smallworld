@@ -20,7 +20,7 @@ Carte::Carte(void)
 * \param[in] dim : number of lines and column
 * 
 */
-Carte::Carte(int dim)
+Carte::Carte(int dim, vector<vector<int>> unites)
 {
 	this->dim = dim;
 	generateCases(NBTYPES);
@@ -60,10 +60,17 @@ void Carte::generateCases(int nbTypes) {
 * \brief algorithm placing the unites on the map
 *
 */
-void Carte::placeUnites(int armyId, vector<int> army, int lig, int col){
+void Carte::placeUnites(vector<int> army, int lig, int col){
 	vector<int>::iterator deb = army.begin();
 	vector<int>::iterator fin = army.end();
 	vector<int>::iterator iter;
-	for(iter = deb ; iter != fin ; iter++)
-		//TODO
+	positUnite = vector<vector<PositUnite>>();
+	positUnite.push_back(vector<PositUnite>());
+	for(iter = deb ; iter != fin ; iter++) {
+		PositUnite pu;
+		pu.col = col;
+		pu.lig = lig;
+		pu.unite = *iter;
+		positUnite.end()->push_back(pu);
+	}
 }
