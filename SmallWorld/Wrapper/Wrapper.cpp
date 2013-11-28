@@ -1,25 +1,27 @@
 // Il s'agit du fichier DLL principal.
 
 #include "stdafx.h"
-
 #include "Wrapper.h"
-#include "C:\Users\Gwendal\Documents\Visual Studio 2012\Projects\SmallWorld\LibC++\Example.h"
-#include "C:\Users\Gwendal\Documents\Visual Studio 2012\Projects\SmallWorld\LibC++\Example.cpp"
 
-Wrapper::ExampleWrapper::ExampleWrapper(void)
+using namespace Wrapper;
+
+CarteWrapper::CarteWrapper(void)
 {
-	myExample = new Example();
+
 }
 
-Wrapper::ExampleWrapper::ExampleWrapper(int b)
-{
-	myExample = new Example(b);
+CarteWrapper::CarteWrapper(int dim, vector<int> army1, vector<int> army2) {
+
 }
 
-Wrapper::ExampleWrapper::~ExampleWrapper(void)
-{
+CarteWrapper::~CarteWrapper(void) {
+
 }
 
-int Wrapper::ExampleWrapper::wrapperGetA() {
-	return myExample->getA();
+void CarteWrapper::generateCases(int nbTypes) {
+
+}
+
+void CarteWrapper::placeUnites(vector<int> unites, int lig, int col) {
+
 }

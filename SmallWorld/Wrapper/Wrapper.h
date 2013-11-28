@@ -1,22 +1,25 @@
 // Wrapper.h
 
 #pragma once
-#include "C:\Users\Gwendal\Documents\Visual Studio 2012\Projects\SmallWorld\LibC++\Example.h"
-#include "C:\Users\Gwendal\Documents\Visual Studio 2012\Projects\SmallWorld\LibC++\Example.cpp"
+#include "..\LibC++\Carte.h"
+#include "..\LibC++\Carte.cpp"
 
 using namespace System;
 
 namespace Wrapper {
 
-	public ref class ExampleWrapper
+	public ref class CarteWrapper
 	{
-	public:
-		ExampleWrapper(void);
-		ExampleWrapper(int b);
-		~ExampleWrapper(void);
 
-		int wrapperGetA();
+	public:
+		CarteWrapper(void);
+		CarteWrapper(int dim, vector<int> army1, vector<int> army2);
+		~CarteWrapper(void);
+
+		void generateCases(int nbTypes);
+		void placeUnites(vector<int> unites, int lig, int col);
+
 	private:
-		Example *myExample;
+		Carte *myCarte;
 	};
 }
