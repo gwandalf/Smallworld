@@ -76,3 +76,7 @@ void Carte::placeUnites(vector<int> army, int lig, int col) {
 		positUnite.end()->push_back(pu);
 	}
 }
+
+extern "C" _declspec(dllexport) Carte* Carte_New(){return new Carte();}
+extern "C" _declspec(dllexport) Carte* Carte_New(int dim, vector<int> army1, vector<int> army2){return new Carte(dim, army1, army2);}
+extern "C" _declspec(dllexport) void Carte_Delete(Carte * carte){delete carte;}

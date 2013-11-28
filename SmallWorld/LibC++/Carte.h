@@ -38,3 +38,7 @@ public:
 	void placeUnites(vector<int> unites, int lig, int col);
 };
 
+extern "C" _declspec(dllexport) Carte* Carte_New();
+extern "C" _declspec(dllexport) Carte* Carte_New(int dim, vector<int> army1, vector<int> army2);
+extern "C" _declspec(dllexport) void Carte_Delete(Carte * carte);
+
