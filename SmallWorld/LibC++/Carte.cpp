@@ -14,16 +14,18 @@ Carte::Carte(void)
 }
 
 /**
-* \fn Carte::Carte(int dim)
+* \fn Carte::Carte(int dim, vector<int> army1, vector<int> army2)
 * \brief constructor by dimension
 *
-* \param[in] dim : number of lines and column
+* \param[in] dim : number of lines and columns
 * 
 */
-Carte::Carte(int dim, vector<vector<int>> unites)
+Carte::Carte(int dim, vector<int> army1, vector<int> army2)
 {
 	this->dim = dim;
 	generateCases(NBTYPES);
+	placeUnites(army1, 0, 0);
+	placeUnites(army1, dim, dim);
 }
 
 /**
@@ -56,11 +58,11 @@ void Carte::generateCases(int nbTypes) {
 }
 
 /**
-* \fn Carte::placeUnites()
+* \fn void Carte::placeUnites(vector<int> army, int lig, int col)
 * \brief algorithm placing the unites on the map
 *
 */
-void Carte::placeUnites(vector<int> army, int lig, int col){
+void Carte::placeUnites(vector<int> army, int lig, int col) {
 	vector<int>::iterator deb = army.begin();
 	vector<int>::iterator fin = army.end();
 	vector<int>::iterator iter;

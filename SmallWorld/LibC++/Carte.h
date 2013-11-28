@@ -31,7 +31,7 @@ class Carte
 
 public:
 	Carte(void);
-	Carte(int dim, vector<vector<int>> unites);
+	Carte(int dim, vector<int> army1, vector<int> army2);
 	~Carte(void);
 
 	void generateCases(int nbTypes);
