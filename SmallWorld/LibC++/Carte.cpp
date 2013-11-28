@@ -42,7 +42,7 @@ Carte::~Carte(void)
 }
 
 /**
-* \fn Carte::generateCases(int nbTypes)
+* \fn void Carte::generateCases(int nbTypes)
 * \brief algorithm associating types to cases
 *
 * \param[in] nbTypes : number of types of the cases

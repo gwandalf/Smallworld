@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "SmallWorld", "SmallWorld\SmallWorld.modelproj", "{609244E2-7EA8-4375-8FC0-87ABBC1E730E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jeu", "..\..\..\..\Desktop\WoodBox\Jeu\Jeu\Jeu\Jeu.csproj", "{58235F0D-5343-4D95-9273-5D198AAF3A96}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LibC++", "LibC++\LibC++.vcxproj", "{3184ED53-1090-44B8-93CA-2C69A9EEA0CE}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Wrapper", "Wrapper\Wrapper.vcxproj", "{D554C6CC-2D54-46A2-B99A-02791A75169F}"
@@ -35,14 +33,6 @@ Global
 		{609244E2-7EA8-4375-8FC0-87ABBC1E730E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{609244E2-7EA8-4375-8FC0-87ABBC1E730E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{609244E2-7EA8-4375-8FC0-87ABBC1E730E}.Release|Win32.ActiveCfg = Release|Any CPU
-		{58235F0D-5343-4D95-9273-5D198AAF3A96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{58235F0D-5343-4D95-9273-5D198AAF3A96}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{58235F0D-5343-4D95-9273-5D198AAF3A96}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{58235F0D-5343-4D95-9273-5D198AAF3A96}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{58235F0D-5343-4D95-9273-5D198AAF3A96}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{58235F0D-5343-4D95-9273-5D198AAF3A96}.Release|Any CPU.Build.0 = Release|Any CPU
-		{58235F0D-5343-4D95-9273-5D198AAF3A96}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{58235F0D-5343-4D95-9273-5D198AAF3A96}.Release|Win32.ActiveCfg = Release|Any CPU
 		{3184ED53-1090-44B8-93CA-2C69A9EEA0CE}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{3184ED53-1090-44B8-93CA-2C69A9EEA0CE}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
 		{3184ED53-1090-44B8-93CA-2C69A9EEA0CE}.Debug|Mixed Platforms.Build.0 = Debug|Win32
