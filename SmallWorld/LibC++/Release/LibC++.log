@@ -1,14 +1,16 @@
-﻿La génération a démarré 28/11/2013 23:33:38.
-     1>Projet "C:\Users\Gwendal\git\Smallworld\SmallWorld\LibC++\LibC++.vcxproj" sur le nœud 2 (Build cible(s)).
+﻿La génération a démarré 04/12/2013 09:00:40.
+     1>Projet "C:\Users\Gwendal\git\Smallworld\SmallWorld\LibC++\LibC++.vcxproj" sur le nœud 2 (Rebuild cible(s)).
      1>ClCompile:
-         C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Carte.cpp
+         C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D _WINDLL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Carte.cpp
          Carte.cpp
        Link:
-         C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Gwendal\git\Smallworld\SmallWorld\Release\LibC++.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Gwendal\git\Smallworld\SmallWorld\Release\LibC++.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Gwendal\git\Smallworld\SmallWorld\Release\LibC++.lib" /MACHINE:X86 /SAFESEH Release\Carte.obj
+         C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Gwendal\git\Smallworld\SmallWorld\Release\LibC++.dll" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Gwendal\git\Smallworld\SmallWorld\Release\LibC++.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Gwendal\git\Smallworld\SmallWorld\Release\LibC++.lib" /MACHINE:X86 /SAFESEH /DLL Release\Carte.obj
             Création de la bibliothèque C:\Users\Gwendal\git\Smallworld\SmallWorld\Release\LibC++.lib et de l'objet C:\Users\Gwendal\git\Smallworld\SmallWorld\Release\LibC++.exp
-     1>LINK : fatal error LNK1561: le point d'entrée doit être défini
-     1>Génération du projet "C:\Users\Gwendal\git\Smallworld\SmallWorld\LibC++\LibC++.vcxproj" terminée (Build cible(s)) -- ÉCHEC.
+         Génération de code en cours
+         Fin de la génération du code
+         LibC++.vcxproj -> C:\Users\Gwendal\git\Smallworld\SmallWorld\Release\LibC++.dll
+     1>Génération du projet "C:\Users\Gwendal\git\Smallworld\SmallWorld\LibC++\LibC++.vcxproj" terminée (Rebuild cible(s)).
 
-ÉCHEC de la build.
+La génération a réussi.
 
-Temps écoulé 00:00:01.43
+Temps écoulé 00:00:02.16

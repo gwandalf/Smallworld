@@ -30,15 +30,15 @@ class Carte
 	vector<vector<PositUnite>> positUnite; //vector of all the different armies
 
 public:
-	Carte(void);
-	Carte(int dim, vector<int> army1, vector<int> army2);
-	~Carte(void);
+	_declspec(dllexport) Carte(void);
+	_declspec(dllexport) Carte(int dim, vector<int> army1, vector<int> army2);
+	_declspec(dllexport) ~Carte(void);
 
-	void generateCases(int nbTypes);
-	void placeUnites(vector<int> unites, int lig, int col);
+	_declspec(dllexport) void generateCases(int nbTypes);
+	_declspec(dllexport) void placeUnites(vector<int> unites, int lig, int col);
 };
-/*
-extern "C" _declspec(dllexport) Carte* Carte_New_default();
+
+/*extern "C" _declspec(dllexport) Carte* Carte_New_default();
 extern "C" _declspec(dllexport) Carte* Carte_New(int dim, vector<int> army1, vector<int> army2);
-extern "C" _declspec(dllexport) void Carte_Delete(Carte * carte);
-*/
+extern "C" _declspec(dllexport) void Carte_Delete(Carte * carte);*/
+

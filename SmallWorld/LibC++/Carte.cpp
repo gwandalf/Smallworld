@@ -9,7 +9,7 @@ using namespace std;
 * \brief default constructor
 * 
 */
-Carte::Carte(void)
+_declspec(dllexport) Carte::Carte(void)
 {
 }
 
@@ -20,7 +20,7 @@ Carte::Carte(void)
 * \param[in] dim : number of lines and columns
 * 
 */
-Carte::Carte(int dim, vector<int> army1, vector<int> army2)
+_declspec(dllexport) Carte::Carte(int dim, vector<int> army1, vector<int> army2)
 {
 	this->dim = dim;
 	generateCases(NBTYPES);
@@ -33,7 +33,7 @@ Carte::Carte(int dim, vector<int> army1, vector<int> army2)
 * \brief destructor
 * 
 */
-Carte::~Carte(void)
+_declspec(dllexport) Carte::~Carte(void)
 {
 	for(int i = 0 ; i < dim ; i++) {
 		delete cases[i];
@@ -50,7 +50,7 @@ Carte::~Carte(void)
 * TODO : améliorer l'algorithme pour avoir au moins une fois chaque type de case
 *
 */
-void Carte::generateCases(int nbTypes) {
+_declspec(dllexport) void Carte::generateCases(int nbTypes) {
 	for(int i = 0 ; i < dim ; i++) {
 		for(int j = 0 ; j < dim ; j++)
 			cases[i][j] = rand() % nbTypes;
@@ -62,7 +62,7 @@ void Carte::generateCases(int nbTypes) {
 * \brief algorithm placing the unites on the map
 *
 */
-void Carte::placeUnites(vector<int> army, int lig, int col) {
+_declspec(dllexport) void Carte::placeUnites(vector<int> army, int lig, int col) {
 	vector<int>::iterator deb = army.begin();
 	vector<int>::iterator fin = army.end();
 	vector<int>::iterator iter;

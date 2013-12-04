@@ -6,6 +6,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LibC++", "LibC++\LibC++.vcxproj", "{3184ED53-1090-44B8-93CA-2C69A9EEA0CE}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Wrapper", "Wrapper\Wrapper.vcxproj", "{D554C6CC-2D54-46A2-B99A-02791A75169F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3184ED53-1090-44B8-93CA-2C69A9EEA0CE} = {3184ED53-1090-44B8-93CA-2C69A9EEA0CE}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmallWorldModel", "CsharpExample\SmallWorldModel.csproj", "{CBBE0712-17CA-4D68-A3BC-7DEA758120AC}"
 EndProject
