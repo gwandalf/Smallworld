@@ -1,0 +1,13 @@
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\IHM\bin\Debug\IHM.exe.config
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\IHM\bin\Debug\IHM.exe
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\IHM\bin\Debug\IHM.pdb
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\IHM\obj\Debug\IHM.csprojResolveAssemblyReference.cache
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\IHM\obj\Debug\MainWindow.baml
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\IHM\obj\Debug\MainWindow.g.cs
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\IHM\obj\Debug\App.g.cs
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\IHM\obj\Debug\IHM_MarkupCompile.cache
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\IHM\obj\Debug\IHM.g.resources
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\IHM\obj\Debug\IHM.Properties.Resources.resources
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\IHM\obj\Debug\IHM.csproj.GenerateResource.Cache
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\IHM\obj\Debug\IHM.exe
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\IHM\obj\Debug\IHM.pdb
