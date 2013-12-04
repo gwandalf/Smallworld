@@ -12,14 +12,25 @@ namespace Modele.Jeu
 	using System.Linq;
 	using System.Text;
 
+    /**
+     * \class Viking
+     * 
+     * \brief Represents unites of type "Viking"
+     * 
+     */
 	public class Viking : Unite
 	{
-		public override List<Entry<int,int>> getChoixCases()
+		public override List<Tuple<int,int>> getChoixCases()
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public Viking(CarteI carte)
+        /**
+         * \fn public Viking()
+         * \brief constructor directly from superclass
+         * 
+         */
+		public Viking() : base()
 		{
 		}
 

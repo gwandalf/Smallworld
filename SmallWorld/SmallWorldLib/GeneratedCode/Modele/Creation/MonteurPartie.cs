@@ -40,11 +40,11 @@ namespace Modele.Creation
 
 		public abstract CarteI makeCarte();
 
-		public virtual List<JoueurI> makeJoueurs(CarteI carte)
+		public virtual List<JoueurI> makeJoueurs()
 		{
 			List<JoueurI> res = new List<JoueurI>();
-            res.Add(new Joueur(fabriqueUnite1.fabriquer(carte)));
-            res.Add(new Joueur(fabriqueUnite2.fabriquer(carte)));
+            res.Add(new Joueur(fabriqueUnite1.fabriquer()));
+            res.Add(new Joueur(fabriqueUnite2.fabriquer()));
             return res;
 		}
 

@@ -14,8 +14,8 @@ namespace Modele.Creation
 
 	public interface FabriqueUniteI 
 	{
-		List<UniteI> fabriquer(CarteI carte);
-        void setNombre(int nombre);
+		List<UniteI> fabriquer();
+        void defineNbProducts(int nombre);
         int nbProducts();
 	}
 }

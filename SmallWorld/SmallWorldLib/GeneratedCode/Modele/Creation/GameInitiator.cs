@@ -51,8 +51,8 @@ namespace Modele.Creation
 		{
             monteurPartie.setFabriqueUnite(1, fabriqueUnite1);
             monteurPartie.setFabriqueUnite(2, fabriqueUnite2);
-            CarteI carte = monteurPartie.makeCarte();
-            List<JoueurI> joueurs = monteurPartie.makeJoueurs(carte);
+            List<JoueurI> joueurs = monteurPartie.makeJoueurs();
+            CarteI carte = monteurPartie.makeCarte(joueurs);
 		}
 
 	}

@@ -14,11 +14,11 @@ namespace Modele.Creation
 
 	public class FabriqueGaulois : FabriqueUnite
 	{
-		public virtual List<Gaulois> fabriquer(CarteI carte)
+		public virtual List<Gaulois> fabriquer()
 		{
 			List<Gaulois> res = new List<Gaulois>();
             for (int i = 0; i < nombre; i++)
-                res.Add(new Gaulois(carte));
+                res.Add(new Gaulois());
             return res;
 		}
 

@@ -23,9 +23,9 @@ namespace Modele.Creation
 			set;
 		}
 
-		public abstract List<UniteI> fabriquer(CarteI carte);
+		public abstract List<UniteI> fabriquer();
 
-        public void setNombre(int nombre)
+        public void defineNbProducts(int nombre)
         {
             this.Nombre = nombre;
         }

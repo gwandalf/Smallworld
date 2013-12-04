@@ -4,7 +4,7 @@
 //     Les modifications apportées à ce fichier seront perdues si le code est régénéré.
 // </auto-generated>
 //------------------------------------------------------------------------------
-namespace Modele.Jeu.Joueur
+namespace Modele.Jeu
 {
 	using Modele.Creation;
 	using System;
@@ -12,32 +12,70 @@ namespace Modele.Jeu.Joueur
 	using System.Linq;
 	using System.Text;
 
+    /**
+     * \class Unite
+     * 
+     * \brief Represents unites of the game
+     * 
+     */
 	public abstract class Unite : UniteI
 	{
-		protected virtual int vie
+		protected int vie;
+        public virtual int Vie
 		{
 			get;
 			set;
 		}
 
-		protected virtual int deplacement
+		protected int deplacement;
+        public virtual int Deplacement
 		{
 			get;
 			set;
 		}
 
-        public virtual Joueur joueur;
+        protected int attaque;
+        public virtual int Attaque
+        {
+            get;
+            set;
+        }
+
+        protected int defense;
+        public virtual int Defense
+        {
+            get;
+            set;
+        }
+
+        protected Joueur joueur;
         public virtual Joueur Joueur
         {
 			get;
 			set;
 		}
-
+        /*
 		public virtual Etat etat
 		{
 			get;
 			set;
-		}
+		}*/
+
+        /**
+         * \fn public Unite()
+         * \brief constructor
+         * 
+         * All unites have 2HP, 1 moving point, 2 attack points, 1 defensive point
+         * 
+         */
+        public Unite()
+        {
+            vie = 2;
+            deplacement = 1;
+            attaque = 2;
+            defense = 1;
+        }
+
 
 		public virtual void selectionner()
 		{
@@ -82,10 +120,6 @@ namespace Modele.Jeu.Joueur
 		public virtual UniteI combat(UniteI defenseur)
 		{
 			throw new System.NotImplementedException();
-		}
-
-		public Unite(CarteI carte)
-		{
 		}
 
 		public virtual void afficher()
