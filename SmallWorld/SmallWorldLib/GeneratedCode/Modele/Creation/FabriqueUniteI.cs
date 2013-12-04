@@ -16,7 +16,7 @@ namespace Modele.Creation
 	{
 		List<UniteI> fabriquer(CarteI carte);
         void setNombre(int nombre);
-        int getNombre();
+        int nbProducts();
 	}
 }
 

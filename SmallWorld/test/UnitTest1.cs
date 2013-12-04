@@ -10,8 +10,8 @@ namespace test
         [TestMethod]
         public void TestMethod1()
         {
-            ExampleWrapper ex = new ExampleWrapper(2);
-            Assert.AreEqual(ex);
+            CarteWrapper carte = new CarteWrapper();
+            //Assert.AreEqual(carte);
         }
     }
 }

@@ -13,6 +13,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmallWorldModel", "CsharpExample\SmallWorldModel.csproj", "{CBBE0712-17CA-4D68-A3BC-7DEA758120AC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmallWorldLib", "SmallWorldLib\SmallWorldLib.csproj", "{EE92E037-B0F4-40D4-8B9D-759A4E5A5A74}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D554C6CC-2D54-46A2-B99A-02791A75169F} = {D554C6CC-2D54-46A2-B99A-02791A75169F}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{B728C70B-8BB4-4EF0-A25C-3C304F255719}"
 EndProject

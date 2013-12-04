@@ -36,7 +36,7 @@ namespace Modele.Creation
 
 		public override Modele.Jeu.CarteI makeCarte()
 		{
-			throw new System.NotImplementedException();
+            return null;
 		}
 
 		public MonteurPartieDemo()

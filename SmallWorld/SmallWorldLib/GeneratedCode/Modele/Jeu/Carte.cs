@@ -12,9 +12,12 @@ namespace Modele.Jeu
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
+    using Wrapper;
    
 	public class Carte : CarteI
 	{
+        private CarteWrapper carteW;
+        
 		private int[][] cases
 		{
 			get;
@@ -41,9 +44,10 @@ namespace Modele.Jeu
 
 		public Carte(int dim)
 		{
+            this.carteW = new CarteWrapper(dim);
 		}
 
-		public virtual void getListeAdjacents(UniteI unite, List<Entry<int listeCases, object int>>)
+		public virtual void getListeAdjacents(UniteI unite, List<Tuple<int, int>>)
 		{
 			throw new System.NotImplementedException();
 		}

@@ -30,7 +30,7 @@ namespace Modele.Creation
             this.Nombre = nombre;
         }
 
-        public int getNombre()
+        public int nbProducts()
         {
             return this.Nombre;
         }

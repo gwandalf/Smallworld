@@ -11,6 +11,7 @@ namespace Modele.Creation
 	using System.Linq;
 	using System.Text;
     using Modele.Jeu;
+    using Modele.Jeu.Joueur;
 
 	/// <remarks>Monteur</remarks>
 	/// <remarks>Stratégie : difficultée de la partie</remarks>
