@@ -53,7 +53,7 @@ namespace Modele.Jeu
             int i = 0;
             foreach(JoueurI j in joueurs) {
                 foreach(UniteI u in j.unites()) {
-                    this.positUnite.Add(0, u);
+                    this.positUnite.Add(i, u);
                     u.defineCarte(this);
                     i++;
                 }
