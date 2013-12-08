@@ -13,7 +13,7 @@ namespace Modele.Jeu
 	using System.Linq;
 	using System.Text;
 
-	public interface PartieI  : Sujet
+	public interface PartieI
 	{
 		void start();
 

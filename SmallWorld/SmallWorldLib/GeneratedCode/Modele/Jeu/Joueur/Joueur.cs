@@ -43,9 +43,7 @@ namespace Modele.Jeu.Joueur
 		}
 
         //state machine describing the current instance
-        private AutomateJoueur Automate
-        {
-        }
+        
 
         /**
          * \fn public Joueur(List<UniteI> unites)

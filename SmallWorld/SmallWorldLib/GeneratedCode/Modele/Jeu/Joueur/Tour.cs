@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmallWorldLib.GeneratedCode.Modele.Jeu.Joueur
 {
-    class Tour : EtatJoueur
+    class Tour// : EtatJoueur
     {
     }
 }

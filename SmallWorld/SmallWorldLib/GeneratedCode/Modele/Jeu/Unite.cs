@@ -104,12 +104,12 @@ namespace Modele.Jeu
 			throw new System.NotImplementedException();
 		}
 
-		public virtual List<Entry<int,int>> getChoixCases()
+		public virtual List<Tuple<int,int>> getChoixCases()
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public virtual List<Entry<int,int>> deplacementsPossibles()
+		public virtual List<Tuple<int,int>> deplacementsPossibles()
 		{
 			throw new System.NotImplementedException();
 		}

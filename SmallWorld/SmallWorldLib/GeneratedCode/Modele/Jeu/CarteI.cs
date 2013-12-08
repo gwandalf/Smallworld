@@ -15,7 +15,7 @@ namespace Modele.Jeu
 
 	public interface CarteI
 	{
-		void getListeAdjacents(UniteI unite, List<Tuple<int, int>>);
+		void getListeAdjacents(UniteI unite, List<Tuple<int, int>> cases);
 
 		void deplacer(UniteI unite, int lig, int col);
 
