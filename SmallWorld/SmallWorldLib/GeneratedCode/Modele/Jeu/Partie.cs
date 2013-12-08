@@ -11,7 +11,6 @@ namespace Modele.Jeu
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
-	using Vue;
 
 	/// <remarks>
 	/// Singleton
@@ -19,38 +18,41 @@ namespace Modele.Jeu
 	/// </remarks>
 	public class Partie : PartieI
 	{
-		private int nombreTours
+		private int nombreTours;
+        public virtual int NombreTours
 		{
 			get;
 			set;
 		}
 
-		public virtual JoueurI joueur1
+        private List<JoueurI> joueurs;
+		public virtual List<JoueurI> Joueurs
+		{
+			get;
+			set{if(value.Count == 2) joueurs = value;}
+		}
+
+        private CarteI carte;
+		public virtual CarteI Carte
 		{
 			get;
 			set;
 		}
 
-		public virtual CarteI carte
+        /**
+         * \fn public Partie(List<JoueurI> joueurs, int nbTours, CarteI carte)
+         * \brief Constructor of a party
+         * 
+         * param[in] joueurs : players
+         * param[in] nbTours : number of rounds
+         * param[in] carte : map
+         * 
+         */
+        public Partie(List<JoueurI> joueurs, int nbTours, CarteI carte)
 		{
-			get;
-			set;
-		}
-
-		public virtual VuePartie vuePartie
-		{
-			get;
-			set;
-		}
-
-		public virtual JoueurI joueur2
-		{
-			get;
-			set;
-		}
-
-		public Partie(List<JoueurI> joueurs, int nbTours, CarteI carte)
-		{
+            this.joueurs = joueurs;
+            this.nombreTours = nbTours;
+            this.carte = carte;
 		}
 
 		public virtual void start()

@@ -58,7 +58,7 @@ namespace Modele.Creation
             monteurPartie.setFabriqueUnite(2, fabriqueUnite2);
             List<JoueurI> joueurs = monteurPartie.makeJoueurs();
             CarteI carte = monteurPartie.makeCarte(joueurs);
-            return new Partie();
+            return new Partie(joueurs, monteurPartie.NbTours, carte);
 		}
 
 	}

@@ -18,7 +18,8 @@ namespace Modele.Creation
 	public abstract class MonteurPartie : MonteurPartieI
 	{
 
-        protected int nbTours
+        protected int nbTours;
+        public int NbTours
         {
             get;
             set;
@@ -64,6 +65,8 @@ namespace Modele.Creation
 		public MonteurPartie()
 		{
 		}
+
+        public abstract CarteI makeCarte(List<JoueurI> joueurs);
 
 	}
 }
