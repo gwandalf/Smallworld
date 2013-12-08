@@ -30,13 +30,22 @@ namespace Modele.Creation
             set
             {
                 fabriqueUnite1 = value;
-                fabriqueUnite1.setNombre(8);
+                fabriqueUnite1.defineNbProducts(8);
             }
         }
 
-		public override CarteI makeCarte()
+        /**
+         * \fn public override CarteI makeCarte(List<JoueurI> joueurs)
+         * \brief only call the constructor of a "CarteI" implementation
+         * 
+         * The map generated places the players. Its dimension is 15
+         * 
+         * param[in, out] joueurs : parameters of the constructor of the map
+         * 
+         */
+		public override CarteI makeCarte(List<JoueurI> joueurs)
 		{
-			throw new System.NotImplementedException();
+			return new Carte(15, joueurs);
 		}
 
 		public MonteurPartieNormale()

@@ -36,10 +36,18 @@ namespace Modele.Creation
             }
         }
 
+        /**
+         * \fn public override CarteI makeCarte(List<JoueurI> joueurs)
+         * \brief only call the constructor of a "CarteI" implementation
+         * 
+         * The map generated places the players. Its dimension is 5
+         * 
+         * param[in, out] joueurs : parameters of the constructor of the map
+         * 
+         */
 		public override Modele.Jeu.CarteI makeCarte(List<JoueurI> joueurs)
 		{
-            //TODO lien avec la librairie
-            return null;
+            return new Carte(5, joueurs);
 		}
 
 		public MonteurPartieDemo()
