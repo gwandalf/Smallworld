@@ -25,41 +25,30 @@ namespace Modele.Creation
             set;
         }
 
-        protected FabriqueUniteI fabriqueUnite1;
-		public FabriqueUniteI FabriqueUnite1
+        protected List<FabriqueUniteI> fabriquesUnite;
+		public List<FabriqueUniteI> FabriquesUnite
 		{
 			get;
-			set;
+            set
+            {
+                if (value.Count == 2)
+                {
+                    fabriquesUnite = value;
+                }
+            }
 		}
-
-        protected FabriqueUniteI fabriqueUnite2;
-        public FabriqueUniteI FabriqueUnite2
-        {
-            get;
-            set;
-        }
 
 		public virtual List<JoueurI> makeJoueurs()
 		{
 			List<JoueurI> res = new List<JoueurI>();
-            res.Add(new Joueur(fabriqueUnite1.fabriquer()));
-            res.Add(new Joueur(fabriqueUnite2.fabriquer()));
+            res.Add(new Joueur(fabriquesUnite[0].fabriquer()));
+            res.Add(new Joueur(fabriquesUnite[1].fabriquer()));
             return res;
 		}
 
-        public void setFabriqueUnite(int i, FabriqueUniteI fu)
+        public void defineFabriqueUnite(List<FabriqueUniteI> fu)
         {
-            switch (i)
-            {
-                case 1:
-                    this.FabriqueUnite1 = fu;
-                    break;
-                case 2:
-                    this.FabriqueUnite2 = fu;
-                    break;
-                default:
-                    break;
-            }
+            this.FabriquesUnite = fu;
         }
 
 		public MonteurPartie()

@@ -50,10 +50,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="CreationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SmallWorldLib\SmallWorldLib.csproj">
+      <Project>{ee92e037-b0f4-40d4-8b9d-759a4e5a5a74}</Project>
+      <Name>SmallWorldLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Wrapper\Wrapper.vcxproj">
       <Project>{d554c6cc-2d54-46a2-b99a-02791a75169f}</Project>
       <Name>Wrapper</Name>

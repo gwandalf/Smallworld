@@ -28,15 +28,8 @@ namespace Modele.Creation
 			set;
 		}
 
-        private FabriqueUniteI fabriqueUnite1;
-		public FabriqueUniteI FabriqueUnite1
-		{
-			get;
-			set;
-		}
-
-        private FabriqueUniteI fabriqueUnite2;
-		public FabriqueUniteI FabriqueUnite2
+        private List<FabriqueUniteI> fabriquesUnite;
+		public List<FabriqueUniteI> FabriquesUnite
 		{
 			get;
 			set;
@@ -54,8 +47,7 @@ namespace Modele.Creation
          */
 		public PartieI creerPartie()
 		{
-            monteurPartie.setFabriqueUnite(1, fabriqueUnite1);
-            monteurPartie.setFabriqueUnite(2, fabriqueUnite2);
+            monteurPartie.defineFabriqueUnite(fabriquesUnite);
             List<JoueurI> joueurs = monteurPartie.makeJoueurs();
             CarteI carte = monteurPartie.makeCarte(joueurs);
             return new Partie(joueurs, monteurPartie.NbTours, carte);

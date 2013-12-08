@@ -60,7 +60,7 @@ namespace Modele.Jeu
             }
 		}
 
-		public virtual void getListeAdjacents(UniteI unite, List<Tuple<int, int>>)
+		public virtual void getListeAdjacents(UniteI unite, List<Tuple<int, int>> cases)
 		{
 			throw new System.NotImplementedException();
 		}

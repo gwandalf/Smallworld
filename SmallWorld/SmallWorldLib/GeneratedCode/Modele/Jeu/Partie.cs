@@ -12,10 +12,6 @@ namespace Modele.Jeu
 	using System.Linq;
 	using System.Text;
 
-	/// <remarks>
-	/// Singleton
-	/// 
-	/// </remarks>
 	public class Partie : PartieI
 	{
 		private int nombreTours;

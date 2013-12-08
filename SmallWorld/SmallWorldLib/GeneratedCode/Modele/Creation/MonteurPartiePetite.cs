@@ -14,23 +14,17 @@ namespace Modele.Creation
 
 	public class MonteurPartiePetite : MonteurPartie
 	{
-        public FabriqueUniteI FabriqueUnite1
+        public List<FabriqueUniteI> FabriquesUnite
         {
             get;
             set
             {
-                fabriqueUnite1 = value;
-                fabriqueUnite1.defineNbProducts(6);
-            }
-        }
-
-        public FabriqueUniteI FabriqueUnite2
-        {
-            get;
-            set
-            {
-                fabriqueUnite1 = value;
-                fabriqueUnite1.defineNbProducts(6);
+                base.FabriquesUnite = value;
+                if (value.Count == 2)
+                {
+                    foreach(FabriqueUniteI fu in value)
+                        fu.defineNbProducts(6);
+                }
             }
         }
 

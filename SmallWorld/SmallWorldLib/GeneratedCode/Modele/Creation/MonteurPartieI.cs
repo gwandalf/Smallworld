@@ -21,7 +21,7 @@ namespace Modele.Creation
 
 		List<JoueurI> makeJoueurs();
 
-        void setFabriqueUnite(int i, FabriqueUniteI fu);
+        void defineFabriqueUnite(List<FabriqueUniteI> fu);
 
 	}
 }
