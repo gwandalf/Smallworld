@@ -19,25 +19,24 @@ namespace Modele.Creation
 	/// </remarks>
 	public class GameInitiator : GameInitiatorI
 	{
-		private virtual MonteurPartieI monteurPartie
+        public static GameInitiator INSTANCE = new GameInitiator();
+
+        private MonteurPartie monteurPartie;
+		public MonteurPartieI MonteurPartie
 		{
 			get;
 			set;
 		}
 
-		private virtual PartieI partie
+        private FabriqueUniteI fabriqueUnite1;
+		public FabriqueUniteI FabriqueUnite1
 		{
 			get;
 			set;
 		}
 
-		public virtual FabriqueUniteI fabriqueUnite1
-		{
-			get;
-			set;
-		}
-
-		public virtual FabriqueUniteI fabriqueUnite2
+        private FabriqueUniteI fabriqueUnite2;
+		public FabriqueUniteI FabriqueUnite2
 		{
 			get;
 			set;
@@ -45,19 +44,21 @@ namespace Modele.Creation
 
 		private GameInitiator()
 		{
+            //TODO interface avec boutons (?)
 		}
 
         /**
-         * \fn public virtual void creerPartie()
+         * \fn public Partie creerPartie()
          * \brief creation of a party using the builder
          * 
          */
-		public virtual void creerPartie()
+		public PartieI creerPartie()
 		{
             monteurPartie.setFabriqueUnite(1, fabriqueUnite1);
             monteurPartie.setFabriqueUnite(2, fabriqueUnite2);
             List<JoueurI> joueurs = monteurPartie.makeJoueurs();
             CarteI carte = monteurPartie.makeCarte(joueurs);
+            return new Partie();
 		}
 
 	}
