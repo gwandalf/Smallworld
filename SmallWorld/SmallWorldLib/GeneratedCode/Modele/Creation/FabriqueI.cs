@@ -12,20 +12,11 @@ namespace Modele.Creation
 	using System.Text;
     using Modele.Jeu;
 
-	public class FabriqueNain : FabriqueUnite
+	public interface FabriqueI<T> where T : UniteI
 	{
-		public virtual List<Nain> fabriquer(CarteI carte)
-		{
-            List<Nain> res = new List<Nain>();
-            for (int i = 0; i < nombre; i++)
-                res.Add(new Nain(carte));
-            return res;
-		}
-
-		public FabriqueNain()
-		{
-		}
-
+		List<T> fabriquer();
+        void defineNbProducts(int nombre);
+        int nbProducts();
 	}
 }
 

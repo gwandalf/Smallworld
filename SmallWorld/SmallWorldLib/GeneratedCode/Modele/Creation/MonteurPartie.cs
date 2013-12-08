@@ -25,8 +25,8 @@ namespace Modele.Creation
             set;
         }
 
-        protected List<FabriqueUniteI> fabriquesUnite;
-		public List<FabriqueUniteI> FabriquesUnite
+        protected List<Fabrique<UniteI>> fabriquesUnite;
+        public List<Fabrique<UniteI>> FabriquesUnite
 		{
 			get;
             set

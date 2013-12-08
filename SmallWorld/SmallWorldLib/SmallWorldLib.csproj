@@ -39,11 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GeneratedCode\Modele\Creation\FabriqueGaulois.cs" />
-    <Compile Include="GeneratedCode\Modele\Creation\FabriqueNain.cs" />
-    <Compile Include="GeneratedCode\Modele\Creation\FabriqueUnite.cs" />
-    <Compile Include="GeneratedCode\Modele\Creation\FabriqueUniteI.cs" />
-    <Compile Include="GeneratedCode\Modele\Creation\FabriqueViking.cs" />
+    <Compile Include="GeneratedCode\Modele\Creation\Fabrique.cs" />
+    <Compile Include="GeneratedCode\Modele\Creation\FabriqueI.cs" />
     <Compile Include="GeneratedCode\Modele\Creation\GameInitiator.cs" />
     <Compile Include="GeneratedCode\Modele\Creation\GameInitiatorI.cs" />
     <Compile Include="GeneratedCode\Modele\Creation\MonteurPartie.cs" />
