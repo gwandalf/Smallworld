@@ -1,9 +1,6 @@
+- tester la création de la carte et le placement des unites
 - ensuite, mettre en place des tests unitaires
-
-- puis coder
 
 
 
 améliorer l'algorithme de création de carte pour avoir au moins une fois chaque type de case
-
-Changer le processus de création de carte  : créer d'abord les joueurs puis la carte en les plaçant dessus, dans le constructeur

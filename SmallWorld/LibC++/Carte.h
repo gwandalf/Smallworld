@@ -31,11 +31,11 @@ class Carte
 
 public:
 	_declspec(dllexport) Carte(void);
-	_declspec(dllexport) Carte(int dim, vector<int> army1, vector<int> army2);
+	_declspec(dllexport) Carte(int dim, int army_length);
 	_declspec(dllexport) ~Carte(void);
 
 	_declspec(dllexport) void generateCases(int nbTypes);
-	_declspec(dllexport) void placeUnites(vector<int> unites, int lig, int col);
+	_declspec(dllexport) void placeUnites(int begin, int end, int lig, int col);
 };
 
 /*extern "C" _declspec(dllexport) Carte* Carte_New_default();

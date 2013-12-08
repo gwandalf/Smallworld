@@ -38,8 +38,6 @@ namespace Modele.Creation
             set;
         }
 
-		public abstract CarteI makeCarte();
-
 		public virtual List<JoueurI> makeJoueurs()
 		{
 			List<JoueurI> res = new List<JoueurI>();

@@ -10,6 +10,8 @@ namespace Modele.Creation
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
+    using Modele.Jeu;
+    using Modele.Jeu.Joueur;
 
 	public class MonteurPartieDemo : MonteurPartie
 	{
@@ -20,7 +22,7 @@ namespace Modele.Creation
             set
             {
                 fabriqueUnite1 = value;
-                fabriqueUnite1.setNombre(4);
+                fabriqueUnite1.defineNbProducts(4);
             }
         }
 
@@ -30,12 +32,13 @@ namespace Modele.Creation
             set
             {
                 fabriqueUnite1 = value;
-                fabriqueUnite1.setNombre(4);
+                fabriqueUnite1.defineNbProducts(4);
             }
         }
 
-		public override Modele.Jeu.CarteI makeCarte()
+		public override Modele.Jeu.CarteI makeCarte(List<JoueurI> joueurs)
 		{
+            //TODO lien avec la librairie
             return null;
 		}
 

@@ -48,12 +48,19 @@ namespace Modele.Jeu
             set;
         }
 
-        protected Joueur joueur;
-        public virtual Joueur Joueur
+        protected JoueurI joueur;
+        public virtual JoueurI Joueur
         {
 			get;
 			set;
 		}
+
+        protected CarteI carte;
+        public virtual CarteI Carte
+        {
+            get;
+            set;
+        }
         /*
 		public virtual Etat etat
 		{
@@ -128,6 +135,18 @@ namespace Modele.Jeu
 		}
 
 		public abstract int rapporterPoints();
+
+        /**
+         * \fn public virtual void defineCarte(CarteI carte)
+         * \brief set the map passes by parameter
+         * 
+         * param[in] carte : the map on which is placed the unite
+         * 
+         */
+        public virtual void defineCarte(CarteI carte)
+        {
+            this.carte = carte;
+        }
 
 	}
 }

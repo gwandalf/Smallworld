@@ -126,6 +126,16 @@ namespace Modele.Jeu.Joueur
 			throw new System.NotImplementedException();
 		}
 
+        /**
+         * \fn public List<UniteI> unite()
+         * \brief return the army of the current player
+         * 
+         */
+        public virtual List<UniteI> unite()
+        {
+            return unites;
+        }
+
 	}
 }
 

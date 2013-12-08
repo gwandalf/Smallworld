@@ -39,6 +39,8 @@ namespace Modele.Jeu
 
         void defineJoueur(JoueurI joueur);
 
+        void defineCarte(CarteI carte);
+
 	}
 }
 

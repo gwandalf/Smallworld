@@ -47,6 +47,11 @@ namespace Modele.Creation
 		{
 		}
 
+        /**
+         * \fn public virtual void creerPartie()
+         * \brief creation of a party using the builder
+         * 
+         */
 		public virtual void creerPartie()
 		{
             monteurPartie.setFabriqueUnite(1, fabriqueUnite1);

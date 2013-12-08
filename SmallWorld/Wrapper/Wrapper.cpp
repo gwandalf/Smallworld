@@ -10,8 +10,8 @@ CarteWrapper::CarteWrapper(void)
 	myCarte = new Carte();
 }
 
-CarteWrapper::CarteWrapper(int dim, vector<int> army1, vector<int> army2) {
-	myCarte = new Carte(dim, army1, army2);
+CarteWrapper::CarteWrapper(int dim, int army_length) {
+	myCarte = new Carte(dim, army_length);
 }
 
 CarteWrapper::~CarteWrapper(void) {
@@ -22,6 +22,6 @@ void CarteWrapper::generateCases(int nbTypes) {
 	myCarte->generateCases(nbTypes);
 }
 
-void CarteWrapper::placeUnites(vector<int> unites, int lig, int col) {
-	myCarte->placeUnites(unites, lig, col);
+void CarteWrapper::placeUnites(int begin, int end, int lig, int col) {
+	myCarte->placeUnites(begin, end, lig, col);
 }
