@@ -1,11 +1,12 @@
 ﻿<Window x:Class="WPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="750" Width="750">
+        Title="MainWindow" Height="483">
+   <!--
     <Grid Name="grid1">
         <Grid.RowDefinitions>
-            <RowDefinition Height="600*"/>
-            <RowDefinition Height="121*"/>
+            <RowDefinition Height="600"/>
+            <RowDefinition Height="121"/>
         </Grid.RowDefinitions>
         <Button Content="Tour" HorizontalAlignment="Left" Margin="666,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="76"/>
         <TextBlock HorizontalAlignment="Left" Height="33" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="104"><Run Language="fr-fr" Text="Peuple 1"/></TextBlock>
@@ -15,7 +16,39 @@
         <Canvas HorizontalAlignment="Left" Height="599" VerticalAlignment="Top" Width="742">
             <Rectangle Name="r1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="50" Stroke="Black" VerticalAlignment="Top" Width="50" Canvas.Left="54" Canvas.Top="52"/>
             <Rectangle Name="r2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="50" Stroke="Black" VerticalAlignment="Top" Width="50" RenderTransformOrigin="2.38,1.78" Canvas.Left="194" Canvas.Top="52"/>
+            <ScrollBar Height="599" Canvas.Left="726" Width="0"/>
         </Canvas>
-        <!--<Image Margin="12,12,16,71" Stretch="Fill" Grid.Column="1" Name="myImage" />-->
+        <Image Margin="21,127,194,74" Name="myImage" />
+        
     </Grid>
+    -->
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" Margin="0,0,0,153">
+        <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Width="741" Height="454">
+            <TextBlock TextWrapping="Wrap" Margin="0,0,0,20"/>
+            <Rectangle Fill="Red" Width="50" Height="50" Margin="550,105,141,299"></Rectangle>
+            <Rectangle Name="rect1" Fill="Blue" Width="50" Height="50" Margin="500,105,191,299"></Rectangle>
+            <Rectangle Fill="Green" Width="50" Height="50" Margin="76,283,615,121"></Rectangle>
+            <Rectangle Fill="Red" Width="50" Height="50" Margin="428,299,263,105"></Rectangle>
+            <Rectangle Fill="Blue" Width="50" Height="50" Margin="200,299,491,105"></Rectangle>
+            <Rectangle Fill="Green" Width="50" Height="50" Margin="330,274,361,130"></Rectangle>
+            <Rectangle Fill="Red" Width="50" Height="50" Margin="650,274,41,130"></Rectangle>
+            <Rectangle Fill="Blue" Width="50" Height="50" Margin="560,274,131,130"></Rectangle>
+            <Rectangle Fill="Green" Width="50" Height="50" Margin="478,274,213,130"></Rectangle>
+            <Rectangle Fill="Red" Width="50" Height="50" Margin="392,283,299,121"></Rectangle>
+            <Rectangle Fill="Blue" Width="50" Height="50" Margin="280,283,411,121"></Rectangle>
+            <Rectangle Fill="Green" Width="50" Height="50" Margin="150,283,541,121"></Rectangle>
+            <Rectangle Fill="Red" Width="50" Height="50" Margin="10,283,681,121"></Rectangle>
+            <Rectangle Fill="Blue" Width="50" Height="50" Margin="0,384,691,20"></Rectangle>
+            <Rectangle Fill="Green" Width="50" Height="50" Margin="450,105,241,299"></Rectangle>
+            <Rectangle Fill="Red" Width="50" Height="50" Margin="400,105,291,299"></Rectangle>
+            <Rectangle Fill="Blue" Width="50" Height="50" Margin="350,105,341,299"></Rectangle>
+            <Rectangle Fill="Green" Width="50" Height="50" Margin="300,105,391,299"></Rectangle>
+            <Rectangle Fill="Red" Width="50" Height="50" Margin="250,105,441,299"></Rectangle>
+            <Rectangle Fill="Blue" Width="50" Height="50" Margin="200,105,491,299"></Rectangle>
+            <Rectangle Fill="Green" Width="50" Height="50" Margin="150,105,541,299"></Rectangle>
+            <Rectangle Fill="Red" Width="50" Height="50" Margin="100,105,591,299"></Rectangle>
+            <Rectangle Fill="Blue" Width="50" Height="50" Margin="50,105,641,299"></Rectangle>
+            <Rectangle Fill="Green" Width="50" Height="50" Margin="0,105,691,299"></Rectangle>
+        </Grid>
+    </ScrollViewer>
 </Window>
