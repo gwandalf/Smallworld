@@ -11,60 +11,51 @@ namespace Modele.Creation
 	using System.Linq;
 	using System.Text;
     using Modele.Jeu;
+    using Modele.Jeu.Joueur;
 
 	/// <remarks>Monteur</remarks>
 	/// <remarks>Stratégie : difficultée de la partie</remarks>
 	public abstract class MonteurPartie : MonteurPartieI
 	{
 
-        protected int nbTours
+        protected int nbTours;
+        public int NbTours
         {
             get;
             set;
         }
 
-        protected FabriqueUniteI fabriqueUnite1;
-		public FabriqueUniteI FabriqueUnite1
+        protected List<Fabrique<UniteI>> fabriquesUnite;
+        public List<Fabrique<UniteI>> FabriquesUnite
 		{
 			get;
-			set;
+            set
+            {
+                if (value.Count == 2)
+                {
+                    fabriquesUnite = value;
+                }
+            }
 		}
 
-        protected FabriqueUniteI fabriqueUnite2;
-        public FabriqueUniteI FabriqueUnite2
-        {
-            get;
-            set;
-        }
-
-		public abstract CarteI makeCarte();
-
-		public virtual List<JoueurI> makeJoueurs(CarteI carte)
+		public virtual List<JoueurI> makeJoueurs()
 		{
 			List<JoueurI> res = new List<JoueurI>();
-            res.Add(new Joueur(fabriqueUnite1.fabriquer(carte)));
-            res.Add(new Joueur(fabriqueUnite2.fabriquer(carte)));
+            res.Add(new Joueur(fabriquesUnite[0].fabriquer()));
+            res.Add(new Joueur(fabriquesUnite[1].fabriquer()));
             return res;
 		}
 
-        public void setFabriqueUnite(int i, FabriqueUniteI fu)
+        public void defineFabriqueUnite(List<FabriqueUniteI> fu)
         {
-            switch (i)
-            {
-                case 1:
-                    this.FabriqueUnite1 = fu;
-                    break;
-                case 2:
-                    this.FabriqueUnite2 = fu;
-                    break;
-                default:
-                    break;
-            }
+            this.FabriquesUnite = fu;
         }
 
 		public MonteurPartie()
 		{
 		}
+
+        public abstract CarteI makeCarte(List<JoueurI> joueurs);
 
 	}
 }

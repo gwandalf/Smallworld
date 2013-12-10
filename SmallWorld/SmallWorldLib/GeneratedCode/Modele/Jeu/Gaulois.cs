@@ -12,14 +12,25 @@ namespace Modele.Jeu
 	using System.Linq;
 	using System.Text;
 
+    /**
+     * \class Gaulois
+     * 
+     * \brief Represents unites of type "Gaulois"
+     * 
+     */
 	public class Gaulois : Unite
 	{
-		public override List<Entry<int,int>> getChoixCases()
+		public override List<Tuple<int,int>> getChoixCases()
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public Gaulois(CarteI carte)
+        /**
+         * \fn public Gaulois()
+         * \brief constructor directly from superclass
+         * 
+         */
+		public Gaulois() : base()
 		{
 		}
 

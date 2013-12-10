@@ -11,16 +11,17 @@ namespace Modele.Creation
 	using System.Linq;
 	using System.Text;
     using Modele.Jeu;
+    using Modele.Jeu.Joueur;
 
 	public interface MonteurPartieI 
 	{
 		JoueurI creerJoueur(List<UniteI> unites);
 
-		CarteI makeCarte();
+		CarteI makeCarte(List<JoueurI> joueurs);
 
-		List<JoueurI> makeJoueurs(CarteI carte);
+		List<JoueurI> makeJoueurs();
 
-        void setFabriqueUnite(int i, FabriqueUniteI fu);
+        void defineFabriqueUnite(List<FabriqueUniteI> fu);
 
 	}
 }

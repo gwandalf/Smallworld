@@ -1,9 +1,6 @@
-
-- terminer la dll en priorité
-
+- déboguer SmallWorldLib. Gérer maintenant des fabriques génériques
+- tester la création de la carte et le placement des unites
 - ensuite, mettre en place des tests unitaires
-
-- puis coder
 
 
 

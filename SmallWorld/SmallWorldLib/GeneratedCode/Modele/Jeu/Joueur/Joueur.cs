@@ -43,9 +43,7 @@ namespace Modele.Jeu.Joueur
 		}
 
         //state machine describing the current instance
-        private AutomateJoueur Automate
-        {
-        }
+        
 
         /**
          * \fn public Joueur(List<UniteI> unites)
@@ -125,6 +123,16 @@ namespace Modele.Jeu.Joueur
 		{
 			throw new System.NotImplementedException();
 		}
+
+        /**
+         * \fn public List<UniteI> unite()
+         * \brief return the army of the current player
+         * 
+         */
+        public virtual List<UniteI> unite()
+        {
+            return unites;
+        }
 
 	}
 }

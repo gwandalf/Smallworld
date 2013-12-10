@@ -12,14 +12,25 @@ namespace Modele.Jeu
 	using System.Linq;
 	using System.Text;
 
+    /**
+     * \class Nain
+     * 
+     * \brief Represents unites of type "Nain"
+     * 
+     */
 	public class Nain : Unite
 	{
-		public override List<Entry<int,int>> getChoixCases()
+		public override List<Tuple<int,int>> getChoixCases()
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public Nain(CarteI carte)
+        /**
+         * \fn public Nain()
+         * \brief constructor directly from superclass
+         * 
+         */
+		public Nain() : base()
 		{
 		}
 

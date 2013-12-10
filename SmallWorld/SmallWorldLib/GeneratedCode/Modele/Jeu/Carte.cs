@@ -9,25 +9,21 @@ namespace Modele.Jeu
 	using Modele;
 	using Modele.Creation;
 	using System;
+    using System.Collections;
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
+    using Wrapper;
    
 	public class Carte : CarteI
 	{
-		private int[][] cases
-		{
-			get;
-			set;
-		}
+        private CarteWrapper carteW;
 
-		private int dim
-		{
-			get;
-			set;
-		}
-
-		public virtual List<UniteI> positUnite
+        // hashtable associating IDs to unites
+        // CarteWrapper (C++) sees unites as IDs
+        // Carte (C#) sees unites as instances of the class Unite
+        private Hashtable positUnite;
+		public virtual Hashtable PositUnite
 		{
 			get;
 			set;
@@ -39,11 +35,32 @@ namespace Modele.Jeu
 			set;
 		}
 
-		public Carte(int dim)
+        /**
+         * \fn public Carte(int dim, List<JoueurI> joueurs)
+         * \brief "Carte" constructor, placing players. Use CarteWrapper.
+         * 
+         * the C++ map is initialised.
+         * Then, the hashtable is filled and the The current map is associated to each unite
+         * 
+         * param[in] dim : dimension of the map
+         * param[in, out] joueurs : list of the players.
+         * 
+         */
+		public Carte(int dim, List<JoueurI> joueurs)
 		{
+            this.carteW = new CarteWrapper(dim, joueurs[0].nbUnitesJouables());
+            this.positUnite = new Hashtable();
+            int i = 0;
+            foreach(JoueurI j in joueurs) {
+                foreach(UniteI u in j.unites()) {
+                    this.positUnite.Add(i, u);
+                    u.defineCarte(this);
+                    i++;
+                }
+            }
 		}
 
-		public virtual void getListeAdjacents(UniteI unite, List<Entry<int listeCases, object int>>)
+		public virtual void getListeAdjacents(UniteI unite, List<Tuple<int, int>> cases)
 		{
 			throw new System.NotImplementedException();
 		}

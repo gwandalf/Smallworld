@@ -9,6 +9,7 @@ namespace Modele.Jeu
 	using Modele;
 	using Modele.Creation;
 	using System;
+    using System.Collections;
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
@@ -23,9 +24,9 @@ namespace Modele.Jeu
 
 		void attaquer(int lig, int col);
 
-		List<Entry<int,int>> getChoixCases();
+		List<Tuple<int,int>> getChoixCases();
 
-		List<Entry<int,int>> deplacementsPossibles();
+		List<Tuple<int,int>> deplacementsPossibles();
 
 		void engagement(UniteI defenseur);
 
@@ -38,6 +39,8 @@ namespace Modele.Jeu
 		int rapporterPoints();
 
         void defineJoueur(JoueurI joueur);
+
+        void defineCarte(CarteI carte);
 
 	}
 }

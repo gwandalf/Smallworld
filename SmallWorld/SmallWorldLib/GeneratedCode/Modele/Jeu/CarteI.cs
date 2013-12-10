@@ -12,11 +12,10 @@ namespace Modele.Jeu
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
-	using Vue.Jeu;
 
-	public interface CarteI  : Sujet
+	public interface CarteI
 	{
-		void getListeAdjacents(UniteI unite, List<Entry<int listeCases, object int>>);
+		void getListeAdjacents(UniteI unite, List<Tuple<int, int>> cases);
 
 		void deplacer(UniteI unite, int lig, int col);
 

@@ -10,33 +10,38 @@ namespace Modele.Creation
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
+    using Modele.Jeu;
+    using Modele.Jeu.Joueur;
 
 	public class MonteurPartieDemo : MonteurPartie
 	{
 
-        public FabriqueUniteI FabriqueUnite1
+        public List<FabriqueUniteI> FabriquesUnite
         {
             get;
             set
             {
-                fabriqueUnite1 = value;
-                fabriqueUnite1.setNombre(4);
+                base.FabriquesUnite = value;
+                if (value.Count == 2)
+                {
+                    foreach (FabriqueUniteI fu in value)
+                        fu.defineNbProducts(4);
+                }
             }
         }
 
-        public FabriqueUniteI FabriqueUnite2
-        {
-            get;
-            set
-            {
-                fabriqueUnite1 = value;
-                fabriqueUnite1.setNombre(4);
-            }
-        }
-
-		public override Modele.Jeu.CarteI makeCarte()
+        /**
+         * \fn public override CarteI makeCarte(List<JoueurI> joueurs)
+         * \brief only call the constructor of a "CarteI" implementation
+         * 
+         * The map generated places the players. Its dimension is 5
+         * 
+         * param[in, out] joueurs : parameters of the constructor of the map
+         * 
+         */
+		public override Modele.Jeu.CarteI makeCarte(List<JoueurI> joueurs)
 		{
-			throw new System.NotImplementedException();
+            return new Carte(5, joueurs);
 		}
 
 		public MonteurPartieDemo()

@@ -11,7 +11,6 @@ namespace Modele.Creation
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
-	using Modele.Jeu;
 
 	/// <remarks>
 	/// Singleton
@@ -19,25 +18,17 @@ namespace Modele.Creation
 	/// </remarks>
 	public class GameInitiator : GameInitiatorI
 	{
-		private virtual MonteurPartieI monteurPartie
+        public static GameInitiator INSTANCE = new GameInitiator();
+
+        private MonteurPartie monteurPartie;
+		public MonteurPartieI MonteurPartie
 		{
 			get;
 			set;
 		}
 
-		private virtual PartieI partie
-		{
-			get;
-			set;
-		}
-
-		public virtual FabriqueUniteI fabriqueUnite1
-		{
-			get;
-			set;
-		}
-
-		public virtual FabriqueUniteI fabriqueUnite2
+        private List<FabriqueUniteI> fabriquesUnite;
+		public List<FabriqueUniteI> FabriquesUnite
 		{
 			get;
 			set;
@@ -45,14 +36,20 @@ namespace Modele.Creation
 
 		private GameInitiator()
 		{
+            //TODO interface avec boutons (?)
 		}
 
-		public virtual void creerPartie()
+        /**
+         * \fn public Partie creerPartie()
+         * \brief creation of a party using the builder
+         * 
+         */
+		public PartieI creerPartie()
 		{
-            monteurPartie.setFabriqueUnite(1, fabriqueUnite1);
-            monteurPartie.setFabriqueUnite(2, fabriqueUnite2);
-            CarteI carte = monteurPartie.makeCarte();
-            List<JoueurI> joueurs = monteurPartie.makeJoueurs(carte);
+            monteurPartie.defineFabriqueUnite(fabriquesUnite);
+            List<JoueurI> joueurs = monteurPartie.makeJoueurs();
+            CarteI carte = monteurPartie.makeCarte(joueurs);
+            return new Partie(joueurs, monteurPartie.NbTours, carte);
 		}
 
 	}

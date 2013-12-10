@@ -9,7 +9,7 @@ namespace Wrapper {
 
 	/**
 	*
-	* \class Carte
+	* \class CarteWrapper
 	* \brief Minimalist representation of the C# "Carte"
 	*
 	*/
@@ -18,11 +18,11 @@ namespace Wrapper {
 
 	public:
 		CarteWrapper(void);
-		CarteWrapper(int dim, vector<int> army1, vector<int> army2);
+		CarteWrapper(int dim, int army_length);
 		~CarteWrapper(void);
 
 		void generateCases(int nbTypes);
-		void placeUnites(vector<int> unites, int lig, int col);
+		void placeUnites(int begin, int end, int lig, int col);
 
 	private:
 		Carte *myCarte;

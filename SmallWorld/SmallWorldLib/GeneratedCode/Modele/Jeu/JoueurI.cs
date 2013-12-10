@@ -26,6 +26,8 @@ namespace Modele.Jeu
 
         bool unitesSelectionnables(int lig, int col);
 
+        List<UniteI> unites();
+
 	}
 }
 

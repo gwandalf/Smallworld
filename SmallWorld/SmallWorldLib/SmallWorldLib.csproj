@@ -39,11 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GeneratedCode\Modele\Creation\FabriqueGaulois.cs" />
-    <Compile Include="GeneratedCode\Modele\Creation\FabriqueNain.cs" />
-    <Compile Include="GeneratedCode\Modele\Creation\FabriqueUnite.cs" />
-    <Compile Include="GeneratedCode\Modele\Creation\FabriqueUniteI.cs" />
-    <Compile Include="GeneratedCode\Modele\Creation\FabriqueViking.cs" />
+    <Compile Include="GeneratedCode\Modele\Creation\Fabrique.cs" />
+    <Compile Include="GeneratedCode\Modele\Creation\FabriqueI.cs" />
     <Compile Include="GeneratedCode\Modele\Creation\GameInitiator.cs" />
     <Compile Include="GeneratedCode\Modele\Creation\GameInitiatorI.cs" />
     <Compile Include="GeneratedCode\Modele\Creation\MonteurPartie.cs" />
@@ -78,6 +75,12 @@
     <Compile Include="GeneratedCode\Modele\Jeu\UniteI.cs" />
     <Compile Include="GeneratedCode\Modele\Jeu\Viking.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wrapper\Wrapper.vcxproj">
+      <Project>{d554c6cc-2d54-46a2-b99a-02791a75169f}</Project>
+      <Name>Wrapper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

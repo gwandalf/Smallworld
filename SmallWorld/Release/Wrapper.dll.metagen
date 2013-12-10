@@ -9,11 +9,12 @@ Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e0
 	hash=None, flags=None
 Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
-Class Wrapper.ExampleWrapper: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class Wrapper.CarteWrapper: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Interfaces:
     System.IDisposable
   Methods:
-    wrapperGetA(): PrivateScope, Public, HideBySig
+    generateCases(Int32): PrivateScope, Public, HideBySig
+    placeUnites(Int32, Int32, Int32, Int32): PrivateScope, Public, HideBySig
     Dispose(): PrivateScope, Public, Final, Virtual, HideBySig

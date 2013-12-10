@@ -4,7 +4,7 @@
 //     Les modifications apportées à ce fichier seront perdues si le code est régénéré.
 // </auto-generated>
 //------------------------------------------------------------------------------
-namespace Modele.Jeu.Joueur
+namespace Modele.Jeu
 {
 	using Modele.Creation;
 	using System;
@@ -12,32 +12,77 @@ namespace Modele.Jeu.Joueur
 	using System.Linq;
 	using System.Text;
 
+    /**
+     * \class Unite
+     * 
+     * \brief Represents unites of the game
+     * 
+     */
 	public abstract class Unite : UniteI
 	{
-		protected virtual int vie
+		protected int vie;
+        public virtual int Vie
 		{
 			get;
 			set;
 		}
 
-		protected virtual int deplacement
+		protected int deplacement;
+        public virtual int Deplacement
 		{
 			get;
 			set;
 		}
 
-        public virtual Joueur joueur;
-        public virtual Joueur Joueur
+        protected int attaque;
+        public virtual int Attaque
+        {
+            get;
+            set;
+        }
+
+        protected int defense;
+        public virtual int Defense
+        {
+            get;
+            set;
+        }
+
+        protected JoueurI joueur;
+        public virtual JoueurI Joueur
         {
 			get;
 			set;
 		}
 
+        protected CarteI carte;
+        public virtual CarteI Carte
+        {
+            get;
+            set;
+        }
+        /*
 		public virtual Etat etat
 		{
 			get;
 			set;
-		}
+		}*/
+
+        /**
+         * \fn public Unite()
+         * \brief constructor
+         * 
+         * All unites have 2HP, 1 moving point, 2 attack points, 1 defensive point
+         * 
+         */
+        public Unite()
+        {
+            vie = 2;
+            deplacement = 1;
+            attaque = 2;
+            defense = 1;
+        }
+
 
 		public virtual void selectionner()
 		{
@@ -59,12 +104,12 @@ namespace Modele.Jeu.Joueur
 			throw new System.NotImplementedException();
 		}
 
-		public virtual List<Entry<int,int>> getChoixCases()
+		public virtual List<Tuple<int,int>> getChoixCases()
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public virtual List<Entry<int,int>> deplacementsPossibles()
+		public virtual List<Tuple<int,int>> deplacementsPossibles()
 		{
 			throw new System.NotImplementedException();
 		}
@@ -84,16 +129,24 @@ namespace Modele.Jeu.Joueur
 			throw new System.NotImplementedException();
 		}
 
-		public Unite(CarteI carte)
-		{
-		}
-
 		public virtual void afficher()
 		{
 			throw new System.NotImplementedException();
 		}
 
 		public abstract int rapporterPoints();
+
+        /**
+         * \fn public virtual void defineCarte(CarteI carte)
+         * \brief set the map passes by parameter
+         * 
+         * param[in] carte : the map on which is placed the unite
+         * 
+         */
+        public virtual void defineCarte(CarteI carte)
+        {
+            this.carte = carte;
+        }
 
 	}
 }

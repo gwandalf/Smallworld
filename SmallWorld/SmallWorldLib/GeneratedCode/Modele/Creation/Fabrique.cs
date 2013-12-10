@@ -12,8 +12,13 @@ namespace Modele.Creation
 	using System.Text;
     using Modele.Jeu;
 
-	/// <remarks>Fabrique</remarks>
-	public abstract class FabriqueUnite : FabriqueUniteI
+    /**
+     * \class Fabrique<T> where T : Unite, new()
+     * \brief generic class used to produce unites of the specified Type
+     * 
+     */
+    /// <remarks>Fabrique</remarks>
+    public class Fabrique<T> : FabriqueI<T> where T : Unite, new()
 	{
 
         protected int nombre;
@@ -23,19 +28,25 @@ namespace Modele.Creation
 			set;
 		}
 
-		public abstract List<UniteI> fabriquer(CarteI carte);
+		public virtual List<T> fabriquer()
+		{
+			List<T> res = new List<T>();
+            for (int i = 0; i < nombre; i++)
+                res.Add(new T());
+            return res;
+		}
 
-        public void setNombre(int nombre)
+        public void defineNbProducts(int nombre)
         {
             this.Nombre = nombre;
         }
 
-        public int getNombre()
+        public int nbProducts()
         {
             return this.Nombre;
         }
 
-		public FabriqueUnite()
+		public Fabrique()
 		{
 		}
 

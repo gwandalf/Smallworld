@@ -14,29 +14,32 @@ namespace Modele.Creation
 
 	public class MonteurPartiePetite : MonteurPartie
 	{
-        public FabriqueUniteI FabriqueUnite1
+        public List<FabriqueUniteI> FabriquesUnite
         {
             get;
             set
             {
-                fabriqueUnite1 = value;
-                fabriqueUnite1.setNombre(6);
+                base.FabriquesUnite = value;
+                if (value.Count == 2)
+                {
+                    foreach(FabriqueUniteI fu in value)
+                        fu.defineNbProducts(6);
+                }
             }
         }
 
-        public FabriqueUniteI FabriqueUnite2
-        {
-            get;
-            set
-            {
-                fabriqueUnite1 = value;
-                fabriqueUnite1.setNombre(6);
-            }
-        }
-
-		public override CarteI makeCarte()
+        /**
+         * \fn public override CarteI makeCarte(List<JoueurI> joueurs)
+         * \brief only call the constructor of a "CarteI" implementation
+         * 
+         * The map generated places the players. Its dimension is 10
+         * 
+         * param[in, out] joueurs : parameters of the constructor of the map
+         * 
+         */
+        public override CarteI makeCarte(List<JoueurI> joueurs)
 		{
-			throw new System.NotImplementedException();
+			return new Carte(10, joueurs);
 		}
 
 		public MonteurPartiePetite()
