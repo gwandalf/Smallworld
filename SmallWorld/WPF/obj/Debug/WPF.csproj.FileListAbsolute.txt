@@ -1,0 +1,13 @@
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\bin\Debug\WPF.exe.config
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\bin\Debug\WPF.exe
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\bin\Debug\WPF.pdb
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\obj\Debug\MainWindow.baml
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\obj\Debug\MainWindow.g.cs
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\obj\Debug\App.g.cs
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\obj\Debug\WPF_MarkupCompile.cache
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\obj\Debug\WPF.g.resources
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\obj\Debug\WPF.Properties.Resources.resources
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\obj\Debug\WPF.csproj.GenerateResource.Cache
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\obj\Debug\WPF.exe
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\obj\Debug\WPF.pdb
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\obj\Debug\WPF.csprojResolveAssemblyReference.cache
