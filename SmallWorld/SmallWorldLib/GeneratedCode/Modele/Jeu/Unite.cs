@@ -148,6 +148,11 @@ namespace Modele.Jeu
             this.carte = carte;
         }
 
+        public void defineJoueur(JoueurI joueur)
+        {
+            this.Joueur = joueur;
+        }
+
 	}
 }
 

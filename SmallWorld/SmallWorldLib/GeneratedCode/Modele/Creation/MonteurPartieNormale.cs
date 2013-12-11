@@ -14,7 +14,7 @@ namespace Modele.Creation
 
 	public class MonteurPartieNormale : MonteurPartie
 	{
-        public List<FabriqueUniteI> FabriquesUnite
+        public List<FabriqueI> FabriquesUnite
         {
             get;
             set
@@ -22,7 +22,7 @@ namespace Modele.Creation
                 base.FabriquesUnite = value;
                 if (value.Count == 2)
                 {
-                    foreach (FabriqueUniteI fu in value)
+                    foreach (FabriqueI fu in value)
                         fu.defineNbProducts(8);
                 }
             }

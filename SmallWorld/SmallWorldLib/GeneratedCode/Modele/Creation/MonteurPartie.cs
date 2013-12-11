@@ -49,7 +49,14 @@ namespace Modele.Creation
             return res;
 		}
 
-        public void defineFabriqueUnite<T>(List<FabriqueI> fu)
+        /**
+         * \fn void defineFabriqueUnite(List<FabriqueI> fu)
+         * \brief set the current fabric for unites
+         * 
+         * param[in] fu : fabric to set
+         * 
+         */
+        public override void defineFabriqueUnite(List<FabriqueI> fu)
         {
             this.FabriquesUnite = fu;
         }
