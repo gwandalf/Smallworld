@@ -24,7 +24,7 @@ namespace Modele.Jeu
         private List<JoueurI> joueurs;
 		public virtual List<JoueurI> Joueurs
 		{
-			get;
+			get{return joueurs;}
 			set{if(value.Count == 2) joueurs = value;}
 		}
 

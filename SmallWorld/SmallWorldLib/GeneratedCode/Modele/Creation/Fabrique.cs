@@ -32,6 +32,7 @@ namespace Modele.Creation
         public List<T> Products
         {
             get;
+            set;
         }
 
 		public virtual void fabriquer()
@@ -51,7 +52,12 @@ namespace Modele.Creation
             return this.Nombre;
         }
 
-        public override List<T> giveProducts()
+        /**
+         * \fn List<T> giveProducts()
+         * \brief get the list of products
+         * 
+         */
+        public List<T> giveProducts()
         {
             return this.Products;
         }

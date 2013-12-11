@@ -14,15 +14,14 @@ namespace Modele.Creation
 
 	public class MonteurPartiePetite : MonteurPartie
 	{
-        public List<FabriqueI> FabriquesUnite
+        public override List<FabriqueI> FabriquesUnite
         {
-            get;
             set
             {
                 base.FabriquesUnite = value;
                 if (value.Count == 2)
                 {
-                    foreach(FabriqueI fu in value)
+                    foreach (FabriqueI fu in value)
                         fu.defineNbProducts(6);
                 }
             }

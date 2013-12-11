@@ -26,9 +26,9 @@ namespace Modele.Creation
         }
 
         protected List<FabriqueI> fabriquesUnite;
-        public List<FabriqueI> FabriquesUnite
+        public virtual List<FabriqueI> FabriquesUnite
 		{
-			get;
+            get { return fabriquesUnite; }
             set
             {
                 if (value.Count == 2)
@@ -56,7 +56,7 @@ namespace Modele.Creation
          * param[in] fu : fabric to set
          * 
          */
-        public override void defineFabriqueUnite(List<FabriqueI> fu)
+        public void defineFabriqueUnite(List<FabriqueI> fu)
         {
             this.FabriquesUnite = fu;
         }

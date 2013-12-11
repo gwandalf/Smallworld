@@ -10,10 +10,11 @@ namespace Modele.Creation
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
+    using Modele.Jeu;
 
 	public interface GameInitiatorI 
 	{
-		void creerPartie();
+		PartieI creerPartie();
 
 	}
 }

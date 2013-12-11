@@ -148,6 +148,13 @@ namespace Modele.Jeu
             this.carte = carte;
         }
 
+        /**
+         * \fn void defineJoueur(JoueurI joueur)
+         * \brief set the player
+         * 
+         * param[in] player : player the unite belongs to
+         * 
+         */
         public void defineJoueur(JoueurI joueur)
         {
             this.Joueur = joueur;

@@ -15,8 +15,6 @@ namespace Modele.Creation
 
 	public interface MonteurPartieI 
 	{
-		JoueurI creerJoueur(List<UniteI> unites);
-
 		CarteI makeCarte(List<JoueurI> joueurs);
 
 		List<JoueurI> makeJoueurs();

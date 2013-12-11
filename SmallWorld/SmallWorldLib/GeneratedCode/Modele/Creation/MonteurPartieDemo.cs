@@ -16,9 +16,8 @@ namespace Modele.Creation
 	public class MonteurPartieDemo : MonteurPartie
 	{
 
-        public List<FabriqueI> FabriquesUnite
+        public override List<FabriqueI> FabriquesUnite
         {
-            get;
             set
             {
                 base.FabriquesUnite = value;
