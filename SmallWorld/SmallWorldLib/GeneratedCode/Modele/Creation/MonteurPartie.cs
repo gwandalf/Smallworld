@@ -25,8 +25,8 @@ namespace Modele.Creation
             set;
         }
 
-        protected List<Fabrique<UniteI>> fabriquesUnite;
-        public List<Fabrique<UniteI>> FabriquesUnite
+        protected List<FabriqueI> fabriquesUnite;
+        public List<FabriqueI> FabriquesUnite
 		{
 			get;
             set
@@ -41,12 +41,15 @@ namespace Modele.Creation
 		public virtual List<JoueurI> makeJoueurs()
 		{
 			List<JoueurI> res = new List<JoueurI>();
-            res.Add(new Joueur(fabriquesUnite[0].fabriquer()));
-            res.Add(new Joueur(fabriquesUnite[1].fabriquer()));
+            foreach (FabriqueI fu in fabriquesUnite)
+            {
+                fu.fabriquer();
+                res.Add(new Joueur(fu.giveProducts()));
+            }
             return res;
 		}
 
-        public void defineFabriqueUnite(List<FabriqueUniteI> fu)
+        public void defineFabriqueUnite<T>(List<FabriqueI> fu)
         {
             this.FabriquesUnite = fu;
         }

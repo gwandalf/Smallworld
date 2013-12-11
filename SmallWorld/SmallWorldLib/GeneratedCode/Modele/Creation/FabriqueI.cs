@@ -12,10 +12,11 @@ namespace Modele.Creation
 	using System.Text;
     using Modele.Jeu;
 
-	public interface FabriqueI<T> where T : UniteI
+	public interface FabriqueI
 	{
-		List<T> fabriquer();
+		void fabriquer();
         void defineNbProducts(int nombre);
+        List<UniteI> giveProducts();
         int nbProducts();
 	}
 }

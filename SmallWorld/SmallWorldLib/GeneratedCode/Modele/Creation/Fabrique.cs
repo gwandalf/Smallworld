@@ -18,7 +18,7 @@ namespace Modele.Creation
      * 
      */
     /// <remarks>Fabrique</remarks>
-    public class Fabrique<T> : FabriqueI<T> where T : Unite, new()
+    public class Fabrique<T> : FabriqueI where T : UniteI, new()
 	{
 
         protected int nombre;
@@ -28,12 +28,17 @@ namespace Modele.Creation
 			set;
 		}
 
-		public virtual List<T> fabriquer()
+        protected List<T> products;
+        public List<T> Products
+        {
+            get;
+        }
+
+		public virtual void fabriquer()
 		{
-			List<T> res = new List<T>();
+			products = new List<T>();
             for (int i = 0; i < nombre; i++)
-                res.Add(new T());
-            return res;
+                products.Add(new T());
 		}
 
         public void defineNbProducts(int nombre)
@@ -44,6 +49,11 @@ namespace Modele.Creation
         public int nbProducts()
         {
             return this.Nombre;
+        }
+
+        public override List<T> giveProducts()
+        {
+            return this.Products;
         }
 
 		public Fabrique()
