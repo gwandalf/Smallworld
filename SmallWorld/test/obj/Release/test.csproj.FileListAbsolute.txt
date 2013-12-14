@@ -1,1 +1,9 @@
 C:\Users\Gwendal\git\Smallworld\SmallWorld\test\obj\Release\test.csprojResolveAssemblyReference.cache
+C:\Users\Gwendal\git\Smallworld\SmallWorld\test\bin\Release\test.dll
+C:\Users\Gwendal\git\Smallworld\SmallWorld\test\bin\Release\test.pdb
+C:\Users\Gwendal\git\Smallworld\SmallWorld\test\bin\Release\SmallWorldLib.dll
+C:\Users\Gwendal\git\Smallworld\SmallWorld\test\bin\Release\Wrapper.dll
+C:\Users\Gwendal\git\Smallworld\SmallWorld\test\bin\Release\SmallWorldLib.pdb
+C:\Users\Gwendal\git\Smallworld\SmallWorld\test\bin\Release\Wrapper.pdb
+C:\Users\Gwendal\git\Smallworld\SmallWorld\test\obj\Release\test.dll
+C:\Users\Gwendal\git\Smallworld\SmallWorld\test\obj\Release\test.pdb

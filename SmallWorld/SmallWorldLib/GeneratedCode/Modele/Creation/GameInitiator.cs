@@ -20,18 +20,18 @@ namespace Modele.Creation
 	{
         public static GameInitiator INSTANCE = new GameInitiator();
 
-        private MonteurPartie monteurPartie;
+        private MonteurPartieI monteurPartie;
 		public MonteurPartieI MonteurPartie
 		{
-			get;
-			set;
+            get { return monteurPartie; }
+            set { monteurPartie = value; }
 		}
 
         private List<FabriqueI> fabriquesUnite;
 		public List<FabriqueI> FabriquesUnite
 		{
-			get;
-			set;
+            get { return fabriquesUnite; }
+            set { fabriquesUnite = value; }
 		}
 
 		private GameInitiator()
@@ -46,7 +46,7 @@ namespace Modele.Creation
          */
 		public PartieI creerPartie()
 		{
-            monteurPartie.defineFabriqueUnite(fabriquesUnite);
+            monteurPartie.FabriquesUnite = fabriquesUnite;
             List<JoueurI> joueurs = monteurPartie.makeJoueurs();
             CarteI carte = monteurPartie.makeCarte(joueurs);
             return new Partie(joueurs, monteurPartie.NbTours, carte);

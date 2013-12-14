@@ -21,10 +21,11 @@ namespace Modele.Jeu.Joueur
 	public class Joueur : JoueurI
 	{
         //number of points
-		private int points
+		private int points;
+        public int Points
 		{
-			get;
-			set;
+            get { return points; }
+            set { points = value; }
 		}
 
         //indicates if the instance is the one who plays the first round
@@ -36,10 +37,10 @@ namespace Modele.Jeu.Joueur
 
         //instances of Unite that are in the current instance of Joueur army
 		private List<UniteI> unites;
-        private List<Unite> Unites
+        public List<UniteI> Unites
 		{
-			get;
-			set;
+            get { return unites; }
+            set { unites = value; }
 		}
 
         //state machine describing the current instance
@@ -52,11 +53,11 @@ namespace Modele.Jeu.Joueur
          * \param[in, out] unites : the army of the player is initialized, the player is set as the player of the unites
          * 
          */
-        public Joueur(List<UniteI> unites)
+        public Joueur(List<UniteI> u)
 		{
-            this.unites = unites;
-            foreach (UniteI unite in this.unites)
-                this.unites[this.unites.Count].defineJoueur(this);
+            unites = u;
+            foreach (UniteI un in unites)
+                un.defineJoueur(this);
 		}
 
         /**
