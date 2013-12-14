@@ -28,8 +28,8 @@ namespace Modele.Creation
 			set;
 		}
 
-        protected List<T> products;
-        public List<T> Products
+        protected List<UniteI> products;
+        public List<UniteI> Products
         {
             get;
             set;
@@ -37,7 +37,7 @@ namespace Modele.Creation
 
 		public virtual void fabriquer()
 		{
-			products = new List<T>();
+			products = new List<UniteI>();
             for (int i = 0; i < nombre; i++)
                 products.Add(new T());
 		}
@@ -57,7 +57,7 @@ namespace Modele.Creation
          * \brief get the list of products
          * 
          */
-        public List<T> giveProducts()
+        public List<UniteI> giveProducts()
         {
             return this.Products;
         }

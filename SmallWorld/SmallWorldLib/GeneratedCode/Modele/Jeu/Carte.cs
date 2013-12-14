@@ -52,7 +52,7 @@ namespace Modele.Jeu
             this.positUnite = new Hashtable();
             int i = 0;
             foreach(JoueurI j in joueurs) {
-                foreach(UniteI u in j.unites()) {
+                foreach(UniteI u in j.unite()) {
                     this.positUnite.Add(i, u);
                     u.defineCarte(this);
                     i++;
