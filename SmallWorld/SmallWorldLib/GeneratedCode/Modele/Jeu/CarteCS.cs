@@ -49,7 +49,7 @@ namespace Modele.Jeu
          */
 		public CarteCS(int dim, List<JoueurI> joueurs)
 		{
-            this.carteW = new CarteWrapper(5/*dim*/, 4/*joueurs[0].nbUnitesJouables()*/);/*
+            this.carteW = new CarteWrapper(dim, joueurs[0].nbUnitesJouables());/*
             carteW.placeUnites(0, 4, 0, 0);
             carteW.placeUnites(4, 8, 4, 4);*/
             this.positUnite = new Hashtable();

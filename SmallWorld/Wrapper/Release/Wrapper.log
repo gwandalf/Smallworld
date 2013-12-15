@@ -4,6 +4,11 @@ Le fichier projet contient ToolsVersion="12.0". Cet ensemble d'outils est inconn
   Stdafx.cpp
   AssemblyInfo.cpp
   Wrapper.cpp
+c:\users\gwendal\git\smallworld\smallworld\wrapper\..\LibC++\Carte.h(39): warning C4251: 'Carte::positUnite' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
+          with
+          [
+              _Ty=std::vector<PositUnite>
+          ]
   Génération de code en cours...
   .NETFramework,Version=v4.5.AssemblyAttributes.cpp
 Le fichier projet contient ToolsVersion="12.0". Cet ensemble d'outils est inconnu ou manquant. Vous pouvez résoudre cela en installant le .NET Framework approprié pour cet ensemble d'outils. Projet traité comme si ToolsVersion="4.0".
