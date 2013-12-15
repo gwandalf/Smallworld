@@ -14,6 +14,18 @@ namespace Modele.Creation
 
 	public interface GameInitiatorI 
 	{
+        MonteurPartieI MonteurPartie
+        {
+            get;
+            set;
+        }
+
+        List<FabriqueI> FabriquesUnite
+        {
+            get;
+            set;
+        }
+
 		PartieI creerPartie();
 
 	}

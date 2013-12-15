@@ -14,6 +14,18 @@ namespace Modele.Creation
 
 	public interface FabriqueI
 	{
+        int Nombre
+        {
+            get;
+            set;
+        }
+
+        List<UniteI> Products
+        {
+            get;
+            set;
+        }
+
 		void fabriquer();
         void defineNbProducts(int nombre);
         List<UniteI> giveProducts();

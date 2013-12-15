@@ -24,15 +24,15 @@ namespace Modele.Creation
         protected int nombre;
 		public int Nombre
 		{
-			get;
-			set;
+            get { return nombre; }
+            set { nombre = value; }
 		}
 
         protected List<UniteI> products;
         public List<UniteI> Products
         {
-            get;
-            set;
+            get { return products; }
+            set { products = value; }
         }
 
 		public virtual void fabriquer()
