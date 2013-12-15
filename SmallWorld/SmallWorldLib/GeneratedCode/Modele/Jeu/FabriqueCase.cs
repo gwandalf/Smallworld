@@ -14,34 +14,59 @@ namespace Modele.Jeu
 	/// <remarks>Poids-mouche</remarks>
 	public class FabriqueCase : FabriqueCaseI
 	{
-		public virtual Desert desert
+		private Desert desert;
+        public Desert Desert
 		{
-			get;
-			set;
+            get
+            {
+                if (desert != null)
+                    desert = new Desert();
+                return desert;
+            }
 		}
 
-		public virtual Montagne montagne
+        private Montagne montagne;
+        public Montagne Montagne
 		{
-			get;
-			set;
+			get
+            {
+                if (montagne != null)
+                    montagne = new Montagne();
+                return montagne;
+            }
 		}
 
-		public virtual Plaine plaine
+        private Plaine plaine;
+        public Plaine Plaine
 		{
-			get;
-			set;
+			get
+            {
+                if (plaine != null)
+                    plaine = new Plaine();
+                return plaine;
+            }
 		}
 
-		public virtual Foret foret
+        private Foret foret;
+        public Foret Foret
 		{
-			get;
-			set;
+			get
+            {
+                if (foret != null)
+                    foret = new Foret();
+                return foret;
+            }
 		}
 
-		public virtual Eau eau
+        private Eau eau;
+        public Eau Eau
 		{
-			get;
-			set;
+			get
+            {
+                if (eau!= null)
+                    eau = new Eau();
+                return eau;
+            }
 		}
 
 		public FabriqueCase()

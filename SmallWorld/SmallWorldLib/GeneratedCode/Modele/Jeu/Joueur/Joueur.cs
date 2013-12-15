@@ -29,10 +29,11 @@ namespace Modele.Jeu.Joueur
 		}
 
         //indicates if the instance is the one who plays the first round
-		private bool premier
+		private bool premier;
+        public bool Premier
 		{
-			get;
-			set;
+            get { return premier; }
+            set { premier = value; }
 		}
 
         //instances of Unite that are in the current instance of Joueur army

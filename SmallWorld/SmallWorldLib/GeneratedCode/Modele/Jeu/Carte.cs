@@ -25,14 +25,15 @@ namespace Modele.Jeu
         private Hashtable positUnite;
 		public virtual Hashtable PositUnite
 		{
-			get;
-			set;
+            get { return positUnite; }
+            set { positUnite = value; }
 		}
 
-		public virtual FabriqueCaseI fabrique
+		private FabriqueCaseI fabrique;
+        public FabriqueCaseI Fabrique
 		{
-			get;
-			set;
+            get { return fabrique; }
+            set { fabrique = value; }
 		}
 
         /**

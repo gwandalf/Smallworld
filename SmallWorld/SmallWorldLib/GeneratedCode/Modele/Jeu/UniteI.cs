@@ -16,6 +16,42 @@ namespace Modele.Jeu
 
 	public interface UniteI
 	{
+        int Vie
+        {
+            get;
+            set;
+        }
+
+        int Deplacement
+        {
+            get;
+            set;
+        }
+
+        int Attaque
+        {
+            get;
+            set;
+        }
+
+        int Defense
+        {
+            get;
+            set;
+        }
+
+        JoueurI Joueur
+        {
+            get;
+            set;
+        }
+
+        CarteI Carte
+        {
+            get;
+            set;
+        }
+
 		void selectionner();
 
 		int verifPointsDeplacement();

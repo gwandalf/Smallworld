@@ -13,6 +13,30 @@ namespace Modele.Jeu
 
 	public interface FabriqueCaseI 
 	{
+        Desert Desert
+        {
+            get;
+        }
+
+        Montagne Montagne
+        {
+            get;
+        }
+
+        Plaine Plaine
+        {
+            get;
+        }
+
+        Foret Foret
+        {
+            get;
+        }
+
+        Eau Eau
+        {
+            get;
+        }
 	}
 }
 

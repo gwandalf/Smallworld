@@ -21,45 +21,45 @@ namespace Modele.Jeu
 	public abstract class Unite : UniteI
 	{
 		protected int vie;
-        public virtual int Vie
+        public int Vie
 		{
-			get;
-			set;
+            get { return vie; }
+            set { vie = value; }
 		}
 
 		protected int deplacement;
-        public virtual int Deplacement
+        public int Deplacement
 		{
-			get;
-			set;
+            get { return deplacement; }
+            set { deplacement = value; }
 		}
 
         protected int attaque;
-        public virtual int Attaque
+        public int Attaque
         {
-            get;
-            set;
+            get { return attaque; }
+            set { attaque = value; }
         }
 
         protected int defense;
-        public virtual int Defense
+        public int Defense
         {
-            get;
-            set;
+            get { return defense; }
+            set { defense = value; }
         }
 
         protected JoueurI joueur;
-        public virtual JoueurI Joueur
+        public JoueurI Joueur
         {
-			get;
-			set;
+            get { return joueur; }
+            set { joueur = value; }
 		}
 
         protected CarteI carte;
-        public virtual CarteI Carte
+        public CarteI Carte
         {
-            get;
-            set;
+            get { return carte; }
+            set { carte = value; }
         }
         /*
 		public virtual Etat etat

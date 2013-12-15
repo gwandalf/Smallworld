@@ -15,6 +15,24 @@ namespace Modele.Jeu
 
 	public interface PartieI
 	{
+        int NombreTours
+        {
+            get;
+            set;
+        }
+
+        List<JoueurI> Joueurs
+        {
+            get;
+            set;
+        }
+
+        CarteI Carte
+        {
+            get;
+            set;
+        }
+
 		void start();
 
 		void afficherUnites(List<UniteI> unites);
