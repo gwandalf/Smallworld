@@ -2,6 +2,7 @@
 
 #pragma once
 #include "..\LibC++\Carte.h"
+#pragma comment (lib, "LibC++.lib")
 
 using namespace System;
 
@@ -25,6 +26,9 @@ namespace Wrapper {
 		void placeUnites(int begin, int end, int lig, int col);
 
 	private:
-		Carte *myCarte;
+		Carte* myCarte;
+
+	protected:
+		!CarteWrapper();
 	};
 }

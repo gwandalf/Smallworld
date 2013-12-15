@@ -11,7 +11,7 @@ namespace test
     public class CreationTest
     {
         //Configuration : peoples and difficulty
-        public Partie config(List<FabriqueI> fu, MonteurPartie mp)
+        public unsafe Partie config(List<FabriqueI> fu, MonteurPartie mp)
         {
             GameInitiator.INSTANCE.FabriquesUnite = fu;
             GameInitiator.INSTANCE.MonteurPartie = mp;
@@ -21,7 +21,7 @@ namespace test
         }
 
         [TestMethod]
-        public void TestMethod1()
+        public unsafe void TestMethod1()
         {
             int i = 5;
             //Configuration : peoples and difficulty

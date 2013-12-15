@@ -37,7 +37,7 @@ namespace Modele.Jeu
 		}
 
         /**
-         * \fn public Carte(int dim, List<JoueurI> joueurs)
+         * \fn public Carte(int dim, List(JoueurI) joueurs)
          * \brief "Carte" constructor, placing players. Use CarteWrapper.
          * 
          * the C++ map is initialised.
@@ -47,7 +47,7 @@ namespace Modele.Jeu
          * param[in, out] joueurs : list of the players.
          * 
          */
-		public Carte(int dim, List<JoueurI> joueurs)
+		public unsafe Carte(int dim, List<JoueurI> joueurs)
 		{
             this.carteW = new CarteWrapper(dim, joueurs[0].nbUnitesJouables());
             this.positUnite = new Hashtable();
