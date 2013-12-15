@@ -137,18 +137,6 @@ namespace Modele.Jeu
 		public abstract int rapporterPoints();
 
         /**
-         * \fn public virtual void defineCarte(CarteI carte)
-         * \brief set the map passes by parameter
-         * 
-         * param[in] carte : the map on which is placed the unite
-         * 
-         */
-        public virtual void defineCarte(CarteI carte)
-        {
-            this.carte = carte;
-        }
-
-        /**
          * \fn void defineJoueur(JoueurI joueur)
          * \brief set the player
          * 

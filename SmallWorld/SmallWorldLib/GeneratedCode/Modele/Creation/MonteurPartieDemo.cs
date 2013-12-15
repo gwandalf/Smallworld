@@ -40,7 +40,7 @@ namespace Modele.Creation
          */
 		public unsafe override Modele.Jeu.CarteI makeCarte(List<JoueurI> joueurs)
 		{
-            return new Carte(5, joueurs);
+            return new CarteCS(5, joueurs);
 		}
 
 		public MonteurPartieDemo()

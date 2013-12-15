@@ -24,9 +24,10 @@ Carte::Carte(void)
 Carte::Carte(int dim, int army_length)
 {
 	this->dim = dim;
-	generateCases(NBTYPES);
+	/*generateCases(NBTYPES);
+	positUnite = vector<vector<PositUnite>>();/*
 	placeUnites(0, army_length, 0, 0);
-	placeUnites(army_length, 2*army_length, dim, dim);
+	placeUnites(army_length, 2*army_length, dim-1, dim-1);*/
 }
 
 /**
@@ -35,11 +36,11 @@ Carte::Carte(int dim, int army_length)
 * 
 */
 Carte::~Carte(void)
-{
+{/*
 	for(int i = 0 ; i < dim ; i++) {
 		delete cases[i];
 	}
-	delete cases;
+	delete cases;*/
 }
 
 /**
@@ -50,13 +51,13 @@ Carte::~Carte(void)
 * 
 * TODO : améliorer l'algorithme pour avoir au moins une fois chaque type de case
 *
-*/
+*//*
 void Carte::generateCases(int nbTypes) {
 	for(int i = 0 ; i < dim ; i++) {
 		for(int j = 0 ; j < dim ; j++)
 			cases[i][j] = rand() % nbTypes;
 	}
-}
+}*/
 
 /**
 * \fn void Carte::placeUnites(int army_length, int lig, int col)
@@ -66,19 +67,18 @@ void Carte::generateCases(int nbTypes) {
 * \param[in] lig : line reference
 * \param[in] col : column reference
 * 
-*/
+*//*
 void Carte::placeUnites(int begin, int end, int lig, int col) {
-	positUnite = vector<vector<PositUnite>>();
 	positUnite.push_back(vector<PositUnite>());
 	for(int i = begin ; i < end ; i++) {
 		PositUnite pu;
 		pu.col = col;
 		pu.lig = lig;
 		pu.unite = i;
-		positUnite.end()->push_back(pu);
+		positUnite.back().push_back(pu);
 	}
-}
+}*/
 
-extern "C" _declspec(dllexport) Carte* Carte_New_default(){return new Carte();}
-extern "C" _declspec(dllexport) Carte* Carte_New(int dim, int army_length){return new Carte(dim, army_length);}
-extern "C" _declspec(dllexport) void Carte_Delete(Carte * carte){delete carte;}
+EXTERNC DLL Carte* Carte_New_default(){return new Carte();}
+EXTERNC DLL Carte* Carte_New(int dim, int army_length){return new Carte(dim, army_length);}
+EXTERNC DLL void Carte_Delete(Carte * carte){delete carte;}

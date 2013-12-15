@@ -79,7 +79,7 @@ namespace Modele.Jeu.Joueur
          */
         public virtual int nbUnitesJouables()
 		{
-			throw new System.NotImplementedException();
+            return unites.Count;
 		}
 
         /**

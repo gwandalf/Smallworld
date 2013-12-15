@@ -21,7 +21,7 @@ namespace test
         }
 
         [TestMethod]
-        public unsafe void TestMethod1()
+        public void TestMethod1()
         {
             int i = 5;
             //Configuration : peoples and difficulty

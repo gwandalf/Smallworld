@@ -15,6 +15,4 @@ Class Wrapper.CarteWrapper: AutoLayout, AnsiClass, Class, Public, BeforeFieldIni
   Interfaces:
     System.IDisposable
   Methods:
-    generateCases(Int32): PrivateScope, Public, HideBySig
-    placeUnites(Int32, Int32, Int32, Int32): PrivateScope, Public, HideBySig
     Dispose(): PrivateScope, Public, Final, Virtual, HideBySig

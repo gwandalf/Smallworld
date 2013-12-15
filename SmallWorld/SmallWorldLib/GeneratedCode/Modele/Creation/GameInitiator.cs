@@ -52,34 +52,6 @@ namespace Modele.Creation
             return new Partie(joueurs, monteurPartie.NbTours, carte);
 		}
 
-        public static Partie config(List<FabriqueI> fu, MonteurPartie mp)
-        {
-            GameInitiator.INSTANCE.FabriquesUnite = fu;
-            GameInitiator.INSTANCE.MonteurPartie = mp;
-
-            //Creation
-            return (Partie)GameInitiator.INSTANCE.creerPartie();
-        }
-
-        static void Main(string[] args)
-        {
-            int i = 5;
-            //Configuration : peoples and difficulty
-            List<FabriqueI> fi = new List<FabriqueI>(2);
-            fi.Add(new Fabrique<Gaulois>());
-            fi.Add(new Fabrique<Nain>());
-            MonteurPartieDemo mp = new MonteurPartieDemo();
-            Partie p = config(fi, mp);
-            if (p.NombreTours == i)
-            {
-                Console.WriteLine("Yes !!!");
-            }
-            else
-            {
-                Console.WriteLine("No !!!");
-            }
-        }
-
 	}
 }
 

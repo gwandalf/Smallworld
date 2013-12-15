@@ -22,8 +22,8 @@ namespace Wrapper {
 		CarteWrapper(int dim, int army_length);
 		~CarteWrapper(void);
 
-		void generateCases(int nbTypes);
-		void placeUnites(int begin, int end, int lig, int col);
+		//void generateCases(int nbTypes);
+		//void placeUnites(int begin, int end, int lig, int col);
 
 	private:
 		Carte* myCarte;
