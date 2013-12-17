@@ -15,7 +15,21 @@ namespace Modele.Creation
 
 	public interface MonteurPartieI 
 	{
+<<<<<<< HEAD
 		JoueurI creerJoueur(List<UniteI> unites);
+=======
+        int NbTours
+        {
+            get;
+            set;
+        }
+
+        List<FabriqueI> FabriquesUnite
+        {
+            get;
+            set;
+        }
+>>>>>>> 0575a4ed3ffb6ad26bfdcf5d2d20ffb19cbaf4df
 
 		CarteI makeCarte(List<JoueurI> joueurs);
 

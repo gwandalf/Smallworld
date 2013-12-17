@@ -21,8 +21,8 @@ namespace Modele.Creation
         protected int nbTours;
         public int NbTours
         {
-            get;
-            set;
+            get { return nbTours; }
+            set { nbTours = value; }
         }
 
         protected List<Fabrique<UniteI>> fabriquesUnite;

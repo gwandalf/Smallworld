@@ -24,13 +24,26 @@ namespace Modele.Creation
         protected int nombre;
 		public int Nombre
 		{
-			get;
-			set;
+            get { return nombre; }
+            set { nombre = value; }
 		}
 
+<<<<<<< HEAD
 		public virtual List<T> fabriquer()
 		{
 			List<T> res = new List<T>();
+=======
+        protected List<UniteI> products;
+        public List<UniteI> Products
+        {
+            get { return products; }
+            set { products = value; }
+        }
+
+		public virtual void fabriquer()
+		{
+			products = new List<UniteI>();
+>>>>>>> 0575a4ed3ffb6ad26bfdcf5d2d20ffb19cbaf4df
             for (int i = 0; i < nombre; i++)
                 res.Add(new T());
             return res;
@@ -46,6 +59,19 @@ namespace Modele.Creation
             return this.Nombre;
         }
 
+<<<<<<< HEAD
+=======
+        /**
+         * \fn List<T> giveProducts()
+         * \brief get the list of products
+         * 
+         */
+        public List<UniteI> giveProducts()
+        {
+            return this.Products;
+        }
+
+>>>>>>> 0575a4ed3ffb6ad26bfdcf5d2d20ffb19cbaf4df
 		public Fabrique()
 		{
 		}

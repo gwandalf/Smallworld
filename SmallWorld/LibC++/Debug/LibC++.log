@@ -1,0 +1,11 @@
+﻿Le fichier projet contient ToolsVersion="12.0". Cet ensemble d'outils est inconnu ou manquant. Vous pouvez résoudre cela en installant le .NET Framework approprié pour cet ensemble d'outils. Projet traité comme si ToolsVersion="4.0".
+  Carte.cpp
+c:\users\gwendal\git\smallworld\smallworld\libc++\carte.cpp(40): warning C4156: suppression d'une expression de tableau sans utiliser la forme 'delete' de tableau ; substituée par la forme de tableau
+c:\users\gwendal\git\smallworld\smallworld\libc++\carte.cpp(40): warning C4154: suppression d'une expression de tableau ; conversion en pointeur fournie
+c:\users\gwendal\git\smallworld\smallworld\libc++\carte.cpp(42): warning C4156: suppression d'une expression de tableau sans utiliser la forme 'delete' de tableau ; substituée par la forme de tableau
+c:\users\gwendal\git\smallworld\smallworld\libc++\carte.cpp(42): warning C4154: suppression d'une expression de tableau ; conversion en pointeur fournie
+  Génération de code en cours...
+  Compilation en cours...
+  Source.cpp
+  Génération de code en cours...
+  LibC++.vcxproj -> C:\Users\Gwendal\git\Smallworld\SmallWorld\Debug\LibC++.exe

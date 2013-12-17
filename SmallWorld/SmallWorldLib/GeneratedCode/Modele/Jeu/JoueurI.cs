@@ -14,6 +14,26 @@ namespace Modele.Jeu
 
 	public interface JoueurI 
 	{
+        int Points
+        {
+            get;
+            set;
+        }
+
+        //indicates if the instance is the one who plays the first round
+        bool Premier
+        {
+            get;
+            set;
+        }
+
+        //instances of Unite that are in the current instance of Joueur army
+        List<UniteI> Unites
+        {
+            get;
+            set;
+        }
+
 		void passerMain();
 
 		int nbUnitesJouables();

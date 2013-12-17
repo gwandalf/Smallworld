@@ -14,7 +14,23 @@ namespace Modele.Creation
 
 	public interface FabriqueI<T> where T : UniteI
 	{
+<<<<<<< HEAD
 		List<T> fabriquer();
+=======
+        int Nombre
+        {
+            get;
+            set;
+        }
+
+        List<UniteI> Products
+        {
+            get;
+            set;
+        }
+
+		void fabriquer();
+>>>>>>> 0575a4ed3ffb6ad26bfdcf5d2d20ffb19cbaf4df
         void defineNbProducts(int nombre);
         int nbProducts();
 	}

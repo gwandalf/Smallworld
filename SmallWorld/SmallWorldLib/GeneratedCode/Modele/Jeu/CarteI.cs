@@ -9,12 +9,25 @@ namespace Modele.Jeu
 	using Modele;
 	using Modele.Creation;
 	using System;
+    using System.Collections;
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
 
 	public interface CarteI
 	{
+        Hashtable PositUnite
+        {
+            get;
+            set;
+        }
+
+        FabriqueCaseI Fabrique
+        {
+            get;
+            set;
+        }
+
 		void getListeAdjacents(UniteI unite, List<Tuple<int, int>> cases);
 
 		void deplacer(UniteI unite, int lig, int col);

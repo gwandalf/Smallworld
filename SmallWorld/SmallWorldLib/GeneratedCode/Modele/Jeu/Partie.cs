@@ -15,24 +15,24 @@ namespace Modele.Jeu
 	public class Partie : PartieI
 	{
 		private int nombreTours;
-        public virtual int NombreTours
+        public int NombreTours
 		{
-			get;
-			set;
+            get { return nombreTours; }
+            set { nombreTours = value; }
 		}
 
         private List<JoueurI> joueurs;
-		public virtual List<JoueurI> Joueurs
+		public List<JoueurI> Joueurs
 		{
 			get;
 			set{if(value.Count == 2) joueurs = value;}
 		}
 
         private CarteI carte;
-		public virtual CarteI Carte
+		public CarteI Carte
 		{
-			get;
-			set;
+            get { return carte; }
+            set { carte = value; }
 		}
 
         /**

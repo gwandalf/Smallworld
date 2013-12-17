@@ -39,7 +39,7 @@ namespace Modele.Creation
          */
 		public override CarteI makeCarte(List<JoueurI> joueurs)
 		{
-			return new Carte(15, joueurs);
+			return new CarteCS(15, joueurs);
 		}
 
 		public MonteurPartieNormale()

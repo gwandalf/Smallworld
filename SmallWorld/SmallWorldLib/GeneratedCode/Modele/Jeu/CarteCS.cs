@@ -15,7 +15,7 @@ namespace Modele.Jeu
 	using System.Text;
     using Wrapper;
    
-	public class Carte : CarteI
+	public class CarteCS : CarteI
 	{
         private CarteWrapper carteW;
 
@@ -25,18 +25,19 @@ namespace Modele.Jeu
         private Hashtable positUnite;
 		public virtual Hashtable PositUnite
 		{
-			get;
-			set;
+            get { return positUnite; }
+            set { positUnite = value; }
 		}
 
-		public virtual FabriqueCaseI fabrique
+		private FabriqueCaseI fabrique;
+        public FabriqueCaseI Fabrique
 		{
-			get;
-			set;
+            get { return fabrique; }
+            set { fabrique = value; }
 		}
 
         /**
-         * \fn public Carte(int dim, List<JoueurI> joueurs)
+         * \fn public Carte(int dim, List(JoueurI) joueurs)
          * \brief "Carte" constructor, placing players. Use CarteWrapper.
          * 
          * the C++ map is initialised.
@@ -46,15 +47,17 @@ namespace Modele.Jeu
          * param[in, out] joueurs : list of the players.
          * 
          */
-		public Carte(int dim, List<JoueurI> joueurs)
+		public CarteCS(int dim, List<JoueurI> joueurs)
 		{
-            this.carteW = new CarteWrapper(dim, joueurs[0].nbUnitesJouables());
+            this.carteW = new CarteWrapper(dim, joueurs[0].nbUnitesJouables());/*
+            carteW.placeUnites(0, 4, 0, 0);
+            carteW.placeUnites(4, 8, 4, 4);*/
             this.positUnite = new Hashtable();
             int i = 0;
             foreach(JoueurI j in joueurs) {
-                foreach(UniteI u in j.unites()) {
+                foreach(UniteI u in j.unite()) {
                     this.positUnite.Add(i, u);
-                    u.defineCarte(this);
+                    u.Carte = this;
                     i++;
                 }
             }

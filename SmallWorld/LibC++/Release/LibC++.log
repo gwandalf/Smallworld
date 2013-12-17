@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿La génération a démarré 08/12/2013 12:48:15.
      1>Projet "C:\Users\Gwendal\git\Smallworld\SmallWorld\LibC++\LibC++.vcxproj" sur le nœud 2 (Rebuild cible(s)).
      1>ClCompile:
@@ -14,3 +15,19 @@
 La génération a réussi.
 
 Temps écoulé 00:00:02.61
+=======
+﻿Le fichier projet contient ToolsVersion="12.0". Cet ensemble d'outils est inconnu ou manquant. Vous pouvez résoudre cela en installant le .NET Framework approprié pour cet ensemble d'outils. Projet traité comme si ToolsVersion="4.0".
+  Carte.cpp
+c:\users\gwendal\git\smallworld\smallworld\libc++\Carte.h(39): warning C4251: 'Carte::positUnite' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
+          with
+          [
+              _Ty=std::vector<PositUnite>
+          ]
+  Source.cpp
+c:\users\gwendal\git\smallworld\smallworld\libc++\Carte.h(39): warning C4251: 'Carte::positUnite' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
+          with
+          [
+              _Ty=std::vector<PositUnite>
+          ]
+  LibC++.vcxproj -> C:\Users\Gwendal\git\Smallworld\SmallWorld\Release\LibC++.lib
+>>>>>>> 0575a4ed3ffb6ad26bfdcf5d2d20ffb19cbaf4df

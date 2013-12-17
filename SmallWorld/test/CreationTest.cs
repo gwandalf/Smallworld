@@ -11,7 +11,7 @@ namespace test
     public class CreationTest
     {
         //Configuration : peoples and difficulty
-        public Partie config(List<FabriqueUniteI> fu, MonteurPartie mp)
+        public unsafe Partie config(List<FabriqueI> fu, MonteurPartie mp)
         {
             GameInitiator.INSTANCE.FabriquesUnite = fu;
             GameInitiator.INSTANCE.MonteurPartie = mp;
@@ -23,15 +23,16 @@ namespace test
         [TestMethod]
         public void TestMethod1()
         {
+            int i = 5;
             //Configuration : peoples and difficulty
-            List<FabriqueUniteI> fu = new List<FabriqueUniteI>();
-            fu[0] = new FabriqueGaulois();
-            fu[1] = new FabriqueNain();
+            List<FabriqueI> fi = new List<FabriqueI>(2);
+            fi.Add(new Fabrique<Gaulois>());
+            fi.Add(new Fabrique<Nain>());
             MonteurPartieDemo mp = new MonteurPartieDemo();
-            Partie p = config(fu, mp);
+            Partie p = config(fi, mp);
 
             //Test
-            Assert.AreEqual(p.NombreTours, 5);
+            Assert.AreEqual(p.NombreTours, i);
         }
     }
 }

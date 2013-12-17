@@ -9,7 +9,7 @@ using namespace std;
 * \brief default constructor
 * 
 */
-_declspec(dllexport) Carte::Carte(void)
+Carte::Carte(void)
 {
 }
 
@@ -21,12 +21,13 @@ _declspec(dllexport) Carte::Carte(void)
 * \param[in] army_length : number of unites in the army
 * 
 */
-_declspec(dllexport) Carte::Carte(int dim, int army_length)
+Carte::Carte(int dim, int army_length)
 {
 	this->dim = dim;
 	generateCases(NBTYPES);
+	positUnite = vector<vector<PositUnite>>();
 	placeUnites(0, army_length, 0, 0);
-	placeUnites(army_length, 2*army_length, dim, dim);
+	placeUnites(army_length, 2*army_length, dim-1, dim-1);
 }
 
 /**
@@ -34,12 +35,8 @@ _declspec(dllexport) Carte::Carte(int dim, int army_length)
 * \brief destructor
 * 
 */
-_declspec(dllexport) Carte::~Carte(void)
+Carte::~Carte(void)
 {
-	for(int i = 0 ; i < dim ; i++) {
-		delete cases[i];
-	}
-	delete cases;
 }
 
 /**
@@ -51,7 +48,7 @@ _declspec(dllexport) Carte::~Carte(void)
 * TODO : améliorer l'algorithme pour avoir au moins une fois chaque type de case
 *
 */
-_declspec(dllexport) void Carte::generateCases(int nbTypes) {
+void Carte::generateCases(int nbTypes) {
 	for(int i = 0 ; i < dim ; i++) {
 		for(int j = 0 ; j < dim ; j++)
 			cases[i][j] = rand() % nbTypes;
@@ -67,19 +64,17 @@ _declspec(dllexport) void Carte::generateCases(int nbTypes) {
 * \param[in] col : column reference
 * 
 */
-_declspec(dllexport) void Carte::placeUnites(int begin, int end, int lig, int col) {
-	positUnite = vector<vector<PositUnite>>();
+void Carte::placeUnites(int begin, int end, int lig, int col) {
 	positUnite.push_back(vector<PositUnite>());
 	for(int i = begin ; i < end ; i++) {
 		PositUnite pu;
 		pu.col = col;
 		pu.lig = lig;
 		pu.unite = i;
-		positUnite.end()->push_back(pu);
+		positUnite.back().push_back(pu);
 	}
 }
-/*
-extern "C" _declspec(dllexport) Carte* Carte_New_default(){return new Carte();}
-extern "C" _declspec(dllexport) Carte* Carte_New(int dim, vector<int> army1, vector<int> army2){return new Carte(dim, army1, army2);}
-extern "C" _declspec(dllexport) void Carte_Delete(Carte * carte){delete carte;}
-*/
+
+EXTERNC DLL Carte* Carte_New_default(){return new Carte();}
+EXTERNC DLL Carte* Carte_New(int dim, int army_length){return new Carte(dim, army_length);}
+EXTERNC DLL void Carte_Delete(Carte * carte){delete carte;}
