@@ -42,7 +42,7 @@ namespace Modele.Creation
         /**
          * \fn public Partie creerPartie()
          * \brief creation of a party using the builder
-         * 
+         *  comment
          */
 		public PartieI creerPartie()
 		{
