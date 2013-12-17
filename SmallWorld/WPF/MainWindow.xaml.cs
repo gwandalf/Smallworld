@@ -25,7 +25,7 @@ namespace WPF
         public MainWindow()
         {
             InitializeComponent();
-            loadImages();
+            //loadImages();
         }
 
         public void loadImages()
@@ -57,7 +57,17 @@ namespace WPF
             myBitmapImage.EndInit();
             //set image source
             img1.Source = myBitmapImage;
-            dc.DrawImage(img1.Source, rect1); 
+            //dc.DrawImage(img1.Source, rect1); 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Carte main = new Carte();
+            App.Current.MainWindow = main;
+            main.Left = this.Left;
+            main.Top = this.Top;
+            this.Close();
+            main.Show();
         }
     }
 }

@@ -11,3 +11,5 @@ C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\obj\Debug\WPF.csproj.Ge
 C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\obj\Debug\WPF.exe
 C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\obj\Debug\WPF.pdb
 C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\obj\Debug\WPF.csprojResolveAssemblyReference.cache
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\obj\Debug\Carte.baml
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\obj\Debug\Carte.g.cs
