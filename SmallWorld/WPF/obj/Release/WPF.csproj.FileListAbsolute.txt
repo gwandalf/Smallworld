@@ -1,0 +1,8 @@
+C:\Users\Gwendal\git\Smallworld\SmallWorld\WPF\obj\Release\WPF.csprojResolveAssemblyReference.cache
+C:\Users\Gwendal\git\Smallworld\SmallWorld\WPF\obj\Release\MainWindow.baml
+C:\Users\Gwendal\git\Smallworld\SmallWorld\WPF\obj\Release\MainWindow.g.cs
+C:\Users\Gwendal\git\Smallworld\SmallWorld\WPF\obj\Release\App.g.cs
+C:\Users\Gwendal\git\Smallworld\SmallWorld\WPF\obj\Release\WPF_MarkupCompile.cache
+C:\Users\Gwendal\git\Smallworld\SmallWorld\WPF\obj\Release\WPF.g.resources
+C:\Users\Gwendal\git\Smallworld\SmallWorld\WPF\obj\Release\WPF.Properties.Resources.resources
+C:\Users\Gwendal\git\Smallworld\SmallWorld\WPF\obj\Release\WPF.csproj.GenerateResource.Cache
