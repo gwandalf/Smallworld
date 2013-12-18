@@ -66,6 +66,7 @@ namespace Modele.Jeu
             int[] loc = { 0, dim};
 
             //pour chaque unite, associer un id puis ajouter l'unite sur la carte C++
+            this.carteW.placeUnites();
             int i = 0;
             int k = 0;
             foreach (JoueurI j in joueurs)
@@ -91,6 +92,16 @@ namespace Modele.Jeu
             }
              * */
 		}
+
+        void generateCases(int nbTypes) 
+        { 
+            this.carteW.generateCases(nbTypes); 
+        }
+
+        void placeUnites(int uId, int x, int y)
+        { 
+            this.carteW.placeUnites(uId, x, y);
+        }
 
 		public virtual void getListeAdjacents(UniteI unite, List<Tuple<int, int>> cases)
 		{
