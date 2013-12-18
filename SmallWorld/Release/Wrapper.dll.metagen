@@ -17,4 +17,6 @@ Class Wrapper.CarteWrapper: AutoLayout, AnsiClass, Class, Public, BeforeFieldIni
   Methods:
     generateCases(Int32): PrivateScope, Public, HideBySig
     placeUnites(Int32, Int32, Int32, Int32): PrivateScope, Public, HideBySig
+    getDim(): PrivateScope, Public, HideBySig
+    getCases(Int32, Int32): PrivateScope, Public, HideBySig
     Dispose(): PrivateScope, Public, Final, Virtual, HideBySig

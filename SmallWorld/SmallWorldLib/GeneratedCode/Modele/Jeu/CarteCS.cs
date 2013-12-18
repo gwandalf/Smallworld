@@ -21,8 +21,7 @@ namespace Modele.Jeu
 
         public int Dim
         {
-            get { return 0; }
-            set { }
+            get { return carteW.getDim(); }
         }
 
         // hashtable associating IDs to unites

@@ -20,7 +20,6 @@ namespace Modele.Jeu
         int Dim
         {
             get;
-            set;
         }
 
         Hashtable PositUnite

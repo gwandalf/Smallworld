@@ -2,6 +2,7 @@
 #include <vector>
 #include <iterator>
 #define NBTYPES 5
+#define DIMMAX 15
 #define WANTDLLEXP
 
 #ifdef WANTDLLEXP
@@ -34,7 +35,7 @@ struct PositUnite {
 */
 class DLL Carte
 {
-	int cases[15][15]; //an integer represents a type of case ("Foret, Eau, Plaine, Montagne, Desert")
+	int cases[DIMMAX][DIMMAX]; //an integer represents a type of case ("Foret, Eau, Plaine, Montagne, Desert")
 	int dim; //dimension of the map
 	vector<vector<PositUnite>> positUnite; //vector of all the different armies
 
@@ -45,8 +46,8 @@ public:
 	
 	void generateCases(int nbTypes);
 	void placeUnites(int begin, int end, int lig, int col);
-	inline int getDim() {return dim;}
-	inline int* getCases() {return cases;}
+	int getDim();
+	int getCases(int x, int y);
 };
 
 EXTERNC DLL Carte* Carte_New_default();

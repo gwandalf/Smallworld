@@ -11,4 +11,6 @@ CarteWrapper::~CarteWrapper(void) { Carte_Delete(myCarte); }
 
 void CarteWrapper::generateCases(int nbTypes) { myCarte->generateCases(nbTypes); }
 void CarteWrapper::placeUnites(int begin, int end, int lig, int col) { myCarte->placeUnites(begin, end, lig, col); }
+int CarteWrapper::getDim() {return myCarte->getDim();}
+int CarteWrapper::getCases(int x, int y) {return myCarte->getCases(x, y);}
 CarteWrapper::!CarteWrapper() { Carte_Delete(myCarte); }

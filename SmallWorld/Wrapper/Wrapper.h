@@ -24,6 +24,8 @@ namespace Wrapper {
 
 		void generateCases(int nbTypes);
 		void placeUnites(int begin, int end, int lig, int col);
+		int getDim();
+		int getCases(int x, int y);
 
 	private:
 		Carte* myCarte;

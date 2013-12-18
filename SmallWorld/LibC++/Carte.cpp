@@ -23,11 +23,14 @@ Carte::Carte(void)
 */
 Carte::Carte(int dim, int army_length)
 {
-	this->dim = dim;
+	if(dim <= DIMMAX)
+		this->dim = dim;
+	else
+		this->dim = DIMMAX;
 	generateCases(NBTYPES);
 	positUnite = vector<vector<PositUnite>>();
 	placeUnites(0, army_length, 0, 0);
-	placeUnites(army_length, 2*army_length, dim-1, dim-1);
+	placeUnites(army_length, 2*army_length, this->dim - 1, this->dim - 1);
 }
 
 /**
@@ -73,6 +76,25 @@ void Carte::placeUnites(int begin, int end, int lig, int col) {
 		pu.unite = i;
 		positUnite.back().push_back(pu);
 	}
+}
+
+
+int Carte::getDim() {return dim;}
+
+/**
+* \fn int Carte::getCases(int x, int y)
+* \brief access the number located at the specified position
+* 
+* \param[in] x : column number
+* \param[in] y : line number
+*
+* return : the number located at the specified position or -1 if the parameters are invalid
+*/
+int Carte::getCases(int x, int y) {
+	if(x < DIMMAX && y < DIMMAX)
+		return cases[x][y];
+	else
+		return -1;
 }
 
 EXTERNC DLL Carte* Carte_New_default(){return new Carte();}
