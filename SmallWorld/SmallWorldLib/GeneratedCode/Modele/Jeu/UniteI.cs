@@ -16,6 +16,12 @@ namespace Modele.Jeu
 
 	public interface UniteI
 	{
+        int ID
+        {
+            get;
+            set;
+        }
+
         int Vie
         {
             get;
@@ -75,6 +81,8 @@ namespace Modele.Jeu
 		int rapporterPoints();
 
         void defineJoueur(JoueurI joueur);
+
+        void placeOnMap(int x, int y);
 
 	}
 }

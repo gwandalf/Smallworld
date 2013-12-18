@@ -34,6 +34,11 @@ namespace Modele.Jeu
             set;
         }
 
+        static List<UniteI> UniteSet
+        {
+            get;
+        }
+
 		void getListeAdjacents(UniteI unite, List<Tuple<int, int>> cases);
 
 		void deplacer(UniteI unite, int lig, int col);

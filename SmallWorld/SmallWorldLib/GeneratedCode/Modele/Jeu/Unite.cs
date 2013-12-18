@@ -20,6 +20,12 @@ namespace Modele.Jeu
      */
 	public abstract class Unite : UniteI
 	{
+        protected int id;
+        public int ID
+        {
+            get { return id; }
+        }
+
 		protected int vie;
         public int Vie
 		{
@@ -146,6 +152,21 @@ namespace Modele.Jeu
         public void defineJoueur(JoueurI joueur)
         {
             this.Joueur = joueur;
+        }
+
+        /**
+         * \fn void placeOnMap(int x, int y)
+         * \brief put the current unite on its map at the specified position
+         * 
+         * param[in] x : column number
+         * param[in] y : line number
+         * 
+         */
+        void placeOnMap(int x, int y)
+        {
+            Tuple<int, int> t = new Tuple<int, int>(x, y);
+            this.Carte.PositUnite.Add(this, t);
+            this.Carte.placeUnites(u.ID, x, y);
         }
 
 	}

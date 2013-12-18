@@ -41,6 +41,12 @@ namespace Modele.Jeu
             set { fabrique = value; }
 		}
 
+        private List<UniteI> uniteSet;
+        public List<UniteI> UniteSet
+        {
+            get { return uniteSet; }
+        }
+
         /**
          * \fn public Carte(int dim, List(JoueurI) joueurs)
          * \brief "Carte" constructor, placing players. Use CarteWrapper.
@@ -54,9 +60,27 @@ namespace Modele.Jeu
          */
 		public CarteCS(int dim, List<JoueurI> joueurs)
 		{
+            //construction carteWrapper
             this.carteW = new CarteWrapper(dim, joueurs[0].nbUnitesJouables());
             this.positUnite = new Hashtable();
+            int[] loc = { 0, dim};
+
+            //pour chaque unite, associer un id puis ajouter l'unite sur la carte C++
             int i = 0;
+            int k = 0;
+            foreach (JoueurI j in joueurs)
+            {
+                foreach (UniteI u in j.unite())
+                {
+                    u.ID = i;
+                    u.Carte = this;
+                    i++;
+                }
+                k++;
+            }
+            /*
+            
+            
             foreach(JoueurI j in joueurs) {
                 foreach(UniteI u in j.unite()) {
                     Tuple<int, int> t = new Tuple<int,int>(0, 0);
@@ -65,6 +89,7 @@ namespace Modele.Jeu
                     i++;
                 }
             }
+             * */
 		}
 
 		public virtual void getListeAdjacents(UniteI unite, List<Tuple<int, int>> cases)
