@@ -45,6 +45,8 @@ public:
 	
 	void generateCases(int nbTypes);
 	void placeUnites(int begin, int end, int lig, int col);
+	inline int getDim() {return dim;}
+	inline int* getCases() {return cases;}
 };
 
 EXTERNC DLL Carte* Carte_New_default();

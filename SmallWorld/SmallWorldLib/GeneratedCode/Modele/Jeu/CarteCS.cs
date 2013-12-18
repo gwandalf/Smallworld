@@ -49,14 +49,13 @@ namespace Modele.Jeu
          */
 		public CarteCS(int dim, List<JoueurI> joueurs)
 		{
-            this.carteW = new CarteWrapper(dim, joueurs[0].nbUnitesJouables());/*
-            carteW.placeUnites(0, 4, 0, 0);
-            carteW.placeUnites(4, 8, 4, 4);*/
+            this.carteW = new CarteWrapper(dim, joueurs[0].nbUnitesJouables());
             this.positUnite = new Hashtable();
             int i = 0;
             foreach(JoueurI j in joueurs) {
                 foreach(UniteI u in j.unite()) {
-                    this.positUnite.Add(i, u);
+                    Tuple<int, int> t = new Tuple<int,int>(0, 0);
+                    this.positUnite.Add(u, t);
                     u.Carte = this;
                     i++;
                 }
