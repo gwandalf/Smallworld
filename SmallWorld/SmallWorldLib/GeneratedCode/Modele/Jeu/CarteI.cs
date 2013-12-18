@@ -16,6 +16,13 @@ namespace Modele.Jeu
 
 	public interface CarteI
 	{
+
+        int Dim
+        {
+            get;
+            set;
+        }
+
         Hashtable PositUnite
         {
             get;

@@ -19,6 +19,12 @@ namespace Modele.Jeu
 	{
         private CarteWrapper carteW;
 
+        public int Dim
+        {
+            get { return 0; }
+            set { }
+        }
+
         // hashtable associating IDs to unites
         // CarteWrapper (C++) sees unites as IDs
         // Carte (C#) sees unites as instances of the class Unite

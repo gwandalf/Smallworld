@@ -1,3 +1,5 @@
+ajout des getters et setters dans le wrapper et lib c#
+
 - tester la création de la carte et le placement des unites :
 	revoir notamment l'utilisation de CarteWrapper qui pour l'instant ne sert à rien
 - ensuite, mettre en place des tests unitaires
