@@ -71,10 +71,13 @@ namespace Modele.Jeu
             JoueurI gagnant = null;
             while (gagnant == null)
             {
-                while(joueurs[i].nbUnitesJouables() > 0)
+               // while (joueurs[i].nbUnitesJouables() > 0)
+               // {
                     joueurs[i].passerMain();
-                nombreTours--;
-                gagnant = determinerGagnant();
+                    nombreTours--;
+                    gagnant = determinerGagnant();
+              //  }
+                i = (i + 1) % 2;
             }
             return gagnant;
 		}
@@ -84,9 +87,29 @@ namespace Modele.Jeu
 			throw new System.NotImplementedException();
 		}
 
-		public virtual JoueurI determinerGagnant()
+        /**
+         * \fn JoueurI determinerGagnant()
+         * \brief calculate who is the winner
+         * 
+         * return : the winner of the game, or null if there is not winner yet
+         */
+        public virtual JoueurI determinerGagnant()
 		{
-			throw new System.NotImplementedException();
+            if (nombreTours == 0)
+            {
+                if (joueurs[0].Points > joueurs[1].Points)
+                    return joueurs[0];
+                else
+                    return joueurs[1];
+            }
+            else
+            {
+                if (joueurs[0].Unites.Count == 0)
+                    return joueurs[1];
+                else if (joueurs[1].Unites.Count == 0)
+                    return joueurs[0];
+                else return null;
+            }
 		}
 
 	}

@@ -71,7 +71,8 @@ namespace Modele.Jeu.Joueur
          */
         public virtual void passerMain()
 		{
-			throw new System.NotImplementedException();
+            UniteI u = unites[unites.Count - 1];
+            unites.Remove(u);
 		}
 
         /**
