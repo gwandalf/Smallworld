@@ -33,7 +33,7 @@ namespace Modele.Jeu
             set;
         }
 
-		void start();
+		JoueurI start();
 
 		void afficherUnites(List<UniteI> unites);
 

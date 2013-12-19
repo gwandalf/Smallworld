@@ -59,9 +59,24 @@ namespace Modele.Jeu
             this.joueurs[first].Premier = true;
 		}
 
-		public virtual void start()
+        /**
+         * \fn JoueurI start()
+         * \brief start the game
+         * 
+         * return : the winner of the game
+         */
+        public virtual JoueurI start()
 		{
-            joueurs[first].passerMain();
+            int i = first;
+            JoueurI gagnant = null;
+            while (gagnant == null)
+            {
+                while(joueurs[i].nbUnitesJouables() > 0)
+                    joueurs[i].passerMain();
+                nombreTours--;
+                gagnant = determinerGagnant();
+            }
+            return gagnant;
 		}
 
 		public virtual void afficherUnites(List<UniteI> unites)
