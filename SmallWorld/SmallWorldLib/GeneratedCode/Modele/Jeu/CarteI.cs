@@ -34,7 +34,7 @@ namespace Modele.Jeu
             set;
         }
 
-        static List<UniteI> UniteSet
+        List<UniteI> UniteSet
         {
             get;
         }

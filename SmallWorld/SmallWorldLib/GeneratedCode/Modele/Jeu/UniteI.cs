@@ -16,12 +16,6 @@ namespace Modele.Jeu
 
 	public interface UniteI
 	{
-        int ID
-        {
-            get;
-            set;
-        }
-
         int Vie
         {
             get;

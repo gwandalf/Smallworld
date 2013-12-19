@@ -39,7 +39,6 @@ namespace test
         [TestMethod]
         public void unitesLocation()
         {
-            int i = 5;
             //Configuration : peoples and difficulty
             List<FabriqueI> fi = new List<FabriqueI>(2);
             fi.Add(new Fabrique<Gaulois>());
