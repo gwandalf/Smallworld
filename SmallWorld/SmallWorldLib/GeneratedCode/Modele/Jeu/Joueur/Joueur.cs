@@ -51,12 +51,15 @@ namespace Modele.Jeu.Joueur
          * \fn public Joueur(List<UniteI> unites)
          * \brief constructor
          * 
+         * the value of "premier" is set to false
+         * 
          * \param[in, out] unites : the army of the player is initialized, the player is set as the player of the unites
          * 
          */
         public Joueur(List<UniteI> u)
 		{
             unites = u;
+            premier = false;
             foreach (UniteI un in unites)
                 un.defineJoueur(this);
 		}

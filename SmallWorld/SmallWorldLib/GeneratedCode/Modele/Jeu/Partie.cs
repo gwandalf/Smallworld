@@ -35,6 +35,9 @@ namespace Modele.Jeu
             set { carte = value; }
 		}
 
+        //index of the first player
+        private int first;
+
         /**
          * \fn public Partie(List<JoueurI> joueurs, int nbTours, CarteI carte)
          * \brief Constructor of a party
@@ -49,11 +52,16 @@ namespace Modele.Jeu
             this.joueurs = joueurs;
             this.nombreTours = nbTours;
             this.carte = carte;
+
+            //decides wich player is the first
+            Random rand = new Random();
+            first = rand.Next(0, 2);
+            this.joueurs[first].Premier = true;
 		}
 
 		public virtual void start()
 		{
-			throw new System.NotImplementedException();
+            joueurs[first].passerMain();
 		}
 
 		public virtual void afficherUnites(List<UniteI> unites)
