@@ -10,64 +10,68 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-/*using System.Windows.Rect;
-using System.Windows.Media.Animation.AnimationClock;
-*/
+
 namespace WPF
 {
+    public enum GameType : int
+    {
+        DEMO,
+        NORMAL,
+        SMALL,
+    }
+    public enum Nation : int
+    {
+
+        GAUL,
+        NAIN,
+        VIKING,
+    }
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// 
     /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-            //loadImages();
+            initializeMapTags();
+            initializeNationTags();
         }
 
-        public void loadImages()
+        private void initializeMapTags()
         {
-            //Image img1 = new Image();
-            // Create source
-            BitmapImage myBitmapImage = new BitmapImage();
-
-            // BitmapImage.UriSource must be in a BeginInit/EndInit block
-            myBitmapImage.BeginInit();
-            myBitmapImage.UriSource = new Uri(@"C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\textures\terrains\plaine.png");
-            myBitmapImage.DecodePixelWidth = 200;
-            myBitmapImage.EndInit();
-            //set image source
-            //img1.Source = myBitmapImage;
-           // myImage.Source = myBitmapImage;
-
-            //myImage.Source = new BitmapImage(new Uri(@"C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\textures\terrains\plaine.png"));
+            this.DemoItem.Tag = GameType.DEMO;
+            this.SmallItem.Tag = GameType.SMALL;
+            this.NormalItem.Tag = GameType.NORMAL;
         }
 
-        protected override void OnRender(DrawingContext dc)
+        private void initializeNationTags()
         {
-            Image img1 = new Image();
-            BitmapImage myBitmapImage = new BitmapImage();
-            // BitmapImage.UriSource must be in a BeginInit/EndInit block
-            myBitmapImage.BeginInit();
-            myBitmapImage.UriSource = new Uri(@"C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\textures\terrains\plaine.png");
-            myBitmapImage.DecodePixelWidth = 200;
-            myBitmapImage.EndInit();
-            //set image source
-            img1.Source = myBitmapImage;
-            //dc.DrawImage(img1.Source, rect1); 
+            this.Nain1.Tag = Nation.NAIN;
+            this.Nain2.Tag = Nation.NAIN;
+
+            this.Gaul1.Tag = Nation.GAUL;
+            this.Gaul2.Tag = Nation.GAUL;
+
+            this.Viking1.Tag = Nation.VIKING;
+            this.Viking2.Tag = Nation.VIKING;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void StartUpButton_Click(object sender, RoutedEventArgs e)
         {
-            Carte main = new Carte();
-            App.Current.MainWindow = main;
-            main.Left = this.Left;
-            main.Top = this.Top;
-            this.Close();
-            main.Show();
+            //We start the game only if both nations are selected.
+            if (ComboBoxNationPlayer1.SelectedIndex > -1 && ComboBoxNationPlayer2.SelectedIndex > -1)
+            {
+                // We retrieve game type with the tag
+                ComboBoxItem itemGame = (ComboBoxItem)GameTypeComboBox.SelectedItem;
+                ComboBoxItem itemNation1 = (ComboBoxItem)ComboBoxNationPlayer1.SelectedItem;
+                ComboBoxItem itemNation2 = (ComboBoxItem)ComboBoxNationPlayer2.SelectedItem;
+
+                Map win = new Map((GameType)itemGame.Tag, (Nation)itemNation1.Tag, (Nation)itemNation2.Tag, labelPlayer1.Text, labelPlayer2.Text);
+                win.Show();
+                this.Close();
+            }
         }
     }
 }

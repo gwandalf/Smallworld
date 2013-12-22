@@ -1,39 +1,55 @@
-﻿<Window x:Class="WPF.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="800" Width="800">
-    <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="42,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="434"><Run Language="fr-fr" Text="Bienvenue dans le jeu Small World"/></TextBlock>
-        <Button Content="Lancer la partie" HorizontalAlignment="Left" Margin="647,700,0,0" VerticalAlignment="Top" Width="103" Click="Button_Click"/>
+        xmlns:wpf="clr-namespace:WPF"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="WPF.MainWindow"
+        WindowStartupLocation="CenterScreen"
+        Title="SmallWorld" Height="400" Width="300">
+    
+    <Window.Resources>
+        <wpf:NegatingConverter x:Key="NegatingConverter"/>
+        <wpf:SelectedIndexToTextLabelColorConverter x:Key="SelectedIndexToTextLabelColorConverter"/>
+    </Window.Resources>
+    
+    <Grid Height="auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Margin="20" x:Name="StartUpButton" Content="Lancer Partie"  VerticalAlignment="Bottom" Width="120" IsCancel="True" Click="StartUpButton_Click" Height="24"  Grid.Row="3" Grid.Column="0"/>
+
+        <ComboBox x:Name="GameTypeComboBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="150" Margin="10"  Grid.Row="0" Grid.Column="0">
+            <ComboBoxItem x:Name="DemoItem" IsSelected="True" Content="Carte Demo (5x5)"/>
+            <ComboBoxItem x:Name="SmallItem" Content="Petite Carte (10x10)"/>
+            <ComboBoxItem x:Name="NormalItem" Content="Carte Normale (15x15)"/>
+        </ComboBox>
+
+        <StackPanel Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0">
+            <Label HorizontalAlignment="Center" VerticalAlignment="Top" Content="Peuple joueur 1" x:Name="labelComboBox1" Foreground="{Binding SelectedIndex, Converter={StaticResource SelectedIndexToTextLabelColorConverter}, ElementName=ComboBoxNationPlayer1, Mode=OneWay}"/>
+            <TextBox Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="150" Text="Joueur 1" x:Name="labelPlayer1"/>
+            <ComboBox x:Name="ComboBoxNationPlayer1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="150">
+                <ComboBoxItem x:Name="Gaul1" IsEnabled="{Binding IsSelected, Converter={StaticResource NegatingConverter}, ElementName=Gaul2, Mode=OneWay}" Content="Gaulois"/>
+                <ComboBoxItem x:Name="Nain1" IsEnabled="{Binding IsSelected, Converter={StaticResource NegatingConverter}, ElementName=Nain2, Mode=OneWay}" Content="Nains"/>
+                <ComboBoxItem x:Name="Viking1" IsEnabled="{Binding IsSelected, Converter={StaticResource NegatingConverter}, ElementName=Viking2, Mode=OneWay}" Content="Vikings"/>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0">
+            <Label HorizontalAlignment="Center" VerticalAlignment="Top" Content="Peuple joueur 2" x:Name="labelComboBox2" Foreground="{Binding SelectedIndex, Converter={StaticResource SelectedIndexToTextLabelColorConverter}, ElementName=ComboBoxNationPlayer2, Mode=OneWay}"/>
+            <TextBox Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="150" Text="Joueur 2" x:Name="labelPlayer2" d:IsHidden="True"/>
+            <ComboBox x:Name="ComboBoxNationPlayer2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="150">
+                <ComboBoxItem x:Name="Gaul2" IsEnabled="{Binding IsSelected, Converter={StaticResource NegatingConverter}, ElementName=Gaul1, Mode=OneWay}" Content="Gaulois"/>
+                <ComboBoxItem x:Name="Nain2" IsEnabled="{Binding IsSelected, Converter={StaticResource NegatingConverter}, ElementName=Nain1, Mode=OneWay}" Content="Nains"/>
+                <ComboBoxItem x:Name="Viking2" IsEnabled="{Binding IsSelected, Converter={StaticResource NegatingConverter}, ElementName=Viking1, Mode=OneWay}" Content="Vikings"/>
+            </ComboBox>
+        </StackPanel>
+
     </Grid>
-    <!--<ScrollViewer HorizontalScrollBarVisibility="Auto" Margin="0,0,0,189">
-        <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Width="741" Height="454">
-            <TextBlock TextWrapping="Wrap" Margin="0,0,0,20"></TextBlock>
-            <Rectangle Fill="Red" Width="50" Height="50" Margin="550,105,141,299"></Rectangle>
-            <Rectangle Name="rect1" Fill="Blue" Width="50" Height="50" Margin="500,105,191,299"></Rectangle>
-            <Rectangle Fill="Green" Width="50" Height="50" Margin="76,283,615,121"></Rectangle>
-            <Rectangle Fill="Red" Width="50" Height="50" Margin="428,299,263,105"></Rectangle>
-            <Rectangle Fill="Blue" Width="50" Height="50" Margin="200,299,491,105"></Rectangle>
-            <Rectangle Fill="Green" Width="50" Height="50" Margin="330,274,361,130"></Rectangle>
-            <Rectangle Fill="Red" Width="50" Height="50" Margin="650,274,41,130"></Rectangle>
-            <Rectangle Fill="Blue" Width="50" Height="50" Margin="560,274,131,130"></Rectangle>
-            <Rectangle Fill="Green" Width="50" Height="50" Margin="478,274,213,130"></Rectangle>
-            <Rectangle Fill="Red" Width="50" Height="50" Margin="392,283,299,121"></Rectangle>
-            <Rectangle Fill="Blue" Width="50" Height="50" Margin="280,283,411,121"></Rectangle>
-            <Rectangle Fill="Green" Width="50" Height="50" Margin="150,283,541,121"></Rectangle>
-            <Rectangle Fill="Red" Width="50" Height="50" Margin="10,283,681,121"></Rectangle>
-            <Rectangle Fill="Blue" Width="50" Height="50" Margin="0,384,691,20"></Rectangle>
-            <Rectangle Fill="Green" Width="50" Height="50" Margin="450,105,241,299"></Rectangle>
-            <Rectangle Fill="Red" Width="50" Height="50" Margin="400,105,291,299"></Rectangle>
-            <Rectangle Fill="Blue" Width="50" Height="50" Margin="350,105,341,299"></Rectangle>
-            <Rectangle Fill="Green" Width="50" Height="50" Margin="300,105,391,299"></Rectangle>
-            <Rectangle Fill="Red" Width="50" Height="50" Margin="250,105,441,299"></Rectangle>
-            <Rectangle Fill="Blue" Width="50" Height="50" Margin="200,105,491,299"></Rectangle>
-            <Rectangle Fill="Green" Width="50" Height="50" Margin="150,105,541,299"></Rectangle>
-            <Rectangle Fill="Red" Width="50" Height="50" Margin="100,105,591,299"></Rectangle>
-            <Rectangle Fill="Blue" Width="50" Height="50" Margin="50,105,641,299"></Rectangle>
-            <Rectangle Fill="Green" Width="50" Height="50" Margin="0,105,691,299"></Rectangle>
-        </Grid>
-    </ScrollViewer>
-    -->
 </Window>

@@ -38,7 +38,7 @@ namespace Modele.Creation
          * param[in, out] joueurs : parameters of the constructor of the map
          * 
          */
-		public unsafe override Modele.Jeu.CarteI makeCarte(List<JoueurI> joueurs)
+		public override Modele.Jeu.CarteI makeCarte(List<JoueurI> joueurs)
 		{
             return new CarteCS(5, joueurs);
 		}
