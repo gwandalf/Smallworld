@@ -99,13 +99,27 @@ namespace test
             Assert.IsTrue(expLoc[0] && expLoc[1]);
         }
 
+        [TestMethod]
+        public void mapInitialization()
+        {
+            //Test
+            Assert.AreEqual(partie.Carte.Dim, partie.Carte.Cases[0].Count);
+        }
+
+        [TestMethod]
+        public void flyWeightWorks()
+        {
+            FabriqueCase fab = new FabriqueCase();
+            Assert.IsNotNull(fab.Desert);
+        }
+
         //test : 
         // - if each concreate case of the map is not null ;
         // - if each case is generated only once
         // - if the correspondance number/type is respected
         //      (0 : desert ; 1 --> eau ; 2 --> foret ; 3 --> montagne ; 4 --> plaine)
         [TestMethod]
-        public void mapCreation()
+        public void mapCasesGeneration()
         {
 
             CaseI[] mapKey = { partie.Carte.Fabrique.Desert,
@@ -120,7 +134,7 @@ namespace test
                 int j = 0;
                 foreach (CaseI c in rang)
                 {
-                    res = res && (c == mapKey[partie.Carte.CarteW.getCases(i, j)]);
+                    res = res && (c != null) && (c == mapKey[partie.Carte.CarteW.getCases(i, j)]);
                     j++;
                 }
                 i++;

@@ -19,7 +19,7 @@ namespace Modele.Jeu
 		{
             get
             {
-                if (desert != null)
+                if (desert == null)
                     desert = new Desert();
                 return desert;
             }
@@ -30,7 +30,7 @@ namespace Modele.Jeu
 		{
 			get
             {
-                if (montagne != null)
+                if (montagne == null)
                     montagne = new Montagne();
                 return montagne;
             }
@@ -41,7 +41,7 @@ namespace Modele.Jeu
 		{
 			get
             {
-                if (plaine != null)
+                if (plaine == null)
                     plaine = new Plaine();
                 return plaine;
             }
@@ -52,7 +52,7 @@ namespace Modele.Jeu
 		{
 			get
             {
-                if (foret != null)
+                if (foret == null)
                     foret = new Foret();
                 return foret;
             }
@@ -63,7 +63,7 @@ namespace Modele.Jeu
 		{
 			get
             {
-                if (eau!= null)
+                if (eau== null)
                     eau = new Eau();
                 return eau;
             }

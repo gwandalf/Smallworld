@@ -13,6 +13,10 @@ namespace Modele.Jeu
 
 	public class Desert : Case
 	{
+        public Desert()
+        {
+            
+        }
 	}
 }
 

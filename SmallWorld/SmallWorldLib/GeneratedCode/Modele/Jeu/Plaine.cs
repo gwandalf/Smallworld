@@ -13,6 +13,9 @@ namespace Modele.Jeu
 
 	public class Plaine : Case
 	{
+        public Plaine()
+        {
+        }
 	}
 }
 

@@ -13,6 +13,9 @@ namespace Modele.Jeu
 
 	public class Eau : Case
 	{
+        public Eau()
+        {
+        }
 	}
 }
 

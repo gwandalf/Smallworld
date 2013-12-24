@@ -13,6 +13,9 @@ namespace Modele.Jeu
 
 	public class Foret : Case
 	{
+        public Foret()
+        {
+        }
 	}
 }
 

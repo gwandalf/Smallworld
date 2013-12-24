@@ -10,5 +10,8 @@ using System.Threading.Tasks;
 
     public abstract class Case : CaseI
     {
+        public Case()
+        {
+        }
     }
 }

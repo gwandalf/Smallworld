@@ -13,6 +13,9 @@ namespace Modele.Jeu
 
 	public class Montagne : Case
 	{
+        public Montagne()
+        {
+        }
 	}
 }
 
