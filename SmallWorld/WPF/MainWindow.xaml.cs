@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Modele.Creation;
+using Modele.Jeu;
 
 namespace WPF
 {
@@ -32,11 +34,21 @@ namespace WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private GameInitiator game;
+        private List<FabriqueI> fabriques;
+        private MonteurPartieI mp;
+
         public MainWindow()
         {
             InitializeComponent();
             initializeMapTags();
             initializeNationTags();
+
+            //initialisation of the elements used to build the party
+            game = GameInitiator.INSTANCE;
+            fabriques = new List<FabriqueI>(2);
+            fabriques.Add(null);
+            fabriques.Add(null);
         }
 
         private void initializeMapTags()
@@ -60,6 +72,18 @@ namespace WPF
 
         private void StartUpButton_Click(object sender, RoutedEventArgs e)
         {
+            //We start the game only if both nations and difficulty are selected.
+            bool fabValide = true;
+            bool montValide = (mp != null);
+            foreach (FabriqueI f in fabriques)
+                fabValide = fabValide && (f != null);
+            if (fabValide && montValide)
+            {
+                game.FabriquesUnite = fabriques;
+                game.MonteurPartie = mp;
+                game.creerPartie();
+            }
+            /*
             //We start the game only if both nations are selected.
             if (ComboBoxNationPlayer1.SelectedIndex > -1 && ComboBoxNationPlayer2.SelectedIndex > -1)
             {
@@ -72,6 +96,52 @@ namespace WPF
                 win.Show();
                 this.Close();
             }
+             * */
+        }
+
+        private void Nain1_Selected(object sender, RoutedEventArgs e)
+        {
+            fabriques[0] = new Fabrique<Nain>();
+        }
+
+        private void Gaul1_Selected(object sender, RoutedEventArgs e)
+        {
+            fabriques[0] = new Fabrique<Gaulois>();
+        }
+
+        private void Viking1_Selected(object sender, RoutedEventArgs e)
+        {
+            fabriques[0] = new Fabrique<Viking>();
+        }
+
+        private void Nain2_Selected(object sender, RoutedEventArgs e)
+        {
+            fabriques[1] = new Fabrique<Nain>();
+        }
+
+        private void Gaul2_Selected(object sender, RoutedEventArgs e)
+        {
+            fabriques[1] = new Fabrique<Gaulois>();
+        }
+
+        private void Viking2_Selected(object sender, RoutedEventArgs e)
+        {
+            fabriques[1] = new Fabrique<Viking>();
+        }
+
+        private void DemoItem_Selected(object sender, RoutedEventArgs e)
+        {
+            mp = new MonteurPartieDemo();
+        }
+
+        private void SmallItem_Selected(object sender, RoutedEventArgs e)
+        {
+            mp = new MonteurPartiePetite();
+        }
+
+        private void NormalItem_Selected(object sender, RoutedEventArgs e)
+        {
+            mp = new MonteurPartieNormale();
         }
     }
 }
