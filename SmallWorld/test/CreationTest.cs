@@ -10,6 +10,39 @@ namespace test
     [TestClass]
     public class CreationTest
     {
+        public CreationTest()
+        {
+            List<FabriqueI> fi = new List<FabriqueI>(2);
+            fi.Add(new Fabrique<Gaulois>());
+            fi.Add(new Fabrique<Nain>());
+            MonteurPartieDemo mp = new MonteurPartieDemo();
+
+            GameInitiator.INSTANCE.FabriquesUnite = fi;
+            GameInitiator.INSTANCE.MonteurPartie = mp;
+
+            //Creation
+            partie = (Partie)GameInitiator.INSTANCE.creerPartie();
+        }
+
+        private Partie partie;
+        private TestContext testContextInstance;
+
+        /// <summary>
+        ///Obtient ou définit le contexte de test qui fournit
+        ///des informations sur la série de tests active ainsi que ses fonctionnalités.
+        ///</summary>
+        public TestContext TestContext
+        {
+            get
+            {
+                return testContextInstance;
+            }
+            set
+            {
+                testContextInstance = value;
+            }
+        }
+
         //Configuration : peoples and difficulty
         public unsafe Partie config(List<FabriqueI> fu, MonteurPartie mp)
         {
@@ -64,6 +97,36 @@ namespace test
 
             //Test
             Assert.IsTrue(expLoc[0] && expLoc[1]);
+        }
+
+        //test : 
+        // - if each concreate case of the map is not null ;
+        // - if each case is generated only once
+        // - if the correspondance number/type is respected
+        //      (0 : desert ; 1 --> eau ; 2 --> foret ; 3 --> montagne ; 4 --> plaine)
+        [TestMethod]
+        public void mapCreation()
+        {
+
+            CaseI[] mapKey = { partie.Carte.Fabrique.Desert,
+                             partie.Carte.Fabrique.Eau,
+                             partie.Carte.Fabrique.Foret,
+                             partie.Carte.Fabrique.Montagne,
+                             partie.Carte.Fabrique.Plaine};
+            bool res = true;
+            int i = 0;
+            foreach (List<CaseI> rang in partie.Carte.Cases)
+            {
+                int j = 0;
+                foreach (CaseI c in rang)
+                {
+                    res = res && (c == mapKey[partie.Carte.CarteW.getCases(i, j)]);
+                    j++;
+                }
+                i++;
+            }
+            //Test
+            Assert.IsTrue(res);
         }
     }
 }

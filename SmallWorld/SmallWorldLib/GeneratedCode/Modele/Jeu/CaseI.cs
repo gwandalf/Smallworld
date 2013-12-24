@@ -1,4 +1,4 @@
-﻿namespace SmallWorldLib.GeneratedCode.Modele.Jeu
+﻿namespace Modele.Jeu
 {
 
 using System;

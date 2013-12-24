@@ -13,9 +13,14 @@ namespace Modele.Jeu
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
+    using Wrapper;
 
 	public interface CarteI
 	{
+        CarteWrapper CarteW
+        {
+            get;
+        }
 
         int Dim
         {
@@ -35,6 +40,11 @@ namespace Modele.Jeu
         }
 
         List<UniteI> UniteSet
+        {
+            get;
+        }
+
+        List<List<CaseI>> Cases
         {
             get;
         }

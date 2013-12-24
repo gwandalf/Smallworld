@@ -18,6 +18,10 @@ namespace Modele.Jeu
 	public class CarteCS : CarteI
 	{
         private CarteWrapper carteW;
+        public CarteWrapper CarteW
+        {
+            get { return carteW; }
+        }
 
         public int Dim
         {
@@ -47,12 +51,19 @@ namespace Modele.Jeu
             get { return uniteSet; }
         }
 
+        private List<List<CaseI>> cases;
+        public List<List<CaseI>> Cases
+        {
+            get { return cases; }
+        }
+
         /**
          * \fn public Carte(int dim, List(JoueurI) joueurs)
          * \brief "Carte" constructor, placing players. Use CarteWrapper.
          * 
-         * the C++ map is initialised.
+         * the C++ map is initialized.
          * Then, the hashtable is filled and the The current map is associated to each unite
+         * Then, the "real" cases are set
          * 
          * param[in] dim : dimension of the map
          * param[in, out] joueurs : list of the players.
@@ -74,6 +85,36 @@ namespace Modele.Jeu
                     u.placeOnMap(loc[i], loc[i]);
                 }
                 i++;
+            }
+
+            //cases initilization
+            fabrique = new FabriqueCase();
+            cases = new List<List<CaseI>>(this.Dim);
+            for(int j = 0 ; j < this.Dim ; j++)
+            {
+                cases.Add(new List<CaseI>(this.Dim));
+                for (int k = 0; k < this.Dim; k++)
+                {
+                    switch (carteW.getCases(j, k))
+                    {
+                        case 0:
+                            cases[j].Add(fabrique.Desert);
+                            break;
+                        case 1:
+                            cases[j].Add(fabrique.Eau);
+                            break;
+                        case 2:
+                            cases[j].Add(fabrique.Foret);
+                            break;
+                        case 3:
+                            cases[j].Add(fabrique.Montagne);
+                            break;
+                        case 4:
+                            cases[j].Add(fabrique.Plaine);
+                            break;
+                        default: break;
+                    }
+                }
             }
 		}
 
