@@ -4,6 +4,14 @@
         Title="SmallWorld" MinHeight="600" MinWidth="600"
         WindowStartupLocation="CenterScreen" WindowState="Maximized"
         Loaded="Window_Loaded" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <Window.Resources>
+        <Cursor x:Key="Cursor1">Arrow</Cursor>
+    </Window.Resources>
+
+    <Window.Background>
+        <ImageBrush ImageSource="background.jpeg"/>
+    </Window.Background>
+    
     <DockPanel x:Name="panel">
         <StackPanel DockPanel.Dock="Bottom">
             <Grid VerticalAlignment="Center">

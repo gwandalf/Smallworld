@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("bitmap1.bmp")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("computer-game-icone-3768.ico")]
 
 
