@@ -99,6 +99,29 @@ namespace WPF
              * */
         }
 
+        private void labelPlayer1_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (labelPlayer1.Text == "Joueur 1")
+                labelPlayer1.Text = "";
+        }
+
+        private void labelPlayer2_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (labelPlayer2.Text == "Joueur 2")
+                labelPlayer2.Text = "";
+        }
+        private void labelPlayer1_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (labelPlayer1.Text == "")
+                labelPlayer1.Text = "Joueur 1";
+        }
+
+        private void labelPlayer2_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (labelPlayer2.Text == "")
+                labelPlayer2.Text = "Joueur 2";
+        }
+
         private void Nain1_Selected(object sender, RoutedEventArgs e)
         {
             fabriques[0] = new Fabrique<Nain>();
@@ -143,5 +166,19 @@ namespace WPF
         {
             mp = new MonteurPartieNormale();
         }
+
+       
+
+        
+
+        
+
+        
+
+        
+
+        
+
+       
     }
 }
