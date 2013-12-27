@@ -23,7 +23,7 @@ namespace Modele.Jeu
      */
 	public class Gaulois : Unite
 	{
-        public static ImageBrush ICON = new ImageBrush(new BitmapImage(new Uri(@"../res/gaulois.gif", UriKind.Relative)));
+        public static ImageBrush ICON = new ImageBrush(new BitmapImage(new Uri(@"..\res\gaulois.gif", UriKind.Relative)));
 
 		public override List<Tuple<int,int>> getChoixCases()
 		{

@@ -23,7 +23,7 @@ namespace Modele.Jeu
      */
 	public class Viking : Unite
 	{
-        public static ImageBrush ICON = new ImageBrush(new BitmapImage(new Uri(@"../res/viking.png", UriKind.Relative)));
+        public static ImageBrush ICON = new ImageBrush(new BitmapImage(new Uri(@"..\res\viking.png", UriKind.Relative)));
 
 		public override List<Tuple<int,int>> getChoixCases()
 		{

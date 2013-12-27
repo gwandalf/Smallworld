@@ -133,10 +133,13 @@ namespace WPF
                 var rectangle = new Rectangle();
                 rectangle.Fill = tile.Image;
 
-                MessageBox.Show(this,
-                "image null : " + (tile.Image == null),
-                "debug",
-                MessageBoxButton.OK, MessageBoxImage.Error);
+                if (tile.Image == null)
+                {
+                    MessageBox.Show(this,
+                    "image null",
+                    "debug",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                }
 
                 Grid.SetColumn(rectangle, c);
                 Grid.SetRow(rectangle, l);
