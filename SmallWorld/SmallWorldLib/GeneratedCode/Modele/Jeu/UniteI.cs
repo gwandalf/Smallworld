@@ -13,6 +13,7 @@ namespace Modele.Jeu
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
+    using SmallWorldLib.GeneratedCode.Vue;
 
 	public interface UniteI
 	{
@@ -77,6 +78,8 @@ namespace Modele.Jeu
         void defineJoueur(JoueurI joueur);
 
         void placeOnMap(int x, int y);
+
+        VueUniteI makeView();
 
 	}
 }

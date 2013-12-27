@@ -11,6 +11,9 @@ namespace Modele.Jeu
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
+    using SmallWorldLib.GeneratedCode.Vue;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
 
     /**
      * \class Gaulois
@@ -20,6 +23,8 @@ namespace Modele.Jeu
      */
 	public class Gaulois : Unite
 	{
+        public static override ImageBrush ICON = new ImageBrush(new BitmapImage(new Uri(@"../res/gaulois.gif", UriKind.Relative)));
+
 		public override List<Tuple<int,int>> getChoixCases()
 		{
 			throw new System.NotImplementedException();

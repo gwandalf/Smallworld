@@ -10,7 +10,10 @@ namespace Modele.Jeu
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
-	using System.Text;
+    using System.Text;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
+    using SmallWorldLib.GeneratedCode.Vue;
 
     /**
      * \class Nain
@@ -20,6 +23,8 @@ namespace Modele.Jeu
      */
 	public class Nain : Unite
 	{
+        public static override ImageBrush ICON = new ImageBrush(new BitmapImage(new Uri(@"../res/dwarf.png", UriKind.Relative)));
+
 		public override List<Tuple<int,int>> getChoixCases()
 		{
 			throw new System.NotImplementedException();

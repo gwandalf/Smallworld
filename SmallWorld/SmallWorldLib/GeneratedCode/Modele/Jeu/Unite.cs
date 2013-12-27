@@ -11,6 +11,10 @@ namespace Modele.Jeu
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
+    using System.ComponentModel;
+    using SmallWorldLib.GeneratedCode.Vue;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
 
     /**
      * \class Unite
@@ -18,8 +22,11 @@ namespace Modele.Jeu
      * \brief Represents unites of the game
      * 
      */
-	public abstract class Unite : UniteI
+	public abstract class Unite : UniteI, INotifyPropertyChanged
 	{
+
+        public static virtual ImageBrush ICON = null;
+
         protected int id;
         public int ID
         {
@@ -166,6 +173,20 @@ namespace Modele.Jeu
         {
             Tuple<int, int> t = new Tuple<int, int>(x, y);
             this.Carte.PositUnite.Add(this, t);
+        }
+
+        /**
+         * \fn VueUniteI makeView()
+         * \brief makes a view linked to the current unite
+         * 
+         * The corresponding icon is set to the view
+         * 
+         */
+        public VueUniteI makeView()
+        {
+            VueUniteI res = new VueUnite(this);
+            res.Icon = ICON;
+            return res;
         }
 
 	}
