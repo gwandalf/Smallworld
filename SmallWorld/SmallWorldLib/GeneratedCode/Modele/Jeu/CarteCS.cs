@@ -31,8 +31,8 @@ namespace Modele.Jeu
         // hashtable associating IDs to unites
         // CarteWrapper (C++) sees unites as IDs
         // Carte (C#) sees unites as instances of the class Unite
-        private Hashtable positUnite;
-		public virtual Hashtable PositUnite
+        private Dictionary<UniteI, Tuple<int,int>> positUnite;
+        public virtual Dictionary<UniteI, Tuple<int, int>> PositUnite
 		{
             get { return positUnite; }
             set { positUnite = value; }
@@ -73,7 +73,7 @@ namespace Modele.Jeu
 		{
             //construction carteWrapper
             this.carteW = new CarteWrapper(dim, joueurs[0].nbUnitesJouables());
-            this.positUnite = new Hashtable();
+            this.positUnite = new Dictionary<UniteI, Tuple<int, int>>();
             int[] loc = { 0, dim};
 
             int i = 0;

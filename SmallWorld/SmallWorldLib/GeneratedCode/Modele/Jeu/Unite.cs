@@ -144,7 +144,8 @@ namespace Modele.Jeu
 
 		public virtual void afficher()
 		{
-			throw new System.NotImplementedException();
+            VueUniteI view = makeView();
+
 		}
 
 		public abstract int rapporterPoints();
@@ -185,7 +186,7 @@ namespace Modele.Jeu
         public VueUniteI makeView()
         {
             VueUniteI res = new VueUnite(this);
-            res.Icon = ICON;
+            res.Image = ICON;
             return res;
         }
 

@@ -63,6 +63,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GeneratedCode\AffichableI.cs" />
     <Compile Include="GeneratedCode\Modele\Creation\Fabrique.cs" />
     <Compile Include="GeneratedCode\Modele\Creation\FabriqueI.cs" />
     <Compile Include="GeneratedCode\Modele\Creation\GameInitiator.cs" />

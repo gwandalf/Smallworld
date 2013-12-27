@@ -15,6 +15,7 @@ namespace SmallWorldLib.GeneratedCode.Vue
      */
     public class VueUnite : VueUniteI
     {
+
         private UniteI unite;
         public UniteI Unite
         {
@@ -22,7 +23,7 @@ namespace SmallWorldLib.GeneratedCode.Vue
         }
 
         private ImageBrush icon;
-        public ImageBrush Icon
+        public ImageBrush Image
         {
             get { return icon; }
             set { icon = value; }

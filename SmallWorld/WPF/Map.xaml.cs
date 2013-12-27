@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Modele.Jeu;
 using Modele.Creation;
+using SmallWorldLib.GeneratedCode;
+using SmallWorldLib.GeneratedCode.Vue;
 using Wrapper;
 
 namespace WPF
@@ -41,30 +43,7 @@ namespace WPF
         
         public Map(PartieI p, string nameP1, string nameP2)
         {
-            InitializeComponent();/*
-            List<FabriqueI> fi = new List<FabriqueI>(2);
-            fi.Add(createFabrique(nation1));
-            fi.Add(createFabrique(nation2));
-            
-            switch (mapType)
-            {
-                case GameType.DEMO:
-                    mp = new MonteurPartieDemo();
-                    break;
-
-                case GameType.SMALL:
-                    mp = new MonteurPartiePetite();
-                    break;
-
-                case GameType.NORMAL:
-                    mp = new MonteurPartieNormale();
-                    break;
-
-                default:
-                    MessageBox.Show(this, "Type de jeu non reconnu", "Erreur du jeu", MessageBoxButton.OK, MessageBoxImage.Error);
-                    this.Close();
-                    break;
-            }*/
+            InitializeComponent();
             partie = p;
 
             partie.start();
@@ -124,9 +103,17 @@ namespace WPF
                 for (int c = 0; c < map.Dim; c++)
                 {
                     //a remplacer par un truc du genre map.get(l , c) et qui renvoit le type de la case
-                    CaseI tile = map.Cases[l][c]; 
+                    AffichableI tile = map.Cases[l][c];
    
                     var rect = createRectangle(l, c, tile);
+                    mapGrid.Children.Add(rect);
+                }
+                foreach (UniteI u in map.PositUnite.Keys)
+                {
+                    VueUniteI view = u.makeView();
+                    Tuple<int, int> t;
+                    map.PositUnite.TryGetValue(u, out t);
+                    var rect = createRectangle(t.Item1, t.Item2, view);
                     mapGrid.Children.Add(rect);
                 }
             }
@@ -140,7 +127,7 @@ namespace WPF
             /// <param name="l"></param>
             /// <param name="tile"></param>
             /// <returns></returns>
-            private Rectangle createRectangle(int c, int l, CaseI tile)
+            private Rectangle createRectangle(int c, int l, AffichableI tile)
             {
                 var rectangle = new Rectangle();
                 rectangle.Fill = tile.Image;

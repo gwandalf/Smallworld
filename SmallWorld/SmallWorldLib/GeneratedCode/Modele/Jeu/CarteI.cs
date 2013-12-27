@@ -27,7 +27,7 @@ namespace Modele.Jeu
             get;
         }
 
-        Hashtable PositUnite
+        Dictionary<UniteI, Tuple<int, int>> PositUnite
         {
             get;
             set;

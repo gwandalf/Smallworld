@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
         public ImageBrush Image
         {
             get { return image; }
+            set { image = value; }
         }
 
         public Case()

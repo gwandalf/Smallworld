@@ -13,7 +13,7 @@ namespace SmallWorldLib.GeneratedCode.Vue
      * \interface VueUniteI
      * 
      */
-    public interface VueUniteI
+    public interface VueUniteI : AffichableI
     {
 
         UniteI Unite
@@ -21,7 +21,7 @@ namespace SmallWorldLib.GeneratedCode.Vue
             get;
         }
 
-        ImageBrush Icon
+        ImageBrush Image
         {
             get;
             set;
