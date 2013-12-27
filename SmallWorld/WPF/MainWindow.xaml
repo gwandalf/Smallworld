@@ -31,8 +31,8 @@
 
         <ComboBox x:Name="GameTypeComboBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="150" Margin="10"  Grid.Row="0" Grid.Column="0">
             <ComboBoxItem x:Name="DemoItem" IsSelected="True" Content="Carte Demo (5x5)" Selected="DemoItem_Selected"/>
-            <ComboBoxItem x:Name="SmallItem" Content="Petite Carte (10x10)"/>
-            <ComboBoxItem x:Name="NormalItem" Content="Carte Normale (15x15)"/>
+            <ComboBoxItem x:Name="SmallItem" Content="Petite Carte (10x10)" Selected="SmallItem_Selected"/>
+            <ComboBoxItem x:Name="NormalItem" Content="Carte Normale (15x15)" Selected="NormalItem_Selected"/>
         </ComboBox>
 
         <StackPanel Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0">
