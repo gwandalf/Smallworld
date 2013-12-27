@@ -38,6 +38,8 @@ namespace WPF
         private List<FabriqueI> fabriques;
         private MonteurPartieI mp;
 
+        public PartieI PARTY;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -81,7 +83,7 @@ namespace WPF
             {
                 game.FabriquesUnite = fabriques;
                 game.MonteurPartie = mp;
-                game.creerPartie();
+                PARTY = game.creerPartie();
             }
             /*
             //We start the game only if both nations are selected.

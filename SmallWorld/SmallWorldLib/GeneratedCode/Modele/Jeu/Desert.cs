@@ -9,13 +9,15 @@ namespace Modele.Jeu
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
-	using System.Text;
+    using System.Text;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
 
 	public class Desert : Case
 	{
         public Desert()
         {
-            
+            image = new BitmapImage(new Uri(@"../textures/terrains/desert.png", UriKind.Relative));
         }
 	}
 }

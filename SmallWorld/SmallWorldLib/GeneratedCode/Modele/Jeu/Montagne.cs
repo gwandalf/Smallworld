@@ -9,12 +9,15 @@ namespace Modele.Jeu
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
-	using System.Text;
+    using System.Text;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
 
 	public class Montagne : Case
 	{
         public Montagne()
         {
+            image = new BitmapImage(new Uri(@"../textures/terrains/montagne.png", UriKind.Relative));
         }
 	}
 }
