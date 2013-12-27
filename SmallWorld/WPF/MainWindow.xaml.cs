@@ -83,7 +83,17 @@ namespace WPF
             {
                 game.FabriquesUnite = fabriques;
                 game.MonteurPartie = mp;
-                PARTY = game.creerPartie();
+                PartieI partie = game.creerPartie();
+                Map win = new Map(partie, labelPlayer1.Text, labelPlayer2.Text);
+                win.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show(this,
+                    "Erreur du jeu, fabrique = " + fabValide + ", monteur = " + montValide,
+                    "Type de jeu non reconnu",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
             /*
             //We start the game only if both nations are selected.
@@ -93,9 +103,9 @@ namespace WPF
                 ComboBoxItem itemGame = (ComboBoxItem)GameTypeComboBox.SelectedItem;
                 ComboBoxItem itemNation1 = (ComboBoxItem)ComboBoxNationPlayer1.SelectedItem;
                 ComboBoxItem itemNation2 = (ComboBoxItem)ComboBoxNationPlayer2.SelectedItem;
-
-                Map win = new Map((GameType)itemGame.Tag, (Nation)itemNation1.Tag, (Nation)itemNation2.Tag, labelPlayer1.Text, labelPlayer2.Text);
-                win.Show();
+            */
+            /*    
+            win.Show();
                 this.Close();
             }
              * */

@@ -32,14 +32,14 @@ namespace WPF
     public partial class Map : Window
     {
         
-        CarteI map;
+        CarteI map;/*
         MonteurPartie mp;
-        ImageFactory imageBrushFactory = new ImageFactory();
-        Partie partie;
+        ImageFactory imageBrushFactory = new ImageFactory();*/
+        PartieI partie;
         
-        public Map(GameType mapType, Nation nation1, Nation nation2, string nameP1, string nameP2)
+        public Map(PartieI p, string nameP1, string nameP2)
         {
-            InitializeComponent();
+            InitializeComponent();/*
             List<FabriqueI> fi = new List<FabriqueI>(2);
             fi.Add(createFabrique(nation1));
             fi.Add(createFabrique(nation2));
@@ -62,8 +62,8 @@ namespace WPF
                     MessageBox.Show(this, "Type de jeu non reconnu", "Erreur du jeu", MessageBoxButton.OK, MessageBoxImage.Error);
                     this.Close();
                     break;
-            }
-            partie = config(fi, mp);
+            }*/
+            partie = p;
 
             partie.start();
            
@@ -122,7 +122,7 @@ namespace WPF
                 for (int c = 0; c < map.Dim; c++)
                 {
                     //a remplacer par un truc du genre map.get(l , c) et qui renvoit le type de la case
-                    var tile = new Foret(); 
+                    CaseI tile = map.Cases[l][c]; 
    
                     var rect = createRectangle(l, c, tile);
                     mapGrid.Children.Add(rect);
@@ -131,7 +131,7 @@ namespace WPF
             //update();
            
         }
-            private Rectangle createRectangle(int c, int l, Case tile)
+            private Rectangle createRectangle(int c, int l, CaseI tile)
             {
                 var rectangle = new Rectangle();
                 rectangle.Fill = tile.Image;
