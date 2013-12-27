@@ -134,16 +134,7 @@ namespace WPF
             private Rectangle createRectangle(int c, int l, Case tile)
             {
                 var rectangle = new Rectangle();
-                if (tile is Foret)
-                    rectangle.Fill = imageBrushFactory.getImageBrush(Tile.FOREST);
-                if (tile is Eau)
-                    rectangle.Fill = imageBrushFactory.getImageBrush(Tile.SEA);
-                if (tile is Montagne)
-                    rectangle.Fill = imageBrushFactory.getImageBrush(Tile.MOUTAIN);
-                if (tile is Plaine)
-                    rectangle.Fill = imageBrushFactory.getImageBrush(Tile.LOWLAND);
-                if (tile is Desert)
-                    rectangle.Fill = imageBrushFactory.getImageBrush(Tile.DESERT);
+                rectangle.Fill = tile.Image;
 
                 Grid.SetColumn(rectangle, c);
                 Grid.SetRow(rectangle, l);

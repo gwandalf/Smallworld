@@ -12,8 +12,8 @@ using System.Windows.Media.Imaging;
 
     public abstract class Case : CaseI
     {
-        protected BitmapImage image;
-        public BitmapImage Image
+        protected ImageBrush image;
+        public ImageBrush Image
         {
             get { return image; }
         }

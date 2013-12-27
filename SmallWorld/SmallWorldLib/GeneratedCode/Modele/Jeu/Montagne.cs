@@ -17,7 +17,9 @@ namespace Modele.Jeu
 	{
         public Montagne()
         {
-            image = new BitmapImage(new Uri(@"../textures/terrains/montagne.png", UriKind.Relative));
+            BitmapImage bmp = new BitmapImage(new Uri(@"../textures/terrains/montagne.png", UriKind.Relative));
+            image = new ImageBrush();
+            image.ImageSource = bmp;
         }
 	}
 }

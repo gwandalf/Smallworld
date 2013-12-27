@@ -17,7 +17,9 @@ namespace Modele.Jeu
 	{
         public Desert()
         {
-            image = new BitmapImage(new Uri(@"../textures/terrains/desert.png", UriKind.Relative));
+            BitmapImage bmp = new BitmapImage(new Uri(@"../textures/terrains/desert.png", UriKind.Relative));
+            image = new ImageBrush();
+            image.ImageSource = bmp;
         }
 	}
 }

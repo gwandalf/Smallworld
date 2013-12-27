@@ -17,7 +17,9 @@ namespace Modele.Jeu
 	{
         public Foret()
         {
-            image = new BitmapImage(new Uri(@"../textures/terrains/forest.png", UriKind.Relative));
+            BitmapImage bmp = new BitmapImage(new Uri(@"../textures/terrains/forest.png", UriKind.Relative));
+            image = new ImageBrush();
+            image.ImageSource = bmp;
         }
 	}
 }

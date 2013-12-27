@@ -17,7 +17,9 @@ namespace Modele.Jeu
 	{
         public Plaine()
         {
-            image = new BitmapImage(new Uri(@"../textures/terrains/plaine.png", UriKind.Relative));
+            BitmapImage bmp = new BitmapImage(new Uri(@"../textures/terrains/plaine.png", UriKind.Relative));
+            image = new ImageBrush();
+            image.ImageSource = bmp;
         }
 	}
 }

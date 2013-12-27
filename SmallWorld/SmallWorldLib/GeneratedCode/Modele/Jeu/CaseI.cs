@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 
     public interface CaseI
     {
-        BitmapImage Image
+        ImageBrush Image
         {
             get;
         }
