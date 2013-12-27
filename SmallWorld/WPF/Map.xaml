@@ -8,9 +8,9 @@
         <Cursor x:Key="Cursor1">Arrow</Cursor>
     </Window.Resources>
 
-    <Window.Background>
-        <ImageBrush ImageSource="background.jpeg"/>
-    </Window.Background>
+    <!--Window.Background>
+        <ImageBrush ImageSource="sw2.jpg"/>
+    </Window.Background-->
     
     <DockPanel x:Name="panel">
         <StackPanel DockPanel.Dock="Bottom">

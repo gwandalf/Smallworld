@@ -17,7 +17,7 @@ namespace Modele.Jeu
 	{
         public Eau()
         {
-            BitmapImage bmp = new BitmapImage(new Uri(@"../textures/terrains/neige.png", UriKind.Relative));
+            BitmapImage bmp = new BitmapImage(new Uri(@"../textures/terrains/sea.png", UriKind.Relative));
             image = new ImageBrush();
             image.ImageSource = bmp;
         }
