@@ -179,7 +179,7 @@ namespace WPF
 
                 if (selectedVisual != null)
                 {
-                    if (hasUnits(Grid.GetRow(selectedVisual), Grid.GetColumn(selectedVisual)))
+                    if (!map.isEmpty(Grid.GetRow(selectedVisual), Grid.GetColumn(selectedVisual)))
                         selectedVisual.StrokeThickness = 2;
                     else
                         selectedVisual.StrokeThickness = 1;
@@ -208,18 +208,6 @@ namespace WPF
             private void perform_action(int row, int column)
             {
                
-            }
-            
-            /// <summary>
-            /// 
-            /// </summary>
-            /// <param name="line"></param>
-            /// <param name="column"></param>
-            /// <returns></returns>
-            private bool hasUnits(int line, int column)
-            {
-                // Il faut pourvoir savoir pour une position donnée il y a une unité
-                return true;
             }
     }
 }
