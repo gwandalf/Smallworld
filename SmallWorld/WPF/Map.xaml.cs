@@ -108,15 +108,22 @@ namespace WPF
                     var rect = createRectangle(l, c, tile);
                     mapGrid.Children.Add(rect);
                 }
-                foreach (UniteI u in map.PositUnite.Keys)
-                {
-                    VueUniteI view = u.makeView();
-                    Tuple<int, int> t;
-                    map.PositUnite.TryGetValue(u, out t);
-                    var rect = createRectangle(t.Item1, t.Item2, view);
-                    mapGrid.Children.Add(rect);
-                }
             }
+
+            int i = 0;
+            foreach (UniteI u in map.PositUnite.Keys)
+            {
+                VueUniteI view = u.makeView();
+                Tuple<int, int> t;
+                map.PositUnite.TryGetValue(u, out t);
+                var rect = createRectangle(t.Item1, t.Item2, view);
+                mapGrid.Children.Add(rect);
+                i++;
+            }
+            MessageBox.Show(this,
+                "nombre d'unites : " + i,
+                "debug",
+                MessageBoxButton.OK, MessageBoxImage.Error);
             //updateUnitUI();
            
         }
