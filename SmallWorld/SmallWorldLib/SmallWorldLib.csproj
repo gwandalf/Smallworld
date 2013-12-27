@@ -98,6 +98,7 @@
     <Compile Include="GeneratedCode\Modele\Jeu\UniteI.cs" />
     <Compile Include="GeneratedCode\Modele\Jeu\Viking.cs" />
     <Compile Include="GeneratedCode\Vue\VueUnite.cs" />
+    <Compile Include="GeneratedCode\Vue\VueUniteI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

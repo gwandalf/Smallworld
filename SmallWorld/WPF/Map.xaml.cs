@@ -36,6 +36,8 @@ namespace WPF
         MonteurPartie mp;
         ImageFactory imageBrushFactory = new ImageFactory();*/
         PartieI partie;
+        Rectangle selectedVisual;
+        StackPanel _selectedUnit;
         
         public Map(PartieI p, string nameP1, string nameP2)
         {
@@ -128,9 +130,16 @@ namespace WPF
                     mapGrid.Children.Add(rect);
                 }
             }
-            //update();
+            //updateUnitUI();
            
         }
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="c"></param>
+            /// <param name="l"></param>
+            /// <param name="tile"></param>
+            /// <returns></returns>
             private Rectangle createRectangle(int c, int l, CaseI tile)
             {
                 var rectangle = new Rectangle();
@@ -139,8 +148,10 @@ namespace WPF
                 Grid.SetColumn(rectangle, c);
                 Grid.SetRow(rectangle, l);
                 rectangle.Tag = tile;
+                rectangle.Stroke = Brushes.Gray;
+                rectangle.StrokeThickness = 1;
 
-                //rectangle.MouseLeftButtonDown += new MouseButtonEventHandler(...);
+                rectangle.MouseLeftButtonDown += new MouseButtonEventHandler(rectangle_MouseLeftButtonDown);
                 return rectangle;
             }
 
@@ -148,9 +159,67 @@ namespace WPF
             /// <summary
             ///  Fait les maj d'affichages nécessaires
             /// </summary>
-            private void update()
+            private void updateUnitUI()
             {
+               // Je ne sais pas comment faire là dedans,
+               // De ce que j'ai compris, il faut dire  à la "Grid" qu'elle a été mise à jour, pour afficher les cases...
+            }
+
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="sender"></param>
+            /// <param name="e"></param>
+            void rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+            {
+                var rectangle = sender as Rectangle;
+                var tile = rectangle.Tag as Case;
+                int row = Grid.GetRow(rectangle);
+                int column = Grid.GetColumn(rectangle);
+
+                if (selectedVisual != null)
+                {
+                    if (hasUnits(Grid.GetRow(selectedVisual), Grid.GetColumn(selectedVisual)))
+                        selectedVisual.StrokeThickness = 2;
+                    else
+                        selectedVisual.StrokeThickness = 1;
+                }
+                selectedVisual = rectangle;
+                selectedVisual.Tag = tile;
+                rectangle.StrokeThickness = 3;
+                InfoLabel.Content = String.Format("[{0:00} - {1:00}] {2}", row, column, tile);
+
+                if (_selectedUnit != null)
+                {
+                    // On veut se déplacer ou attaquer
+                    perform_action(row, column);
+                }
+                //mise à jour des infos, de l'écran
+                //update()
+
+                e.Handled = true;
+            }
+
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="row"></param>
+            /// <param name="column"></param>
+            private void perform_action(int row, int column)
+            {
+               
             }
             
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="line"></param>
+            /// <param name="column"></param>
+            /// <returns></returns>
+            private bool hasUnits(int line, int column)
+            {
+                // Il faut pourvoir savoir pour une position donnée il y a une unité
+                return true;
+            }
     }
 }
