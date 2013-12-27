@@ -110,20 +110,18 @@ namespace WPF
                 }
             }
 
-            int i = 0;
             foreach (UniteI u in map.PositUnite.Keys)
             {
                 VueUniteI view = u.makeView();
                 Tuple<int, int> t;
                 map.PositUnite.TryGetValue(u, out t);
-                var rect = createRectangle(t.Item1, t.Item2, view);
-                mapGrid.Children.Add(rect);
-                i++;
-            }
-            MessageBox.Show(this,
-                "nombre d'unites : " + i,
+                MessageBox.Show(this,
+                "case : " + t.Item1 + ", " + t.Item2,
                 "debug",
                 MessageBoxButton.OK, MessageBoxImage.Error);
+                var rect = createRectangle(t.Item1, t.Item2, view);
+                mapGrid.Children.Add(rect);
+            }
             //updateUnitUI();
            
         }
