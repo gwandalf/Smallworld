@@ -154,24 +154,6 @@
   <ItemGroup>
     <Resource Include="computer-game-icone-3768.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\desert.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\forest.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\montagne.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\neige.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\plaine.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\sea.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

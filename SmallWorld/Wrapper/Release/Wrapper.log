@@ -1,5 +1,5 @@
-﻿La génération a démarré 27/12/2013 15:18:59.
-     1>Projet "C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\Wrapper\Wrapper.vcxproj" sur le nœud 2 (Build cible(s)).
+﻿La génération a démarré 27/12/2013 16:34:16.
+     1>Projet "C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\Wrapper\Wrapper.vcxproj" sur le nœud 2 (Rebuild cible(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\LibC++\ /I..\Release\ /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Release\Wrapper.pch" /Fo"Release\\" /Fd"Release\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /analyze- /errorReport:prompt /clr:nostdlib Stdafx.cpp
          Stdafx.cpp
@@ -30,8 +30,8 @@
          GÚnÚration de code en cours
          Fin de la gÚnÚration du code
          Wrapper.vcxproj -> C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\Release\Wrapper.dll
-     1>Génération du projet "C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\Wrapper\Wrapper.vcxproj" terminée (Build cible(s)).
+     1>Génération du projet "C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\Wrapper\Wrapper.vcxproj" terminée (Rebuild cible(s)).
 
 La génération a réussi.
 
-Temps écoulé 00:00:05.78
+Temps écoulé 00:00:05.02

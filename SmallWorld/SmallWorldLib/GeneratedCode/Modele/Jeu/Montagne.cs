@@ -17,7 +17,7 @@ namespace Modele.Jeu
 	{
         public Montagne()
         {
-            BitmapImage bmp = new BitmapImage(new Uri(@"../textures/terrains/montagne.png", UriKind.Relative));
+            BitmapImage bmp = new BitmapImage(new Uri(@"C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\Resources\montagne.png", UriKind.Relative));
             image = new ImageBrush();
             image.ImageSource = bmp;
         }
