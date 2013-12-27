@@ -25,7 +25,7 @@ namespace Modele.Jeu
 	public abstract class Unite : UniteI/*, INotifyPropertyChanged*/
 	{
 
-        public static ImageBrush ICON = new ImageBrush(new BitmapImage(new Uri(@"..\res\zelda.png", UriKind.Relative)));
+        public static ImageBrush ICON = new ImageBrush(new BitmapImage(new Uri(@"..\..\Resources\zelda.png", UriKind.Relative)));
 
         protected int id;
         public int ID

@@ -23,7 +23,7 @@ namespace Modele.Jeu
      */
 	public class Nain : Unite
 	{
-        public static ImageBrush ICON = new ImageBrush(new BitmapImage(new Uri(@"..\res\dwarf.png", UriKind.Relative)));
+        public static ImageBrush ICON = new ImageBrush(new BitmapImage(new Uri(@"..\..\Resources\dwarf.png", UriKind.Relative)));
 
 		public override List<Tuple<int,int>> getChoixCases()
 		{
