@@ -17,7 +17,7 @@ namespace Modele.Jeu
 	{
         public Eau()
         {
-            BitmapImage bmp = new BitmapImage(new Uri(@"C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\Resources\sea.png", UriKind.Relative));
+            BitmapImage bmp = new BitmapImage(new Uri(@"..\..\Resources\sea.png", UriKind.Relative));
             image = new ImageBrush();
             image.ImageSource = bmp;
         }

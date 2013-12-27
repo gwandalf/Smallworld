@@ -17,7 +17,7 @@ namespace Modele.Jeu
 	{
         public Plaine()
         {
-            BitmapImage bmp = new BitmapImage(new Uri(@"C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\Resources\plaine.png", UriKind.Absolute));
+            BitmapImage bmp = new BitmapImage(new Uri(@"..\..\Resources\plaine.png", UriKind.Relative));
             image = new ImageBrush();
             image.ImageSource = bmp;
         }

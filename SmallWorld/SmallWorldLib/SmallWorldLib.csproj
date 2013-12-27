@@ -98,6 +98,8 @@
     <Compile Include="GeneratedCode\Modele\Jeu\Unite.cs" />
     <Compile Include="GeneratedCode\Modele\Jeu\UniteI.cs" />
     <Compile Include="GeneratedCode\Modele\Jeu\Viking.cs" />
+    <Compile Include="GeneratedCode\Vue\VueUnite.cs" />
+    <Compile Include="GeneratedCode\Vue\VueUniteI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -149,6 +151,7 @@
   <ItemGroup>
     <None Include="Resources\sea.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

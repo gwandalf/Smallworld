@@ -13,7 +13,7 @@ namespace Modele.Jeu
     using System.Text;
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
-    using SmallWorldLib.GeneratedCode.Vue;
+    using SmallWorldLib.GeneratedCode;
 
     /**
      * \class Viking
@@ -23,7 +23,7 @@ namespace Modele.Jeu
      */
 	public class Viking : Unite
 	{
-        public static override ImageBrush ICON = new ImageBrush(new BitmapImage(new Uri(@"../res/viking.png", UriKind.Relative)));
+        public static ImageBrush ICON = new ImageBrush(new BitmapImage(new Uri(@"../res/viking.png", UriKind.Relative)));
 
 		public override List<Tuple<int,int>> getChoixCases()
 		{

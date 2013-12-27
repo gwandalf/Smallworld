@@ -1,37 +1,19 @@
-﻿La génération a démarré 27/12/2013 16:34:16.
-     1>Projet "C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\Wrapper\Wrapper.vcxproj" sur le nœud 2 (Rebuild cible(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\LibC++\ /I..\Release\ /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Release\Wrapper.pch" /Fo"Release\\" /Fd"Release\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /analyze- /errorReport:prompt /clr:nostdlib Stdafx.cpp
-         Stdafx.cpp
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\LibC++\ /I..\Release\ /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Release\Wrapper.pch" /Fo"Release\\" /Fd"Release\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /analyze- /errorReport:prompt /clr:nostdlib AssemblyInfo.cpp Wrapper.cpp
-         AssemblyInfo.cpp
-     1>AssemblyInfo.cpp(40): warning C4947: 'RequestMinimum' : marqué comme obsolète
-                 Message : 'Assembly level declarative security is obsolete and is no longer enforced by the CLR by default. See http://go.microsoft.com/fwlink/?LinkID=155570 for more information.'
-         Wrapper.cpp
-     1>c:\users\eric\documents\github\smallworld\smallworld\wrapper\..\LibC++\Carte.h(40): warning C4251: 'Carte::positUnite' : class 'std::vector<std::vector<PositUnite,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
-                 with
-                 [
-                     _Ty=PositUnite
-                 ]
-         Génération de code en cours...
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\LibC++\ /I..\Release\ /Zi /clr /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /TP /analyze- /errorReport:prompt "C:\Users\Eric\AppData\Local\Temp\.NETFramework,Version=v4.5.AssemblyAttributes.cpp"
-         .NETFramework,Version=v4.5.AssemblyAttributes.cpp
-       ResourceCompile:
-         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D _UNICODE /D UNICODE /l"0x0409" /nologo /fo"Release\app.res" app.rc 
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\Release\Wrapper.dll" /INCREMENTAL:NO /NOLOGO /LIBPATH:C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\Release\ ..\Release\LibC++.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\Release\Wrapper.pdb" /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 /SAFESEH /DLL Release\app.res
-         Release\AssemblyInfo.obj
-         Release\Stdafx.obj
-         Release\Wrapper.obj
-         "Release\.NETFramework,Version=v4.5.AssemblyAttributes.obj"
-         C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\Release\LibC++.lib
-         LibC++.lib(Source.obj) : .netmodule ou module MSIL compilé avec /GL trouvé ; redémarrage de l'édition de liens avec /LTCG ; ajoutez /LTCG à la ligne de commande de l'édition de liens pour améliorer les performances de l'Éditeur de liens
-            CrÚation de la bibliothÞque C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\Release\Wrapper.lib et de l'objet C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\Release\Wrapper.exp
-         GÚnÚration de code en cours
-         Fin de la gÚnÚration du code
-         Wrapper.vcxproj -> C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\Release\Wrapper.dll
-     1>Génération du projet "C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\Wrapper\Wrapper.vcxproj" terminée (Rebuild cible(s)).
-
-La génération a réussi.
-
-Temps écoulé 00:00:05.02
+﻿Le fichier projet contient ToolsVersion="12.0". Cet ensemble d'outils est inconnu ou manquant. Vous pouvez résoudre cela en installant le .NET Framework approprié pour cet ensemble d'outils. Projet traité comme si ToolsVersion="4.0".
+Le fichier projet contient ToolsVersion="12.0". Cet ensemble d'outils est inconnu ou manquant. Vous pouvez résoudre cela en installant le .NET Framework approprié pour cet ensemble d'outils. Projet traité comme si ToolsVersion="4.0".
+Le fichier projet contient ToolsVersion="12.0". Cet ensemble d'outils est inconnu ou manquant. Vous pouvez résoudre cela en installant le .NET Framework approprié pour cet ensemble d'outils. Projet traité comme si ToolsVersion="4.0".
+  Stdafx.cpp
+  AssemblyInfo.cpp
+  Wrapper.cpp
+c:\users\gwendal\git\smallworld\smallworld\wrapper\..\LibC++\Carte.h(40): warning C4251: 'Carte::positUnite' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
+          with
+          [
+              _Ty=std::vector<PositUnite>
+          ]
+  Génération de code en cours...
+  .NETFramework,Version=v4.5.AssemblyAttributes.cpp
+Le fichier projet contient ToolsVersion="12.0". Cet ensemble d'outils est inconnu ou manquant. Vous pouvez résoudre cela en installant le .NET Framework approprié pour cet ensemble d'outils. Projet traité comme si ToolsVersion="4.0".
+  LibC++.lib(Source.obj) : .netmodule ou module MSIL compilé avec /GL trouvé ; redémarrage de l'édition de liens avec /LTCG ; ajoutez /LTCG à la ligne de commande de l'édition de liens pour améliorer les performances de l'Éditeur de liens
+     CrÚation de la bibliothÞque C:\Users\Gwendal\git\Smallworld\SmallWorld\Release\Wrapper.lib et de l'objet C:\Users\Gwendal\git\Smallworld\SmallWorld\Release\Wrapper.exp
+  GÚnÚration de code en cours
+  Fin de la gÚnÚration du code
+  Wrapper.vcxproj -> C:\Users\Gwendal\git\Smallworld\SmallWorld\Release\Wrapper.dll

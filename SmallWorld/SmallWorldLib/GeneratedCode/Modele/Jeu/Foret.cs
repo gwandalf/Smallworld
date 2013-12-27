@@ -17,7 +17,7 @@ namespace Modele.Jeu
 	{
         public Foret()
         {
-            BitmapImage bmp = new BitmapImage(new Uri(@"C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\Resources\forest.png", UriKind.Relative));
+            BitmapImage bmp = new BitmapImage(new Uri(@"..\..\Resources\forest.png", UriKind.Relative));
             image = new ImageBrush();
             image.ImageSource = bmp;
         }

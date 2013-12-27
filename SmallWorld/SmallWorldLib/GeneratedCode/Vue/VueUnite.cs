@@ -13,7 +13,7 @@ namespace SmallWorldLib.GeneratedCode.Vue
      * \class VueUnite
      * \brief view of a unite
      */
-    class VueUnite : VueUniteI
+    public class VueUnite : VueUniteI
     {
         private UniteI unite;
         public UniteI Unite

@@ -5,3 +5,5 @@ C:\Users\Gwendal\git\Smallworld\SmallWorld\SmallWorldLib\bin\Release\Wrapper.dll
 C:\Users\Gwendal\git\Smallworld\SmallWorld\SmallWorldLib\bin\Release\Wrapper.pdb
 C:\Users\Gwendal\git\Smallworld\SmallWorld\SmallWorldLib\obj\Release\SmallWorldLib.dll
 C:\Users\Gwendal\git\Smallworld\SmallWorld\SmallWorldLib\obj\Release\SmallWorldLib.pdb
+C:\Users\Gwendal\git\Smallworld\SmallWorld\SmallWorldLib\obj\Release\SmallWorldLib.Properties.Resources.resources
+C:\Users\Gwendal\git\Smallworld\SmallWorld\SmallWorldLib\obj\Release\SmallWorldLib.csproj.GenerateResource.Cache

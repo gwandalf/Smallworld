@@ -13,7 +13,7 @@ namespace SmallWorldLib.GeneratedCode.Vue
      * \interface VueUniteI
      * 
      */
-    interface VueUniteI
+    public interface VueUniteI
     {
 
         UniteI Unite

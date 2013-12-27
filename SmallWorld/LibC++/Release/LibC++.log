@@ -1,25 +1,14 @@
-﻿La génération a démarré 27/12/2013 16:34:14.
-     1>Projet "C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\LibC++\LibC++.vcxproj" sur le nœud 2 (Rebuild cible(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Carte.cpp Source.cpp
-         Carte.cpp
-     1>c:\users\eric\documents\github\smallworld\smallworld\libc++\Carte.h(40): warning C4251: 'Carte::positUnite' : class 'std::vector<std::vector<PositUnite,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
-                 with
-                 [
-                     _Ty=PositUnite
-                 ]
-         Source.cpp
-     1>c:\users\eric\documents\github\smallworld\smallworld\libc++\Carte.h(40): warning C4251: 'Carte::positUnite' : class 'std::vector<std::vector<PositUnite,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
-                 with
-                 [
-                     _Ty=PositUnite
-                 ]
-       Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\Release\LibC++.lib" /NOLOGO /LTCG Release\Carte.obj
-         Release\Source.obj
-         LibC++.vcxproj -> C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\Release\LibC++.lib
-     1>Génération du projet "C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\LibC++\LibC++.vcxproj" terminée (Rebuild cible(s)).
-
-La génération a réussi.
-
-Temps écoulé 00:00:02.07
+﻿Le fichier projet contient ToolsVersion="12.0". Cet ensemble d'outils est inconnu ou manquant. Vous pouvez résoudre cela en installant le .NET Framework approprié pour cet ensemble d'outils. Projet traité comme si ToolsVersion="4.0".
+  Carte.cpp
+c:\users\gwendal\git\smallworld\smallworld\libc++\Carte.h(40): warning C4251: 'Carte::positUnite' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
+          with
+          [
+              _Ty=std::vector<PositUnite>
+          ]
+  Source.cpp
+c:\users\gwendal\git\smallworld\smallworld\libc++\Carte.h(40): warning C4251: 'Carte::positUnite' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
+          with
+          [
+              _Ty=std::vector<PositUnite>
+          ]
+  LibC++.vcxproj -> C:\Users\Gwendal\git\Smallworld\SmallWorld\Release\LibC++.lib

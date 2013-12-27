@@ -17,7 +17,7 @@ namespace Modele.Jeu
 	{
         public Desert()
         {
-            BitmapImage bmp = new BitmapImage(new Uri(@"C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\Resources\desert.png", UriKind.Relative));
+            BitmapImage bmp = new BitmapImage(new Uri(@"..\..\Resources\desert.png", UriKind.Relative));
             image = new ImageBrush();
             image.ImageSource = bmp;
         }

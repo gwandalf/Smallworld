@@ -22,10 +22,10 @@ namespace Modele.Jeu
      * \brief Represents unites of the game
      * 
      */
-	public abstract class Unite : UniteI, INotifyPropertyChanged
+	public abstract class Unite : UniteI/*, INotifyPropertyChanged*/
 	{
 
-        public static virtual ImageBrush ICON = null;
+        public static ImageBrush ICON = null;
 
         protected int id;
         public int ID
