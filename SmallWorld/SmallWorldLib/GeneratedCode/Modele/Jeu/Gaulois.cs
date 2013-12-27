@@ -37,6 +37,7 @@ namespace Modele.Jeu
          */
 		public Gaulois() : base()
 		{
+            icon = ICON;
 		}
 
 		public override int rapporterPoints()

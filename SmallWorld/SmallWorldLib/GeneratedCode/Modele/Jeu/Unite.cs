@@ -27,6 +27,8 @@ namespace Modele.Jeu
 
         public static ImageBrush ICON = new ImageBrush(new BitmapImage(new Uri(@"..\..\Resources\zelda.png", UriKind.Relative)));
 
+        protected ImageBrush icon;
+
         protected int id;
         public int ID
         {
@@ -94,6 +96,7 @@ namespace Modele.Jeu
             deplacement = 1;
             attaque = 2;
             defense = 1;
+            icon = ICON;
         }
 
 
@@ -186,7 +189,7 @@ namespace Modele.Jeu
         public VueUniteI makeView()
         {
             VueUniteI res = new VueUnite(this);
-            res.Image = ICON;
+            res.Image = icon;
             return res;
         }
 

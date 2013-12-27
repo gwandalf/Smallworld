@@ -17,6 +17,7 @@ namespace Modele.Jeu
 
 	public interface UniteI
 	{
+    
         int Vie
         {
             get;

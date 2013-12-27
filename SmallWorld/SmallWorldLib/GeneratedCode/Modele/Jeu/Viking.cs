@@ -37,6 +37,7 @@ namespace Modele.Jeu
          */
 		public Viking() : base()
 		{
+            icon = ICON;
 		}
 
 		public override int rapporterPoints()
