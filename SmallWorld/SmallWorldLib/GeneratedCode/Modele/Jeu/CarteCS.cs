@@ -74,7 +74,7 @@ namespace Modele.Jeu
             //construction carteWrapper
             this.carteW = new CarteWrapper(dim, joueurs[0].nbUnitesJouables());
             this.positUnite = new Dictionary<UniteI, Tuple<int, int>>();
-            int[] loc = { 0, dim};
+            int[] loc = { 0, dim - 1};
 
             int i = 0;
             foreach (JoueurI j in joueurs)

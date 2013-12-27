@@ -115,10 +115,6 @@ namespace WPF
                 VueUniteI view = u.makeView();
                 Tuple<int, int> t;
                 map.PositUnite.TryGetValue(u, out t);
-                MessageBox.Show(this,
-                "case : " + t.Item1 + ", " + t.Item2,
-                "debug",
-                MessageBoxButton.OK, MessageBoxImage.Error);
                 var rect = createRectangle(t.Item1, t.Item2, view);
                 mapGrid.Children.Add(rect);
             }
@@ -136,6 +132,11 @@ namespace WPF
             {
                 var rectangle = new Rectangle();
                 rectangle.Fill = tile.Image;
+
+                MessageBox.Show(this,
+                "image null : " + (tile.Image == null),
+                "debug",
+                MessageBoxButton.OK, MessageBoxImage.Error);
 
                 Grid.SetColumn(rectangle, c);
                 Grid.SetRow(rectangle, l);
