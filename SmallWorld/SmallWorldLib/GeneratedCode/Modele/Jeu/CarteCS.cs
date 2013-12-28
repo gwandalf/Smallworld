@@ -125,21 +125,26 @@ namespace Modele.Jeu
 
 		public virtual void getListeAdjacents(UniteI unite, List<Tuple<int, int>> cases)
 		{
+            //ici, je pense qu'il n'est pas nécessaire de passer l'unité en param
 			throw new System.NotImplementedException();
 		}
 
 		public virtual void deplacer(UniteI unite, int lig, int col)
 		{
-			throw new System.NotImplementedException();
+            //Il y a t-il des vérifications à faire dans la méthode
+            unite.placeOnMap(lig, col);
 		}
 
 		public virtual bool verifCaseAttaquable(JoueurI joueur, int lig, int col)
 		{
+            //on vérifie qu'il y a des unités de l'autre joueur sur la case donnée
+            //Pour le joueur qui attaque, il faut vérifier que son unité peut se déplacer ou attaquer?
 			throw new System.NotImplementedException();
 		}
 
 		public virtual void lancerCombat(UniteI unite, int lig, int col)
 		{
+            // si c'est une case attaque, alors bataillllle
 			throw new System.NotImplementedException();
 		}
 
@@ -150,7 +155,10 @@ namespace Modele.Jeu
 
 		public virtual bool isEmpty(int lig, int col)
 		{
-			throw new System.NotImplementedException();
+            // bon il faut chercher dans le dictionnaire, 
+            if (!this.PositUnite.ContainsValue(new Tuple<int, int>(lig, col)))
+                return true;
+            return false;
 		}
 
 		public virtual void addUnite(UniteI unite)
