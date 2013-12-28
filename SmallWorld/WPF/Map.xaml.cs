@@ -102,9 +102,7 @@ namespace WPF
                 mapGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(50, GridUnitType.Pixel) });
                 for (int c = 0; c < map.Dim; c++)
                 {
-                    //a remplacer par un truc du genre map.get(l , c) et qui renvoit le type de la case
                     AffichableI tile = map.Cases[l][c];
-   
                     var rect = createRectangle(l, c, tile);
                     mapGrid.Children.Add(rect);
                 }
@@ -112,6 +110,9 @@ namespace WPF
 
             foreach (UniteI u in map.PositUnite.Keys)
             {
+                //Là je ne suis pas d'accord, je pense que c'est uniquement lorsque l'on cliquera sur une case, que l'on vera les unités positionnées
+                // Il n'y a pas encore de zone pour les afficher autour de la carte
+                // a la limite, on met juste un petit logo pour indiquer qu'il y a des unités
                 VueUniteI view = u.makeView();
                 Tuple<int, int> t;
                 map.PositUnite.TryGetValue(u, out t);
@@ -157,8 +158,7 @@ namespace WPF
             /// </summary>
             private void updateUnitUI()
             {
-               // Je ne sais pas comment faire là dedans,
-               // De ce que j'ai compris, il faut dire  à la "Grid" qu'elle a été mise à jour, pour afficher les cases...
+              
             }
 
             /// <summary>
