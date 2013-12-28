@@ -71,6 +71,13 @@ namespace Modele.Jeu
             JoueurI gagnant = null;
             while (gagnant == null)
             {
+                //TODO
+                //tant que pas de gagnant :
+                //- demander au joueur courant qui est le prochain qui doit jouer
+                //- jouer un tour d'unite avec le joueur determiner
+                //- determiner s'il y a un gagnant :
+                //  -- si oui, on sort de la boucle
+                //  -- sinon on réitère
                // while (joueurs[i].nbUnitesJouables() > 0)
                // {
                     joueurs[i].passerMain();
