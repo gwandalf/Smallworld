@@ -15,8 +15,15 @@ namespace Modele.Jeu.Joueur
      * Provides the getters and setters used to switch of state
      * 
      */
-    public class AutomateJoueur : JoueurI
-    {
+    public class AutomateJoueur// : JoueurI
+    {/*
+        //reference
+        private JoueurI joueur;
+        public JoueurI Joueur
+        {
+            get { return joueur; }
+        }
+
         //examples of states
         private Gagnant winner;
         public Gagnant Winner
@@ -24,7 +31,7 @@ namespace Modele.Jeu.Joueur
             get
             {
                 if (winner == null)
-                    winner = new Gagnant();
+                    winner = new Gagnant(this);
                 return winner;
             }
         }
@@ -35,7 +42,7 @@ namespace Modele.Jeu.Joueur
             get
             {
                 if (looser == null)
-                    looser = new Perdant();
+                    looser = new Perdant(this);
                 return looser;
             }
         }
@@ -46,7 +53,7 @@ namespace Modele.Jeu.Joueur
             get
             {
                 if (myTurn == null)
-                    myTurn = new Tour();
+                    myTurn = new Tour(this);
                 return myTurn;
             }
         }
@@ -57,7 +64,7 @@ namespace Modele.Jeu.Joueur
             get
             {
                 if (hisTurn == null)
-                    hisTurn = new TourAdverse();
+                    hisTurn = new TourAdverse(this);
                 return hisTurn;
             }
         }
@@ -67,15 +74,12 @@ namespace Modele.Jeu.Joueur
         public EtatJoueur Etat
         {
             get { return etat; }
-            set 
-            { 
-                etat = value;
-            }
+            set { etat = value; }
         }
 
-        public AutomateJoueur()
+        public AutomateJoueur(JoueurI j)
         {
-
-        }
+            joueur = j;
+        }*/
     }
 }

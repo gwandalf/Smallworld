@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Modele.Jeu.Joueur
 {
-    class Gagnant : EtatJoueur
+    class Gagnant// : EtatJoueur
     {
     }
 }

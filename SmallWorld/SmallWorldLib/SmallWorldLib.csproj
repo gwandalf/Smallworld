@@ -84,7 +84,7 @@
     <Compile Include="GeneratedCode\Modele\Jeu\Gaulois.cs" />
     <Compile Include="GeneratedCode\Modele\Jeu\CaseI.cs" />
     <Compile Include="GeneratedCode\Modele\Jeu\Joueur\AutomateJoueur.cs" />
-    <Compile Include="GeneratedCode\Modele\Jeu\Joueur\Gagant.cs" />
+    <Compile Include="GeneratedCode\Modele\Jeu\Joueur\Gagnant.cs" />
     <Compile Include="GeneratedCode\Modele\Jeu\Joueur\Perdant.cs" />
     <Compile Include="GeneratedCode\Modele\Jeu\Joueur\TourAdverse.cs" />
     <Compile Include="GeneratedCode\Modele\Jeu\Joueur\Tour.cs" />
