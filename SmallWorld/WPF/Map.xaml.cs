@@ -87,6 +87,9 @@ namespace WPF
         {
             //le bouton gauche a été pressé
             //détecter l'endroit et faire quelque chose
+            InfoLabel.Content = "Aucune unité";
+            if(selectedVisual != null)
+                InfoLabel.Content = "unité présente";
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -110,9 +113,7 @@ namespace WPF
 
             foreach (UniteI u in map.PositUnite.Keys)
             {
-                //Là je ne suis pas d'accord, je pense que c'est uniquement lorsque l'on cliquera sur une case, que l'on vera les unités positionnées
-                // Il n'y a pas encore de zone pour les afficher autour de la carte
-                // a la limite, on met juste un petit logo pour indiquer qu'il y a des unités
+                //Donc s'il y a plusieurs unités sur la case, on refait à chaque fois un nouveau rectangle
                 VueUniteI view = u.makeView();
                 Tuple<int, int> t;
                 map.PositUnite.TryGetValue(u, out t);
@@ -205,5 +206,50 @@ namespace WPF
             {
                
             }
+
+            /// <summary>
+            /// Called after each turn, allows to update informations displayed about the state of game
+            /// </summary>
+            private void updateInfo()
+            {
+                NbTurnsLeft.Content = "Tours restants : " + partie.NombreTours;
+                Units1Label.Content = "Unitées restantes : " + partie.Joueurs[0].nbUnitesJouables();
+                Units2Label.Content = "Unitées restantes : " + partie.Joueurs[1].nbUnitesJouables();
+                Points1Label.Content = "Points : " + partie.Joueurs[0].Points;
+                Points2Label.Content = "Points : " + partie.Joueurs[1].Points;
+
+            }
+
+            /// <summary>
+            /// Whenever a unit is selected a Stackpanel of informations is given
+            /// </summary>
+            /// <param name="u"></param>
+            /// <returns></returns>
+            private StackPanel getUnitDescription(Unite u)
+            {
+                StackPanel stack = new StackPanel();
+                stack.Orientation = Orientation.Horizontal;
+                if (u.verifPointsDeplacement() > 1)
+                    stack.Background = new SolidColorBrush(Colors.LightGray);
+                else
+                    stack.Background = new SolidColorBrush(Colors.DarkGray);
+
+                Label lbLife = new Label();
+                lbLife.Content = "Vie : " + u.Vie;
+                Label lbOff = new Label();
+                lbOff.Content = "Attaque : " + u.Attaque;
+                Label lbDeff = new Label();
+                lbDeff.Content = "Defense : " + u.Defense;
+
+                stack.Children.Add(lbLife);
+                stack.Children.Add(lbOff);
+                stack.Children.Add(lbDeff);
+
+                stack.Tag = u;
+
+                return stack;
+            }
+
+
     }
 }

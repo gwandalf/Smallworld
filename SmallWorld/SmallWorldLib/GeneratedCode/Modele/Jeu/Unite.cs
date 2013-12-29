@@ -107,7 +107,7 @@ namespace Modele.Jeu
 
 		public virtual int verifPointsDeplacement()
 		{
-			throw new System.NotImplementedException();
+            return deplacement;
 		}
 
 		public virtual void deplacer(int lig, int col)
