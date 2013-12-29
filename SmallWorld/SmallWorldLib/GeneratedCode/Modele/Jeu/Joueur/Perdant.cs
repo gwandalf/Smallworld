@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmallWorldLib.GeneratedCode.Modele.Jeu.Joueur
+namespace Modele.Jeu.Joueur
 {
-    class Perdant// : EtatJoueur
+    class Perdant : EtatJoueur
     {
     }
 }

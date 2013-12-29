@@ -6,26 +6,13 @@ using System.Threading.Tasks;
 
 namespace Modele.Jeu.Joueur
 {
-    public abstract class EtatJoueur
+    public abstract class EtatJoueur : JoueurI
     {
-        protected AutomateJoueur automate
+        protected AutomateJoueur automate;
+        public AutomateJoueur Automate
         {
-            get;
-            set;
+            get { return automate; }
+            set { automate = value; }
         }
-
-        //TODO ajouter toutes les methodes qui font changer d'etat.
-        //TODO patron Observateur ?
-
-        /*public ... methodeSortie(params) {
-         *  automate.changerEtat(automate.NouvelEtat);
-         * }
-         * 
-         * constructeur des classes filles :
-         * public Constructeur() {
-         *  traitements...
-         * }
-         */
-
     }
 }
