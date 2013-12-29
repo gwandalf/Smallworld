@@ -82,7 +82,7 @@ namespace test
             //test variables
             //expected location for each player
             bool[] expLoc = {true, true};
-            int[] loc = {0, p.Carte.Dim};
+            int[] loc = {0, p.Carte.Dim - 1};
 
             int k = 0;
             foreach (JoueurI j in p.Joueurs)
