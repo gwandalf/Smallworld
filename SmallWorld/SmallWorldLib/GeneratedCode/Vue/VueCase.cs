@@ -43,6 +43,7 @@ namespace SmallWorldLib.GeneratedCode.Vue
         {
             carte = cRef;
             coord = new Tuple<int, int>(l, c);
+            icon = carte.Cases[l][c].Image;
         }
 
         public void mouseLeftButtonDown()

@@ -15,8 +15,9 @@ namespace Modele.Jeu
 	using System.Text;
     using Wrapper;
     using SmallWorldLib.GeneratedCode.Vue;
+    using System.ComponentModel;
 
-	public interface CarteI
+	public interface CarteI : INotifyPropertyChanged
 	{
         CarteWrapper CarteW
         {

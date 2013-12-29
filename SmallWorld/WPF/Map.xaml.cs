@@ -17,6 +17,7 @@ using Modele.Creation;
 using SmallWorldLib.GeneratedCode;
 using SmallWorldLib.GeneratedCode.Vue;
 using Wrapper;
+using System.ComponentModel;
 
 namespace WPF
 {
@@ -39,7 +40,7 @@ namespace WPF
         ImageFactory imageBrushFactory = new ImageFactory();*/
         PartieI partie;
         Rectangle selectedVisual;
-        StackPanel _selectedUnit;
+        //StackPanel _selectedUnit;
         
         public Map(PartieI p, string nameP1, string nameP2)
         {
@@ -118,10 +119,24 @@ namespace WPF
                 Tuple<int, int> t;
                 map.PositUnite.TryGetValue(u, out t);
                 var rect = createRectangle(t.Item1, t.Item2, view);
+                view.Rectangle = rect;
+                view.PropertyChanged += new PropertyChangedEventHandler(redraw);
                 mapGrid.Children.Add(rect);
             }
             //updateUnitUI();
            
+        }
+
+        public void redraw(object sender, PropertyChangedEventArgs e)
+        {
+            var tile = sender as VueUniteI;
+            UniteI u = tile.Unite;
+            Tuple<int, int> t;
+            map.PositUnite.TryGetValue(u, out t);
+            mapGrid.Children.Remove(tile.Rectangle);
+            var rect = createRectangle(t.Item1, t.Item2, tile);
+            tile.Rectangle = rect;
+            mapGrid.Children.Add(rect);
         }
             /// <summary>
             /// 

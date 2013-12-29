@@ -12,5 +12,10 @@ using SmallWorldLib.GeneratedCode;
 
     public interface CaseI
     {
+        ImageBrush Image
+        {
+            get;
+            set;
+        }
     }
 }

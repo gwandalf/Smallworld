@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Input;
+using System.ComponentModel;
 
 namespace SmallWorldLib.GeneratedCode.Vue
 {
@@ -38,9 +39,16 @@ namespace SmallWorldLib.GeneratedCode.Vue
             set { rectangle = value; }
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChanged(this, new PropertyChangedEventArgs(name));
+        }
+
         public VueUnite(UniteI uRef)
         {
             unite = uRef;
+            unite.PropertyChanged += new PropertyChangedEventHandler(update);
         }
 
         public void mouseLeftButtonDown()
@@ -48,14 +56,9 @@ namespace SmallWorldLib.GeneratedCode.Vue
             unite.selectionner();
         }
 
-        public void effacer()
+        public void update(object sender, PropertyChangedEventArgs e)
         {
-
-        }
-
-        public void afficher()
-        {
-
+            OnPropertyChanged(e.PropertyName);
         }
     }
 }

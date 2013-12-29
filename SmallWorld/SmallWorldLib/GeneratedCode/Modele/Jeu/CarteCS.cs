@@ -15,6 +15,7 @@ namespace Modele.Jeu
 	using System.Text;
     using Wrapper;
     using SmallWorldLib.GeneratedCode.Vue;
+    using System.ComponentModel;
    
 	public class CarteCS : CarteI
 	{
@@ -63,6 +64,12 @@ namespace Modele.Jeu
         {
             get { return selected; }
             set { selected = value; }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged(string name)
+        {
+            PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
 
         /**

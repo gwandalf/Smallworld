@@ -76,6 +76,12 @@ namespace Modele.Jeu
             get { return carte; }
             set { carte = value; }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChanged(this, new PropertyChangedEventArgs(name));
+        }
         /*
 		public virtual Etat etat
 		{
@@ -114,6 +120,7 @@ namespace Modele.Jeu
 		{
             this.Carte.PositUnite.Remove(this);
 			placeOnMap(lig, col);
+            OnPropertyChanged("Position");
 		}
 
 		public virtual void attaquer(int lig, int col)

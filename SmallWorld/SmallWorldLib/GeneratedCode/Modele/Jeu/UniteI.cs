@@ -14,8 +14,9 @@ namespace Modele.Jeu
 	using System.Linq;
 	using System.Text;
     using SmallWorldLib.GeneratedCode.Vue;
+    using System.ComponentModel;
 
-	public interface UniteI
+	public interface UniteI : INotifyPropertyChanged
 	{
     
         int Vie
