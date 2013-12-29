@@ -71,8 +71,8 @@ namespace test
         [TestMethod]
         public void whoCanBeFirst()
         {
-            Assert.IsTrue((partie.Joueurs[0].Premier && !partie.Joueurs[1].Premier)
-                || (!partie.Joueurs[0].Premier && partie.Joueurs[1].Premier));
+            Assert.IsTrue((partie.Joueurs[0].Turn && !partie.Joueurs[1].Turn)
+                || (!partie.Joueurs[0].Turn && partie.Joueurs[1].Turn));
         }
     }
 }

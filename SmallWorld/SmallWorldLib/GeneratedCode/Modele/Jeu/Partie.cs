@@ -56,7 +56,7 @@ namespace Modele.Jeu
             //decides wich player is the first
             Random rand = new Random();
             first = rand.Next(0, 2);
-            this.joueurs[first].Premier = true;
+            this.joueurs[first].Turn = true;
 		}
 
         /**
@@ -69,23 +69,24 @@ namespace Modele.Jeu
 		{
             int i = first;
             JoueurI gagnant = null;
-            while (gagnant == null)
+            while (gagnant == null && nombreTours != 0)
             {
-                //TODO
                 //tant que pas de gagnant :
                 //- demander au joueur courant qui est le prochain qui doit jouer
                 //- jouer un tour d'unite avec le joueur determiner
                 //- determiner s'il y a un gagnant :
                 //  -- si oui, on sort de la boucle
                 //  -- sinon on réitère
-               // while (joueurs[i].nbUnitesJouables() > 0)
-               // {
-                    joueurs[i].passerMain();
-                    nombreTours--;
+               while (joueurs[i].Turn && gagnant == null)
+               {
+                    joueurs[i].jouer();
                     gagnant = determinerGagnant();
-              //  }
-                i = (i + 1) % 2;
+               }
+               i = (i + 1) % 2;
+               nombreTours--;
             }
+            if(gagnant == null)
+                gagnant = determinerGagnant();
             return gagnant;
 		}
 

@@ -28,14 +28,6 @@ namespace Modele.Jeu.Joueur
             set { points = value; }
 		}
 
-        //indicates if the instance is the one who plays the first round
-		private bool premier;
-        public bool Premier
-		{
-            get { return premier; }
-            set { premier = value; }
-		}
-
         //instances of Unite that are in the current instance of Joueur army
 		private List<UniteI> unites;
         public List<UniteI> Unites
@@ -43,6 +35,14 @@ namespace Modele.Jeu.Joueur
             get { return unites; }
             set { unites = value; }
 		}
+
+        //indicates if the current player have to play now or not
+        private bool turn;
+        public bool Turn
+        {
+            get { return turn; }
+            set { turn = value; }
+        }
 
         //state machine describing the current instance
         
@@ -59,17 +59,21 @@ namespace Modele.Jeu.Joueur
         public Joueur(List<UniteI> u)
 		{
             unites = u;
-            premier = false;
+            turn = false;
             foreach (UniteI un in unites)
                 un.defineJoueur(this);
 		}
 
         /**
-         * \fn public virtual void passerMain()
-         * \brief the current player can play now
+         * \fn public virtual void jouer()
+         * \brief let the current player do an action
+         * 
+         * An action can be on the followings :
+         * - play with one of its units
+         * - pass his turn
          * 
          */
-        public virtual void passerMain()
+        public virtual void jouer()
 		{
             UniteI u = unites[unites.Count - 1];
             unites.Remove(u);
@@ -95,7 +99,8 @@ namespace Modele.Jeu.Joueur
          */
         public virtual void passerMain(JoueurI adversaire)
 		{
-			throw new System.NotImplementedException();
+            turn = false;
+            adversaire.Turn = true;
 		}
 
         /**

@@ -20,13 +20,6 @@ namespace Modele.Jeu
             set;
         }
 
-        //indicates if the instance is the one who plays the first round
-        bool Premier
-        {
-            get;
-            set;
-        }
-
         //instances of Unite that are in the current instance of Joueur army
         List<UniteI> Unites
         {
@@ -34,7 +27,13 @@ namespace Modele.Jeu
             set;
         }
 
-		void passerMain();
+        bool Turn
+        {
+            get;
+            set;
+        }
+
+		void jouer();
 
 		int nbUnitesJouables();
 
@@ -47,7 +46,6 @@ namespace Modele.Jeu
         bool unitesSelectionnables(int lig, int col);
 
         List<UniteI> unite();
-
 	}
 }
 
