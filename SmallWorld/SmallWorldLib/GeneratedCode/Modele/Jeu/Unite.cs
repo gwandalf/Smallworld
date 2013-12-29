@@ -102,7 +102,7 @@ namespace Modele.Jeu
 
 		public virtual void selectionner()
 		{
-			throw new System.NotImplementedException();
+            carte.Selected = this;
 		}
 
 		public virtual int verifPointsDeplacement()
@@ -112,7 +112,8 @@ namespace Modele.Jeu
 
 		public virtual void deplacer(int lig, int col)
 		{
-			throw new System.NotImplementedException();
+            this.Carte.PositUnite.Remove(this);
+			placeOnMap(lig, col);
 		}
 
 		public virtual void attaquer(int lig, int col)

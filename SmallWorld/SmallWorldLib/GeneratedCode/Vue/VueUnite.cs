@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Modele.Jeu;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using System.Windows.Input;
 
 namespace SmallWorldLib.GeneratedCode.Vue
 {
@@ -29,9 +31,31 @@ namespace SmallWorldLib.GeneratedCode.Vue
             set { icon = value; }
         }
 
+        private Rectangle rectangle;
+        public Rectangle Rectangle
+        {
+            get { return rectangle; }
+            set { rectangle = value; }
+        }
+
         public VueUnite(UniteI uRef)
         {
             unite = uRef;
+        }
+
+        public void mouseLeftButtonDown()
+        {
+            unite.selectionner();
+        }
+
+        public void effacer()
+        {
+
+        }
+
+        public void afficher()
+        {
+
         }
     }
 }

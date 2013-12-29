@@ -27,5 +27,9 @@ namespace SmallWorldLib.GeneratedCode.Vue
             set;
         }
 
+        void effacer();
+
+        void afficher();
+
     }
 }

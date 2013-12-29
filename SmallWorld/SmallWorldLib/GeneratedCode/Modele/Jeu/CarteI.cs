@@ -14,6 +14,7 @@ namespace Modele.Jeu
 	using System.Linq;
 	using System.Text;
     using Wrapper;
+    using SmallWorldLib.GeneratedCode.Vue;
 
 	public interface CarteI
 	{
@@ -49,6 +50,12 @@ namespace Modele.Jeu
             get;
         }
 
+        UniteI Selected
+        {
+            get;
+            set;
+        }
+
 		void getListeAdjacents(UniteI unite, List<Tuple<int, int>> cases);
 
 		void deplacer(UniteI unite, int lig, int col);
@@ -62,6 +69,8 @@ namespace Modele.Jeu
 		bool isEmpty(int lig, int col);
 
 		void addUnite(UniteI unite);
+
+        VueCaseI makeView(int l, int c);
 
 	}
 }

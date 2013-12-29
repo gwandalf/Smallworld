@@ -105,7 +105,7 @@ namespace WPF
                 mapGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(50, GridUnitType.Pixel) });
                 for (int c = 0; c < map.Dim; c++)
                 {
-                    AffichableI tile = map.Cases[l][c];
+                    AffichableI tile = map.makeView(l, c);
                     var rect = createRectangle(l, c, tile);
                     mapGrid.Children.Add(rect);
                 }
@@ -170,7 +170,7 @@ namespace WPF
             void rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
             {
                 var rectangle = sender as Rectangle;
-                var tile = rectangle.Tag as Case;
+                var tile = rectangle.Tag as AffichableI;
                 int row = Grid.GetRow(rectangle);
                 int column = Grid.GetColumn(rectangle);
 
@@ -186,11 +186,13 @@ namespace WPF
                 rectangle.StrokeThickness = 3;
                 InfoLabel.Content = String.Format("[{0:00} - {1:00}] {2}", row, column, tile);
 
+                tile.mouseLeftButtonDown();
+                /*
                 if (_selectedUnit != null)
                 {
                     // On veut se déplacer ou attaquer
                     perform_action(row, column);
-                }
+                }*/
                 //mise à jour des infos, de l'écran
                 //update()
 

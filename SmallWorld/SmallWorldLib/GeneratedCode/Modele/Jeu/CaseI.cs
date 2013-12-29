@@ -8,10 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-    using SmallWorldLib.GeneratedCode;
+using SmallWorldLib.GeneratedCode;
 
-    public interface CaseI : AffichableI
+    public interface CaseI
     {
-        
     }
 }

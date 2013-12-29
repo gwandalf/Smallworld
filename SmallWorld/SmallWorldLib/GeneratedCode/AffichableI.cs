@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using System.Windows.Input;
 
 namespace SmallWorldLib.GeneratedCode
 {
@@ -15,5 +17,13 @@ namespace SmallWorldLib.GeneratedCode
             get;
             set;
         }
+
+        Rectangle Rectangle
+        {
+            get;
+            set;
+        }
+
+        void mouseLeftButtonDown();
     }
 }

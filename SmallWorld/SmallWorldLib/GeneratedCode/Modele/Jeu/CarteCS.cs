@@ -14,6 +14,7 @@ namespace Modele.Jeu
 	using System.Linq;
 	using System.Text;
     using Wrapper;
+    using SmallWorldLib.GeneratedCode.Vue;
    
 	public class CarteCS : CarteI
 	{
@@ -55,6 +56,13 @@ namespace Modele.Jeu
         public List<List<CaseI>> Cases
         {
             get { return cases; }
+        }
+
+        private UniteI selected;
+        public UniteI Selected
+        {
+            get { return selected; }
+            set { selected = value; }
         }
 
         /**
@@ -132,7 +140,7 @@ namespace Modele.Jeu
 		public virtual void deplacer(UniteI unite, int lig, int col)
 		{
             //Il y a t-il des vérifications à faire dans la méthode
-            unite.placeOnMap(lig, col);
+            unite.deplacer(lig, col);
 		}
 
 		public virtual bool verifCaseAttaquable(JoueurI joueur, int lig, int col)
@@ -165,6 +173,11 @@ namespace Modele.Jeu
 		{
 			throw new System.NotImplementedException();
 		}
+
+        public VueCaseI makeView(int l, int c)
+        {
+            return new VueCase(this, l, c);
+        }
 
 	}
 }

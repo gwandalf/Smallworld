@@ -51,6 +51,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -99,6 +100,8 @@
     <Compile Include="GeneratedCode\Modele\Jeu\Unite.cs" />
     <Compile Include="GeneratedCode\Modele\Jeu\UniteI.cs" />
     <Compile Include="GeneratedCode\Modele\Jeu\Viking.cs" />
+    <Compile Include="GeneratedCode\Vue\VueCase.cs" />
+    <Compile Include="GeneratedCode\Vue\VueCaseI.cs" />
     <Compile Include="GeneratedCode\Vue\VueUnite.cs" />
     <Compile Include="GeneratedCode\Vue\VueUniteI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
