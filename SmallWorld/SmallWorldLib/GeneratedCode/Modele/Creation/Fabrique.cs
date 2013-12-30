@@ -11,6 +11,7 @@ namespace Modele.Creation
 	using System.Linq;
 	using System.Text;
     using Modele.Jeu;
+    using Modele.Jeu.Unit;
 
     /**
      * \class Fabrique<T> where T : Unite, new()
@@ -39,7 +40,11 @@ namespace Modele.Creation
 		{
 			products = new List<UniteI>();
             for (int i = 0; i < nombre; i++)
-                products.Add(new T());
+            {
+                UniteI u = new T();
+                products.Add(u);
+                u.Automate = new AutomateUnite(u);
+            }
 		}
 
         public void defineNbProducts(int nombre)

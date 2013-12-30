@@ -15,6 +15,7 @@ namespace Modele.Jeu
 	using System.Text;
     using SmallWorldLib.GeneratedCode.Vue;
     using System.ComponentModel;
+    using Modele.Jeu.Unit;
 
 	public interface UniteI : INotifyPropertyChanged
 	{
@@ -50,6 +51,17 @@ namespace Modele.Jeu
         }
 
         CarteI Carte
+        {
+            get;
+            set;
+        }
+
+        AutomateUniteI Automate
+        {
+            set;
+        }
+
+        Boolean Turn
         {
             get;
             set;

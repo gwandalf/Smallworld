@@ -48,7 +48,8 @@ namespace SmallWorldLib.GeneratedCode.Vue
 
         public void mouseLeftButtonDown()
         {
-            carte.deplacer(carte.Selected, coord.Item1, coord.Item2);
+            if (carte.Selected != null)
+                carte.deplacer(carte.Selected, coord.Item1, coord.Item2);
         }
     }
 }

@@ -11,6 +11,7 @@ namespace Modele.Jeu.Joueur
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
+    using Modele.Jeu.Unit;
 
     /**
      * \class Joueur
@@ -41,7 +42,12 @@ namespace Modele.Jeu.Joueur
         public bool Turn
         {
             get { return turn; }
-            set { turn = value; }
+            set 
+            {
+                turn = value;
+                foreach (UniteI u in unites)
+                    u.Turn = value;
+            }
         }
 
         //state machine describing the current instance
@@ -61,7 +67,9 @@ namespace Modele.Jeu.Joueur
             unites = u;
             turn = false;
             foreach (UniteI un in unites)
+            {
                 un.defineJoueur(this);
+            }
 		}
 
         /**
