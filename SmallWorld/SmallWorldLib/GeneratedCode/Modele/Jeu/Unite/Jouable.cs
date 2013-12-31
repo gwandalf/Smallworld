@@ -8,6 +8,16 @@ namespace Modele.Jeu.Unit
 {
     public class Jouable : EtatUnite
     {
+        public override Boolean Turn
+        {
+            set
+            {
+                turn = value;
+                if (!turn)
+                    automate.Courant = automate.TourAdverse;
+            }
+        }
+
         public Jouable(UniteI u, AutomateUniteI au)
             : base(u, au)
         {
