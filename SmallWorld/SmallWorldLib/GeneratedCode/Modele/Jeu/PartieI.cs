@@ -11,7 +11,8 @@ namespace Modele.Jeu
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
-	using System.Text;
+    using System.Text;
+    using System.ComponentModel;
 
 	public interface PartieI
 	{
@@ -38,6 +39,15 @@ namespace Modele.Jeu
 		void afficherUnites(List<UniteI> unites);
 
 		JoueurI determinerGagnant();
+
+        /**
+         * \fn void update(object sender, PropertyChangedEventArgs e)
+         * \brief action that must be done when a player notifies he finished his turn
+         * 
+         * param[in] sender : notifier
+         * param[in] e : arguments identifying the notification
+         */
+        void update(object sender, PropertyChangedEventArgs e);
 
 	}
 }

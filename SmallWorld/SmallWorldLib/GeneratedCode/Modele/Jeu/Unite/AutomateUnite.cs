@@ -72,7 +72,11 @@ namespace Modele.Jeu.Unit
         public EtatUniteI Courant
         {
             get { return courant; }
-            set { courant = value; }
+            set 
+            { 
+                courant = value;
+                courant.arrivee();
+            }
         }
 
         private Boolean turn;

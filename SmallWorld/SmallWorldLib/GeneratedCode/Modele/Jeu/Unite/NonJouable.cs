@@ -12,5 +12,10 @@ namespace Modele.Jeu.Unit
             : base(u, au)
         {
         }
+
+        public override void arrivee()
+        {
+            unite.Joueur.NbUnitesJouables--;
+        }
     }
 }

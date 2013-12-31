@@ -10,7 +10,8 @@ namespace Modele.Jeu
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
-	using System.Text;
+    using System.Text;
+    using System.ComponentModel;
 
 	public class Partie : PartieI
 	{
@@ -50,6 +51,8 @@ namespace Modele.Jeu
         public Partie(List<JoueurI> joueurs, int nbTours, CarteI carte)
 		{
             this.joueurs = joueurs;
+            foreach(JoueurI j in joueurs)
+                j.PropertyChanged += new PropertyChangedEventHandler(update);
             this.nombreTours = nbTours;
             this.carte = carte;
 
@@ -119,6 +122,25 @@ namespace Modele.Jeu
                 else return null;
             }
 		}
+
+        public void update(object sender, PropertyChangedEventArgs e)
+        {
+            nombreTours--;
+            JoueurI gagnant = determinerGagnant();
+            if (gagnant == null && nombreTours != 0)
+            {
+                for (int i = 0 ; i < joueurs.Count ; i++)
+                {
+                    if (joueurs[i].Turn)
+                    {
+                        joueurs[i].passerMain(joueurs[(i + 1) % joueurs.Count]);
+                        break;
+                    }
+
+                }
+            }
+
+        }
 
 	}
 }
