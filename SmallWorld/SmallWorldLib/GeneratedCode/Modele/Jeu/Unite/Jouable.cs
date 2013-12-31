@@ -23,6 +23,16 @@ namespace Modele.Jeu.Unit
         {
         }
 
+        public virtual void arrivee()
+        {
+            unite.Joueur.NbUnitesJouables++;
+        }
+
+        public virtual void sortie()
+        {
+            unite.Joueur.NbUnitesJouables--;
+        }
+
         public override void selectionner()
         {
             unite.Carte.Selected = unite;

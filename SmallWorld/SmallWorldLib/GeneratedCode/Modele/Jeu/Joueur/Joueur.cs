@@ -86,7 +86,7 @@ namespace Modele.Jeu.Joueur
             {
                 un.Joueur = this;
             }
-            nbUnitesJouables = unites.Count;
+            nbUnitesJouables = 0;
 		}
 
         /**

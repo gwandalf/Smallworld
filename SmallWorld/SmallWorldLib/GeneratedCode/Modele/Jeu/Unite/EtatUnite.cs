@@ -36,6 +36,10 @@ namespace Modele.Jeu.Unit
         {
         }
 
+        public virtual void sortie()
+        {
+        }
+
         public virtual void selectionner()
         {
         }
