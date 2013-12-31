@@ -69,7 +69,7 @@ namespace Modele.Jeu
          * return : the winner of the game
          */
         public virtual JoueurI start()
-		{
+		{/*
             int i = first;
             JoueurI gagnant = null;
             while (gagnant == null && nombreTours != 0)
@@ -90,7 +90,8 @@ namespace Modele.Jeu
             }
             if(gagnant == null)
                 gagnant = determinerGagnant();
-            return gagnant;
+            return gagnant;*/
+            return null;
 		}
 
 		public virtual void afficherUnites(List<UniteI> unites)
@@ -105,7 +106,7 @@ namespace Modele.Jeu
          * return : the winner of the game, or null if there is not winner yet
          */
         public virtual JoueurI determinerGagnant()
-		{
+		{/*
             if (nombreTours == 0)
             {
                 if (joueurs[0].Points > joueurs[1].Points)
@@ -120,12 +121,13 @@ namespace Modele.Jeu
                 else if (joueurs[1].Unites.Count == 0)
                     return joueurs[0];
                 else return null;
-            }
+            }*/
+            return null;
 		}
 
         public void update(object sender, PropertyChangedEventArgs e)
         {
-            nombreTours--;
+            //nombreTours--;
             JoueurI gagnant = determinerGagnant();
             if (gagnant == null)
             {

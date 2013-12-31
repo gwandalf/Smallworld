@@ -25,13 +25,6 @@ namespace Modele.Jeu.Unit
          */
         void arrivee();
 
-        /**
-         * \fn void sortie();
-         * \brief the Unite does the some operations at the exit of this state
-         * 
-         */
-        void sortie();
-
         void selectionner();
 
         void deplacement();

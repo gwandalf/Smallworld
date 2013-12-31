@@ -74,7 +74,6 @@ namespace Modele.Jeu.Unit
             get { return courant; }
             set 
             {
-                courant.sortie();
                 courant = value;
                 courant.arrivee();
             }

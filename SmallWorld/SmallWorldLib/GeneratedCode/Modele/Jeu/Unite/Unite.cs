@@ -27,6 +27,7 @@ namespace Modele.Jeu
 	{
 
         public static ImageBrush ICON = new ImageBrush(new BitmapImage(new Uri(@"..\..\Resources\zelda.png", UriKind.Relative)));
+        public static int DEPL = 3;
 
         protected ImageBrush icon;
 
@@ -116,7 +117,7 @@ namespace Modele.Jeu
         public Unite()
         {
             vie = 2;
-            deplacement = 3;
+            deplacement = DEPL;
             attaque = 2;
             defense = 1;
             icon = ICON;

@@ -113,7 +113,7 @@ namespace Modele.Jeu.Joueur
          */
         public virtual void passerMain(JoueurI adversaire)
 		{
-            turn = false;
+            Turn = false;
             adversaire.Turn = true;
 		}
 

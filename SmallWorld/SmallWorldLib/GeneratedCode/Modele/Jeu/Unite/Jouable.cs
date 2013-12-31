@@ -28,11 +28,6 @@ namespace Modele.Jeu.Unit
             unite.Joueur.NbUnitesJouables = unite.Joueur.NbUnitesJouables + 1;
         }
 
-        public override void sortie()
-        {
-            unite.Joueur.NbUnitesJouables = unite.Joueur.NbUnitesJouables - 1;
-        }
-
         public override void selectionner()
         {
             unite.Carte.Selected = unite;
@@ -40,6 +35,7 @@ namespace Modele.Jeu.Unit
 
         public override void deplacement()
         {
+            unite.Joueur.NbUnitesJouables = unite.Joueur.NbUnitesJouables - 1;
             automate.Courant = automate.NonJouable;
         }
     }

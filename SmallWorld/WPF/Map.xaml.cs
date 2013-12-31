@@ -203,14 +203,7 @@ namespace WPF
                 InfoLabel.Content = String.Format("[{0:00} - {1:00}] {2}", row, column, tile);
 
                 tile.mouseLeftButtonDown();
-                /*
-                if (_selectedUnit != null)
-                {
-                    // On veut se déplacer ou attaquer
-                    perform_action(row, column);
-                }*/
-                //mise à jour des infos, de l'écran
-                //update()
+                updateInfo();
 
                 e.Handled = true;
             }
