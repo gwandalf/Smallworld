@@ -23,12 +23,12 @@ namespace Modele.Jeu.Unit
         {
         }
 
-        public virtual void arrivee()
+        public override void arrivee()
         {
             unite.Joueur.NbUnitesJouables = unite.Joueur.NbUnitesJouables + 1;
         }
 
-        public virtual void sortie()
+        public override void sortie()
         {
             unite.Joueur.NbUnitesJouables = unite.Joueur.NbUnitesJouables - 1;
         }

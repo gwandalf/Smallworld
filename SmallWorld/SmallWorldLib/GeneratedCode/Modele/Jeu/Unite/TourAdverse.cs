@@ -23,10 +23,5 @@ namespace Modele.Jeu.Unit
         {
         }
 
-        public override void arrivee()
-        {
-            unite.Joueur.NbUnitesJouables++;
-        }
-
     }
 }

@@ -47,7 +47,7 @@ namespace WPF
             InitializeComponent();
             partie = p;
 
-            partie.start();
+            //partie.start();
            
            // configurer l'affichage selon les noms de joueurs
         }

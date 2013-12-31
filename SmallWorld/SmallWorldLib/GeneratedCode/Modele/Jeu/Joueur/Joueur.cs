@@ -58,7 +58,7 @@ namespace Modele.Jeu.Joueur
             set
             {
                 nbUnitesJouables = value;
-                if (value == 0)
+                if (nbUnitesJouables == 0)
                     OnPropertyChanged("NbUnitesJouables");
             }
         }

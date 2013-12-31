@@ -127,7 +127,7 @@ namespace Modele.Jeu
         {
             nombreTours--;
             JoueurI gagnant = determinerGagnant();
-            if (gagnant == null && nombreTours != 0)
+            if (gagnant == null)
             {
                 for (int i = 0 ; i < joueurs.Count ; i++)
                 {
