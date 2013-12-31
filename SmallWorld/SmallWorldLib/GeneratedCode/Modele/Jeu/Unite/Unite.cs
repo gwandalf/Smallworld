@@ -116,23 +116,17 @@ namespace Modele.Jeu
         public Unite()
         {
             vie = 2;
-            deplacement = 1;
+            deplacement = 3;
             attaque = 2;
             defense = 1;
             icon = ICON;
             turn = false;
-            //automate = new AutomateUnite(this);
         }
 
 
 		public virtual void selectionner()
 		{
             automate.selectionner();
-		}
-
-		public virtual int verifPointsDeplacement()
-		{
-            return deplacement;
 		}
 
 		public virtual void deplacer(int lig, int col)

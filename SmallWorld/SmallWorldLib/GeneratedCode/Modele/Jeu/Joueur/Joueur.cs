@@ -12,6 +12,7 @@ namespace Modele.Jeu.Joueur
 	using System.Linq;
 	using System.Text;
     using Modele.Jeu.Unit;
+    using System.ComponentModel;
 
     /**
      * \class Joueur
@@ -50,8 +51,23 @@ namespace Modele.Jeu.Joueur
             }
         }
 
-        //state machine describing the current instance
-        private AutomateJoueur automate;
+        private int nbUnitesJouables;
+        public int NbUnitesJouables
+        {
+            get { return nbUnitesJouables; }
+            set
+            {
+                nbUnitesJouables = value;
+                if (value == 0)
+                    OnPropertyChanged("NbUnitesJouables");
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged(string name)
+        {
+            PropertyChanged(this, new PropertyChangedEventArgs(name));
+        }
 
         /**
          * \fn public Joueur(List<UniteI> unites)
@@ -70,6 +86,7 @@ namespace Modele.Jeu.Joueur
             {
                 un.Joueur = this;
             }
+            nbUnitesJouables = unites.Count;
 		}
 
         /**
@@ -85,17 +102,6 @@ namespace Modele.Jeu.Joueur
 		{
             UniteI u = unites[unites.Count - 1];
             unites.Remove(u);
-		}
-
-        /**
-         * \fn public virtual int nbUnitesJouables()
-         * \brief how many unites can be played ?
-         * 
-         * \return int : the number of unites that can be played
-         */
-        public virtual int nbUnitesJouables()
-		{
-            return unites.Count;
 		}
 
         /**
