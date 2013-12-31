@@ -35,5 +35,9 @@ namespace Modele.Jeu.Unit
         public virtual void selectionner()
         {
         }
+
+        public virtual void deplacement()
+        {
+        }
     }
 }

@@ -17,5 +17,10 @@ namespace Modele.Jeu.Unit
         {
             unite.Carte.Selected = unite;
         }
+
+        public override void deplacement()
+        {
+            automate.Courant = automate.NonJouable;
+        }
     }
 }

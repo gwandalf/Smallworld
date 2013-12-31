@@ -47,7 +47,12 @@ namespace Modele.Jeu
         public int Deplacement
 		{
             get { return deplacement; }
-            set { deplacement = value; }
+            set 
+            { 
+                deplacement = value;
+                if (value == 0)
+                    automate.deplacement();
+            }
 		}
 
         protected int attaque;
@@ -132,11 +137,26 @@ namespace Modele.Jeu
 
 		public virtual void deplacer(int lig, int col)
 		{
-            this.Carte.PositUnite.Remove(this);
-			placeOnMap(lig, col);
-            deplacement = 0;
-            OnPropertyChanged("Position");
+            int distance = deplacementPossible(lig, col);
+            if (distance != -1)
+            {
+                this.Carte.PositUnite.Remove(this);
+                placeOnMap(lig, col);
+                Deplacement -= distance;
+                OnPropertyChanged("Position");
+            }
 		}
+
+        public int deplacementPossible(int lig, int col)
+        {
+            Tuple<int, int> pos;
+            carte.PositUnite.TryGetValue(this, out pos);
+            int res = Math.Abs(pos.Item1 - lig) + Math.Abs(pos.Item2 - col);
+            if (res <= deplacement)
+                return res;
+            else
+                return -1;
+        }
 
 		public virtual void attaquer(int lig, int col)
 		{
@@ -175,18 +195,6 @@ namespace Modele.Jeu
 		}
 
 		public abstract int rapporterPoints();
-
-        /**
-         * \fn void defineJoueur(JoueurI joueur)
-         * \brief set the player
-         * 
-         * param[in] player : player the unite belongs to
-         * 
-         */
-        public void defineJoueur(JoueurI joueur)
-        {
-            this.Joueur = joueur;
-        }
 
         /**
          * \fn void placeOnMap(int x, int y)

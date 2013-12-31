@@ -92,6 +92,7 @@ namespace WPF
             if(selectedVisual != null)
                 InfoLabel.Content = "unité présente";
         }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             map = partie.Carte;

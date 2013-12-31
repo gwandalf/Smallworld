@@ -96,5 +96,10 @@ namespace Modele.Jeu.Unit
         {
             courant.selectionner();
         }
+
+        public void deplacement()
+        {
+            courant.deplacement();
+        }
     }
 }

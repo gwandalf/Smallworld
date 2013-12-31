@@ -68,7 +68,7 @@ namespace Modele.Jeu.Joueur
             turn = false;
             foreach (UniteI un in unites)
             {
-                un.defineJoueur(this);
+                un.Joueur = this;
             }
 		}
 

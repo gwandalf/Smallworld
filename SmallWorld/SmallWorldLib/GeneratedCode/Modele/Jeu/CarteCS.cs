@@ -34,7 +34,7 @@ namespace Modele.Jeu
         // CarteWrapper (C++) sees unites as IDs
         // Carte (C#) sees unites as instances of the class Unite
         private Dictionary<UniteI, Tuple<int,int>> positUnite;
-        public virtual Dictionary<UniteI, Tuple<int, int>> PositUnite
+        public Dictionary<UniteI, Tuple<int, int>> PositUnite
 		{
             get { return positUnite; }
             set { positUnite = value; }
