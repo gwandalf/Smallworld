@@ -27,7 +27,7 @@ namespace Modele.Creation
             set;
         }
 
-        //unit factory
+        //unit factories
         List<FabriqueI> FabriquesUnite
         {
             get;

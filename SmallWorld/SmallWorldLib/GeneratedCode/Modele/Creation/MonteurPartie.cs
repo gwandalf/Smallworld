@@ -13,11 +13,13 @@ namespace Modele.Creation
     using Modele.Jeu;
     using Modele.Jeu.Joueur;
 
-	/// <remarks>Monteur</remarks>
-	/// <remarks>Stratégie : difficultée de la partie</remarks>
+    /// <summary>
+    /// decides the type of the game (size of the map, number of rounds, ...)
+    /// </summary>
+	/// <remarks>Builder</remarks>
 	public abstract class MonteurPartie : MonteurPartieI
 	{
-
+        //number of rounds
         protected int nbTours;
         public int NbTours
         {
@@ -25,6 +27,7 @@ namespace Modele.Creation
             set { nbTours = value; }
         }
 
+        //unit factories
         protected List<FabriqueI> fabriquesUnite;
         public virtual List<FabriqueI> FabriquesUnite
 		{
@@ -38,6 +41,18 @@ namespace Modele.Creation
             }
 		}
 
+        /// <summary>
+        /// default constructor
+        /// </summary>
+        public MonteurPartie()
+        {
+        }
+
+        /// <summary>
+        /// The method creates the internal representation of each player.
+        /// The players are created initilized with the units produced by the factories
+        /// </summary>
+        /// <returns> players of the game </returns>
 		public virtual List<JoueurI> makeJoueurs()
 		{
 			List<JoueurI> res = new List<JoueurI>();
@@ -49,22 +64,12 @@ namespace Modele.Creation
             return res;
 		}
 
-        /**
-         * \fn void defineFabriqueUnite(List<FabriqueI> fu)
-         * \brief set the current fabric for unites
-         * 
-         * param[in] fu : fabric to set
-         * 
-         */
-        public void defineFabriqueUnite(List<FabriqueI> fu)
-        {
-            this.FabriquesUnite = fu;
-        }
-
-		public MonteurPartie()
-		{
-		}
-
+        /// <summary>
+        /// The method produces the map, depending on the selected parameters.
+        /// The players must be associated to the produced map.
+        /// </summary>
+        /// <param name="joueurs"> players of the game </param>
+        /// <returns> map of the game </returns>
         public abstract CarteI makeCarte(List<JoueurI> joueurs);
 
 	}

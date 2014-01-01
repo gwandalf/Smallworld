@@ -30,7 +30,7 @@ namespace Modele.Creation
             set { monteurPartie = value; }
 		}
 
-        //unit factory
+        //unit factories
         private List<FabriqueI> fabriquesUnite;
 		public List<FabriqueI> FabriquesUnite
 		{
