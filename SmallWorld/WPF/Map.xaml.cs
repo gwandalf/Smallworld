@@ -205,6 +205,11 @@ namespace WPF
                 this.popup1.IsOpen = true;
             }
 
+            protected void btnPopup_OnClick(object sender, RoutedEventArgs e)
+            {
+                //TODO completer
+            }
+
             /// <summary>
             /// Called after each click on the map
             /// </summary>

@@ -59,7 +59,7 @@ namespace Modele.Jeu
             this.nombreTours = nbTours;
             this.carte = carte;
 
-            //decides wich player is the first
+            //decides which player is the first
             Random rand = new Random();
             first = rand.Next(0, 2);
             current = first;
@@ -131,9 +131,15 @@ namespace Modele.Jeu
 
         public void update(object sender, PropertyChangedEventArgs e)
         {
+            int former = current;
+            current = (current + 1) % joueurs.Count;
+            if (current == first)
+                nombreTours--;
             JoueurI gagnant = determinerGagnant();
             if (gagnant == null)
             {
+                joueurs[former].passerMain(joueurs[current]);
+                /*
                 for (int i = 0 ; i < joueurs.Count ; i++)
                 {
                     if (joueurs[i].Turn)
@@ -142,7 +148,7 @@ namespace Modele.Jeu
                         break;
                     }
 
-                }
+                }*/
             }
 
         }

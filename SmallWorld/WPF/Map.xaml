@@ -65,5 +65,6 @@
                 <Button x:Name="btnPopup" Click="btnPopup_OnClick" />
             </StackPanel>
         </Popup>
+        
     </DockPanel>
 </Window>
