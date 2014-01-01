@@ -35,8 +35,8 @@ namespace Modele.Jeu.Unit
 
         public override void deplacement()
         {
-            unite.Joueur.NbUnitesJouables = unite.Joueur.NbUnitesJouables - 1;
             automate.Courant = automate.NonJouable;
+            unite.Joueur.NbUnitesJouables = unite.Joueur.NbUnitesJouables - 1;
         }
     }
 }
