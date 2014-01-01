@@ -21,6 +21,7 @@ namespace Modele.Creation
     public class Fabrique<T> : FabriqueI where T : UniteI, new()
 	{
 
+        //number of units that must be produced
         protected int nombre;
 		public int Nombre
 		{
@@ -28,6 +29,7 @@ namespace Modele.Creation
             set { nombre = value; }
 		}
 
+        //produced units
         protected List<UniteI> products;
         public List<UniteI> Products
         {
@@ -36,15 +38,16 @@ namespace Modele.Creation
         }
 
 
-        /**
-         * \fn Fabrique()
-         * \brief default constructor
-         * 
-         */
+       /// <summary>
+       /// default constructor
+       /// </summary>
         public Fabrique()
         {
         }
 
+        /// <summary>
+        /// production of the units
+        /// </summary>
 		public virtual void fabriquer()
 		{
 			products = new List<UniteI>();

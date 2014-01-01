@@ -12,20 +12,33 @@ namespace Modele.Creation
 	using System.Text;
     using Modele.Jeu;
 
+    /// <remarks>
+    /// Singleton
+    /// </remarks>
+    /// <summary>
+    /// used to configurate the game (peoples, size of the map, number of turns, number of units by army)
+    /// </summary>
 	public interface GameInitiatorI 
 	{
+        //builder : determines the type of the game (size of the map, number of rounds, ...)
         MonteurPartieI MonteurPartie
         {
             get;
             set;
         }
 
+        //unit factory
         List<FabriqueI> FabriquesUnite
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// creates the intern representation of the game
+        /// delegates the work to its attributes : the game builder and unit factory
+        /// </summary>
+        /// <returns> representation of the game </returns>
 		PartieI creerPartie();
 
 	}

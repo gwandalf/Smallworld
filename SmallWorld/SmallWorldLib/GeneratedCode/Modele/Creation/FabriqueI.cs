@@ -28,11 +28,9 @@ namespace Modele.Creation
             set;
         }
 
-        /**
-         * \fn void fabriquer()
-         *`\brief production of the units
-         * 
-         */
+        /// <summary>
+        /// production of the units
+        /// </summary>
         void fabriquer();
 	}
 }

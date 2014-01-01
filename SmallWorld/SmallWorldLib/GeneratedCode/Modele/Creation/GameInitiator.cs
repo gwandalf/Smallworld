@@ -12,14 +12,17 @@ namespace Modele.Creation
 	using System.Linq;
 	using System.Text;
 
-	/// <remarks>
-	/// Singleton
-	/// 
-	/// </remarks>
-	public class GameInitiator : GameInitiatorI
+    /// <remarks>
+    /// Singleton
+    /// </remarks>
+    /// <summary>
+    /// used to configurate the game (peoples, size of the map, number of turns, number of units by army)
+    /// </summary>
+    public sealed class GameInitiator : GameInitiatorI
 	{
         public static GameInitiator INSTANCE = new GameInitiator();
 
+        //builder : determines the type of the game (size of the map, number of rounds, ...)
         private MonteurPartieI monteurPartie;
 		public MonteurPartieI MonteurPartie
 		{
@@ -27,6 +30,7 @@ namespace Modele.Creation
             set { monteurPartie = value; }
 		}
 
+        //unit factory
         private List<FabriqueI> fabriquesUnite;
 		public List<FabriqueI> FabriquesUnite
 		{
@@ -34,16 +38,19 @@ namespace Modele.Creation
             set { fabriquesUnite = value; }
 		}
 
+        /// <summary>
+        /// default constructor
+        /// private : 
+        /// </summary>
 		private GameInitiator()
 		{
-            //TODO interface avec boutons (?)
 		}
 
-        /**
-         * \fn public Partie creerPartie()
-         * \brief creation of a party using the builder
-         *  comment
-         */
+        /// <summary>
+        /// creates the intern representation of the game
+        /// delegates the work to its attributes : the game builder and unit factory
+        /// </summary>
+        /// <returns> representation of the game </returns>
 		public PartieI creerPartie()
 		{
             monteurPartie.FabriquesUnite = fabriquesUnite;

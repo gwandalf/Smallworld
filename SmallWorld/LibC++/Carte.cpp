@@ -78,7 +78,6 @@ void Carte::placeUnites(int begin, int end, int lig, int col) {
 	}
 }
 
-
 int Carte::getDim() {return dim;}
 
 /**
