@@ -13,9 +13,13 @@ namespace Modele.Creation
     using Modele.Jeu;
     using Modele.Jeu.Joueur;
 
+    /// <summary>
+    /// Builder of a demonstration game : 4 units by army, map of 5X5 cases, 5 rounds
+    /// </summary>
 	public class MonteurPartieDemo : MonteurPartie
 	{
 
+        //unit factories
         public override List<FabriqueI> FabriquesUnite
         {
             set
@@ -23,27 +27,31 @@ namespace Modele.Creation
                 base.FabriquesUnite = value;
                 if (value.Count == 2)
                 {
+                    //we force the number of units to 4
                     foreach (FabriqueI fu in value)
                         fu.Nombre = 4;
                 }
             }
         }
 
-        /**
-         * \fn public override CarteI makeCarte(List(JoueurI) joueurs)
-         * \brief only call the constructor of a "CarteI" implementation
-         * 
-         * The map generated places the players. Its dimension is 5
-         * 
-         * param[in, out] joueurs : parameters of the constructor of the map
-         * 
-         */
-		public override Modele.Jeu.CarteI makeCarte(List<JoueurI> joueurs)
+        /// <summary>
+        /// The method produces the map, depending on the selected parameters.
+        /// The players must be associated to the produced map.
+        /// The map contains 5X5 cases
+        /// </summary>
+        /// <param name="joueurs"> players of the game </param>
+        /// <returns> map of the game </returns>
+		public override CarteI makeCarte(List<JoueurI> joueurs)
 		{
             return new CarteCS(5, joueurs);
 		}
 
+        /// <summary>
+        /// default constructor
+        /// the number of rounds is initilized to 5
+        /// </summary>
 		public MonteurPartieDemo()
+            : base()
 		{
             nbTours = 5;
 		}

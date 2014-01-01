@@ -19,7 +19,6 @@ using SmallWorldLib.GeneratedCode.Vue;
 using Wrapper;
 using System.ComponentModel;
 using Modele.Jeu.Joueur;
-using Modele.Jeu;
 using System.Windows.Controls.Primitives;
 namespace WPF
 {
