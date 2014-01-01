@@ -41,8 +41,6 @@ namespace Modele.Jeu
             set;
         }
 
-		void jouer();
-
 		void passerMain(JoueurI adversaire);
 
 		bool aVaincu(JoueurI adversaire);
@@ -50,8 +48,6 @@ namespace Modele.Jeu
 		void fin();
 
         bool unitesSelectionnables(int lig, int col);
-
-        List<UniteI> unite();
 	}
 }
 

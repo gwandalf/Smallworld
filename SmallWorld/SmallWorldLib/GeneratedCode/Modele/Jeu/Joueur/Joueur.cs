@@ -14,16 +14,13 @@ namespace Modele.Jeu.Joueur
     using Modele.Jeu.Unit;
     using System.ComponentModel;
 
-    /**
-     * \class Joueur
-     * 
-     * \brief Represents players of the game
-     * 
-     */
+    /// <summary>
+    /// Representation of a player of the game
+    /// </summary>
 	public class Joueur : JoueurI
 	{
         //number of points
-		private int points;
+		protected int points;
         public int Points
 		{
             get { return points; }
@@ -31,7 +28,7 @@ namespace Modele.Jeu.Joueur
 		}
 
         //instances of Unite that are in the current instance of Joueur army
-		private List<UniteI> unites;
+		protected List<UniteI> unites;
         public List<UniteI> Unites
 		{
             get { return unites; }
@@ -39,7 +36,7 @@ namespace Modele.Jeu.Joueur
 		}
 
         //indicates if the current player have to play now or not
-        private bool turn;
+        protected bool turn;
         public bool Turn
         {
             get { return turn; }
@@ -51,7 +48,8 @@ namespace Modele.Jeu.Joueur
             }
         }
 
-        private int nbUnitesJouables;
+        //number of playable units
+        protected int nbUnitesJouables;
         public int NbUnitesJouables
         {
             get { return nbUnitesJouables; }
@@ -63,45 +61,24 @@ namespace Modele.Jeu.Joueur
             }
         }
 
+        //usefull method to notify player's observers
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string name)
         {
             PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
 
-        /**
-         * \fn public Joueur(List<UniteI> unites)
-         * \brief constructor
-         * 
-         * the value of "premier" is set to false
-         * 
-         * \param[in, out] unites : the army of the player is initialized, the player is set as the player of the unites
-         * 
-         */
+        /// <summary>
+        /// the army of the player is initialized, the player is set as the player of the unites
+        /// </summary>
+        /// <param name="u"> the army of the player </param>
         public Joueur(List<UniteI> u)
 		{
             unites = u;
             turn = false;
             foreach (UniteI un in unites)
-            {
                 un.Joueur = this;
-            }
             nbUnitesJouables = 0;
-		}
-
-        /**
-         * \fn public virtual void jouer()
-         * \brief let the current player do an action
-         * 
-         * An action can be on the followings :
-         * - play with one of its units
-         * - pass his turn
-         * 
-         */
-        public virtual void jouer()
-		{
-            UniteI u = unites[unites.Count - 1];
-            unites.Remove(u);
 		}
 
         /**
@@ -148,16 +125,6 @@ namespace Modele.Jeu.Joueur
 		{
 			throw new System.NotImplementedException();
 		}
-
-        /**
-         * \fn public List<UniteI> unite()
-         * \brief return the army of the current player
-         * 
-         */
-        public virtual List<UniteI> unite()
-        {
-            return unites;
-        }
 
 	}
 }

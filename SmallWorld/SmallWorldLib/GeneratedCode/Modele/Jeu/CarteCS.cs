@@ -94,7 +94,7 @@ namespace Modele.Jeu
             int i = 0;
             foreach (JoueurI j in joueurs)
             {
-                foreach (UniteI u in j.unite())
+                foreach (UniteI u in j.Unites)
                 {
                     u.Carte = this;
                     u.placeOnMap(loc[i], loc[i]);
