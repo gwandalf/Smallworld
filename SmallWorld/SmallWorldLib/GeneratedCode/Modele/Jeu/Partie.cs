@@ -39,6 +39,9 @@ namespace Modele.Jeu
         //index of the first player
         private int first;
 
+        //index of the current player
+        private int current;
+
         /**
          * \fn public Partie(List<JoueurI> joueurs, int nbTours, CarteI carte)
          * \brief Constructor of a party
@@ -59,6 +62,7 @@ namespace Modele.Jeu
             //decides wich player is the first
             Random rand = new Random();
             first = rand.Next(0, 2);
+            current = first;
             this.joueurs[first].Turn = true;
 		}
 
@@ -127,7 +131,6 @@ namespace Modele.Jeu
 
         public void update(object sender, PropertyChangedEventArgs e)
         {
-            //nombreTours--;
             JoueurI gagnant = determinerGagnant();
             if (gagnant == null)
             {
