@@ -110,24 +110,47 @@ namespace Modele.Jeu
          * return : the winner of the game, or null if there is not winner yet
          */
         public virtual JoueurI determinerGagnant()
-		{/*
+		{
             if (nombreTours == 0)
             {
-                if (joueurs[0].Points > joueurs[1].Points)
-                    return joueurs[0];
-                else
-                    return joueurs[1];
+                return determinerMeneur();
             }
             else
             {
-                if (joueurs[0].Unites.Count == 0)
-                    return joueurs[1];
-                else if (joueurs[1].Unites.Count == 0)
-                    return joueurs[0];
-                else return null;
-            }*/
-            return null;
+                return determinerSurvivant();
+            }
 		}
+
+        public JoueurI determinerSurvivant()
+        {
+            JoueurI gagnant = null;
+            int i = 0;
+            while (i < joueurs.Count)
+            {
+                if (joueurs[i].Unites.Count > 0)
+                {
+                    if (gagnant == null)
+                        gagnant = joueurs[i];
+                    else
+                    {
+                        gagnant = null;
+                        break;
+                    }
+                }
+            }
+            return gagnant;
+        }
+
+        public JoueurI determinerMeneur()
+        {
+            JoueurI gagnant = joueurs[0];
+            for (int i = 1; i < joueurs.Count; i++)
+            {
+                if (joueurs[i].Points > gagnant.Points)
+                    gagnant = joueurs[i];
+            }
+            return gagnant;
+        }
 
         public void update(object sender, PropertyChangedEventArgs e)
         {
@@ -137,20 +160,7 @@ namespace Modele.Jeu
                 nombreTours--;
             JoueurI gagnant = determinerGagnant();
             if (gagnant == null)
-            {
                 joueurs[former].passerMain(joueurs[current]);
-                /*
-                for (int i = 0 ; i < joueurs.Count ; i++)
-                {
-                    if (joueurs[i].Turn)
-                    {
-                        joueurs[i].passerMain(joueurs[(i + 1) % joueurs.Count]);
-                        break;
-                    }
-
-                }*/
-            }
-
         }
 
 	}

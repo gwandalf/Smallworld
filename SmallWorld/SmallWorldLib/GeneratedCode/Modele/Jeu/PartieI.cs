@@ -41,6 +41,22 @@ namespace Modele.Jeu
 		JoueurI determinerGagnant();
 
         /**
+         * \fn JoueurI determinerSurvivant()
+         * \brief verifies if there is only one player remaining
+         * 
+         * return the winner, or null if there are two ore more players remaining
+         */
+        JoueurI determinerSurvivant();
+
+        /**
+         * \fn JoueurI determinerMeneur()
+         * \brief gives the player who has the highest score
+         * 
+         * return the winner, or null if there are two ore more players remaining
+         */
+        JoueurI determinerMeneur();
+
+        /**
          * \fn void update(object sender, PropertyChangedEventArgs e)
          * \brief action that must be done when a player notifies he finished his turn
          * 
