@@ -15,10 +15,9 @@ namespace Modele.Creation
 
     /**
      * \class Fabrique<T> where T : Unite, new()
-     * \brief generic class used to produce unites of the specified Type
+     * \brief generic class used to produce units of the specified type T
      * 
      */
-    /// <remarks>Fabrique</remarks>
     public class Fabrique<T> : FabriqueI where T : UniteI, new()
 	{
 
@@ -36,6 +35,16 @@ namespace Modele.Creation
             set { products = value; }
         }
 
+
+        /**
+         * \fn Fabrique()
+         * \brief default constructor
+         * 
+         */
+        public Fabrique()
+        {
+        }
+
 		public virtual void fabriquer()
 		{
 			products = new List<UniteI>();
@@ -45,30 +54,6 @@ namespace Modele.Creation
                 products.Add(u);
                 u.Automate = new AutomateUnite(u);
             }
-		}
-
-        public void defineNbProducts(int nombre)
-        {
-            this.Nombre = nombre;
-        }
-
-        public int nbProducts()
-        {
-            return this.Nombre;
-        }
-
-        /**
-         * \fn List<T> giveProducts()
-         * \brief get the list of products
-         * 
-         */
-        public List<UniteI> giveProducts()
-        {
-            return this.Products;
-        }
-
-		public Fabrique()
-		{
 		}
 
 	}

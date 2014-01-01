@@ -22,7 +22,7 @@ namespace Modele.Creation
                 if (value.Count == 2)
                 {
                     foreach (FabriqueI fu in value)
-                        fu.defineNbProducts(8);
+                        fu.Nombre = 8;
                 }
             }
         }

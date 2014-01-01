@@ -44,7 +44,7 @@ namespace Modele.Creation
             foreach (FabriqueI fu in fabriquesUnite)
             {
                 fu.fabriquer();
-                res.Add(new Joueur(fu.giveProducts()));
+                res.Add(new Joueur(fu.Products));
             }
             return res;
 		}

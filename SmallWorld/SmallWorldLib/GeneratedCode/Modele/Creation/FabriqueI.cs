@@ -14,22 +14,26 @@ namespace Modele.Creation
 
 	public interface FabriqueI
 	{
+        //number of units that must be produced
         int Nombre
         {
             get;
             set;
         }
 
+        //produced units
         List<UniteI> Products
         {
             get;
             set;
         }
 
-		void fabriquer();
-        void defineNbProducts(int nombre);
-        List<UniteI> giveProducts();
-        int nbProducts();
+        /**
+         * \fn void fabriquer()
+         *`\brief production of the units
+         * 
+         */
+        void fabriquer();
 	}
 }
 
