@@ -48,7 +48,7 @@ namespace WPF
             InitializeComponent();
             partie = p;
 
-            partie.start();
+            //partie.start();
            
            // configurer l'affichage selon les noms de joueurs
         }
@@ -93,6 +93,7 @@ namespace WPF
             if(selectedVisual != null)
                 InfoLabel.Content = "unité présente";
         }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             map = partie.Carte;
@@ -230,14 +231,7 @@ namespace WPF
                 InfoLabel.Content = String.Format("[{0:00} - {1:00}] {2}", row, column, tile);
 
                 tile.mouseLeftButtonDown();
-                /*
-                if (_selectedUnit != null)
-                {
-                    // On veut se déplacer ou attaquer
-                    perform_action(row, column);
-                }*/
-                //mise à jour des infos, de l'écran
-                //update()
+                updateInfo();
 
                 //Affichage des unités présentes à l'endroit
                 
@@ -318,8 +312,8 @@ namespace WPF
             private void updateInfo()
             {
                 NbTurnsLeft.Content = "Tours restants : " + partie.NombreTours;
-                Units1Label.Content = "Unitées restantes : " + partie.Joueurs[0].nbUnitesJouables();
-                Units2Label.Content = "Unitées restantes : " + partie.Joueurs[1].nbUnitesJouables();
+                Units1Label.Content = "Unitées restantes : " + partie.Joueurs[0].NbUnitesJouables;
+                Units2Label.Content = "Unitées restantes : " + partie.Joueurs[1].NbUnitesJouables;
                 Points1Label.Content = "Points : " + partie.Joueurs[0].Points;
                 Points2Label.Content = "Points : " + partie.Joueurs[1].Points;
             }
@@ -333,7 +327,7 @@ namespace WPF
             {
                 StackPanel stack = new StackPanel();
                 stack.Orientation = Orientation.Horizontal;
-                if (u.verifPointsDeplacement() > 1)
+                if (u.Deplacement > 1)
                     stack.Background = new SolidColorBrush(Colors.LightGray);
                 else
                     stack.Background = new SolidColorBrush(Colors.DarkGray);

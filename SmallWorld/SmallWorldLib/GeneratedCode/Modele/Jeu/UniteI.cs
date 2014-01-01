@@ -69,15 +69,22 @@ namespace Modele.Jeu
 
 		void selectionner();
 
-		int verifPointsDeplacement();
-
 		void deplacer(int lig, int col);
 
 		void attaquer(int lig, int col);
 
 		List<Tuple<int,int>> getChoixCases();
 
-		List<Tuple<int,int>> deplacementsPossibles();
+        /**
+         * \fn int deplacementPossible(int lig, int col)
+         * \brief determine if the current unite can move to the given position
+         * 
+         * param[in] lig : line number
+         * param[in] col : column number
+         * 
+         * return : distance between the actual position and the target position, or -1 if the move is not possible 
+         */
+        int deplacementPossible(int lig, int col);
 
 		void engagement(UniteI defenseur);
 
@@ -88,8 +95,6 @@ namespace Modele.Jeu
 		void afficher();
 
 		int rapporterPoints();
-
-        void defineJoueur(JoueurI joueur);
 
         void placeOnMap(int x, int y);
 

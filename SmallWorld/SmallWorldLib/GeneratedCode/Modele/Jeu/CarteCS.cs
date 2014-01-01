@@ -34,7 +34,7 @@ namespace Modele.Jeu
         // CarteWrapper (C++) sees unites as IDs
         // Carte (C#) sees unites as instances of the class Unite
         private Dictionary<UniteI, Tuple<int,int>> positUnite;
-        public virtual Dictionary<UniteI, Tuple<int, int>> PositUnite
+        public Dictionary<UniteI, Tuple<int, int>> PositUnite
 		{
             get { return positUnite; }
             set { positUnite = value; }
@@ -87,7 +87,7 @@ namespace Modele.Jeu
 		public CarteCS(int dim, List<JoueurI> joueurs)
 		{
             //construction carteWrapper
-            this.carteW = new CarteWrapper(dim, joueurs[0].nbUnitesJouables());
+            this.carteW = new CarteWrapper(dim, joueurs[0].NbUnitesJouables);
             this.positUnite = new Dictionary<UniteI, Tuple<int, int>>();
             int[] loc = { 0, dim - 1};
 

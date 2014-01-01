@@ -32,7 +32,15 @@ namespace Modele.Jeu.Unit
             turn = false;
         }
 
+        public virtual void arrivee()
+        {
+        }
+
         public virtual void selectionner()
+        {
+        }
+
+        public virtual void deplacement()
         {
         }
     }

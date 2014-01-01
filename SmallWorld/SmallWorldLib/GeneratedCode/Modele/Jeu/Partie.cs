@@ -10,7 +10,8 @@ namespace Modele.Jeu
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
-	using System.Text;
+    using System.Text;
+    using System.ComponentModel;
 
 	public class Partie : PartieI
 	{
@@ -50,6 +51,8 @@ namespace Modele.Jeu
         public Partie(List<JoueurI> joueurs, int nbTours, CarteI carte)
 		{
             this.joueurs = joueurs;
+            foreach(JoueurI j in joueurs)
+                j.PropertyChanged += new PropertyChangedEventHandler(update);
             this.nombreTours = nbTours;
             this.carte = carte;
 
@@ -66,7 +69,7 @@ namespace Modele.Jeu
          * return : the winner of the game
          */
         public virtual JoueurI start()
-		{
+		{/*
             int i = first;
             JoueurI gagnant = null;
             while (gagnant == null && nombreTours != 0)
@@ -87,7 +90,8 @@ namespace Modele.Jeu
             }
             if(gagnant == null)
                 gagnant = determinerGagnant();
-            return gagnant;
+            return gagnant;*/
+            return null;
 		}
 
 		public virtual void afficherUnites(List<UniteI> unites)
@@ -102,7 +106,7 @@ namespace Modele.Jeu
          * return : the winner of the game, or null if there is not winner yet
          */
         public virtual JoueurI determinerGagnant()
-		{
+		{/*
             if (nombreTours == 0)
             {
                 if (joueurs[0].Points > joueurs[1].Points)
@@ -117,8 +121,28 @@ namespace Modele.Jeu
                 else if (joueurs[1].Unites.Count == 0)
                     return joueurs[0];
                 else return null;
-            }
+            }*/
+            return null;
 		}
+
+        public void update(object sender, PropertyChangedEventArgs e)
+        {
+            //nombreTours--;
+            JoueurI gagnant = determinerGagnant();
+            if (gagnant == null)
+            {
+                for (int i = 0 ; i < joueurs.Count ; i++)
+                {
+                    if (joueurs[i].Turn)
+                    {
+                        joueurs[i].passerMain(joueurs[(i + 1) % joueurs.Count]);
+                        break;
+                    }
+
+                }
+            }
+
+        }
 
 	}
 }

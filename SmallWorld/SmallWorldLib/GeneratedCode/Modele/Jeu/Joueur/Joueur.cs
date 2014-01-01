@@ -12,6 +12,7 @@ namespace Modele.Jeu.Joueur
 	using System.Linq;
 	using System.Text;
     using Modele.Jeu.Unit;
+    using System.ComponentModel;
 
     /**
      * \class Joueur
@@ -50,8 +51,23 @@ namespace Modele.Jeu.Joueur
             }
         }
 
-        //state machine describing the current instance
-        private AutomateJoueur automate;
+        private int nbUnitesJouables;
+        public int NbUnitesJouables
+        {
+            get { return nbUnitesJouables; }
+            set
+            {
+                nbUnitesJouables = value;
+                if (nbUnitesJouables == 0)
+                    OnPropertyChanged("NbUnitesJouables");
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged(string name)
+        {
+            PropertyChanged(this, new PropertyChangedEventArgs(name));
+        }
 
         /**
          * \fn public Joueur(List<UniteI> unites)
@@ -68,8 +84,9 @@ namespace Modele.Jeu.Joueur
             turn = false;
             foreach (UniteI un in unites)
             {
-                un.defineJoueur(this);
+                un.Joueur = this;
             }
+            nbUnitesJouables = 0;
 		}
 
         /**
@@ -88,17 +105,6 @@ namespace Modele.Jeu.Joueur
 		}
 
         /**
-         * \fn public virtual int nbUnitesJouables()
-         * \brief how many unites can be played ?
-         * 
-         * \return int : the number of unites that can be played
-         */
-        public virtual int nbUnitesJouables()
-		{
-            return unites.Count;
-		}
-
-        /**
          * \fn public virtual void passerMain(JoueurI adversaire)
          * \brief the player "adversaire" can play now
          * 
@@ -107,7 +113,7 @@ namespace Modele.Jeu.Joueur
          */
         public virtual void passerMain(JoueurI adversaire)
 		{
-            turn = false;
+            Turn = false;
             adversaire.Turn = true;
 		}
 

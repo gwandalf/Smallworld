@@ -50,6 +50,7 @@ namespace SmallWorldLib.GeneratedCode.Vue
         {
             if (carte.Selected != null)
                 carte.deplacer(carte.Selected, coord.Item1, coord.Item2);
+            carte.Selected = null;
         }
     }
 }

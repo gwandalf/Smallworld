@@ -10,9 +10,10 @@ namespace Modele.Jeu
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
-	using System.Text;
+    using System.Text;
+    using System.ComponentModel;
 
-	public interface JoueurI 
+	public interface JoueurI : INotifyPropertyChanged
 	{
         int Points
         {
@@ -33,9 +34,14 @@ namespace Modele.Jeu
             set;
         }
 
-		void jouer();
+        //Nulber of unites which can't be played
+        int NbUnitesJouables
+        {
+            get;
+            set;
+        }
 
-		int nbUnitesJouables();
+		void jouer();
 
 		void passerMain(JoueurI adversaire);
 
