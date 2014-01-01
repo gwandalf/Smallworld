@@ -18,7 +18,9 @@ using SmallWorldLib.GeneratedCode;
 using SmallWorldLib.GeneratedCode.Vue;
 using Wrapper;
 using System.ComponentModel;
-
+using Modele.Jeu.Joueur;
+using Modele.Jeu;
+using System.Windows.Controls.Primitives;
 namespace WPF
 {
     public enum Tile : int
@@ -34,7 +36,6 @@ namespace WPF
     /// </summary>
     public partial class Map : Window
     {
-        
         CarteI map;/*
         MonteurPartie mp;
         ImageFactory imageBrushFactory = new ImageFactory();*/
@@ -112,6 +113,25 @@ namespace WPF
                 }
             }
 
+            
+            //1. En fait il faut pour chaque joueur, positionner une image en fonction de son peuple
+            //2. Comme les unités sont déjà positionnées dans le modèle, il faut il faut associer le clic d'un rectangle 
+            //   avec la recherche des unités présentes à cette position, pour afficher une petite fenêtre récapitulative
+            /*
+            foreach (Joueur i in partie.Joueurs)
+            {   
+                //hum il n'y a pas d'autres moyens pour connaitre le type d'unité?
+                // ca plante juste en dessous, la liste des unités ne doit pas être instanciée
+                VueUniteI view = i.unite()[0].makeView();
+                Tuple<int, int> t;
+                map.PositUnite.TryGetValue(i.unite()[0], out t);
+                var rect = createRectangle(t.Item1, t.Item2, view);
+                view.Rectangle = rect;
+                view.PropertyChanged += new PropertyChangedEventHandler(redraw);
+                mapGrid.Children.Add(rect);
+                
+            }
+            */
             foreach (UniteI u in map.PositUnite.Keys)
             {
                 //Donc s'il y a plusieurs unités sur la case, on refait à chaque fois un nouveau rectangle
@@ -123,6 +143,7 @@ namespace WPF
                 view.PropertyChanged += new PropertyChangedEventHandler(redraw);
                 mapGrid.Children.Add(rect);
             }
+            
             //updateUnitUI();
            
         }
@@ -138,6 +159,7 @@ namespace WPF
             tile.Rectangle = rect;
             mapGrid.Children.Add(rect);
         }
+
             /// <summary>
             /// 
             /// </summary>
@@ -177,13 +199,19 @@ namespace WPF
               
             }
 
+            protected void btnUpdateTestTBL_OnClick(object sender, RoutedEventArgs e)
+            {
+                this.popup1.IsOpen = true;
+            }
+
             /// <summary>
-            /// 
+            /// Called after each click on the map
             /// </summary>
             /// <param name="sender"></param>
             /// <param name="e"></param>
             void rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
             {
+                var unite = sender as UniteI;
                 var rectangle = sender as Rectangle;
                 var tile = rectangle.Tag as AffichableI;
                 int row = Grid.GetRow(rectangle);
@@ -211,9 +239,69 @@ namespace WPF
                 //mise à jour des infos, de l'écran
                 //update()
 
+                //Affichage des unités présentes à l'endroit
+                
+                //ca ne rend rien de bien
+                /*  
+                    StackPanel stack = getListUnit(row, column);
+                    Border border = new Border();
+                    border.BorderThickness = new Thickness(2);
+                    border.Child = stack;
+                    border.Margin = new Thickness(10);
+
+                    unitInfoPanel.Children.Add(border);
+                */
+                Popup codePopup = new Popup();
+                TextBlock popupText = new TextBlock();
+                popupText.Text = "Popup Text";
+                popupText.Background = Brushes.LightBlue;
+                popupText.Foreground = Brushes.Blue;
+                codePopup.Child = popupText;
+                panel.Children.Add(codePopup);
+                //panel.Children.Add(getListUnit(row, column));
+
                 e.Handled = true;
             }
 
+            /// <summary>
+            /// Whenever a unit is selected a Stackpanel of informations is given
+            /// </summary>
+            /// <param name="u"></param>
+            /// <returns></returns>
+            private StackPanel getListUnit(int row, int column)
+            {
+                //creation de la stack   
+                StackPanel stack = new StackPanel();
+                stack.Orientation = Orientation.Horizontal;
+
+                //pour chaque unité on regarde si elle est en position en paramètre
+                foreach (UniteI u in map.PositUnite.Keys)
+                {
+                    //j'essaye d'avoir la position de chaque unité
+                    VueUniteI view = u.makeView();
+                    Tuple<int, int> t;
+                    map.PositUnite.TryGetValue(u, out t);
+                    var rect = createRectangle(t.Item1, t.Item2, view);
+                    view.Rectangle = rect;
+                    view.PropertyChanged += new PropertyChangedEventHandler(redraw);
+                    stack.Children.Add(rect);
+                }
+                /*
+                Label lbLife = new Label();
+                lbLife.Content = "Vie : ";
+                Label lbOff = new Label();
+                lbOff.Content = "Attaque : ";
+                Label lbDeff = new Label();
+                lbDeff.Content = "Defense : ";
+
+                stack.Children.Add(lbLife);
+                stack.Children.Add(lbOff);
+                stack.Children.Add(lbDeff);
+                */
+                stack.Tag = row+column;
+
+                return stack;
+            }
             /// <summary>
             /// 
             /// </summary>
@@ -234,7 +322,6 @@ namespace WPF
                 Units2Label.Content = "Unitées restantes : " + partie.Joueurs[1].nbUnitesJouables();
                 Points1Label.Content = "Points : " + partie.Joueurs[0].Points;
                 Points2Label.Content = "Points : " + partie.Joueurs[1].Points;
-
             }
 
             /// <summary>
@@ -266,7 +353,5 @@ namespace WPF
 
                 return stack;
             }
-
-
     }
 }

@@ -64,10 +64,8 @@ namespace WPF
         {
             this.Nain1.Tag = Nation.NAIN;
             this.Nain2.Tag = Nation.NAIN;
-
             this.Gaul1.Tag = Nation.GAUL;
             this.Gaul2.Tag = Nation.GAUL;
-
             this.Viking1.Tag = Nation.VIKING;
             this.Viking2.Tag = Nation.VIKING;
         }
@@ -178,19 +176,5 @@ namespace WPF
         {
             mp = new MonteurPartieNormale();
         }
-
-       
-
-        
-
-        
-
-        
-
-        
-
-        
-
-       
     }
 }
