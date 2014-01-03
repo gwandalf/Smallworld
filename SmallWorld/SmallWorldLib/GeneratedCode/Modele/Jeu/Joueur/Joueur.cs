@@ -49,16 +49,23 @@ namespace Modele.Jeu.Joueur
         }
 
         //number of playable units
-        protected int nbUnitesJouables;
-        public int NbUnitesJouables
+        protected int nbUnitesNonJouables;
+        public int NbUnitesNonJouables
         {
-            get { return nbUnitesJouables; }
+            get { return nbUnitesNonJouables; }
             set
             {
-                nbUnitesJouables = value;
-                if (nbUnitesJouables == 0)
+                nbUnitesNonJouables = value;
+                if (nbUnitesNonJouables == nbMaxUnites)
                     OnPropertyChanged("NbUnitesJouables");
             }
+        }
+
+        //maximum number of units in the army
+        protected int nbMaxUnites;
+        public int NbMaxUnites
+        {
+            get { return nbMaxUnites; }
         }
 
         //usefull method to notify player's observers
@@ -72,13 +79,14 @@ namespace Modele.Jeu.Joueur
         /// the army of the player is initialized, the player is set as the player of the unites
         /// </summary>
         /// <param name="u"> the army of the player </param>
-        public Joueur(List<UniteI> u)
+        public Joueur(List<UniteI> u, int capacity)
 		{
+            nbMaxUnites = capacity;
             unites = u;
             turn = false;
             foreach (UniteI un in unites)
                 un.Joueur = this;
-            nbUnitesJouables = 0;
+            nbUnitesNonJouables = 0;
 		}
 
         /**

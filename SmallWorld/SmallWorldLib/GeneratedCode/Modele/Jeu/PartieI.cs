@@ -65,6 +65,11 @@ namespace Modele.Jeu
          */
         void update(object sender, PropertyChangedEventArgs e);
 
+        /// <summary>
+        /// action that must be done when a player notifies he finished his turn
+        /// </summary>
+        void finTour();
+
 	}
 }
 

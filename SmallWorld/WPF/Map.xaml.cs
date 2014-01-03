@@ -75,13 +75,13 @@ namespace WPF
             return (Partie)GameInitiator.INSTANCE.creerPartie();
         }
         
-        /// <summary
+        /// <summary>
         ///  Click on end of turn button
         /// </summary>
-        
         private void EndOfTurnButton_Click(object sender, RoutedEventArgs e)
         {
-                //le joueur a terminé son tour, faire tous les changements nécessaires
+            partie.finTour();
+            updateInfo();
         }
 
         private void Window_MouseLeftButtonDown(object sender, RoutedEventArgs e)
@@ -350,8 +350,8 @@ namespace WPF
             private void updateInfo()
             {
                 NbTurnsLeft.Content = "Tours restants : " + partie.NombreTours;
-                Units1Label.Content = "Unitées restantes : " + partie.Joueurs[0].NbUnitesJouables;
-                Units2Label.Content = "Unitées restantes : " + partie.Joueurs[1].NbUnitesJouables;
+                Units1Label.Content = "Unitées restantes : " + (partie.Joueurs[0].NbMaxUnites - partie.Joueurs[0].NbUnitesNonJouables);
+                Units2Label.Content = "Unitées restantes : " + (partie.Joueurs[1].NbMaxUnites - partie.Joueurs[1].NbUnitesNonJouables);
                 Points1Label.Content = "Points : " + partie.Joueurs[0].Points;
                 Points2Label.Content = "Points : " + partie.Joueurs[1].Points;
             }

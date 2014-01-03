@@ -154,6 +154,11 @@ namespace Modele.Jeu
 
         public void update(object sender, PropertyChangedEventArgs e)
         {
+            finTour();
+        }
+
+        public virtual void finTour()
+        {
             int former = current;
             current = (current + 1) % joueurs.Count;
             if (current == first)

@@ -14,18 +14,16 @@ namespace Modele.Jeu.Unit
             {
                 turn = value;
                 if (!turn)
+                {
+                    unite.Deplacement = Modele.Jeu.Unite.DEPL;
                     automate.Courant = automate.TourAdverse;
+                }
             }
         }
 
         public Jouable(UniteI u, AutomateUniteI au)
             : base(u, au)
         {
-        }
-
-        public override void arrivee()
-        {
-            unite.Joueur.NbUnitesJouables = unite.Joueur.NbUnitesJouables + 1;
         }
 
         public override void selectionner()
@@ -36,7 +34,6 @@ namespace Modele.Jeu.Unit
         public override void deplacement()
         {
             automate.Courant = automate.NonJouable;
-            unite.Joueur.NbUnitesJouables = unite.Joueur.NbUnitesJouables - 1;
         }
     }
 }
