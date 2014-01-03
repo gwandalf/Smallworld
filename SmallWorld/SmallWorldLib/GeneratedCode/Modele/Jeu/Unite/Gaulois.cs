@@ -40,11 +40,6 @@ namespace Modele.Jeu
             icon = ICON;
 		}
 
-		public override int rapporterPoints(int lig, int col)
-		{
-			throw new System.NotImplementedException();
-		}
-
         public override void setBonusMalusPoints(bool on)
         {
             if (on)

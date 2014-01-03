@@ -67,6 +67,13 @@ namespace Modele.Jeu
             set;
         }
 
+        //the position of the unit on the map
+        Tuple<int, int> Position
+        {
+            get;
+            set;
+        }
+
 		void selectionner();
 
 		void deplacer(int lig, int col);
@@ -94,7 +101,11 @@ namespace Modele.Jeu
 
 		void afficher();
 
-		int rapporterPoints(int lig, int col);
+        /// <summary>
+        /// the method gives the number of points due to the unit
+        /// </summary>
+        /// <returns> points related to the actual position of the unite on the map </returns>
+		int rapporterPoints();
 
         void placeOnMap(int x, int y);
 

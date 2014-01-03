@@ -236,7 +236,7 @@ namespace WPF
                 InfoLabel.Content = String.Format("[{0:00} - {1:00}] {2}", row, column, tile);
 
                 //affiche le nb d'unités sur la case
-                unitInfoPanel.Content = getListUnitInt(row, column);
+                //unitInfoPanel.Content = getListUnitInt(row, column);
 
                 tile.mouseLeftButtonDown();
                 updateInfo();
@@ -260,7 +260,7 @@ namespace WPF
             }
 
             /// <summary>
-            /// test
+            /// test ERREUR
             /// </summary>
             /// <param name="u"></param>
             /// <returns></returns>

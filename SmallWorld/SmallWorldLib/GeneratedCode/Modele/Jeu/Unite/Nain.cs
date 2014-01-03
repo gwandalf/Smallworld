@@ -40,22 +40,17 @@ namespace Modele.Jeu
             icon = ICON;
 		}
 
-		public override int rapporterPoints(int lig, int col)
-		{
-			throw new System.NotImplementedException();
-		}
-
         public override void setBonusMalusPoints(bool on)
         {
             if (on)
             {
-                carte.Fabrique.Plaine.Points++;
-                carte.Fabrique.Montagne.Points = 0;
+                carte.Fabrique.Foret.Points++;
+                carte.Fabrique.Plaine.Points = 0;
             }
             else
             {
                 carte.Fabrique.Plaine.setDefault();
-                carte.Fabrique.Montagne.setDefault();
+                carte.Fabrique.Foret.setDefault();
             }
         }
 

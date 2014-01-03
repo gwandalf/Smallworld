@@ -40,22 +40,40 @@ namespace Modele.Jeu
             icon = ICON;
 		}
 
-		public override int rapporterPoints(int lig, int col)
-		{
-			throw new System.NotImplementedException();
-		}
+        /// <summary>
+        /// special rule for vikings : a point is added if there is a case 'sea' besides the actual position
+        /// </summary>
+        /// <returns> points related to the actual position of the unite on the map </returns>
+        public override int rapporterPoints()
+        {
+            int res = base.rapporterPoints();
+            
+            //we look for a case of type sea in one of the adjacent cases
+            int i = 0;
+            bool trouve = false;
+            List<Tuple<int,int>> adj = carte.getListeAdjacents(this);
+            while (i < adj.Count && !trouve)
+            {
+                if (carte.Cases[adj[i].Item1][adj[i].Item2] == carte.Fabrique.Eau)
+                    trouve = true;
+                i++;
+            }
+
+            //a point is added if there is a case 'sea' besides the actual position
+            if (trouve)
+                res++;
+            return res;
+        }
 
         public override void setBonusMalusPoints(bool on)
         {
             if (on)
             {
-                carte.Fabrique.Plaine.Points++;
-                carte.Fabrique.Montagne.Points = 0;
+                carte.Fabrique.Desert.Points = 0;
             }
             else
             {
-                carte.Fabrique.Plaine.setDefault();
-                carte.Fabrique.Montagne.setDefault();
+                carte.Fabrique.Desert.setDefault();
             }
         }
 

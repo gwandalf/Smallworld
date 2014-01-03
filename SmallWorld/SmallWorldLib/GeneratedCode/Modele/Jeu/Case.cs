@@ -24,16 +24,16 @@ using System.Windows.Media.Imaging;
         protected int points;
         public int Points
         {
-            get;
-            set;
+            get { return points; }
+            set { points = value; }
         }
 
         //indicates if a unit can move or not on tihs case
         protected bool deplacement;
         public bool Deplacement
         {
-            get;
-            set;
+            get { return deplacement; }
+            set { deplacement = value; }
         }
 
         /// <summary>

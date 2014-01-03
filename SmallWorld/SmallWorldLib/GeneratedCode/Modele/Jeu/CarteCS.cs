@@ -138,10 +138,29 @@ namespace Modele.Jeu
             this.carteW.generateCases(nbTypes); 
         }
 
-		public virtual void getListeAdjacents(UniteI unite, List<Tuple<int, int>> cases)
+        /// <summary>
+        /// the method give a list of all the positions which are ajacents to a unit
+        /// </summary>
+        /// <param name="unite"> unit of which the ajacent cases are to be given </param>
+        /// <returns> list of all the adjacents positions </returns>
+		public virtual List<Tuple<int, int>> getListeAdjacents(UniteI unite)
 		{
-            //ici, je pense qu'il n'est pas nécessaire de passer l'unité en param
-			throw new System.NotImplementedException();
+            //we define the values to add
+            List<Tuple<int, int>> adders = new List<Tuple<int, int>>(4);
+            adders.Add(new Tuple<int, int>(1, 0));
+            adders.Add(new Tuple<int, int>(0, 1));
+            adders.Add(new Tuple<int, int>(-1, 0));
+            adders.Add(new Tuple<int, int>(0, -1));
+
+            //we add successively the possible position only if they are not out of the map
+            List<Tuple<int, int>> res = new List<Tuple<int, int>>();
+            for (int i = 0; i < adders.Count; i++)
+            {
+                Tuple<int, int> t = new Tuple<int, int>(unite.Position.Item1 + adders[i].Item1, adders[i].Item2);
+                if (t.Item1 < Dim && t.Item2 < Dim)
+                    res.Add(t);
+            }
+            return res;
 		}
 
 		public virtual void deplacer(UniteI unite, int lig, int col)

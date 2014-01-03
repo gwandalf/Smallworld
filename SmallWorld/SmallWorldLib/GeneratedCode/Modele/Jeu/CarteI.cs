@@ -57,7 +57,12 @@ namespace Modele.Jeu
             set;
         }
 
-		void getListeAdjacents(UniteI unite, List<Tuple<int, int>> cases);
+        /// <summary>
+        /// the method give a list of all the positions which are ajacents to a unit
+        /// </summary>
+        /// <param name="unite"> unit of which the ajacent cases are to be given </param>
+        /// <returns> list of all the adjacents positions </returns>
+		List<Tuple<int, int>> getListeAdjacents(UniteI unite);
 
 		void deplacer(UniteI unite, int lig, int col);
 

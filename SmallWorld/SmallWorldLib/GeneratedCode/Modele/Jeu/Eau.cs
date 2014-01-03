@@ -28,7 +28,7 @@ namespace Modele.Jeu
         /// </summary>
         public override void setDefault()
         {
-            base.setDefault();
+            points = 0;
             deplacement = false;
         }
 	}

@@ -107,6 +107,23 @@ namespace Modele.Jeu
             }
         }
 
+        //the position of the unit on the map
+        public Tuple<int, int> Position
+        {
+            get
+            {
+                Tuple<int, int> pos;
+                carte.PositUnite.TryGetValue(this, out pos);
+                return pos;
+            }
+
+            set
+            {
+                this.Carte.PositUnite.Remove(this);
+                this.Carte.PositUnite.Add(this, value);
+            }
+        }
+
         /**
          * \fn public Unite()
          * \brief constructor
@@ -135,10 +152,14 @@ namespace Modele.Jeu
             int distance = deplacementPossible(lig, col);
             if (distance != -1)
             {
+                setBonusMalusPoints(true); //the bonus and malus on the gains are activated
+                joueur.Points -= rapporterPoints(); //the player loose the points related to the former position
                 this.Carte.PositUnite.Remove(this);
                 placeOnMap(lig, col);
+                joueur.Points += rapporterPoints(); //the player get the points related to the new position
                 Deplacement -= distance;
-                OnPropertyChanged("Position");
+                setBonusMalusPoints(false); //the bonus and malus on the gains are desactivated
+                OnPropertyChanged("Position"); //the views are notified for the view of unit to move on the map
             }
 		}
 
@@ -189,9 +210,15 @@ namespace Modele.Jeu
 
 		}
 
-        public virtual int rapporterPoints(int lig, int col)
+        /// <summary>
+        /// the method gives the number of points due to the unit
+        /// </summary>
+        /// <returns> points related to the actual position of the unite on the map </returns>
+        public virtual int rapporterPoints()
         {
-            throw new System.NotImplementedException();
+            Tuple<int, int> pos = Position;
+            List<List<CaseI>> cases = carte.Cases;
+            return cases[pos.Item1][pos.Item2].Points;
         }
 
         /**
