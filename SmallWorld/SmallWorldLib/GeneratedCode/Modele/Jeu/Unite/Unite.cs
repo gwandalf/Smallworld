@@ -189,7 +189,10 @@ namespace Modele.Jeu
 
 		}
 
-		public abstract int rapporterPoints();
+        public virtual int rapporterPoints()
+        {
+            throw new System.NotImplementedException();
+        }
 
         /**
          * \fn void placeOnMap(int x, int y)

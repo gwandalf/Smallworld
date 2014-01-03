@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 
     public abstract class Case : CaseI
     {
+        //Icon of the case
         protected ImageBrush image;
         public ImageBrush Image
         {
@@ -19,8 +20,31 @@ using System.Windows.Media.Imaging;
             set { image = value; }
         }
 
+        //number of points given to the units which are on the case
+        protected int points;
+        public int Points
+        {
+            get;
+            set;
+        }
+
+        //indicates if a unit can move or not on tihs case
+        protected bool deplacement;
+        public bool Deplacement
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// default constructor
+        /// points = 1
+        /// deplacement = true
+        /// </summary>
         public Case()
         {
+            points = 1;
+            deplacement = true;
         }
     }
 }

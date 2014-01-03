@@ -12,10 +12,26 @@ using SmallWorldLib.GeneratedCode;
 
     public interface CaseI
     {
+        //Icon of the case
         ImageBrush Image
         {
             get;
             set;
         }
+
+        //number of points given to the units which are on the case
+        int Points
+        {
+            get;
+            set;
+        }
+
+        //indicates if a unit can move or not on tihs case
+        bool Deplacement
+        {
+            get;
+            set;
+        }
+
     }
 }
