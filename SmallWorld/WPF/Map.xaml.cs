@@ -114,24 +114,22 @@ namespace WPF
             }
 
             
-            //1. En fait il faut pour chaque joueur, positionner une image en fonction de son peuple
-            //2. Comme les unités sont déjà positionnées dans le modèle, il faut il faut associer le clic d'un rectangle 
+            //1. En fait il faut pour chaque joueur, positionner une image en fonction de son peuple: FONCTIONNE
+            
+            //2. TODO: Comme les unités sont déjà positionnées dans le modèle, il faut il faut associer le clic d'un rectangle 
             //   avec la recherche des unités présentes à cette position, pour afficher une petite fenêtre récapitulative
-            /*
+            
             foreach (Joueur i in partie.Joueurs)
             {   
-                //hum il n'y a pas d'autres moyens pour connaitre le type d'unité?
-                // ca plante juste en dessous, la liste des unités ne doit pas être instanciée
-                VueUniteI view = i.unite()[0].makeView();
+                VueUniteI view = i.Unites[0].makeView();
                 Tuple<int, int> t;
-                map.PositUnite.TryGetValue(i.unite()[0], out t);
+                map.PositUnite.TryGetValue(i.Unites[0], out t);
                 var rect = createRectangle(t.Item1, t.Item2, view);
                 view.Rectangle = rect;
                 view.PropertyChanged += new PropertyChangedEventHandler(redraw);
                 mapGrid.Children.Add(rect);
-                
             }
-            */
+            /*
             foreach (UniteI u in map.PositUnite.Keys)
             {
                 //Donc s'il y a plusieurs unités sur la case, on refait à chaque fois un nouveau rectangle
@@ -143,7 +141,7 @@ namespace WPF
                 view.PropertyChanged += new PropertyChangedEventHandler(redraw);
                 mapGrid.Children.Add(rect);
             }
-            
+            */
             //updateUnitUI();
            
         }
@@ -236,7 +234,7 @@ namespace WPF
                 InfoLabel.Content = String.Format("[{0:00} - {1:00}] {2}", row, column, tile);
 
                 //affiche le nb d'unités sur la case
-                //unitInfoPanel.Content = getListUnitInt(row, column);
+                unitInfoPanel.Content = getListUnitInt(row, column);
 
                 tile.mouseLeftButtonDown();
                 updateInfo();
@@ -269,6 +267,7 @@ namespace WPF
                 int i =0;
 
                 //pour chaque unité on regarde si elle est en position en paramètre
+                /*
                 foreach (UniteI u in map.PositUnite.Keys)
                 {
                     //j'essaye d'avoir la position de chaque unité
