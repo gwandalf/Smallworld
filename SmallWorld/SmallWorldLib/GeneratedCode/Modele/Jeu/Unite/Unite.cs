@@ -227,7 +227,7 @@ namespace Modele.Jeu
          * param[in] y : line number
          * 
          */
-        public void placeOnMap(int x, int y)
+        public virtual void placeOnMap(int x, int y)
         {
             Tuple<int, int> t = new Tuple<int, int>(x, y);
             this.Carte.PositUnite.Add(this, t);
