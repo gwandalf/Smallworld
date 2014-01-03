@@ -28,14 +28,6 @@ using System.Windows.Media.Imaging;
             set { points = value; }
         }
 
-        //indicates if a unit can move or not on tihs case
-        protected bool deplacement;
-        public bool Deplacement
-        {
-            get { return deplacement; }
-            set { deplacement = value; }
-        }
-
         /// <summary>
         /// default constructor
         /// points = 1
@@ -52,7 +44,6 @@ using System.Windows.Media.Imaging;
         public virtual void setDefault()
         {
             points = 1;
-            deplacement = true;
         }
     }
 }

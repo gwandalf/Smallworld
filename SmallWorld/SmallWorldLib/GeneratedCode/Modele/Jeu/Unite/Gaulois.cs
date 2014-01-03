@@ -30,6 +30,8 @@ namespace Modele.Jeu
 			throw new System.NotImplementedException();
 		}
 
+        protected int deplacementPlaine;
+
         /**
          * \fn public Gaulois()
          * \brief constructor directly from superclass
@@ -38,7 +40,20 @@ namespace Modele.Jeu
 		public Gaulois() : base()
 		{
             icon = ICON;
+            deplacementPlaine = 1;
 		}
+
+        public override int deplacementPossible(int lig, int col)
+        {
+            Tuple<int, int> pos = Position;
+            int res = Math.Abs(pos.Item1 - lig) + Math.Abs(pos.Item2 - col);
+            if (carte.Cases[lig][col] == carte.Fabrique.Plaine)
+                res /= 2;
+            if (res <= deplacement && carte.Cases[lig][col] != carte.Fabrique.Eau)
+                return res;
+            else
+                return -1;
+        }
 
         public override void setBonusMalusPoints(bool on)
         {
@@ -52,10 +67,6 @@ namespace Modele.Jeu
                 carte.Fabrique.Plaine.setDefault();
                 carte.Fabrique.Montagne.setDefault();
             }
-        }
-
-        public override void setBonusMalusDeplacement(bool on)
-        {
         }
 
 	}

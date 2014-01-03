@@ -26,13 +26,6 @@ using SmallWorldLib.GeneratedCode;
             set;
         }
 
-        //indicates if a unit can move or not on tihs case
-        bool Deplacement
-        {
-            get;
-            set;
-        }
-
         /// <summary>
         /// set default values of the attributes
         /// </summary>

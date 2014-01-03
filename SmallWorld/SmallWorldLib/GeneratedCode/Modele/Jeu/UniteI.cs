@@ -113,8 +113,6 @@ namespace Modele.Jeu
 
         void setBonusMalusPoints(bool on);
 
-        void setBonusMalusDeplacement(bool off);
-
 	}
 }
 

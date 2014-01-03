@@ -29,7 +29,6 @@ namespace Modele.Jeu
         public override void setDefault()
         {
             points = 0;
-            deplacement = false;
         }
 	}
 }

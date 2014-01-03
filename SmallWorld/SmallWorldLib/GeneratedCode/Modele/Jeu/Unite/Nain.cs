@@ -40,6 +40,20 @@ namespace Modele.Jeu
             icon = ICON;
 		}
 
+        public override int deplacementPossible(int lig, int col)
+        {
+            Tuple<int, int> pos = Position;
+            int res;
+            if (carte.Cases[lig][col] == carte.Fabrique.Montagne && carte.Cases[pos.Item1][pos.Item2] == carte.Fabrique.Montagne)
+                res = 1;
+            else
+                res = Math.Abs(pos.Item1 - lig) + Math.Abs(pos.Item2 - col);
+            if (res <= deplacement && carte.Cases[lig][col] != carte.Fabrique.Eau)
+                return res;
+            else
+                return -1;
+        }
+
         public override void setBonusMalusPoints(bool on)
         {
             if (on)
@@ -52,10 +66,6 @@ namespace Modele.Jeu
                 carte.Fabrique.Plaine.setDefault();
                 carte.Fabrique.Foret.setDefault();
             }
-        }
-
-        public override void setBonusMalusDeplacement(bool on)
-        {
         }
 
 	}

@@ -162,12 +162,11 @@ namespace Modele.Jeu
             }
 		}
 
-        public int deplacementPossible(int lig, int col)
+        public virtual int deplacementPossible(int lig, int col)
         {
-            Tuple<int, int> pos;
-            carte.PositUnite.TryGetValue(this, out pos);
+            Tuple<int, int> pos = Position;
             int res = Math.Abs(pos.Item1 - lig) + Math.Abs(pos.Item2 - col);
-            if (res <= deplacement)
+            if (res <= deplacement && carte.Cases[lig][col] != carte.Fabrique.Eau)
                 return res;
             else
                 return -1;
@@ -250,8 +249,6 @@ namespace Modele.Jeu
         }
 
         public abstract void setBonusMalusPoints(bool on);
-
-        public abstract void setBonusMalusDeplacement(bool on);
 
 	}
 }
