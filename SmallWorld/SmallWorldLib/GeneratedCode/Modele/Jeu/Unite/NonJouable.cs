@@ -18,6 +18,7 @@ namespace Modele.Jeu.Unit
                 {
                     unite.Deplacement = Modele.Jeu.Unite.DEPL;
                     automate.Courant = automate.TourAdverse;
+                    unite.Joueur.NbUnitesNonJouables--;
                 }
             }
         }
@@ -25,6 +26,11 @@ namespace Modele.Jeu.Unit
         public NonJouable(UniteI u, AutomateUniteI au)
             : base(u, au)
         {
+        }
+
+        public override void arrivee()
+        {
+            unite.Joueur.NbUnitesNonJouables++;
         }
 
     }

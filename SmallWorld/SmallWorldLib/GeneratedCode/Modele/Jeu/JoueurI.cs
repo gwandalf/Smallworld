@@ -34,11 +34,17 @@ namespace Modele.Jeu
             set;
         }
 
-        //Nulber of unites which can't be played
-        int NbUnitesJouables
+        //Number of units which can't be played
+        int NbUnitesNonJouables
         {
             get;
             set;
+        }
+
+        //maximum number of units in the army
+        int NbMaxUnites
+        {
+            get;
         }
 
 		void passerMain(JoueurI adversaire);
