@@ -156,7 +156,6 @@ namespace Modele.Jeu
                 joueur.Points -= rapporterPoints(); //the player loose the points related to the former position
                 this.Carte.PositUnite.Remove(this);
                 placeOnMap(lig, col);
-                joueur.Points += rapporterPoints(); //the player get the points related to the new position
                 Deplacement -= distance;
                 setBonusMalusPoints(false); //the bonus and malus on the gains are desactivated
                 OnPropertyChanged("Position"); //the views are notified for the view of unit to move on the map
@@ -233,6 +232,7 @@ namespace Modele.Jeu
         {
             Tuple<int, int> t = new Tuple<int, int>(x, y);
             this.Carte.PositUnite.Add(this, t);
+            joueur.Points += rapporterPoints(); //the player get the points related to the new position
         }
 
         /**

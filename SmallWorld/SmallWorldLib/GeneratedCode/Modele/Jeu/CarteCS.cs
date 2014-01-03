@@ -91,21 +91,10 @@ namespace Modele.Jeu
             this.positUnite = new Dictionary<UniteI, Tuple<int, int>>();
             int[] loc = { 0, dim - 1};
 
-            int i = 0;
-            foreach (JoueurI j in joueurs)
-            {
-                foreach (UniteI u in j.Unites)
-                {
-                    u.Carte = this;
-                    u.placeOnMap(loc[i], loc[i]);
-                }
-                i++;
-            }
-
             //cases initilization
             fabrique = new FabriqueCase();
             cases = new List<List<CaseI>>(this.Dim);
-            for(int j = 0 ; j < this.Dim ; j++)
+            for (int j = 0; j < this.Dim; j++)
             {
                 cases.Add(new List<CaseI>(this.Dim));
                 for (int k = 0; k < this.Dim; k++)
@@ -131,6 +120,20 @@ namespace Modele.Jeu
                     }
                 }
             }
+
+            int i = 0;
+            foreach (JoueurI j in joueurs)
+            {
+                foreach (UniteI u in j.Unites)
+                {
+                    u.Carte = this;
+                    u.setBonusMalusPoints(true);
+                    u.placeOnMap(loc[i], loc[i]);
+                    u.setBonusMalusPoints(false);
+                }
+                i++;
+            }
+            
 		}
 
         void generateCases(int nbTypes) 
@@ -157,7 +160,7 @@ namespace Modele.Jeu
             for (int i = 0; i < adders.Count; i++)
             {
                 Tuple<int, int> t = new Tuple<int, int>(unite.Position.Item1 + adders[i].Item1, adders[i].Item2);
-                if (t.Item1 < Dim && t.Item2 < Dim)
+                if (t.Item1 < Dim && t.Item2 < Dim && t.Item1 >= 0 && t.Item2 >= 0)
                     res.Add(t);
             }
             return res;
