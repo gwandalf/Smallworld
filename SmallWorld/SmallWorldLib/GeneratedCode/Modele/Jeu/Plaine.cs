@@ -16,6 +16,7 @@ namespace Modele.Jeu
 	public class Plaine : Case
 	{
         public Plaine()
+            : base()
         {
             BitmapImage bmp = new BitmapImage(new Uri(@"..\..\Resources\plaine.png", UriKind.Relative));
             image = new ImageBrush();

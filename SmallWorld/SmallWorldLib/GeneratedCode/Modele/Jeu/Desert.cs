@@ -16,6 +16,7 @@ namespace Modele.Jeu
 	public class Desert : Case
 	{
         public Desert()
+            : base()
         {
             BitmapImage bmp = new BitmapImage(new Uri(@"..\..\Resources\desert.png", UriKind.Relative));
             image = new ImageBrush();

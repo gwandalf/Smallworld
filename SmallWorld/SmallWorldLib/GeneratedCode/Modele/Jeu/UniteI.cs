@@ -94,11 +94,15 @@ namespace Modele.Jeu
 
 		void afficher();
 
-		int rapporterPoints();
+		int rapporterPoints(int lig, int col);
 
         void placeOnMap(int x, int y);
 
         VueUniteI makeView();
+
+        void setBonusMalusPoints(bool on);
+
+        void setBonusMalusDeplacement(bool off);
 
 	}
 }

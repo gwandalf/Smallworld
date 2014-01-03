@@ -16,10 +16,20 @@ namespace Modele.Jeu
 	public class Eau : Case
 	{
         public Eau()
+            : base()
         {
             BitmapImage bmp = new BitmapImage(new Uri(@"..\..\Resources\sea.png", UriKind.Relative));
             image = new ImageBrush();
             image.ImageSource = bmp;
+        }
+
+        /// <summary>
+        /// set default values of the attributes
+        /// </summary>
+        public override void setDefault()
+        {
+            base.setDefault();
+            deplacement = false;
         }
 	}
 }

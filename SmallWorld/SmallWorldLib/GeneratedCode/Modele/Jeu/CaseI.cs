@@ -33,5 +33,10 @@ using SmallWorldLib.GeneratedCode;
             set;
         }
 
+        /// <summary>
+        /// set default values of the attributes
+        /// </summary>
+        void setDefault();
+
     }
 }

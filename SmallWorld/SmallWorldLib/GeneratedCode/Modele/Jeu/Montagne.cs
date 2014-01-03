@@ -16,6 +16,7 @@ namespace Modele.Jeu
 	public class Montagne : Case
 	{
         public Montagne()
+            : base()
         {
             BitmapImage bmp = new BitmapImage(new Uri(@"..\..\Resources\montagne.png", UriKind.Relative));
             image = new ImageBrush();

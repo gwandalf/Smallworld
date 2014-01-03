@@ -16,6 +16,7 @@ namespace Modele.Jeu
 	public class Foret : Case
 	{
         public Foret()
+            : base()
         {
             BitmapImage bmp = new BitmapImage(new Uri(@"..\..\Resources\forest.png", UriKind.Relative));
             image = new ImageBrush();

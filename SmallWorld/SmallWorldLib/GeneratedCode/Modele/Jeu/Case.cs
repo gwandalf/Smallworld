@@ -43,6 +43,14 @@ using System.Windows.Media.Imaging;
         /// </summary>
         public Case()
         {
+            setDefault();
+        }
+
+        /// <summary>
+        /// set default values of the attributes
+        /// </summary>
+        public virtual void setDefault()
+        {
             points = 1;
             deplacement = true;
         }

@@ -189,7 +189,7 @@ namespace Modele.Jeu
 
 		}
 
-        public virtual int rapporterPoints()
+        public virtual int rapporterPoints(int lig, int col)
         {
             throw new System.NotImplementedException();
         }
@@ -221,6 +221,10 @@ namespace Modele.Jeu
             res.Image = icon;
             return res;
         }
+
+        public abstract void setBonusMalusPoints(bool on);
+
+        public abstract void setBonusMalusDeplacement(bool on);
 
 	}
 }
