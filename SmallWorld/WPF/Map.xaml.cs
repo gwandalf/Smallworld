@@ -199,11 +199,12 @@ namespace WPF
               
             }
 
+        /*
             protected void btnUpdateTestTBL_OnClick(object sender, RoutedEventArgs e)
             {
                 this.popup1.IsOpen = true;
             }
-
+        */
             protected void btnPopup_OnClick(object sender, RoutedEventArgs e)
             {
                 //TODO completer
@@ -234,21 +235,18 @@ namespace WPF
                 rectangle.StrokeThickness = 3;
                 InfoLabel.Content = String.Format("[{0:00} - {1:00}] {2}", row, column, tile);
 
+                //affiche le nb d'unités sur la case
+                unitInfoPanel.Content = getListUnitInt(row, column);
+
                 tile.mouseLeftButtonDown();
                 updateInfo();
 
                 //Affichage des unités présentes à l'endroit
                 
                 //ca ne rend rien de bien
-                /*  
-                    StackPanel stack = getListUnit(row, column);
-                    Border border = new Border();
-                    border.BorderThickness = new Thickness(2);
-                    border.Child = stack;
-                    border.Margin = new Thickness(10);
 
-                    unitInfoPanel.Children.Add(border);
-                */
+                
+                /*
                 Popup codePopup = new Popup();
                 TextBlock popupText = new TextBlock();
                 popupText.Text = "Popup Text";
@@ -257,8 +255,44 @@ namespace WPF
                 codePopup.Child = popupText;
                 panel.Children.Add(codePopup);
                 //panel.Children.Add(getListUnit(row, column));
-
+                 */
                 e.Handled = true;
+            }
+
+            /// <summary>
+            /// test
+            /// </summary>
+            /// <param name="u"></param>
+            /// <returns></returns>
+            private int getListUnitInt(int row, int column)
+            {
+                int i =0;
+
+                //pour chaque unité on regarde si elle est en position en paramètre
+                foreach (UniteI u in map.PositUnite.Keys)
+                {
+                    //j'essaye d'avoir la position de chaque unité
+                    VueUniteI view = u.makeView();
+                    Tuple<int, int> t;
+                    map.PositUnite.TryGetValue(u, out t);
+                    if (t.Item1 == row && t.Item2 == column || t.Item1 == column && t.Item2 == row){
+                        i++;
+                    }
+                }
+                /*
+                Label lbLife = new Label();
+                lbLife.Content = "Vie : ";
+                Label lbOff = new Label();
+                lbOff.Content = "Attaque : ";
+                Label lbDeff = new Label();
+                lbDeff.Content = "Defense : ";
+
+                stack.Children.Add(lbLife);
+                stack.Children.Add(lbOff);
+                stack.Children.Add(lbDeff);
+                */
+
+                return i;
             }
 
             /// <summary>
