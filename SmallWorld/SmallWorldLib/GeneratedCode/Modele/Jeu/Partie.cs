@@ -36,11 +36,23 @@ namespace Modele.Jeu
             set { carte = value; }
 		}
 
+        private JoueurI gagnant;
+        public JoueurI Gagnant
+        {
+            get { return gagnant; }
+        }
+
         //index of the first player
         private int first;
 
         //index of the current player
         private int current;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChanged(this, new PropertyChangedEventArgs(name));
+        }
 
         /**
          * \fn public Partie(List<JoueurI> joueurs, int nbTours, CarteI carte)
@@ -66,49 +78,15 @@ namespace Modele.Jeu
             this.joueurs[first].Turn = true;
 		}
 
-        /**
-         * \fn JoueurI start()
-         * \brief start the game
-         * 
-         * return : the winner of the game
-         */
-        public virtual JoueurI start()
-		{/*
-            int i = first;
-            JoueurI gagnant = null;
-            while (gagnant == null && nombreTours != 0)
-            {
-                //tant que pas de gagnant :
-                //- demander au joueur courant qui est le prochain qui doit jouer
-                //- jouer un tour d'unite avec le joueur determiner
-                //- determiner s'il y a un gagnant :
-                //  -- si oui, on sort de la boucle
-                //  -- sinon on réitère
-               while (joueurs[i].Turn && gagnant == null)
-               {
-                    joueurs[i].jouer();
-                    gagnant = determinerGagnant();
-               }
-               i = (i + 1) % 2;
-               nombreTours--;
-            }
-            if(gagnant == null)
-                gagnant = determinerGagnant();
-            return gagnant;*/
-            return null;
-		}
-
 		public virtual void afficherUnites(List<UniteI> unites)
 		{
 			throw new System.NotImplementedException();
 		}
 
-        /**
-         * \fn JoueurI determinerGagnant()
-         * \brief calculate who is the winner
-         * 
-         * return : the winner of the game, or null if there is not winner yet
-         */
+        /// <summary>
+        /// the method allow to figure out who is the winner
+        /// </summary>
+        /// <returns> the winner or null if there is no winner yet </returns>
         public virtual JoueurI determinerGagnant()
 		{
             if (nombreTours == 0)
@@ -163,9 +141,16 @@ namespace Modele.Jeu
             current = (current + 1) % joueurs.Count;
             if (current == first)
                 nombreTours--;
-            JoueurI gagnant = determinerGagnant();
-            if (gagnant == null)
+            JoueurI winner = determinerGagnant();
+            if (winner == null)
                 joueurs[former].passerMain(joueurs[current]);
+            else
+            {
+                joueurs[former].Turn = false;
+                gagnant = winner;
+                OnPropertyChanged("Gagnant");
+            }
+
         }
 
 	}

@@ -14,7 +14,7 @@ namespace Modele.Jeu
     using System.Text;
     using System.ComponentModel;
 
-	public interface PartieI
+	public interface PartieI : INotifyPropertyChanged
 	{
         int NombreTours
         {
@@ -34,7 +34,10 @@ namespace Modele.Jeu
             set;
         }
 
-		JoueurI start();
+        JoueurI Gagnant
+        {
+            get;
+        }
 
 		void afficherUnites(List<UniteI> unites);
 

@@ -68,6 +68,14 @@ namespace Modele.Jeu.Joueur
             get { return nbMaxUnites; }
         }
 
+        //name of the player
+        protected string nom;
+        public virtual string Nom
+        {
+            get { return nom; }
+            set { nom = value; }
+        }
+
         //usefull method to notify player's observers
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string name)

@@ -46,10 +46,17 @@ namespace WPF
         {
             InitializeComponent();
             partie = (Partie)p;
+            partie.PropertyChanged += new PropertyChangedEventHandler(partie_PropertyChanged);
+            partie.Joueurs[0].Nom = nameP1;
+            partie.Joueurs[1].Nom = nameP2;
+        }
 
-            //partie.start();
-
-            // configurer l'affichage selon les noms de joueurs
+        private void partie_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            MessageBox.Show(this,
+                "La victoire revient à " + partie.Gagnant.Nom + " !",
+                "Partie terminée",
+                MessageBoxButton.OK, MessageBoxImage.None);
         }
 
         private FabriqueI createFabrique(Nation nation)

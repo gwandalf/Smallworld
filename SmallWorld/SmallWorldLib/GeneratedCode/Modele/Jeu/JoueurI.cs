@@ -47,6 +47,13 @@ namespace Modele.Jeu
             get;
         }
 
+        //name of the player
+        string Nom
+        {
+            get;
+            set;
+        }
+
 		void passerMain(JoueurI adversaire);
 
 		bool aVaincu(JoueurI adversaire);
