@@ -55,7 +55,7 @@ namespace SmallWorldLib.GeneratedCode.Vue
         {
             if (unite.Carte.Selected == null)
                 unite.selectionner();
-            else
+            else if(unite.Joueur != unite.Carte.Selected.Joueur)
                 unite.Carte.Selected.attaquer(unite.Position.Item1, unite.Position.Item2);
         }
 
