@@ -357,10 +357,18 @@ namespace WPF
         {
             if (_selectedUnit != null)
             {
+<<<<<<< HEAD
                 Border parent = (Border)_selectedUnit.Parent;
                 parent.BorderThickness = new Thickness(2);
                 foreach (Label lbl in _selectedUnit.Children)
                     lbl.FontWeight = FontWeights.Normal;
+=======
+                NbTurnsLeft.Content = "Tours restants : " + partie.NombreTours;
+                Units1Label.Content = "Tour : " + partie.Joueurs[0].Turn;
+                Units2Label.Content = "Tour : " + partie.Joueurs[1].Turn;
+                Points1Label.Content = "Points : " + partie.Joueurs[0].Points;
+                Points2Label.Content = "Points : " + partie.Joueurs[1].Points;
+>>>>>>> 75d3522b4005ead6fdfafeca058886dd623bfcce
             }
 
             var unit = selectedUnit.Tag as Unite;
