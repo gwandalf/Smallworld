@@ -53,7 +53,7 @@ namespace SmallWorldLib.GeneratedCode.Vue
 
         public void mouseLeftButtonDown()
         {
-            if (unite.Carte.Selected != null)
+            if (unite.Carte.Selected == null)
                 unite.selectionner();
             else
                 unite.Carte.Selected.attaquer(unite.Position.Item1, unite.Position.Item2);
@@ -61,7 +61,7 @@ namespace SmallWorldLib.GeneratedCode.Vue
 
         public void update(object sender, PropertyChangedEventArgs e)
         {
-            OnPropertyChanged("th");
+            OnPropertyChanged(e.PropertyName);
         }
     }
 }

@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Modele.Jeu.Unit;
+using System.ComponentModel;
 
 namespace Modele.Jeu
 {
-    public interface LegionI
+    public interface LegionI// : INotifyPropertyChanged
     {
         //Units of the legion
         List<UniteI> Unites

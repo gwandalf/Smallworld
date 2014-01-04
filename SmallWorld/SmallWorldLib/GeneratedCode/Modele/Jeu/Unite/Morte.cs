@@ -18,10 +18,8 @@ namespace Modele.Jeu.Unit
         }
 
         public override void arrivee()
-        {/*
-            unite.Joueur.Unites.Remove(unite);
-            unite.Carte.PositUnite.Remove(unite);
-            unite.Carte.UniteSet.Remove(unite);*/
+        {
+            unite.removeOfMap();
         }
     }
 }

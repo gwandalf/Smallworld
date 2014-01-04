@@ -116,6 +116,8 @@ namespace Modele.Jeu
         /// <returns> points related to the actual position of the unite on the map </returns>
 		int rapporterPoints();
 
+        void removeOfMap();
+
         void placeOnMap(int x, int y);
 
         VueUniteI makeView();

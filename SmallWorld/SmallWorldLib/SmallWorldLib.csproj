@@ -114,6 +114,8 @@
     <Compile Include="GeneratedCode\Modele\Jeu\Unite\Viking.cs" />
     <Compile Include="GeneratedCode\Vue\VueCase.cs" />
     <Compile Include="GeneratedCode\Vue\VueCaseI.cs" />
+    <Compile Include="GeneratedCode\Vue\VueLegion.cs" />
+    <Compile Include="GeneratedCode\Vue\VueLegionI.cs" />
     <Compile Include="GeneratedCode\Vue\VueUnite.cs" />
     <Compile Include="GeneratedCode\Vue\VueUniteI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

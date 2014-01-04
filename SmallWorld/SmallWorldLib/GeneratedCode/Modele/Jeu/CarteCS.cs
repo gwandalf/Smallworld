@@ -217,6 +217,21 @@ namespace Modele.Jeu
             return new VueCase(this, l, c);
         }
 
+        public LegionI getLegion(int lig, int col)
+        {
+            LegionI res = null;
+            //we look for an existing legion at the specified case
+            foreach (LegionI l in legions)
+            {
+                if (l.Ligne == lig && l.Colonne == col)
+                {
+                    res = l;
+                    break;
+                }
+            }
+            return res;
+        }
+
 	}
 }
 

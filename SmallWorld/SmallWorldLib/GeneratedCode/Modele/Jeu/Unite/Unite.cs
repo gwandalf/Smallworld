@@ -46,8 +46,8 @@ namespace Modele.Jeu
                 vie = value;
                 if (vie == 0)
                 {
-                    //OnPropertyChanged("Mort");
-                   // automate.mourir();
+                    OnPropertyChanged("Mort");
+                    automate.mourir();
                 }
             }
 		}
@@ -171,8 +171,7 @@ namespace Modele.Jeu
             {
                 setBonusMalusPoints(true); //the bonus and malus on the gains are activated
                 joueur.Points -= rapporterPoints(); //the player loose the points related to the former position
-                this.Carte.PositUnite.Remove(this);
-                legion.Unites.Remove(this);
+                removeOfMap();
                 placeOnMap(lig, col);
                 Deplacement -= distance;
                 setBonusMalusPoints(false); //the bonus and malus on the gains are desactivated
@@ -194,12 +193,23 @@ namespace Modele.Jeu
         {
             Tuple<int, int> pos = Position;
             int distance = Math.Abs(pos.Item1 - lig) + Math.Abs(pos.Item2 - col);
-            return (distance == 1);
+            LegionI leg = carte.getLegion(lig, col);
+            if (distance == 1 && leg != null && deplacementPossible(lig, col) != -1)
+            {
+                if (leg.Unites[0].Joueur != joueur)
+                    return true;
+            }
+            return false;
         }
 
+        //TODO doit etre modifiee : remplacer par l'algorithme du poly
 		public virtual void attaquer(int lig, int col)
 		{
-			
+            if (attaquePossible(lig, col))
+            {
+                LegionI leg = carte.getLegion(lig, col);
+                leg.Unites[0].Vie = 0;
+            }
 		}
 
 		public virtual List<Tuple<int,int>> getChoixCases()
@@ -244,6 +254,15 @@ namespace Modele.Jeu
             return cases[pos.Item1][pos.Item2].Points;
         }
 
+        public virtual void removeOfMap()
+        {
+            this.Carte.PositUnite.Remove(this);
+            legion.Unites.Remove(this);
+            if (legion.Unites.Count == 0)
+                carte.Legions.Remove(legion);
+            legion = null;
+        }
+
         /**
          * \fn void placeOnMap(int x, int y)
          * \brief put the current unite on its map at the specified position
@@ -254,18 +273,7 @@ namespace Modele.Jeu
          */
         public virtual void placeOnMap(int x, int y)
         {
-            List<LegionI> legions = carte.Legions;
-            
-            //we look for an existing legion at the specified case
-            foreach (LegionI l in legions)
-            {
-                if (l.Ligne == x && l.Colonne == y)
-                {
-                    legion = l;
-                    break;
-                }
-            }
-
+            legion = carte.getLegion(x, y);
             //if there is no legion at this position, we create one
             //else, we simmply add the unit to the found legion
             if (legion == null)
