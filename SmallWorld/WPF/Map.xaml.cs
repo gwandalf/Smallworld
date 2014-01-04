@@ -160,7 +160,7 @@ namespace WPF
             Tuple<int, int> t;
             map.PositUnite.TryGetValue(u, out t);
             mapGrid.Children.Remove(tile.Rectangle);
-            if (e.PropertyName != "Mort")
+            if (true)
             {
                 var rect = createRectangle(t.Item1, t.Item2, tile);
                 tile.Rectangle = rect;
@@ -281,12 +281,11 @@ namespace WPF
             foreach (UniteI u in map.PositUnite.Keys)
             {
                 //j'essaye d'avoir la position de chaque unité
-                VueUniteI view = u.makeView();
                 Tuple<int, int> t;
                 map.PositUnite.TryGetValue(u, out t);
                 if (t.Item1 == row && t.Item2 == column)
                 {
-                    list.Add((Unite)view.Unite);
+                    list.Add((Unite)u);
                 }
                     
             }

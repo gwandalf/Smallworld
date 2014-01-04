@@ -46,8 +46,8 @@ namespace Modele.Jeu
                 vie = value;
                 if (vie == 0)
                 {
-                    OnPropertyChanged("Mort");
-                    automate.mourir();
+                    //OnPropertyChanged("Mort");
+                   // automate.mourir();
                 }
             }
 		}

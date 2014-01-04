@@ -58,7 +58,7 @@ namespace SmallWorldLib.GeneratedCode.Vue
 
         public void update(object sender, PropertyChangedEventArgs e)
         {
-            OnPropertyChanged(e.PropertyName);
+            OnPropertyChanged("th");
         }
     }
 }
