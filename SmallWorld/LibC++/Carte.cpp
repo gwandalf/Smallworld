@@ -96,6 +96,16 @@ int Carte::getCases(int x, int y) {
 		return -1;
 }
 
+// TODO!
+//trouver les bons mouvements
+
+//vérifier si il y a de l'eau a coté
+
+//trouver le nombre d'unités à une certaine position
+
+//calculer le nombre de points
+
+
 EXTERNC DLL Carte* Carte_New_default(){return new Carte();}
 EXTERNC DLL Carte* Carte_New(int dim, int army_length){return new Carte(dim, army_length);}
 EXTERNC DLL void Carte_Delete(Carte * carte){delete carte;}

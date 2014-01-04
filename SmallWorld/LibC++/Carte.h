@@ -53,3 +53,4 @@ public:
 EXTERNC DLL Carte* Carte_New_default();
 EXTERNC DLL Carte* Carte_New(int dim, int army_length);
 EXTERNC DLL void Carte_Delete(Carte * carte);
+

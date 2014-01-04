@@ -38,18 +38,18 @@ namespace WPF
         CarteI map;/*
         MonteurPartie mp;
         ImageFactory imageBrushFactory = new ImageFactory();*/
-        PartieI partie;
+        Partie partie;
         Rectangle selectedVisual;
-        //StackPanel _selectedUnit;
-        
+        StackPanel _selectedUnit;
+
         public Map(PartieI p, string nameP1, string nameP2)
         {
             InitializeComponent();
-            partie = p;
+            partie = (Partie)p;
 
             //partie.start();
-           
-           // configurer l'affichage selon les noms de joueurs
+
+            // configurer l'affichage selon les noms de joueurs
         }
 
         private FabriqueI createFabrique(Nation nation)
@@ -74,7 +74,7 @@ namespace WPF
             //Creation
             return (Partie)GameInitiator.INSTANCE.creerPartie();
         }
-        
+
         /// <summary>
         ///  Click on end of turn button
         /// </summary>
@@ -89,7 +89,7 @@ namespace WPF
             //le bouton gauche a été pressé
             //détecter l'endroit et faire quelque chose
             InfoLabel.Content = "Aucune unité";
-            if(selectedVisual != null)
+            if (selectedVisual != null)
                 InfoLabel.Content = "unité présente";
         }
 
@@ -113,14 +113,14 @@ namespace WPF
                 }
             }
 
-            
+
             //1. En fait il faut pour chaque joueur, positionner une image en fonction de son peuple: FONCTIONNE
-            
+
             //2. TODO: Comme les unités sont déjà positionnées dans le modèle, il faut il faut associer le clic d'un rectangle 
             //   avec la recherche des unités présentes à cette position, pour afficher une petite fenêtre récapitulative
-            
+
             foreach (Joueur i in partie.Joueurs)
-            {   
+            {
                 VueUniteI view = i.Unites[0].makeView();
                 Tuple<int, int> t;
                 map.PositUnite.TryGetValue(i.Unites[0], out t);
@@ -143,7 +143,7 @@ namespace WPF
             }
             */
             //updateUnitUI();
-           
+
         }
 
         public void redraw(object sender, PropertyChangedEventArgs e)
@@ -158,44 +158,44 @@ namespace WPF
             mapGrid.Children.Add(rect);
         }
 
-            /// <summary>
-            /// 
-            /// </summary>
-            /// <param name="c"></param>
-            /// <param name="l"></param>
-            /// <param name="tile"></param>
-            /// <returns></returns>
-            private Rectangle createRectangle(int c, int l, AffichableI tile)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="c"></param>
+        /// <param name="l"></param>
+        /// <param name="tile"></param>
+        /// <returns></returns>
+        private Rectangle createRectangle(int c, int l, AffichableI tile)
+        {
+            var rectangle = new Rectangle();
+            rectangle.Fill = tile.Image;
+
+            if (tile.Image == null)
             {
-                var rectangle = new Rectangle();
-                rectangle.Fill = tile.Image;
-
-                if (tile.Image == null)
-                {
-                    MessageBox.Show(this,
-                    "image null",
-                    "debug",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-
-                Grid.SetColumn(rectangle, c);
-                Grid.SetRow(rectangle, l);
-                rectangle.Tag = tile;
-                rectangle.Stroke = Brushes.Gray;
-                rectangle.StrokeThickness = 1;
-
-                rectangle.MouseLeftButtonDown += new MouseButtonEventHandler(rectangle_MouseLeftButtonDown);
-                return rectangle;
+                MessageBox.Show(this,
+                "image null",
+                "debug",
+                MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-           
-            /// <summary
-            ///  Fait les maj d'affichages nécessaires
-            /// </summary>
-            private void updateUnitUI()
-            {
-              
-            }
+            Grid.SetColumn(rectangle, c);
+            Grid.SetRow(rectangle, l);
+            rectangle.Tag = tile;
+            rectangle.Stroke = Brushes.Gray;
+            rectangle.StrokeThickness = 1;
+
+            rectangle.MouseLeftButtonDown += new MouseButtonEventHandler(rectangle_MouseLeftButtonDown);
+            return rectangle;
+        }
+
+
+        /// <summary
+        ///  Fait les maj d'affichages nécessaires
+        /// </summary>
+        private void updateUnitUI()
+        {
+
+        }
 
         /*
             protected void btnUpdateTestTBL_OnClick(object sender, RoutedEventArgs e)
@@ -203,186 +203,222 @@ namespace WPF
                 this.popup1.IsOpen = true;
             }
         */
-            protected void btnPopup_OnClick(object sender, RoutedEventArgs e)
+        protected void btnPopup_OnClick(object sender, RoutedEventArgs e)
+        {
+            //TODO completer
+        }
+
+        /// <summary>
+        /// Called after each click on the map
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var unite = sender as UniteI;
+            var rectangle = sender as Rectangle;
+            var tile = rectangle.Tag as AffichableI;
+            int row = Grid.GetRow(rectangle);
+            int column = Grid.GetColumn(rectangle);
+
+            if (selectedVisual != null)
             {
-                //TODO completer
-            }
-
-            /// <summary>
-            /// Called after each click on the map
-            /// </summary>
-            /// <param name="sender"></param>
-            /// <param name="e"></param>
-            void rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-            {
-                var unite = sender as UniteI;
-                var rectangle = sender as Rectangle;
-                var tile = rectangle.Tag as AffichableI;
-                int row = Grid.GetRow(rectangle);
-                int column = Grid.GetColumn(rectangle);
-
-                if (selectedVisual != null)
-                {
-                    if (!map.isEmpty(Grid.GetRow(selectedVisual), Grid.GetColumn(selectedVisual)))
-                        selectedVisual.StrokeThickness = 2;
-                    else
-                        selectedVisual.StrokeThickness = 1;
-                }
-                selectedVisual = rectangle;
-                selectedVisual.Tag = tile;
-                rectangle.StrokeThickness = 3;
-                InfoLabel.Content = String.Format("[{0:00} - {1:00}] {2}", row, column, tile);
-
-                //affiche le nb d'unités sur la case
-                unitInfoPanel.Content = getListUnitInt(row, column);
-
-                tile.mouseLeftButtonDown();
-                updateInfo();
-
-                //Affichage des unités présentes à l'endroit
-                
-                //ca ne rend rien de bien
-
-                
-                /*
-                Popup codePopup = new Popup();
-                TextBlock popupText = new TextBlock();
-                popupText.Text = "Popup Text";
-                popupText.Background = Brushes.LightBlue;
-                popupText.Foreground = Brushes.Blue;
-                codePopup.Child = popupText;
-                panel.Children.Add(codePopup);
-                //panel.Children.Add(getListUnit(row, column));
-                 */
-                e.Handled = true;
-            }
-
-            /// <summary>
-            /// test ERREUR
-            /// </summary>
-            /// <param name="u"></param>
-            /// <returns></returns>
-            private int getListUnitInt(int row, int column)
-            {
-                int i =0;
-
-                //pour chaque unité on regarde si elle est en position en paramètre
-                /*
-                foreach (UniteI u in map.PositUnite.Keys)
-                {
-                    //j'essaye d'avoir la position de chaque unité
-                    VueUniteI view = u.makeView();
-                    Tuple<int, int> t;
-                    map.PositUnite.TryGetValue(u, out t);
-                    if (t.Item1 == row && t.Item2 == column || t.Item1 == column && t.Item2 == row){
-                        i++;
-                    }
-                }
-                /*
-                Label lbLife = new Label();
-                lbLife.Content = "Vie : ";
-                Label lbOff = new Label();
-                lbOff.Content = "Attaque : ";
-                Label lbDeff = new Label();
-                lbDeff.Content = "Defense : ";
-
-                stack.Children.Add(lbLife);
-                stack.Children.Add(lbOff);
-                stack.Children.Add(lbDeff);
-                */
-
-                return i;
-            }
-
-            /// <summary>
-            /// Whenever a unit is selected a Stackpanel of informations is given
-            /// </summary>
-            /// <param name="u"></param>
-            /// <returns></returns>
-            private StackPanel getListUnit(int row, int column)
-            {
-                //creation de la stack   
-                StackPanel stack = new StackPanel();
-                stack.Orientation = Orientation.Horizontal;
-
-                //pour chaque unité on regarde si elle est en position en paramètre
-                foreach (UniteI u in map.PositUnite.Keys)
-                {
-                    //j'essaye d'avoir la position de chaque unité
-                    VueUniteI view = u.makeView();
-                    Tuple<int, int> t;
-                    map.PositUnite.TryGetValue(u, out t);
-                    var rect = createRectangle(t.Item1, t.Item2, view);
-                    view.Rectangle = rect;
-                    view.PropertyChanged += new PropertyChangedEventHandler(redraw);
-                    stack.Children.Add(rect);
-                }
-                /*
-                Label lbLife = new Label();
-                lbLife.Content = "Vie : ";
-                Label lbOff = new Label();
-                lbOff.Content = "Attaque : ";
-                Label lbDeff = new Label();
-                lbDeff.Content = "Defense : ";
-
-                stack.Children.Add(lbLife);
-                stack.Children.Add(lbOff);
-                stack.Children.Add(lbDeff);
-                */
-                stack.Tag = row+column;
-
-                return stack;
-            }
-            /// <summary>
-            /// 
-            /// </summary>
-            /// <param name="row"></param>
-            /// <param name="column"></param>
-            private void perform_action(int row, int column)
-            {
-               
-            }
-
-            /// <summary>
-            /// Called after each turn, allows to update informations displayed about the state of game
-            /// </summary>
-            private void updateInfo()
-            {
-                NbTurnsLeft.Content = "Tours restants : " + partie.NombreTours;
-                Units1Label.Content = "Unitées restantes : " + (partie.Joueurs[0].NbMaxUnites - partie.Joueurs[0].NbUnitesNonJouables);
-                Units2Label.Content = "Unitées restantes : " + (partie.Joueurs[1].NbMaxUnites - partie.Joueurs[1].NbUnitesNonJouables);
-                Points1Label.Content = "Points : " + partie.Joueurs[0].Points;
-                Points2Label.Content = "Points : " + partie.Joueurs[1].Points;
-            }
-
-            /// <summary>
-            /// Whenever a unit is selected a Stackpanel of informations is given
-            /// </summary>
-            /// <param name="u"></param>
-            /// <returns></returns>
-            private StackPanel getUnitDescription(Unite u)
-            {
-                StackPanel stack = new StackPanel();
-                stack.Orientation = Orientation.Horizontal;
-                if (u.Deplacement > 1)
-                    stack.Background = new SolidColorBrush(Colors.LightGray);
+                if (!map.isEmpty(Grid.GetRow(selectedVisual), Grid.GetColumn(selectedVisual)))
+                    selectedVisual.StrokeThickness = 2;
                 else
-                    stack.Background = new SolidColorBrush(Colors.DarkGray);
-
-                Label lbLife = new Label();
-                lbLife.Content = "Vie : " + u.Vie;
-                Label lbOff = new Label();
-                lbOff.Content = "Attaque : " + u.Attaque;
-                Label lbDeff = new Label();
-                lbDeff.Content = "Defense : " + u.Defense;
-
-                stack.Children.Add(lbLife);
-                stack.Children.Add(lbOff);
-                stack.Children.Add(lbDeff);
-
-                stack.Tag = u;
-
-                return stack;
+                    selectedVisual.StrokeThickness = 1;
             }
+            selectedVisual = rectangle;
+            selectedVisual.Tag = tile;
+            rectangle.StrokeThickness = 3;
+            InfoLabel.Content = String.Format("[{0:00} - {1:00}] {2}", row, column, tile);
+
+            //affiche les unités sur la case
+            //unitInfoPanel.Content = getListUnitInt(row, column);
+
+            tile.mouseLeftButtonDown();
+            updateInfo();
+            updateUnitInfo(row, column);
+            //Affichage des unités présentes à l'endroit
+
+            //ca ne rend rien de bien
+
+
+            /*
+            Popup codePopup = new Popup();
+            TextBlock popupText = new TextBlock();
+            popupText.Text = "Popup Text";
+            popupText.Background = Brushes.LightBlue;
+            popupText.Foreground = Brushes.Blue;
+            codePopup.Child = popupText;
+            panel.Children.Add(codePopup);
+            //panel.Children.Add(getListUnit(row, column));
+             */
+            e.Handled = true;
+        }
+
+        /// <summary>
+        /// Give a a list of Unite at a postion
+        /// TODO ERREUR
+        /// </summary>
+        /// <param name="u"></param>
+        /// <returns></returns>
+        private List<Unite> getListUnit(int row, int column)
+        {
+            List<Unite> list = new List<Unite>();
+
+            //pour chaque unité on regarde si elle est en position en paramètre
+            foreach (UniteI u in map.PositUnite.Keys)
+            {
+                //j'essaye d'avoir la position de chaque unité
+                VueUniteI view = u.makeView();
+                Tuple<int, int> t;
+                map.PositUnite.TryGetValue(u, out t);
+                if (t.Item1 == row && t.Item2 == column)
+                {
+                    list.Add((Unite)view.Unite);
+                }
+                    
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// Called after each turn, allows to update informations displayed about the state of game
+        /// </summary>
+        private void updateInfo()
+        {
+            NbTurnsLeft.Content = "Tours restants : " + partie.NombreTours;
+            Units1Label.Content = "Unitées restantes : " + (partie.Joueurs[0].NbMaxUnites - partie.Joueurs[0].NbUnitesNonJouables);
+            Units2Label.Content = "Unitées restantes : " + (partie.Joueurs[1].NbMaxUnites - partie.Joueurs[1].NbUnitesNonJouables);
+            Points1Label.Content = "Points : " + partie.Joueurs[0].Points;
+            Points2Label.Content = "Points : " + partie.Joueurs[1].Points;
+
+        }
+        /*
+        * Update information displayed about unit in the tile with line and column
+        */
+        private void updateUnitInfo(int line, int column)
+        {
+            //on recupere la liste des unites de du joueur dont on a cliqué sur une case qu'il occupe
+
+            //avec la position on trouve a qui appartient les unites (utile pour permettre de jouer
+            //on recupère la liste des unites présentes à cet endroit
+            List<Unite> nonEmptyList = getListUnit(line, column);
+
+            unitInfoPanel.Children.Clear();
+
+            if (nonEmptyList.Count > 0)
+            {
+                Label lbl = new Label();
+                lbl.Content = "Il y a " + nonEmptyList.Count + " unités sur cette case : ";
+                unitInfoPanel.Children.Add(lbl);
+
+                foreach (Unite u in nonEmptyList)
+                {
+                    StackPanel stack = getUnitDescription(u);
+                    Border border = new Border();
+                    border.BorderThickness = new Thickness(2);
+                    border.Child = stack;
+                    border.Margin = new Thickness(10);
+
+                    unitInfoPanel.Children.Add(border);
+                    //TODO
+                    //if (les unites séletionnés appartiennt au joueur courant && u.Deplacement > 0)
+                        stack.MouseDown += unitStackPanel_MouseDown;
+                }
+            }
+            else
+            {
+                Label lbl = new Label();
+                lbl.Content = "Aucune unité sur cette case";
+                unitInfoPanel.Children.Add(lbl);
+            }
+        }
+
+        /**
+        * Called when a unit is clicked in the stack panel 
+        */
+        private void unitStackPanel_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var stack = sender as StackPanel;
+
+            selectUnit(stack);
+            // TODO
+           //afficher tous les mouvements possibles
+
+            e.Handled = true;
+        }
+
+        /**
+        * Select the unit according to the object selected
+        */
+        private void selectUnit(StackPanel selectedUnit)
+        {
+            if (_selectedUnit != null)
+            {
+                Border parent = (Border)_selectedUnit.Parent;
+                parent.BorderThickness = new Thickness(2);
+                foreach (Label lbl in _selectedUnit.Children)
+                    lbl.FontWeight = FontWeights.Normal;
+            }
+
+            var unit = selectedUnit.Tag as Unite;
+
+            /*
+            * Evite la sélection d'une unité par le joueur adverse lors du changement de tour
+            */
+           // if (si je joueur courant a des unites a la position donnée) TODO
+            //{
+                if (selectedUnit != _selectedUnit)
+                {
+                    Border parent = (Border)selectedUnit.Parent;
+                    parent.BorderThickness = new Thickness(3);
+                    foreach (Label lbl in selectedUnit.Children)
+                        lbl.FontWeight = FontWeights.Bold;
+
+                    _selectedUnit = selectedUnit;
+                }
+                else
+                    _selectedUnit = null;
+           // }
+        }
+
+        /*
+            * Return a stack panel containing a graphical description of the unit
+        */
+        private StackPanel getUnitDescription(Unite u)
+        {
+            StackPanel stack = new StackPanel();
+            stack.Orientation = Orientation.Horizontal;
+            if (u.Deplacement > 0)
+                stack.Background = new SolidColorBrush(Colors.LightGray);
+            else
+                stack.Background = new SolidColorBrush(Colors.DarkGray);
+
+            Label lbLife = new Label();
+            lbLife.Content = "Vie : " + u.Vie;
+            Label lbPoint = new Label();
+            lbPoint.Content = "Point : ";//TODO
+            Label lbOff = new Label();
+            lbOff.Content = "Attaque : " + u.Attaque;
+            Label lbDeff = new Label();
+            lbDeff.Content = "Defense : " + u.Defense;
+
+            stack.Children.Add(lbLife);
+            stack.Children.Add(lbPoint);
+            stack.Children.Add(lbOff);
+            stack.Children.Add(lbDeff);
+            //we add a reference to the unit in the stack
+            stack.Tag = u;
+
+            return stack;
+        }
+
+        private bool hasUnits(int line, int column)
+        {
+            //trouver la présence d'unités
+            return true;
+        }
     }
 }
