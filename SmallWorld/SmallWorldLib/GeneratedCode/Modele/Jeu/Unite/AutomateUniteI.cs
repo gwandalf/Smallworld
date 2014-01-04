@@ -47,5 +47,7 @@ namespace Modele.Jeu.Unit
         void selectionner();
 
         void deplacement();
+
+        void mourir();
     }
 }

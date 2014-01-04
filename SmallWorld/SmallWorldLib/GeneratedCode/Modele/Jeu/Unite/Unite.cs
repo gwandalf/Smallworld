@@ -41,7 +41,15 @@ namespace Modele.Jeu
         public int Vie
 		{
             get { return vie; }
-            set { vie = value; }
+            set 
+            { 
+                vie = value;
+                if (vie == 0)
+                {
+                    OnPropertyChanged("Mort");
+                    automate.mourir();
+                }
+            }
 		}
 
 		protected int deplacement;

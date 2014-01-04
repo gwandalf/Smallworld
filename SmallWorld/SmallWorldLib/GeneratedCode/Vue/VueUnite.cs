@@ -42,10 +42,7 @@ namespace SmallWorldLib.GeneratedCode.Vue
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name)
         {
-
-            PropertyChanged(
-                this,
-                new PropertyChangedEventArgs(name));
+            PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
 
         public VueUnite(UniteI uRef)
@@ -61,7 +58,7 @@ namespace SmallWorldLib.GeneratedCode.Vue
 
         public void update(object sender, PropertyChangedEventArgs e)
         {
-            OnPropertyChanged("sthg");
+            OnPropertyChanged(e.PropertyName);
         }
     }
 }

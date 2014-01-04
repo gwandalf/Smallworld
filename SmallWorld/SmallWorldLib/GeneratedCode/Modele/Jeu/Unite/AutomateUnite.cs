@@ -105,5 +105,10 @@ namespace Modele.Jeu.Unit
         {
             courant.deplacement();
         }
+
+        public void mourir()
+        {
+            courant.mourir();
+        }
     }
 }

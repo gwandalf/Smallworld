@@ -43,5 +43,10 @@ namespace Modele.Jeu.Unit
         public virtual void deplacement()
         {
         }
+
+        public virtual void mourir()
+        {
+            automate.Courant = automate.Morte;
+        }
     }
 }

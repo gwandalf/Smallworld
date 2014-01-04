@@ -160,9 +160,12 @@ namespace WPF
             Tuple<int, int> t;
             map.PositUnite.TryGetValue(u, out t);
             mapGrid.Children.Remove(tile.Rectangle);
-            var rect = createRectangle(t.Item1, t.Item2, tile);
-            tile.Rectangle = rect;
-            mapGrid.Children.Add(rect);
+            if (e.PropertyName != "Mort")
+            {
+                var rect = createRectangle(t.Item1, t.Item2, tile);
+                tile.Rectangle = rect;
+                mapGrid.Children.Add(rect);
+            }
         }
 
         /// <summary>

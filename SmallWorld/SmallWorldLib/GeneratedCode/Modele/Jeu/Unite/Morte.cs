@@ -12,5 +12,16 @@ namespace Modele.Jeu.Unit
             : base(u, au)
         {
         }
+
+        public override void mourir()
+        {
+        }
+
+        public override void arrivee()
+        {
+            unite.Joueur.Unites.Remove(unite);
+            unite.Carte.PositUnite.Remove(unite);
+            unite.Carte.UniteSet.Remove(unite);
+        }
     }
 }
