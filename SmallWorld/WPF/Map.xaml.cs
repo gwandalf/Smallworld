@@ -295,9 +295,11 @@ namespace WPF
         /// </summary>
         private void updateInfo()
         {
+            Nation1Label.Content = partie.Joueurs[0].Nom;
+            Nation2Label.Content = partie.Joueurs[1].Nom;
             NbTurnsLeft.Content = "Tours restants : " + partie.NombreTours;
-            Units1Label.Content = "Unitées restantes : " + (partie.Joueurs[0].NbMaxUnites - partie.Joueurs[0].NbUnitesNonJouables);
-            Units2Label.Content = "Unitées restantes : " + (partie.Joueurs[1].NbMaxUnites - partie.Joueurs[1].NbUnitesNonJouables);
+            Units1Label.Content = "Tour : " + partie.Joueurs[0].Turn;
+            Units2Label.Content = "Tour : " + partie.Joueurs[1].Turn;
             Points1Label.Content = "Points : " + partie.Joueurs[0].Points;
             Points2Label.Content = "Points : " + partie.Joueurs[1].Points;
 

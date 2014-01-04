@@ -24,12 +24,12 @@
                     <ColumnDefinition Width="2*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="0">
-                    <Label x:Name="Nation1Label" Content="Peuple " />
+                    <Label x:Name="Nation1Label" Content="" />
                     <Label x:Name="Units1Label" Content="Tour : "/>
                     <Label x:Name="Points1Label" Content="Points : "/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
-                    <Label x:Name="Nation2Label" Content="Peuple " />
+                    <Label x:Name="Nation2Label" Content="" />
                     <Label x:Name="Units2Label" Content="Tour : "/>
                     <Label x:Name="Points2Label" Content="Points : "/>
                 </StackPanel>

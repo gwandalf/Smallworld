@@ -137,18 +137,21 @@ namespace Modele.Jeu
 
         public virtual void finTour()
         {
-            int former = current;
-            current = (current + 1) % joueurs.Count;
-            if (current == first)
-                nombreTours--;
-            JoueurI winner = determinerGagnant();
-            if (winner == null)
-                joueurs[former].passerMain(joueurs[current]);
-            else
+            if (gagnant == null)
             {
-                joueurs[former].Turn = false;
-                gagnant = winner;
-                OnPropertyChanged("Gagnant");
+                int former = current;
+                current = (current + 1) % joueurs.Count;
+                if (current == first)
+                    nombreTours--;
+                JoueurI winner = determinerGagnant();
+                if (winner == null)
+                    joueurs[former].passerMain(joueurs[current]);
+                else
+                {
+                    joueurs[former].Turn = false;
+                    gagnant = winner;
+                    OnPropertyChanged("Gagnant");
+                }
             }
 
         }
