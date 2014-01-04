@@ -57,6 +57,13 @@ namespace Modele.Jeu
             set;
         }
 
+        //legions placed on the map
+        List<LegionI> Legions
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// the method give a list of all the positions which are ajacents to a unit
         /// </summary>

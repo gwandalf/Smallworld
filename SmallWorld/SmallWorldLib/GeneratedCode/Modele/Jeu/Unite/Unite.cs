@@ -132,6 +132,14 @@ namespace Modele.Jeu
             }
         }
 
+        //legion of the current unit
+        protected LegionI legion;
+        public virtual LegionI Legion
+        {
+            get { return legion; }
+            set { legion = value; }
+        }
+
         /**
          * \fn public Unite()
          * \brief constructor
@@ -147,6 +155,7 @@ namespace Modele.Jeu
             defense = 1;
             icon = ICON;
             turn = false;
+            legion = null;
         }
 
 
@@ -163,6 +172,7 @@ namespace Modele.Jeu
                 setBonusMalusPoints(true); //the bonus and malus on the gains are activated
                 joueur.Points -= rapporterPoints(); //the player loose the points related to the former position
                 this.Carte.PositUnite.Remove(this);
+                legion.Unites.Remove(this);
                 placeOnMap(lig, col);
                 Deplacement -= distance;
                 setBonusMalusPoints(false); //the bonus and malus on the gains are desactivated
@@ -180,9 +190,16 @@ namespace Modele.Jeu
                 return -1;
         }
 
+        public virtual bool attaquePossible(int lig, int col)
+        {
+            Tuple<int, int> pos = Position;
+            int distance = Math.Abs(pos.Item1 - lig) + Math.Abs(pos.Item2 - col);
+            return (distance == 1);
+        }
+
 		public virtual void attaquer(int lig, int col)
 		{
-			throw new System.NotImplementedException();
+			
 		}
 
 		public virtual List<Tuple<int,int>> getChoixCases()
@@ -237,6 +254,27 @@ namespace Modele.Jeu
          */
         public virtual void placeOnMap(int x, int y)
         {
+            List<LegionI> legions = carte.Legions;
+            
+            //we look for an existing legion at the specified case
+            foreach (LegionI l in legions)
+            {
+                if (l.Ligne == x && l.Colonne == y)
+                {
+                    legion = l;
+                    break;
+                }
+            }
+
+            //if there is no legion at this position, we create one
+            //else, we simmply add the unit to the found legion
+            if (legion == null)
+            {
+                legion = new Legion(this, x, y);
+                carte.Legions.Add(legion);
+            }
+            else
+                legion.Unites.Add(this);
             Tuple<int, int> t = new Tuple<int, int>(x, y);
             this.Carte.PositUnite.Add(this, t);
             joueur.Points += rapporterPoints(); //the player get the points related to the new position

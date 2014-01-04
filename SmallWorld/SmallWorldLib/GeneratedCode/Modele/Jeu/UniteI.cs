@@ -74,6 +74,13 @@ namespace Modele.Jeu
             set;
         }
 
+        //legion of the current unit
+        LegionI Legion
+        {
+            get;
+            set;
+        }
+
 		void selectionner();
 
 		void deplacer(int lig, int col);
@@ -92,6 +99,8 @@ namespace Modele.Jeu
          * return : distance between the actual position and the target position, or -1 if the move is not possible 
          */
         int deplacementPossible(int lig, int col);
+
+        bool attaquePossible(int lig, int col);
 
 		void engagement(UniteI defenseur);
 

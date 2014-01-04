@@ -83,6 +83,8 @@
     <Compile Include="GeneratedCode\Modele\Jeu\FabriqueCase.cs" />
     <Compile Include="GeneratedCode\Modele\Jeu\FabriqueCaseI.cs" />
     <Compile Include="GeneratedCode\Modele\Jeu\Foret.cs" />
+    <Compile Include="GeneratedCode\Modele\Jeu\Legion.cs" />
+    <Compile Include="GeneratedCode\Modele\Jeu\LegionI.cs" />
     <Compile Include="GeneratedCode\Modele\Jeu\Unite\AutomateUnite.cs" />
     <Compile Include="GeneratedCode\Modele\Jeu\Unite\AutomateUniteI.cs" />
     <Compile Include="GeneratedCode\Modele\Jeu\Unite\EtatUnite.cs" />

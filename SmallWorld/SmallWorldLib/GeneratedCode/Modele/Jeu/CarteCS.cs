@@ -66,6 +66,14 @@ namespace Modele.Jeu
             set { selected = value; }
         }
 
+        //legions placed on the map
+        private List<LegionI> legions;
+        public List<LegionI> Legions
+        {
+            get { return legions; }
+            set { legions = value; }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string name)
         {
@@ -88,6 +96,7 @@ namespace Modele.Jeu
 		{
             //construction carteWrapper
             this.carteW = new CarteWrapper(dim, joueurs[0].NbMaxUnites);
+            legions = new List<LegionI>();
             this.positUnite = new Dictionary<UniteI, Tuple<int, int>>();
             int[] loc = { 0, dim - 1};
 
