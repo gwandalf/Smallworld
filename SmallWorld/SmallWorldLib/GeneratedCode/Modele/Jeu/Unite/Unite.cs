@@ -286,7 +286,7 @@ namespace Modele.Jeu
             if (legion == null)
             {
                 legion = new Legion(this, x, y);
-                carte.Legions.Add(legion);
+                carte.ajouterLegion(legion);
             }
             else
                 legion.Unites.Add(this);
@@ -305,7 +305,6 @@ namespace Modele.Jeu
         public VueUniteI makeView()
         {
             VueUniteI res = new VueUnite(this);
-            res.Image = icon;
             return res;
         }
 

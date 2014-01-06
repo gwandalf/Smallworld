@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Input;
 using System.ComponentModel;
+using System.Windows.Controls;
 
 namespace SmallWorldLib.GeneratedCode.Vue
 {
@@ -25,18 +26,11 @@ namespace SmallWorldLib.GeneratedCode.Vue
             get { return unite; }
         }
 
-        private ImageBrush icon;
-        public ImageBrush Image
+        private Border description;
+        public Border Description
         {
-            get { return icon; }
-            set { icon = value; }
-        }
-
-        private Rectangle rectangle;
-        public Rectangle Rectangle
-        {
-            get { return rectangle; }
-            set { rectangle = value; }
+            get { return description; }
+            set { description = value; }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -48,6 +42,7 @@ namespace SmallWorldLib.GeneratedCode.Vue
         public VueUnite(UniteI uRef)
         {
             unite = uRef;
+            description = new Border();
             unite.PropertyChanged += new PropertyChangedEventHandler(update);
         }
 

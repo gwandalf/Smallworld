@@ -7,6 +7,7 @@ using Modele.Jeu;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.ComponentModel;
+using System.Windows.Shapes;
 
 namespace SmallWorldLib.GeneratedCode.Vue
 {
@@ -14,12 +15,6 @@ namespace SmallWorldLib.GeneratedCode.Vue
     {
         //reference
         LegionI Legion
-        {
-            get;
-            set;
-        }
-
-        ImageBrush Image
         {
             get;
             set;

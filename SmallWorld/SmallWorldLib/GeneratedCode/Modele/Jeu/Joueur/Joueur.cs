@@ -93,7 +93,9 @@ namespace Modele.Jeu.Joueur
             unites = u;
             turn = false;
             foreach (UniteI un in unites)
+            {
                 un.Joueur = this;
+            }
             nbUnitesNonJouables = 0;
 		}
 
@@ -141,6 +143,11 @@ namespace Modele.Jeu.Joueur
 		{
 			throw new System.NotImplementedException();
 		}
+
+        public void update(object sender, PropertyChangingEventArgs e)
+        {
+            OnPropertyChanged(e.PropertyName);
+        }
 
 	}
 }

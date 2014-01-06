@@ -64,6 +64,12 @@ namespace Modele.Jeu
             set;
         }
 
+        //Temporary legion added recently which is to be shown
+        LegionI TmpLegion
+        {
+            get;
+        }
+
         /// <summary>
         /// the method give a list of all the positions which are ajacents to a unit
         /// </summary>
@@ -86,6 +92,8 @@ namespace Modele.Jeu
         VueCaseI makeView(int l, int c);
 
         LegionI getLegion(int lig, int col);
+
+        void ajouterLegion(LegionI legion);
 	}
 }
 

@@ -49,6 +49,7 @@ namespace WPF
             partie.PropertyChanged += new PropertyChangedEventHandler(partie_PropertyChanged);
             partie.Joueurs[0].Nom = nameP1;
             partie.Joueurs[1].Nom = nameP2;
+            partie.Carte.PropertyChanged += new PropertyChangedEventHandler(carte_PropertyChanged);
         }
 
         private void partie_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -57,6 +58,16 @@ namespace WPF
                 "La victoire revient à " + partie.Gagnant.Nom + " !",
                 "Partie terminée",
                 MessageBoxButton.OK, MessageBoxImage.None);
+        }
+
+        private void carte_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            LegionI i = partie.Carte.TmpLegion;
+            VueLegionI view = i.makeView();
+            var rect = createRectangle(i.Ligne, i.Colonne, view);
+            view.Rectangle = rect;
+            view.PropertyChanged += new PropertyChangedEventHandler(redraw);
+            mapGrid.Children.Add(rect);
         }
 
         private FabriqueI createFabrique(Nation nation)
@@ -155,13 +166,7 @@ namespace WPF
         {
             var tile = sender as VueLegionI;
             LegionI l = tile.Legion;
-            if (e.PropertyName.Equals("Legion"))
-            {
-                var rect = createRectangle(l.Ligne, l.Colonne, tile);
-                tile.Rectangle = rect;
-                mapGrid.Children.Add(rect);
-            }
-            else if (e.PropertyName.Equals("DetruireLegion"))
+            if (e.PropertyName.Equals("DetruireLegion"))
                 mapGrid.Children.Remove(tile.Rectangle);
             else
                 updateUnitInfo(l);
@@ -326,12 +331,15 @@ namespace WPF
                 foreach (Unite u in nonEmptyList)
                 {
                     StackPanel stack = getUnitDescription(u);
-                    Border border = new Border();
-                    border.BorderThickness = new Thickness(2);
-                    border.Child = stack;
-                    border.Margin = new Thickness(10);
+                    VueUniteI view = u.makeView();
 
-                    unitInfoPanel.Children.Add(border);
+                    //we add a reference to the unit in the stack
+                    stack.Tag = view;
+                    view.Description.BorderThickness = new Thickness(2);
+                    view.Description.Child = stack;
+                    view.Description.Margin = new Thickness(10);
+
+                    unitInfoPanel.Children.Add(view.Description);
                     //TODO
                     //if (les unites séletionnés appartiennt au joueur courant && u.Deplacement > 0)
                         stack.MouseDown += unitStackPanel_MouseDown;
@@ -380,8 +388,7 @@ namespace WPF
 //>>>>>>> 75d3522b4005ead6fdfafeca058886dd623bfcce
             }
 
-            var unit = selectedUnit.Tag as Unite;
-
+            var view = selectedUnit.Tag as VueUniteI;
             /*
             * Evite la sélection d'une unité par le joueur adverse lors du changement de tour
             */
@@ -398,6 +405,7 @@ namespace WPF
                 }
                 else
                     _selectedUnit = null;
+                view.mouseLeftButtonDown();
            // }
         }
 
@@ -426,8 +434,6 @@ namespace WPF
             stack.Children.Add(lbPoint);
             stack.Children.Add(lbOff);
             stack.Children.Add(lbDeff);
-            //we add a reference to the unit in the stack
-            stack.Tag = u;
 
             return stack;
         }

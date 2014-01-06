@@ -7,6 +7,7 @@ using Modele.Jeu;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.ComponentModel;
+using System.Windows.Controls;
 
 namespace SmallWorldLib.GeneratedCode.Vue
 {
@@ -14,7 +15,7 @@ namespace SmallWorldLib.GeneratedCode.Vue
      * \interface VueUniteI
      * 
      */
-    public interface VueUniteI : AffichableI, INotifyPropertyChanged
+    public interface VueUniteI : ComposantI, INotifyPropertyChanged
     {
 
         UniteI Unite
@@ -22,7 +23,7 @@ namespace SmallWorldLib.GeneratedCode.Vue
             get;
         }
 
-        ImageBrush Image
+        Border Description
         {
             get;
             set;

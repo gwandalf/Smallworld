@@ -74,10 +74,18 @@ namespace Modele.Jeu
             set { legions = value; }
         }
 
+        //Temporary legion added recently which is to be shown
+        private LegionI tmpLegion;
+        public LegionI TmpLegion
+        {
+            get { return tmpLegion; }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string name)
         {
-            PropertyChanged(this, new PropertyChangedEventArgs(name));
+            if(PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
 
         /**
@@ -230,6 +238,13 @@ namespace Modele.Jeu
                 }
             }
             return res;
+        }
+
+        public void ajouterLegion(LegionI legion)
+        {
+            legions.Add(legion);
+            tmpLegion = legion;
+            OnPropertyChanged("Legion");
         }
 
 	}

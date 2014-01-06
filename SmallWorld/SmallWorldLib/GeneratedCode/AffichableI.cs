@@ -11,7 +11,7 @@ using System.ComponentModel;
 
 namespace SmallWorldLib.GeneratedCode
 {
-    public interface AffichableI
+    public interface AffichableI : ComposantI
     {
         ImageBrush Image
         {
@@ -24,7 +24,5 @@ namespace SmallWorldLib.GeneratedCode
             get;
             set;
         }
-
-        void mouseLeftButtonDown();
     }
 }
