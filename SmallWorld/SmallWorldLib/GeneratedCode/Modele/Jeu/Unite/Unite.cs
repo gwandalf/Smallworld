@@ -30,6 +30,10 @@ namespace Modele.Jeu
         public static int DEPL = 3;
 
         protected ImageBrush icon;
+        public ImageBrush Icon
+        {
+            get { return icon; }
+        }
 
         protected int id;
         public int ID

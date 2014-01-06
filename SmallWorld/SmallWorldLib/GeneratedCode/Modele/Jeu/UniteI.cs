@@ -16,10 +16,18 @@ namespace Modele.Jeu
     using SmallWorldLib.GeneratedCode.Vue;
     using System.ComponentModel;
     using Modele.Jeu.Unit;
+    using System.Windows.Media;
+    using System.Windows.Media.Imaging;
 
 	public interface UniteI : INotifyPropertyChanged
 	{
-    
+
+
+        ImageBrush Icon
+        {
+            get;
+        }
+
         int Vie
         {
             get;

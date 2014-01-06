@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Modele.Jeu.Unit;
 using SmallWorldLib.GeneratedCode.Vue;
 using System.ComponentModel;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace Modele.Jeu
 {
@@ -35,6 +37,8 @@ namespace Modele.Jeu
             set { colonne = value; }
         }
 
+        private ImageBrush icon;
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name)
         {
@@ -53,11 +57,14 @@ namespace Modele.Jeu
             colonne = col;
             unites = new List<UniteI>();
             unites.Add(unite);
+            icon = unite.Icon;
         }
 
         public VueLegionI makeView()
         {
-            return new VueLegion(this);
+            VueLegionI res = new VueLegion(this);
+            res.Image = icon;
+            return res;
         }
 
         public void afficher()
