@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Modele.Jeu.Unit;
+using SmallWorldLib.GeneratedCode.Vue;
+using System.ComponentModel;
 
 namespace Modele.Jeu
 {
@@ -33,6 +35,12 @@ namespace Modele.Jeu
             set { colonne = value; }
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChanged(this, new PropertyChangedEventArgs(name));
+        }
+
         /// <summary>
         /// constructor
         /// </summary>
@@ -45,6 +53,21 @@ namespace Modele.Jeu
             colonne = col;
             unites = new List<UniteI>();
             unites.Add(unite);
+        }
+
+        public VueLegionI makeView()
+        {
+            return new VueLegion(this);
+        }
+
+        public void afficher()
+        {
+            OnPropertyChanged("Legion");
+        }
+
+        public void detruireLegion()
+        {
+            OnPropertyChanged("DetruireLegion");
         }
     }
 }

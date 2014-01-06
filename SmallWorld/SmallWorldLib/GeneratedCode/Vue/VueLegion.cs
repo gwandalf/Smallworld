@@ -45,17 +45,27 @@ namespace SmallWorldLib.GeneratedCode.Vue
         public VueLegion(LegionI lRef)
         {
             legion = lRef;
-            //legion.PropertyChanged += new PropertyChangedEventHandler(update);
+            legion.PropertyChanged += new PropertyChangedEventHandler(update);
         }
 
         public void mouseLeftButtonDown()
         {
-            
+            //if there is no unit selected, the content of the legion is shown
+            if (legion.Unites[0].Carte.Selected == null)
+                OnPropertyChanged("Afficher");
+
+            //if there is a selected unit of the same team, the unit is placed in the legion
+            else if (legion.Unites[0].Joueur == legion.Unites[0].Carte.Selected.Joueur)
+                legion.Unites[0].Carte.deplacer(legion.Unites[0].Carte.Selected, legion.Ligne, legion.Colonne);
+
+            //if the selected unit is not in the same team, the unit attack the legion
+            else if (legion.Unites[0].Joueur != legion.Unites[0].Carte.Selected.Joueur)
+                legion.Unites[0].Carte.Selected.attaquer(legion.Ligne, legion.Colonne);
         }
 
         public void update(object sender, PropertyChangedEventArgs e)
         {
-            OnPropertyChanged("th");
+            OnPropertyChanged(e.PropertyName);
         }
     }
 }

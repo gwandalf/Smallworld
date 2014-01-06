@@ -86,7 +86,6 @@ namespace Modele.Jeu
         VueCaseI makeView(int l, int c);
 
         LegionI getLegion(int lig, int col);
-
 	}
 }
 

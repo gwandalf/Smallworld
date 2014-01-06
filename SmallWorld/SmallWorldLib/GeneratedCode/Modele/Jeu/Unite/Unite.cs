@@ -175,7 +175,7 @@ namespace Modele.Jeu
                 placeOnMap(lig, col);
                 Deplacement -= distance;
                 setBonusMalusPoints(false); //the bonus and malus on the gains are desactivated
-                OnPropertyChanged("Position"); //the views are notified for the view of unit to move on the map
+                legion.afficher(); //the views are notified for the view of unit to move on the map
             }
 		}
 
@@ -259,8 +259,11 @@ namespace Modele.Jeu
             this.Carte.PositUnite.Remove(this);
             legion.Unites.Remove(this);
             if (legion.Unites.Count == 0)
+            {
+                legion.detruireLegion();
                 carte.Legions.Remove(legion);
-            legion = null;
+                legion = null;
+            }
         }
 
         /**

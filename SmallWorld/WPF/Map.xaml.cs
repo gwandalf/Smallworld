@@ -126,12 +126,10 @@ namespace WPF
             //2. TODO: Comme les unités sont déjà positionnées dans le modèle, il faut il faut associer le clic d'un rectangle 
             //   avec la recherche des unités présentes à cette position, pour afficher une petite fenêtre récapitulative
 
-            foreach (Joueur i in partie.Joueurs)
+            foreach (LegionI i in map.Legions)
             {
-                VueUniteI view = i.Unites[0].makeView();
-                Tuple<int, int> t;
-                map.PositUnite.TryGetValue(i.Unites[0], out t);
-                var rect = createRectangle(t.Item1, t.Item2, view);
+                VueLegionI view = i.makeView();
+                var rect = createRectangle(i.Ligne, i.Colonne, view);
                 view.Rectangle = rect;
                 view.PropertyChanged += new PropertyChangedEventHandler(redraw);
                 mapGrid.Children.Add(rect);
@@ -155,17 +153,18 @@ namespace WPF
 
         public void redraw(object sender, PropertyChangedEventArgs e)
         {
-            var tile = sender as VueUniteI;
-            UniteI u = tile.Unite;
-            Tuple<int, int> t;
-            map.PositUnite.TryGetValue(u, out t);
-            mapGrid.Children.Remove(tile.Rectangle);
-            if (!e.PropertyName.Equals("Mort"))
+            var tile = sender as VueLegionI;
+            LegionI l = tile.Legion;
+            if (e.PropertyName.Equals("Legion"))
             {
-                var rect = createRectangle(t.Item1, t.Item2, tile);
+                var rect = createRectangle(l.Ligne, l.Colonne, tile);
                 tile.Rectangle = rect;
                 mapGrid.Children.Add(rect);
             }
+            else if (e.PropertyName.Equals("DetruireLegion"))
+                mapGrid.Children.Remove(tile.Rectangle);
+            else
+                updateUnitInfo(l);
         }
 
         /// <summary>
@@ -248,7 +247,6 @@ namespace WPF
 
             tile.mouseLeftButtonDown();
             updateInfo();
-            updateUnitInfo(row, column);
             //Affichage des unités présentes à l'endroit
 
             //ca ne rend rien de bien
@@ -273,7 +271,7 @@ namespace WPF
         /// </summary>
         /// <param name="u"></param>
         /// <returns></returns>
-        private List<Unite> getListUnit(int row, int column)
+       /* private List<Unite> getListUnit(LegionI legion)
         {
             List<Unite> list = new List<Unite>();
 
@@ -290,7 +288,7 @@ namespace WPF
                     
             }
             return list;
-        }
+        }*/
 
         /// <summary>
         /// Called after each turn, allows to update informations displayed about the state of game
@@ -309,13 +307,13 @@ namespace WPF
         /*
         * Update information displayed about unit in the tile with line and column
         */
-        private void updateUnitInfo(int line, int column)
+        private void updateUnitInfo(LegionI legion)
         {
             //on recupere la liste des unites de du joueur dont on a cliqué sur une case qu'il occupe
 
             //avec la position on trouve a qui appartient les unites (utile pour permettre de jouer
             //on recupère la liste des unites présentes à cet endroit
-            List<Unite> nonEmptyList = getListUnit(line, column);
+            List<UniteI> nonEmptyList = legion.Unites;
 
             unitInfoPanel.Children.Clear();
 

@@ -53,7 +53,7 @@ namespace SmallWorldLib.GeneratedCode.Vue
 
         public void mouseLeftButtonDown()
         {
-            if (unite.Carte.Selected == null)
+            if (unite.Carte.Selected == null || (unite.Carte.Selected != null && unite.Joueur == unite.Carte.Selected.Joueur))
                 unite.selectionner();
             else if(unite.Joueur != unite.Carte.Selected.Joueur)
                 unite.Carte.Selected.attaquer(unite.Position.Item1, unite.Position.Item2);

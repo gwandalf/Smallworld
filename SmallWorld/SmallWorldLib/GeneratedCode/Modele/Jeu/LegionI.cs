@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Modele.Jeu.Unit;
 using System.ComponentModel;
+using SmallWorldLib.GeneratedCode.Vue;
 
 namespace Modele.Jeu
 {
-    public interface LegionI// : INotifyPropertyChanged
+    public interface LegionI : INotifyPropertyChanged
     {
         //Units of the legion
         List<UniteI> Unites
@@ -30,5 +31,11 @@ namespace Modele.Jeu
             get;
             set;
         }
+
+        VueLegionI makeView();
+
+        void afficher();
+
+        void detruireLegion();
     }
 }
