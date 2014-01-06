@@ -50,7 +50,6 @@ namespace Modele.Jeu
                 vie = value;
                 if (vie == 0)
                 {
-                    OnPropertyChanged("Mort");
                     automate.mourir();
                 }
             }
@@ -95,12 +94,12 @@ namespace Modele.Jeu
             get { return carte; }
             set { carte = value; }
         }
-
+        /*
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name)
         {
             PropertyChanged(this, new PropertyChangedEventArgs(name));
-        }
+        }*/
 
         protected AutomateUniteI automate;
         public AutomateUniteI Automate

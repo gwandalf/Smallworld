@@ -15,7 +15,7 @@ namespace SmallWorldLib.GeneratedCode.Vue
      * \interface VueUniteI
      * 
      */
-    public interface VueUniteI : ComposantI, INotifyPropertyChanged
+    public interface VueUniteI : ComposantI//, INotifyPropertyChanged
     {
 
         UniteI Unite

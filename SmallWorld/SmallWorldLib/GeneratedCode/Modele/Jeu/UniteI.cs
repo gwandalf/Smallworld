@@ -19,7 +19,7 @@ namespace Modele.Jeu
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
 
-	public interface UniteI : INotifyPropertyChanged
+	public interface UniteI// : INotifyPropertyChanged
 	{
 
 

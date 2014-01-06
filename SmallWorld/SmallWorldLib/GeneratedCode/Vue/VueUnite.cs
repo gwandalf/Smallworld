@@ -32,18 +32,18 @@ namespace SmallWorldLib.GeneratedCode.Vue
             get { return description; }
             set { description = value; }
         }
-
+        /*
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name)
         {
             PropertyChanged(this, new PropertyChangedEventArgs(name));
-        }
+        }*/
 
         public VueUnite(UniteI uRef)
         {
             unite = uRef;
             description = new Border();
-            unite.PropertyChanged += new PropertyChangedEventHandler(update);
+            //unite.PropertyChanged += new PropertyChangedEventHandler(update);
         }
 
         public void mouseLeftButtonDown()
@@ -53,10 +53,10 @@ namespace SmallWorldLib.GeneratedCode.Vue
             else if(unite.Joueur != unite.Carte.Selected.Joueur)
                 unite.Carte.Selected.attaquer(unite.Position.Item1, unite.Position.Item2);
         }
-
+        /*
         public void update(object sender, PropertyChangedEventArgs e)
         {
             OnPropertyChanged(e.PropertyName);
-        }
+        }*/
     }
 }
