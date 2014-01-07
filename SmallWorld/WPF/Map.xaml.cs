@@ -443,5 +443,10 @@ namespace WPF
             //trouver la présence d'unités
             return true;
         }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            Saver.INSTANCE.ToXML(partie.Joueurs[0]);
+        }
     }
 }

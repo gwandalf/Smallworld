@@ -44,14 +44,27 @@ namespace Modele.Jeu
 
         //index of the first player
         private int first;
+        public int First
+        {
+            get { return first; }
+        }
 
         //index of the current player
         private int current;
+        public int Current
+        {
+            get { return current; }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name)
         {
             PropertyChanged(this, new PropertyChangedEventArgs(name));
+        }
+
+        public Partie()
+        {
+
         }
 
         /**

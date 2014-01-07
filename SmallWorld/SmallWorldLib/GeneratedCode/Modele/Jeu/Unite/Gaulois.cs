@@ -21,6 +21,7 @@ namespace Modele.Jeu
      * \brief Represents unites of type "Gaulois"
      * 
      */
+    [Serializable]
 	public class Gaulois : Unite
 	{
         public static ImageBrush ICON = new ImageBrush(new BitmapImage(new Uri(@"..\..\Resources\gaulois.gif", UriKind.Relative)));

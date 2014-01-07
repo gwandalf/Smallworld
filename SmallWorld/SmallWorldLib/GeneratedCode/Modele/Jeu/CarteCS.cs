@@ -88,6 +88,11 @@ namespace Modele.Jeu
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
 
+        public CarteCS()
+        {
+
+        }
+
         /**
          * \fn public Carte(int dim, List(JoueurI) joueurs)
          * \brief "Carte" constructor, placing players. Use CarteWrapper.

@@ -18,7 +18,7 @@ namespace Modele.Creation
      * \brief generic class used to produce units of the specified type T
      * 
      */
-    public class Fabrique<T> : FabriqueI where T : UniteI, new()
+    public class Fabrique<T> : FabriqueI where T : Unite, new()
 	{
 
         //number of units that must be produced
@@ -30,8 +30,8 @@ namespace Modele.Creation
 		}
 
         //produced units
-        protected List<UniteI> products;
-        public List<UniteI> Products
+        protected List<Unite> products;
+        public List<Unite> Products
         {
             get { return products; }
             set { products = value; }
@@ -50,10 +50,10 @@ namespace Modele.Creation
         /// </summary>
 		public virtual void fabriquer()
 		{
-			products = new List<UniteI>();
+			products = new List<Unite>();
             for (int i = 0; i < nombre; i++)
             {
-                UniteI u = new T();
+                Unite u = new T();
                 products.Add(u);
                 u.Automate = new AutomateUnite(u);
             }

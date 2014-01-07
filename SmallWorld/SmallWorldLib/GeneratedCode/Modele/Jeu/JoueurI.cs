@@ -22,7 +22,7 @@ namespace Modele.Jeu
         }
 
         //instances of Unite that are in the current instance of Joueur army
-        List<UniteI> Unites
+        List<Unite> Unites
         {
             get;
             set;

@@ -23,6 +23,12 @@ namespace Modele.Jeu.Unit
             }
         }
 
+        public NonJouable()
+            : base()
+        {
+
+        }
+
         public NonJouable(UniteI u, AutomateUniteI au)
             : base(u, au)
         {

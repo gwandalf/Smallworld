@@ -45,6 +45,11 @@ namespace Modele.Jeu
             PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
 
+        public Legion()
+        {
+
+        }
+
         /// <summary>
         /// constructor
         /// </summary>

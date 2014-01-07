@@ -76,6 +76,7 @@
     <Compile Include="GeneratedCode\Modele\Creation\MonteurPartieI.cs" />
     <Compile Include="GeneratedCode\Modele\Creation\MonteurPartieNormale.cs" />
     <Compile Include="GeneratedCode\Modele\Creation\MonteurPartiePetite.cs" />
+    <Compile Include="GeneratedCode\Modele\Creation\Saver.cs" />
     <Compile Include="GeneratedCode\Modele\Jeu\CarteCS.cs" />
     <Compile Include="GeneratedCode\Modele\Jeu\CarteI.cs" />
     <Compile Include="GeneratedCode\Modele\Jeu\Case.cs" />

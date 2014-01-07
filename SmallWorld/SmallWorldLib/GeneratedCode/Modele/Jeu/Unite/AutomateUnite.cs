@@ -89,6 +89,10 @@ namespace Modele.Jeu.Unit
             }
         }
 
+        public AutomateUnite()
+        {
+        }
+
         public AutomateUnite(UniteI u)
         {
             unite = u;

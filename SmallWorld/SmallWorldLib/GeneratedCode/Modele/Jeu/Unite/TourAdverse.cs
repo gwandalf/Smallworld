@@ -18,6 +18,12 @@ namespace Modele.Jeu.Unit
             }
         }
 
+        public TourAdverse()
+            : base()
+        {
+
+        }
+
         public TourAdverse(UniteI u, AutomateUniteI au)
             : base(u, au)
         {

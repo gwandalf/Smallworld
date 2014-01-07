@@ -8,6 +8,13 @@ namespace Modele.Jeu.Unit
 {
     public class Morte : EtatUnite
     {
+
+        public Morte()
+            : base()
+        {
+
+        }
+
         public Morte(UniteI u, AutomateUniteI au)
             : base(u, au)
         {

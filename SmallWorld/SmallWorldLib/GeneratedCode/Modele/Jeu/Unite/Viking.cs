@@ -21,6 +21,7 @@ namespace Modele.Jeu
      * \brief Represents unites of type "Viking"
      * 
      */
+    [Serializable]
 	public class Viking : Unite
 	{
         public static ImageBrush ICON = new ImageBrush(new BitmapImage(new Uri(@"..\..\Resources\viking.png", UriKind.Relative)));

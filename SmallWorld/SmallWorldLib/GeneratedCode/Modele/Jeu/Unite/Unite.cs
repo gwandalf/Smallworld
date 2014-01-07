@@ -16,6 +16,9 @@ namespace Modele.Jeu
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
     using Modele.Jeu.Unit;
+    using System.IO;
+    using System.Xml;
+    using System.Xml.Serialization;
 
     /**
      * \class Unite
@@ -23,6 +26,10 @@ namespace Modele.Jeu
      * \brief Represents unites of the game
      * 
      */
+    [XmlInclude(typeof(Gaulois))]
+    [XmlInclude(typeof(Viking))]
+    [XmlInclude(typeof(Nain))]
+    [Serializable]
 	public abstract class Unite : UniteI/*, INotifyPropertyChanged*/
 	{
 
@@ -82,6 +89,7 @@ namespace Modele.Jeu
         }
 
         protected JoueurI joueur;
+        [XmlIgnoreAttribute]
         public JoueurI Joueur
         {
             get { return joueur; }
@@ -89,6 +97,7 @@ namespace Modele.Jeu
 		}
 
         protected CarteI carte;
+        [XmlIgnoreAttribute]
         public CarteI Carte
         {
             get { return carte; }
@@ -102,6 +111,7 @@ namespace Modele.Jeu
         }*/
 
         protected AutomateUniteI automate;
+        [XmlIgnoreAttribute]
         public AutomateUniteI Automate
         {
             set { automate = value; }
@@ -119,6 +129,7 @@ namespace Modele.Jeu
         }
 
         //the position of the unit on the map
+        [XmlIgnoreAttribute]
         public Tuple<int, int> Position
         {
             get
@@ -137,6 +148,7 @@ namespace Modele.Jeu
 
         //legion of the current unit
         protected LegionI legion;
+        [XmlIgnoreAttribute]
         public virtual LegionI Legion
         {
             get { return legion; }

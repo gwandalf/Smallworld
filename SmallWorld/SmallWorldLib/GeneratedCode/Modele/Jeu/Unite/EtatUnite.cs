@@ -25,6 +25,10 @@ namespace Modele.Jeu.Unit
 
         protected AutomateUniteI automate;
 
+        public EtatUnite()
+        {
+        }
+
         public EtatUnite(UniteI u, AutomateUniteI au)
         {
             unite = u;

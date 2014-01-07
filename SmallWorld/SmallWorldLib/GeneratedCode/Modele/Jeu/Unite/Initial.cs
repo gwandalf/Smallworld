@@ -21,6 +21,11 @@ namespace Modele.Jeu.Unit
             }
         }
 
+        public Initial()
+            : base()
+        {
+        }
+
         public Initial(UniteI u, AutomateUniteI au)
             : base(u, au)
         {

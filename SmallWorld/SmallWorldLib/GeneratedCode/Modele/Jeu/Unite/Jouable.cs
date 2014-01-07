@@ -21,6 +21,12 @@ namespace Modele.Jeu.Unit
             }
         }
 
+        public Jouable()
+            : base()
+        {
+
+        }
+
         public Jouable(UniteI u, AutomateUniteI au)
             : base(u, au)
         {

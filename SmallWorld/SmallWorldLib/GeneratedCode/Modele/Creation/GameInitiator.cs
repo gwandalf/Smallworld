@@ -20,7 +20,7 @@ namespace Modele.Creation
     /// </summary>
     public sealed class GameInitiator : GameInitiatorI
 	{
-        public static GameInitiator INSTANCE = new GameInitiator();
+        public static readonly GameInitiator INSTANCE = new GameInitiator();
 
         //builder : determines the type of the game (size of the map, number of rounds, ...)
         private MonteurPartieI monteurPartie;

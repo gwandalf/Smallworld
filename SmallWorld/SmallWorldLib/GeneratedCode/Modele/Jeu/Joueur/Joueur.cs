@@ -28,8 +28,8 @@ namespace Modele.Jeu.Joueur
 		}
 
         //instances of Unite that are in the current instance of Joueur army
-		protected List<UniteI> unites;
-        public List<UniteI> Unites
+		protected List<Unite> unites;
+        public List<Unite> Unites
 		{
             get { return unites; }
             set { unites = value; }
@@ -83,11 +83,15 @@ namespace Modele.Jeu.Joueur
             PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
 
+        public Joueur()
+        {
+        }
+
         /// <summary>
         /// the army of the player is initialized, the player is set as the player of the unites
         /// </summary>
         /// <param name="u"> the army of the player </param>
-        public Joueur(List<UniteI> u, int capacity)
+        public Joueur(List<Unite> u, int capacity)
 		{
             nbMaxUnites = capacity;
             unites = u;

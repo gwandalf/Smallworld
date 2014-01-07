@@ -21,6 +21,7 @@ namespace Modele.Jeu
      * \brief Represents unites of type "Nain"
      * 
      */
+    [Serializable]
 	public class Nain : Unite
 	{
         public static ImageBrush ICON = new ImageBrush(new BitmapImage(new Uri(@"..\..\Resources\dwarf.png", UriKind.Relative)));

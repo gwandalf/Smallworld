@@ -22,7 +22,7 @@ namespace Modele.Creation
         }
 
         //produced units
-        List<UniteI> Products
+        List<Unite> Products
         {
             get;
             set;
