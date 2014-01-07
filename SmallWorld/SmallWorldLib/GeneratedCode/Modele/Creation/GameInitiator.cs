@@ -52,11 +52,11 @@ namespace Modele.Creation
         /// delegates the work to its attributes : the game builder and unit factory
         /// </summary>
         /// <returns> representation of the game </returns>
-		public PartieI creerPartie()
+		public Partie creerPartie()
 		{
             monteurPartie.FabriquesUnite = fabriquesUnite;
             List<Joueur> joueurs = monteurPartie.makeJoueurs();
-            CarteI carte = monteurPartie.makeCarte(joueurs);
+            CarteCS carte = monteurPartie.makeCarte(joueurs);
             return new Partie(joueurs, monteurPartie.NbTours, carte);
 		}
 

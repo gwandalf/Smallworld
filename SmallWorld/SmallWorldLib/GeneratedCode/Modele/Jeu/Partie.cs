@@ -30,8 +30,8 @@ namespace Modele.Jeu
 			set{if(value.Count == 2) joueurs = value;}
 		}
 
-        private CarteI carte;
-		public CarteI Carte
+        private CarteCS carte;
+		public CarteCS Carte
 		{
             get { return carte; }
             set { carte = value; }
@@ -48,6 +48,7 @@ namespace Modele.Jeu
         public int First
         {
             get { return first; }
+            set { first = value; }
         }
 
         //index of the current player
@@ -55,6 +56,7 @@ namespace Modele.Jeu
         public int Current
         {
             get { return current; }
+            set { current = value; }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -77,7 +79,7 @@ namespace Modele.Jeu
          * param[in] carte : map
          * 
          */
-        public Partie(List<Joueur.Joueur> joueurs, int nbTours, CarteI carte)
+        public Partie(List<Joueur.Joueur> joueurs, int nbTours, CarteCS carte)
 		{
             this.joueurs = joueurs;
             foreach (Joueur.Joueur j in joueurs)

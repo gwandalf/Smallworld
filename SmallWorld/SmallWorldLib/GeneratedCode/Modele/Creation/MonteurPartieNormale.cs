@@ -40,7 +40,7 @@ namespace Modele.Creation
         /// </summary>
         /// <param name="joueurs"> players of the game </param>
         /// <returns> map of the game </returns>
-		public override CarteI makeCarte(List<Joueur> joueurs)
+		public override CarteCS makeCarte(List<Joueur> joueurs)
 		{
 			return new CarteCS(15, joueurs);
 		}

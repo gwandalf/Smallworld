@@ -84,7 +84,7 @@ namespace Modele.Jeu
         }
 
         //legion of the current unit
-        LegionI Legion
+        Legion Legion
         {
             get;
             set;

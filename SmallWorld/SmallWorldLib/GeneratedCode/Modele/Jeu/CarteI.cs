@@ -24,9 +24,16 @@ namespace Modele.Jeu
             get;
         }
 
+        List<List<int>> CodeCases
+        {
+            get;
+            set;
+        }
+
         int Dim
         {
             get;
+            set;
         }
 
         Dictionary<UniteI, Tuple<int, int>> PositUnite
@@ -40,11 +47,11 @@ namespace Modele.Jeu
             get;
             set;
         }
-
+        /*
         List<UniteI> UniteSet
         {
             get;
-        }
+        }*/
 
         List<List<CaseI>> Cases
         {

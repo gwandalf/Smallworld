@@ -29,7 +29,7 @@ namespace Modele.Jeu
             set;
         }
 
-        CarteI Carte
+        CarteCS Carte
         {
             get;
             set;

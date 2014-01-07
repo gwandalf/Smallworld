@@ -446,7 +446,7 @@ namespace WPF
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            Saver.INSTANCE.ToXML(partie.Joueurs);
+            Saver.INSTANCE.ToXML(partie);
         }
     }
 }

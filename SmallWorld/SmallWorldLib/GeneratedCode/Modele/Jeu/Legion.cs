@@ -8,13 +8,18 @@ using SmallWorldLib.GeneratedCode.Vue;
 using System.ComponentModel;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.IO;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace Modele.Jeu
 {
+    [Serializable]
     public class Legion : LegionI
     {
         //Units of the legion
         private List<UniteI> unites;
+        [XmlIgnoreAttribute]
         public List<UniteI> Unites
         {
             get { return unites; }

@@ -147,9 +147,8 @@ namespace Modele.Jeu
         }
 
         //legion of the current unit
-        protected LegionI legion;
-        [XmlIgnoreAttribute]
-        public virtual LegionI Legion
+        protected Legion legion;
+        public Legion Legion
         {
             get { return legion; }
             set { legion = value; }
@@ -291,7 +290,7 @@ namespace Modele.Jeu
          */
         public virtual void placeOnMap(int x, int y)
         {
-            legion = carte.getLegion(x, y);
+            legion = (Legion)carte.getLegion(x, y);
             //if there is no legion at this position, we create one
             //else, we simmply add the unit to the found legion
             if (legion == null)

@@ -16,24 +16,41 @@ namespace Modele.Jeu
     using Wrapper;
     using SmallWorldLib.GeneratedCode.Vue;
     using System.ComponentModel;
+    using System.IO;
+    using System.Xml;
+    using System.Xml.Serialization;
    
+    [Serializable]
 	public class CarteCS : CarteI
 	{
         private CarteWrapper carteW;
+        [XmlIgnoreAttribute]
         public CarteWrapper CarteW
         {
             get { return carteW; }
+            set { carteW = value; }
         }
 
+        private List<List<int>> codeCases;
+        [XmlIgnoreAttribute]
+        public List<List<int>> CodeCases
+        {
+            get { return codeCases; }
+            set { codeCases = value; }
+        }
+
+        private int dim;
         public int Dim
         {
-            get { return carteW.getDim(); }
+            get { return dim; }
+            set { dim = value; }
         }
 
         // hashtable associating IDs to unites
         // CarteWrapper (C++) sees unites as IDs
         // Carte (C#) sees unites as instances of the class Unite
-        private Dictionary<UniteI, Tuple<int,int>> positUnite;
+        private Dictionary<UniteI, Tuple<int, int>> positUnite;
+        [XmlIgnoreAttribute]
         public Dictionary<UniteI, Tuple<int, int>> PositUnite
 		{
             get { return positUnite; }
@@ -41,25 +58,29 @@ namespace Modele.Jeu
 		}
 
 		private FabriqueCaseI fabrique;
+        [XmlIgnoreAttribute]
         public FabriqueCaseI Fabrique
 		{
             get { return fabrique; }
             set { fabrique = value; }
 		}
-
+        /*
         private List<UniteI> uniteSet;
+        [XmlIgnoreAttribute]
         public List<UniteI> UniteSet
         {
             get { return uniteSet; }
-        }
+        }*/
 
         private List<List<CaseI>> cases;
+        [XmlIgnoreAttribute]
         public List<List<CaseI>> Cases
         {
             get { return cases; }
         }
 
         private UniteI selected;
+        [XmlIgnoreAttribute]
         public UniteI Selected
         {
             get { return selected; }
@@ -68,6 +89,7 @@ namespace Modele.Jeu
 
         //legions placed on the map
         private List<LegionI> legions;
+        [XmlIgnoreAttribute]
         public List<LegionI> Legions
         {
             get { return legions; }
@@ -76,6 +98,7 @@ namespace Modele.Jeu
 
         //Temporary legion added recently which is to be shown
         private LegionI tmpLegion;
+        [XmlIgnoreAttribute]
         public LegionI TmpLegion
         {
             get { return tmpLegion; }
@@ -109,6 +132,7 @@ namespace Modele.Jeu
 		{
             //construction carteWrapper
             this.carteW = new CarteWrapper(dim, joueurs[0].NbMaxUnites);
+            this.dim = dim;
             legions = new List<LegionI>();
             this.positUnite = new Dictionary<UniteI, Tuple<int, int>>();
             int[] loc = { 0, dim - 1};
@@ -116,11 +140,14 @@ namespace Modele.Jeu
             //cases initilization
             fabrique = new FabriqueCase();
             cases = new List<List<CaseI>>(this.Dim);
+            codeCases = new List<List<int>>(this.Dim);
             for (int j = 0; j < this.Dim; j++)
             {
                 cases.Add(new List<CaseI>(this.Dim));
+                codeCases.Add(new List<int>(this.Dim));
                 for (int k = 0; k < this.Dim; k++)
                 {
+                    codeCases[j].Add(carteW.getCases(j, k));
                     switch (carteW.getCases(j, k))
                     {
                         case 0:

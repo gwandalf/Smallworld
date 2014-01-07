@@ -70,7 +70,7 @@ namespace Modele.Creation
         /// </summary>
         /// <param name="joueurs"> players of the game </param>
         /// <returns> map of the game </returns>
-        public abstract CarteI makeCarte(List<Joueur> joueurs);
+        public abstract CarteCS makeCarte(List<Joueur> joueurs);
 
 	}
 }

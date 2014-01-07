@@ -39,7 +39,7 @@ namespace Modele.Creation
         /// delegates the work to its attributes : the game builder and unit factory
         /// </summary>
         /// <returns> representation of the game </returns>
-		PartieI creerPartie();
+		Partie creerPartie();
 
 	}
 }

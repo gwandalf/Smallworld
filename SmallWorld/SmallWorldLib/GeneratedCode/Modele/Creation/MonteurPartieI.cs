@@ -38,7 +38,7 @@ namespace Modele.Creation
         /// </summary>
         /// <param name="joueurs"> players of the game </param>
         /// <returns> map of the game </returns>
-		CarteI makeCarte(List<Joueur> joueurs);
+		CarteCS makeCarte(List<Joueur> joueurs);
 
         /// <summary>
         /// The method creates the internal representation of each player.
