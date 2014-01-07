@@ -11,6 +11,7 @@ namespace Modele.Jeu.Unit
         UniteI Unite
         {
             get;
+            set;
         }
 
         EtatUnite Jouable

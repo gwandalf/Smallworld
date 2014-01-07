@@ -114,9 +114,6 @@ namespace Modele.Jeu
         {
             legions = new List<LegionI>();
             this.positUnite = new Dictionary<UniteI, Tuple<int, int>>();
-            int[] loc = { 0, dim - 1 };
-
-            //cases initilization
             fabrique = new FabriqueCase();
         }
 
@@ -321,12 +318,23 @@ namespace Modele.Jeu
                 foreach (UniteI u in j.Unites)
                 {
                     u.Carte = this;
+                    u.Joueur = j;
+                    u.Automate.Unite = u;
                     u.setBonusMalusPoints(true);
-                    //u.placeOnMap(loc[i], loc[i]);
+                    int l = u.Legion.Ligne;
+                    int c = u.Legion.Colonne;
+                    u.Legion = null;
+                    u.placeOnMap(l, c);
                     u.setBonusMalusPoints(false);
                 }
                 i++;
             }
+        }
+
+        public void initLegions()
+        {
+            legions = new List<LegionI>();
+
         }
 
 	}

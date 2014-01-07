@@ -298,8 +298,10 @@ namespace Modele.Jeu
                 legion = new Legion(this, x, y);
                 carte.ajouterLegion(legion);
             }
-            else
+            else if(!legion.Unites.Contains(this))
+            {
                 legion.Unites.Add(this);
+            }
             Tuple<int, int> t = new Tuple<int, int>(x, y);
             this.Carte.PositUnite.Add(this, t);
             joueur.Points += rapporterPoints(); //the player get the points related to the new position

@@ -11,10 +11,17 @@ namespace Modele.Jeu.Unit
         UniteI Unite
         {
             get;
+            set;
         }
 
         Boolean Turn
         {
+            set;
+        }
+
+        AutomateUniteI Automate
+        {
+            get;
             set;
         }
 

@@ -22,6 +22,7 @@ namespace Modele.Jeu.Unit
         public UniteI Unite
         {
             get { return unite; }
+            set { unite = value; }
         }
 
         protected Boolean turn;
@@ -34,6 +35,12 @@ namespace Modele.Jeu.Unit
         }
 
         protected AutomateUniteI automate;
+        [XmlIgnoreAttribute]
+        public AutomateUniteI Automate
+        {
+            get { return automate; }
+            set { automate = value; }
+        }
 
         public EtatUnite()
         {

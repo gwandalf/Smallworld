@@ -27,6 +27,11 @@ namespace Modele.Jeu.Unit
         public UniteI Unite
         {
             get { return unite; }
+            set 
+            { 
+                unite = value;
+                courant.Unite = value;
+            }
         }
 
         private EtatUnite jouable;
@@ -84,6 +89,8 @@ namespace Modele.Jeu.Unit
             set 
             {
                 courant = value;
+                if (courant.Automate == null)
+                    courant.Automate = this;
                 courant.arrivee();
             }
         }
