@@ -32,7 +32,6 @@ namespace Modele.Jeu
         }
 
         private List<List<int>> codeCases;
-        [XmlIgnoreAttribute]
         public List<List<int>> CodeCases
         {
             get { return codeCases; }
