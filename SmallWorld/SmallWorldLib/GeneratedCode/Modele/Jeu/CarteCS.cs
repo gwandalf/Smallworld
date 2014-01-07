@@ -315,6 +315,7 @@ namespace Modele.Jeu
             int i = 0;
             foreach (JoueurI j in joueurs)
             {
+                j.Points = 0;
                 foreach (UniteI u in j.Unites)
                 {
                     u.Carte = this;

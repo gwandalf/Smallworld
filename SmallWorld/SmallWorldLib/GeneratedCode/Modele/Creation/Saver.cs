@@ -13,14 +13,12 @@ namespace Modele.Creation
     public sealed class Saver
     {
         public static readonly Saver INSTANCE = new Saver();
-        private int count;
 
         public Saver()
         {
-            count = 1;
         }
 
-        public string ToXML(Object p)
+        public void ToXML(Object p, string name)
         {
             XmlDocument xmlDoc = new XmlDocument();
             XmlSerializer xmlSerializer = new XmlSerializer(p.GetType());
@@ -29,16 +27,14 @@ namespace Modele.Creation
                 xmlSerializer.Serialize(xmlStream, p);
                 xmlStream.Position = 0;
                 xmlDoc.Load(xmlStream);
-                xmlDoc.Save("..\\..\\Resources\\game" + count + ".xml");
-                count++;
-                return xmlDoc.InnerXml;
+                xmlDoc.Save("..\\..\\Resources\\Saves\\" + name + ".xml");
             }
         }
 
         public Partie charger(string name)
         {
             var serializer = new XmlSerializer(typeof(Partie));
-            using (var reader = XmlReader.Create("..\\..\\Resources\\" + name + ".xml"))
+            using (var reader = XmlReader.Create("..\\..\\Resources\\Saves\\" + name + ".xml"))
             {
                 var partie = (Partie)serializer.Deserialize(reader);
                 partie.Carte.generateCases();
