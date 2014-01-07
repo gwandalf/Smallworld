@@ -27,7 +27,7 @@ namespace Modele.Jeu
         public List<Joueur.Joueur> Joueurs
 		{
 			get{return joueurs;}
-			set{if(value.Count == 2) joueurs = value;}
+			set{joueurs = value;}
 		}
 
         private CarteCS carte;

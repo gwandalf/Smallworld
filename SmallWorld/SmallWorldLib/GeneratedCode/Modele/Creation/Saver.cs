@@ -34,5 +34,17 @@ namespace Modele.Creation
                 return xmlDoc.InnerXml;
             }
         }
+
+        public Partie charger(string name)
+        {
+            var serializer = new XmlSerializer(typeof(Partie));
+            using (var reader = XmlReader.Create("..\\..\\Resources\\" + name + ".xml"))
+            {
+                var partie = (Partie)serializer.Deserialize(reader);
+                partie.Carte.generateCases();
+                partie.Carte.linkJoueurs(partie.Joueurs);
+                return partie;
+            }
+        }
     }
 }

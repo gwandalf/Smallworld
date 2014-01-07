@@ -81,7 +81,8 @@ namespace Modele.Jeu.Joueur
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string name)
         {
-            PropertyChanged(this, new PropertyChangedEventArgs(name));
+            if(PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
 
         public Joueur()

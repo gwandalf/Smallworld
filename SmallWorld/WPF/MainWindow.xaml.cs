@@ -176,5 +176,13 @@ namespace WPF
         {
             mp = new MonteurPartieNormale();
         }
+
+        private void ChargerButton_Click(object sender, RoutedEventArgs e)
+        {
+            Partie partie = Saver.INSTANCE.charger("game1");
+            Map win = new Map(partie, labelPlayer1.Text, labelPlayer2.Text);
+            win.Show();
+            this.Close();
+        }
     }
 }

@@ -112,7 +112,12 @@ namespace Modele.Jeu
 
         public CarteCS()
         {
+            legions = new List<LegionI>();
+            this.positUnite = new Dictionary<UniteI, Tuple<int, int>>();
+            int[] loc = { 0, dim - 1 };
 
+            //cases initilization
+            fabrique = new FabriqueCase();
         }
 
         /**
@@ -168,7 +173,6 @@ namespace Modele.Jeu
                     }
                 }
             }
-
             int i = 0;
             foreach (JoueurI j in joueurs)
             {
@@ -276,6 +280,53 @@ namespace Modele.Jeu
             legions.Add(legion);
             tmpLegion = legion;
             OnPropertyChanged("Legion");
+        }
+
+        public void generateCases()
+        {
+            cases = new List<List<CaseI>>(this.Dim);
+            for (int j = 0; j < this.Dim; j++)
+            {
+                cases.Add(new List<CaseI>(this.Dim));
+                for (int k = 0; k < this.Dim; k++)
+                {
+                    switch (codeCases[j][k])
+                    {
+                        case 0:
+                            cases[j].Add(fabrique.Desert);
+                            break;
+                        case 1:
+                            cases[j].Add(fabrique.Eau);
+                            break;
+                        case 2:
+                            cases[j].Add(fabrique.Foret);
+                            break;
+                        case 3:
+                            cases[j].Add(fabrique.Montagne);
+                            break;
+                        case 4:
+                            cases[j].Add(fabrique.Plaine);
+                            break;
+                        default: break;
+                    }
+                }
+            } 
+        }
+
+        public void linkJoueurs(List<Joueur.Joueur> joueurs)
+        {
+            int i = 0;
+            foreach (JoueurI j in joueurs)
+            {
+                foreach (UniteI u in j.Unites)
+                {
+                    u.Carte = this;
+                    u.setBonusMalusPoints(true);
+                    //u.placeOnMap(loc[i], loc[i]);
+                    u.setBonusMalusPoints(false);
+                }
+                i++;
+            }
         }
 
 	}

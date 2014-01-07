@@ -101,6 +101,10 @@ namespace Modele.Jeu
         LegionI getLegion(int lig, int col);
 
         void ajouterLegion(LegionI legion);
+
+        void generateCases();
+
+        void linkJoueurs(List<Joueur.Joueur> joueurs);
 	}
 }
 
