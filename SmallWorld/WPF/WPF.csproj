@@ -75,9 +75,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Load.xaml.cs">
+      <DependentUpon>Load.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SaveAs.xaml.cs">
       <DependentUpon>SaveAs.xaml</DependentUpon>
     </Compile>
+    <Page Include="Load.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Map.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -21,3 +21,5 @@ C:\Users\Gwendal\git\Smallworld\SmallWorld\WPF\obj\Release\WPF.exe
 C:\Users\Gwendal\git\Smallworld\SmallWorld\WPF\obj\Release\WPF.pdb
 C:\Users\Gwendal\git\Smallworld\SmallWorld\WPF\obj\Release\SaveAs.g.cs
 C:\Users\Gwendal\git\Smallworld\SmallWorld\WPF\obj\Release\SaveAs.baml
+C:\Users\Gwendal\git\Smallworld\SmallWorld\WPF\obj\Release\Load.g.cs
+C:\Users\Gwendal\git\Smallworld\SmallWorld\WPF\obj\Release\Load.baml

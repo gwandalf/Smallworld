@@ -179,10 +179,8 @@ namespace WPF
 
         private void ChargerButton_Click(object sender, RoutedEventArgs e)
         {
-            Partie partie = Saver.INSTANCE.charger("game1");
-            Map win = new Map(partie, labelPlayer1.Text, labelPlayer2.Text);
+            Load win = new Load(this);
             win.Show();
-            this.Close();
         }
     }
 }
