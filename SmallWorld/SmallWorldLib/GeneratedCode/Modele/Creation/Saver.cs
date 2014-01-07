@@ -29,7 +29,7 @@ namespace Modele.Creation
                 xmlSerializer.Serialize(xmlStream, p);
                 xmlStream.Position = 0;
                 xmlDoc.Load(xmlStream);
-                xmlDoc.Save(".\\game" + count + ".xml");
+                xmlDoc.Save("..\\..\\Resources\\game" + count + ".xml");
                 count++;
                 return xmlDoc.InnerXml;
             }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Modele.Jeu.Unit
 {
+    [Serializable]
     public class Jouable : EtatUnite
     {
         public override Boolean Turn

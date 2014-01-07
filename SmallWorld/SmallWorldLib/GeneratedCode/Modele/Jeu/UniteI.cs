@@ -64,8 +64,9 @@ namespace Modele.Jeu
             set;
         }
 
-        AutomateUniteI Automate
+        AutomateUnite Automate
         {
+            get;
             set;
         }
 

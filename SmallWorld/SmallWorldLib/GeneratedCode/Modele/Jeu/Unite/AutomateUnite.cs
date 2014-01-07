@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Modele.Jeu;
+using System.IO;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace Modele.Jeu.Unit
 {
@@ -16,16 +19,19 @@ namespace Modele.Jeu.Unit
      * Provides the getters and setters used to switch of state
      * 
      */
+    [Serializable]
     public class AutomateUnite : AutomateUniteI
     {
         private UniteI unite;
+        [XmlIgnoreAttribute]
         public UniteI Unite
         {
             get { return unite; }
         }
 
-        private EtatUniteI jouable;
-        public EtatUniteI Jouable
+        private EtatUnite jouable;
+        [XmlIgnoreAttribute]
+        public EtatUnite Jouable
         {
             get
             {
@@ -35,8 +41,9 @@ namespace Modele.Jeu.Unit
             }
         }
 
-        private EtatUniteI nonJouable;
-        public EtatUniteI NonJouable
+        private EtatUnite nonJouable;
+        [XmlIgnoreAttribute]
+        public EtatUnite NonJouable
         {
             get
             {
@@ -46,8 +53,9 @@ namespace Modele.Jeu.Unit
             }
         }
 
-        private EtatUniteI tourAdverse;
-        public EtatUniteI TourAdverse
+        private EtatUnite tourAdverse;
+        [XmlIgnoreAttribute]
+        public EtatUnite TourAdverse
         {
             get
             {
@@ -57,8 +65,9 @@ namespace Modele.Jeu.Unit
             }
         }
 
-        private EtatUniteI morte;
-        public EtatUniteI Morte
+        private EtatUnite morte;
+        [XmlIgnoreAttribute]
+        public EtatUnite Morte
         {
             get
             {
@@ -68,8 +77,8 @@ namespace Modele.Jeu.Unit
             }
         }
 
-        private EtatUniteI courant;
-        public EtatUniteI Courant
+        private EtatUnite courant;
+        public EtatUnite Courant
         {
             get { return courant; }
             set 

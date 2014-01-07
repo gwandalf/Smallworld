@@ -13,27 +13,27 @@ namespace Modele.Jeu.Unit
             get;
         }
 
-        EtatUniteI Jouable
+        EtatUnite Jouable
         {
             get;
         }
 
-        EtatUniteI NonJouable
+        EtatUnite NonJouable
         {
             get;
         }
 
-        EtatUniteI TourAdverse
+        EtatUnite TourAdverse
         {
             get;
         }
 
-        EtatUniteI Morte
+        EtatUnite Morte
         {
             get;
         }
 
-        EtatUniteI Courant
+        EtatUnite Courant
         {
             get;
             set;

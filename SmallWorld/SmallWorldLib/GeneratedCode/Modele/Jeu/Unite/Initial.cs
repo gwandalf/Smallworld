@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace Modele.Jeu.Unit
 {
+    [Serializable]
     public class Initial : EtatUnite
     {
         public override Boolean Turn

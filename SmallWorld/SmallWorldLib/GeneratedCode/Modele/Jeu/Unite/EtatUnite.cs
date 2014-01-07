@@ -3,12 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace Modele.Jeu.Unit
 {
+    [XmlInclude(typeof(TourAdverse))]
+    [XmlInclude(typeof(Jouable))]
+    [XmlInclude(typeof(NonJouable))]
+    [XmlInclude(typeof(Morte))]
+    [XmlInclude(typeof(Initial))]
+    [Serializable]
     public abstract class EtatUnite : EtatUniteI
     {
         protected UniteI unite;
+        [XmlIgnoreAttribute]
         public UniteI Unite
         {
             get { return unite; }

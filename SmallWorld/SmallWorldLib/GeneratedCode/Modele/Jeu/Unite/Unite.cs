@@ -110,10 +110,10 @@ namespace Modele.Jeu
             PropertyChanged(this, new PropertyChangedEventArgs(name));
         }*/
 
-        protected AutomateUniteI automate;
-        [XmlIgnoreAttribute]
-        public AutomateUniteI Automate
+        protected AutomateUnite automate;
+        public AutomateUnite Automate
         {
+            get { return automate; }
             set { automate = value; }
         }
 

@@ -7,6 +7,7 @@ using Modele.Jeu;
 
 namespace Modele.Jeu.Unit
 {
+    [Serializable]
     public class NonJouable : EtatUnite
     {
         public override Boolean Turn
