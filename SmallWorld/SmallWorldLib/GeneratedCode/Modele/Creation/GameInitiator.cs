@@ -7,6 +7,7 @@
 namespace Modele.Creation
 {
 	using Modele.Jeu;
+    using Modele.Jeu.Joueur;
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
@@ -54,7 +55,7 @@ namespace Modele.Creation
 		public PartieI creerPartie()
 		{
             monteurPartie.FabriquesUnite = fabriquesUnite;
-            List<JoueurI> joueurs = monteurPartie.makeJoueurs();
+            List<Joueur> joueurs = monteurPartie.makeJoueurs();
             CarteI carte = monteurPartie.makeCarte(joueurs);
             return new Partie(joueurs, monteurPartie.NbTours, carte);
 		}

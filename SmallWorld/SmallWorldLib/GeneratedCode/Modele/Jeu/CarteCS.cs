@@ -105,7 +105,7 @@ namespace Modele.Jeu
          * param[in, out] joueurs : list of the players.
          * 
          */
-		public CarteCS(int dim, List<JoueurI> joueurs)
+		public CarteCS(int dim, List<Joueur.Joueur> joueurs)
 		{
             //construction carteWrapper
             this.carteW = new CarteWrapper(dim, joueurs[0].NbMaxUnites);

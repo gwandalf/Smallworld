@@ -12,6 +12,7 @@ namespace Modele.Jeu
 	using System.Linq;
     using System.Text;
     using System.ComponentModel;
+    using Modele.Jeu.Joueur;
 
 	public class Partie : PartieI
 	{
@@ -22,8 +23,8 @@ namespace Modele.Jeu
             set { nombreTours = value; }
 		}
 
-        private List<JoueurI> joueurs;
-		public List<JoueurI> Joueurs
+        private List<Joueur.Joueur> joueurs;
+        public List<Joueur.Joueur> Joueurs
 		{
 			get{return joueurs;}
 			set{if(value.Count == 2) joueurs = value;}
@@ -76,10 +77,10 @@ namespace Modele.Jeu
          * param[in] carte : map
          * 
          */
-        public Partie(List<JoueurI> joueurs, int nbTours, CarteI carte)
+        public Partie(List<Joueur.Joueur> joueurs, int nbTours, CarteI carte)
 		{
             this.joueurs = joueurs;
-            foreach(JoueurI j in joueurs)
+            foreach (Joueur.Joueur j in joueurs)
                 j.PropertyChanged += new PropertyChangedEventHandler(update);
             this.nombreTours = nbTours;
             this.carte = carte;

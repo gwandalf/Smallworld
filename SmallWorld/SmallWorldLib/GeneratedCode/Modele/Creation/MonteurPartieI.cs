@@ -38,14 +38,14 @@ namespace Modele.Creation
         /// </summary>
         /// <param name="joueurs"> players of the game </param>
         /// <returns> map of the game </returns>
-		CarteI makeCarte(List<JoueurI> joueurs);
+		CarteI makeCarte(List<Joueur> joueurs);
 
         /// <summary>
         /// The method creates the internal representation of each player.
         /// The players are created initilized with the units produced by the factories
         /// </summary>
         /// <returns> players of the game </returns>
-		List<JoueurI> makeJoueurs();
+		List<Joueur> makeJoueurs();
 
 	}
 }

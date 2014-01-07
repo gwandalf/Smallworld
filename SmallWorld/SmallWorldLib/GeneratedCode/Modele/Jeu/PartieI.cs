@@ -13,6 +13,7 @@ namespace Modele.Jeu
 	using System.Linq;
     using System.Text;
     using System.ComponentModel;
+    using Modele.Jeu.Joueur;
 
 	public interface PartieI : INotifyPropertyChanged
 	{
@@ -22,7 +23,7 @@ namespace Modele.Jeu
             set;
         }
 
-        List<JoueurI> Joueurs
+        List<Joueur.Joueur> Joueurs
         {
             get;
             set;

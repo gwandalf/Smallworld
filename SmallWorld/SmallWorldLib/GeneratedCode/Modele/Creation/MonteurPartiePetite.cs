@@ -11,6 +11,7 @@ namespace Modele.Creation
 	using System.Linq;
 	using System.Text;
     using Modele.Jeu;
+    using Modele.Jeu.Joueur;
 
     /// <summary>
     /// Builder of a demonstration game : 6 units by army, map of 10 X 10 cases, 20 rounds
@@ -39,7 +40,7 @@ namespace Modele.Creation
         /// </summary>
         /// <param name="joueurs"> players of the game </param>
         /// <returns> map of the game </returns>
-        public override CarteI makeCarte(List<JoueurI> joueurs)
+        public override CarteI makeCarte(List<Joueur> joueurs)
 		{
 			return new CarteCS(10, joueurs);
 		}

@@ -53,9 +53,9 @@ namespace Modele.Creation
         /// The players are created initilized with the units produced by the factories
         /// </summary>
         /// <returns> players of the game </returns>
-		public virtual List<JoueurI> makeJoueurs()
+		public virtual List<Joueur> makeJoueurs()
 		{
-			List<JoueurI> res = new List<JoueurI>();
+			List<Joueur> res = new List<Joueur>();
             foreach (FabriqueI fu in fabriquesUnite)
             {
                 fu.fabriquer();
@@ -70,7 +70,7 @@ namespace Modele.Creation
         /// </summary>
         /// <param name="joueurs"> players of the game </param>
         /// <returns> map of the game </returns>
-        public abstract CarteI makeCarte(List<JoueurI> joueurs);
+        public abstract CarteI makeCarte(List<Joueur> joueurs);
 
 	}
 }

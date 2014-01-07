@@ -17,6 +17,7 @@ namespace Modele.Jeu.Joueur
     /// <summary>
     /// Representation of a player of the game
     /// </summary>
+    [Serializable]
 	public class Joueur : JoueurI
 	{
         //number of points
