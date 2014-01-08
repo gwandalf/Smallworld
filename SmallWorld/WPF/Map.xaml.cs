@@ -131,12 +131,6 @@ namespace WPF
                 }
             }
 
-
-            //1. En fait il faut pour chaque joueur, positionner une image en fonction de son peuple: FONCTIONNE
-
-            //2. TODO: Comme les unités sont déjà positionnées dans le modèle, il faut il faut associer le clic d'un rectangle 
-            //   avec la recherche des unités présentes à cette position, pour afficher une petite fenêtre récapitulative
-
             foreach (LegionI i in map.Legions)
             {
                 VueLegionI view = i.makeView();
@@ -145,21 +139,6 @@ namespace WPF
                 view.PropertyChanged += new PropertyChangedEventHandler(redraw);
                 mapGrid.Children.Add(rect);
             }
-            /*
-            foreach (UniteI u in map.PositUnite.Keys)
-            {
-                //Donc s'il y a plusieurs unités sur la case, on refait à chaque fois un nouveau rectangle
-                VueUniteI view = u.makeView();
-                Tuple<int, int> t;
-                map.PositUnite.TryGetValue(u, out t);
-                var rect = createRectangle(t.Item1, t.Item2, view);
-                view.Rectangle = rect;
-                view.PropertyChanged += new PropertyChangedEventHandler(redraw);
-                mapGrid.Children.Add(rect);
-            }
-            */
-            //updateUnitUI();
-
         }
 
         public void redraw(object sender, PropertyChangedEventArgs e)
@@ -217,10 +196,6 @@ namespace WPF
                 this.popup1.IsOpen = true;
             }
         */
-        protected void btnPopup_OnClick(object sender, RoutedEventArgs e)
-        {
-            //TODO completer
-        }
 
         /// <summary>
         /// Called after each click on the map
@@ -253,20 +228,6 @@ namespace WPF
             tile.mouseLeftButtonDown();
             updateInfo();
             //Affichage des unités présentes à l'endroit
-
-            //ca ne rend rien de bien
-
-
-            /*
-            Popup codePopup = new Popup();
-            TextBlock popupText = new TextBlock();
-            popupText.Text = "Popup Text";
-            popupText.Background = Brushes.LightBlue;
-            popupText.Foreground = Brushes.Blue;
-            codePopup.Child = popupText;
-            panel.Children.Add(codePopup);
-            //panel.Children.Add(getListUnit(row, column));
-             */
             e.Handled = true;
         }
 
@@ -361,8 +322,11 @@ namespace WPF
             var stack = sender as StackPanel;
 
             selectUnit(stack);
+            map.CarteW.getCases(1, 2);
             // TODO
            //afficher tous les mouvements possibles
+           //pouvoir sélectionner plusieurs unités
+           //mettre chaque unité dans une liste
 
             e.Handled = true;
         }
