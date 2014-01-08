@@ -98,6 +98,54 @@ int Carte::getCases(int x, int y) {
 
 // TODO!
 //trouver les bons mouvements
+// doit savoir quels sont les terrains environnants
+// combien il y a d'ennemis à côté et leur caractéristiques
+// suggère 3 emplacements au maximum
+/*
+	0 : DESERT
+	1 : WATER
+	2 : FOREST
+	3 : MOUNTAIN
+	4 : LOWLAND
+
+	0 : VICKING
+	1 : NAIN
+	2 : GAULOIS
+*/
+
+
+int* Carte::getMoves(int line, int column) {
+	// on doit connaitre la position de l'unité séléctionnée (line,column)
+	// En fonction de cela, on garde les cases accessibles physiquement accessibles ( bords de la map) (taille de la carte)
+	// on enlève en fonction de l'unité, les cases inaccessibles (getCases()...)
+	// Si il y a plus de 3 solutions, on sélectionne les meilleures en fonction des ennemis présents
+
+	// Au max 3 coordonnées seront renvoyées sous la forme d'un tableau [][]
+
+	// 9 emplacements (pour simplifier), mais seulement 4 possibles
+	int * cases = new int[9];
+	// l'unité est tout en haut de la carte
+	if (line == 0){
+		// pas de déplacement vers le haut
+		cases[0] = cases[1] = cases[2] = -1;
+	}
+	// l'unité est tout en bas de la carte
+	if (line == dim){
+		//pas de déplacement vers le bas
+		cases[dim] = cases[dim + 1] = cases[dim + 2] = -1;
+	}
+	// l'unité est à gauche de la carte
+	if (column == 0){
+		// pas de déplacement a gauche
+		cases[0] = cases[1] = cases[2] = -1;
+	}
+	// l'unité est à droite de la carte
+	if (column == dim){
+		// pas de déplacement à droite
+		cases[dim] = cases[1 + dim] = cases[2 + dim] = -1;
+	}
+	return cases;
+}
 
 //vérifier si il y a de l'eau a coté
 

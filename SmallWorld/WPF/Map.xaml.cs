@@ -41,6 +41,7 @@ namespace WPF
         Partie partie;
         Rectangle selectedVisual;
         StackPanel _selectedUnit;
+        List<Unite> selectedUnitList;
 
         public Map(PartieI p, string nameP1, string nameP2)
         {
@@ -150,6 +151,22 @@ namespace WPF
             else
                 updateUnitInfo(l);
         }
+        /**
+         * Gives a specific children 
+         */
+        private Rectangle GetChildren(Grid grid, int row, int column)
+        {
+            foreach (Rectangle child in grid.Children)
+            {
+                if (Grid.GetRow(child) == row
+                      &&
+                   Grid.GetColumn(child) == column)
+                {
+                    return child;
+                }
+            }
+            return null;
+        } 
 
         /// <summary>
         /// 
@@ -181,14 +198,6 @@ namespace WPF
             return rectangle;
         }
 
-
-        /// <summary
-        ///  Fait les maj d'affichages nécessaires
-        /// </summary>
-        private void updateUnitUI()
-        {
-
-        }
 
         /*
             protected void btnUpdateTestTBL_OnClick(object sender, RoutedEventArgs e)
@@ -275,8 +284,7 @@ namespace WPF
         */
         private void updateUnitInfo(LegionI legion)
         {
-            //on recupere la liste des unites de du joueur dont on a cliqué sur une case qu'il occupe
-
+           
             //avec la position on trouve a qui appartient les unites (utile pour permettre de jouer
             //on recupère la liste des unites présentes à cet endroit
             List<UniteI> nonEmptyList = legion.Unites;
@@ -320,13 +328,45 @@ namespace WPF
         private void unitStackPanel_MouseDown(object sender, MouseButtonEventArgs e)
         {
             var stack = sender as StackPanel;
+            List<int> moves = new List<int>(); ;
+            moves.Add(1);
+            moves.Add(5);
+            moves.Add(6);
 
             selectUnit(stack);
-            map.CarteW.getCases(1, 2);
-            // TODO
-           //afficher tous les mouvements possibles
-           //pouvoir sélectionner plusieurs unités
-           //mettre chaque unité dans une liste
+
+            if (_selectedUnit != null){
+                var u = _selectedUnit.Tag as UniteI;
+                Tuple<int, int> t;
+                ////// Je n'arrive pas à récupérer où se situe la case de l'unité cliqué dans la liste.....
+                map.PositUnite.TryGetValue(u, out t);
+                List<int> move = partie.Carte.CarteW.getMoves(t.Item1, t.Item2);
+                //on clic sur une unité du panel, et elle est noircie sur la carte
+                /*
+                Tuple<int, int> t;
+                map.PositUnite.TryGetValue(u, out t);
+                Rectangle r = GetChildren(mapGrid, 0, t.Item2);
+                r.Opacity = 0.6;
+                */
+                
+                // récupération de la position de l'unité sélectionnée
+                
+
+                // partie.map.Dim donne les dimensions
+                for (int i = 0; i < move.Count; i++)
+                {
+                    // le placement des suggestions est à adapter à la taille de la carte
+                    Rectangle r = GetChildren(mapGrid, moves[i], 1);
+                    r.Opacity = 0.6;
+                    mapGrid.Children.Add(r);
+                }
+               
+                    // TODO
+                   //afficher tous les mouvements possibles
+                   //pouvoir sélectionner plusieurs unités
+                   //mettre chaque unité dans une liste
+
+            }
 
             e.Handled = true;
         }
@@ -350,6 +390,7 @@ namespace WPF
                 Points1Label.Content = "Points : " + partie.Joueurs[0].Points;
                 Points2Label.Content = "Points : " + partie.Joueurs[1].Points;
 //>>>>>>> 75d3522b4005ead6fdfafeca058886dd623bfcce
+                
             }
 
             var view = selectedUnit.Tag as VueUniteI;
