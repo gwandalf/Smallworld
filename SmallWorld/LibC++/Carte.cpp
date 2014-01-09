@@ -114,7 +114,7 @@ int Carte::getCases(int x, int y) {
 */
 
 
-int* Carte::getMoves(int line, int column) {
+int* Carte::getMoves(int line, int column, int size) {
 	// on doit connaitre la position de l'unité séléctionnée (line,column)
 	// En fonction de cela, on garde les cases accessibles physiquement accessibles ( bords de la map) (taille de la carte)
 	// on enlève en fonction de l'unité, les cases inaccessibles (getCases()...)
@@ -122,29 +122,71 @@ int* Carte::getMoves(int line, int column) {
 
 	// Au max 3 coordonnées seront renvoyées sous la forme d'un tableau [][]
 
+	int pos = line * size + column;
+
+	int x = pos / size;
+	int y = pos%size;
+
+	//(i*taille + j);
+			
+	int i = 0;
 	// 9 emplacements (pour simplifier), mais seulement 4 possibles
-	int * cases = new int[9];
-	// l'unité est tout en haut de la carte
+	int * cases = new int[4];
+	
+	// l'unité est n'est pas tout en haut de la carte
+
+	if (pos > size){
+		cases[i++] = pos - size;
+		//OK quand unite en bas, pas ok quand unite en haut
+	}
+	/*
 	if (line == 0){
 		// pas de déplacement vers le haut
 		cases[0] = cases[1] = cases[2] = -1;
 	}
-	// l'unité est tout en bas de la carte
+	*/
+	// l'unité n'est pas tout en bas de la carte
+	if (pos <= size*(size-1)){
+		cases[i++] = pos + size;
+		//OK quand unite en haut, pas ok quand unite en bas
+	}
+	/*
 	if (line == dim){
 		//pas de déplacement vers le bas
 		cases[dim] = cases[dim + 1] = cases[dim + 2] = -1;
 	}
-	// l'unité est à gauche de la carte
+	*/
+	// l'unité n'est pas à gauche de la carte
+	/*
+	if ((pos % size) == 1){
+		cases[i++] = pos - 1;
+	}
+	*/
+	/*
 	if (column == 0){
 		// pas de déplacement a gauche
 		cases[0] = cases[1] = cases[2] = -1;
 	}
-	// l'unité est à droite de la carte
+	*/
+	// l'unité n'est pas à droite de la carte
+	/*
+	if ((pos % (size-1)) != 0){
+		cases[i++] = pos + 1;
+	}
+	*/
+	/*
 	if (column == dim){
 		// pas de déplacement à droite
 		cases[dim] = cases[1 + dim] = cases[2 + dim] = -1;
 	}
+	*/
+	/*
+	cases[0] = 200;
+	cases[1] = 201;
+	cases[2] = 202;
+	*/
 	return cases;
+	
 }
 
 //vérifier si il y a de l'eau a coté

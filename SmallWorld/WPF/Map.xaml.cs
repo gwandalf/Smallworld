@@ -41,7 +41,7 @@ namespace WPF
         Partie partie;
         Rectangle selectedVisual;
         StackPanel _selectedUnit;
-        List<Unite> selectedUnitList;
+        List<Rectangle> _suggestions;
 
         public Map(PartieI p, string nameP1, string nameP2)
         {
@@ -51,6 +51,7 @@ namespace WPF
             partie.Joueurs[0].Nom = nameP1;
             partie.Joueurs[1].Nom = nameP2;
             partie.Carte.PropertyChanged += new PropertyChangedEventHandler(carte_PropertyChanged);
+            _suggestions = new List<Rectangle>();
         }
 
         private void partie_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -195,7 +196,15 @@ namespace WPF
             rectangle.StrokeThickness = 1;
 
             rectangle.MouseLeftButtonDown += new MouseButtonEventHandler(rectangle_MouseLeftButtonDown);
+
+            // a utiliser pour les déplacements
+            rectangle.MouseRightButtonDown += new MouseButtonEventHandler(rectangle_MouseRightButtonDown);
             return rectangle;
+        }
+
+        private void rectangle_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            //TODO
         }
 
 
@@ -213,6 +222,7 @@ namespace WPF
         /// <param name="e"></param>
         void rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            
             var unite = sender as UniteI;
             var rectangle = sender as Rectangle;
             var tile = rectangle.Tag as AffichableI;
@@ -221,6 +231,8 @@ namespace WPF
 
             if (selectedVisual != null)
             {
+                deleteSuggestions();
+
                 if (!map.isEmpty(Grid.GetRow(selectedVisual), Grid.GetColumn(selectedVisual)))
                     selectedVisual.StrokeThickness = 2;
                 else
@@ -301,7 +313,6 @@ namespace WPF
                 {
                     StackPanel stack = getUnitDescription(u);
                     VueUniteI view = u.makeView();
-
                     //we add a reference to the unit in the stack
                     stack.Tag = view;
                     view.Description.BorderThickness = new Thickness(2);
@@ -328,47 +339,46 @@ namespace WPF
         private void unitStackPanel_MouseDown(object sender, MouseButtonEventArgs e)
         {
             var stack = sender as StackPanel;
-            List<int> moves = new List<int>(); ;
-            moves.Add(1);
-            moves.Add(5);
-            moves.Add(6);
 
             selectUnit(stack);
 
             if (_selectedUnit != null){
-                var u = _selectedUnit.Tag as UniteI;
-                Tuple<int, int> t;
-                ////// Je n'arrive pas à récupérer où se situe la case de l'unité cliqué dans la liste.....
-                map.PositUnite.TryGetValue(u, out t);
-                List<int> move = partie.Carte.CarteW.getMoves(t.Item1, t.Item2);
-                //on clic sur une unité du panel, et elle est noircie sur la carte
-                /*
-                Tuple<int, int> t;
-                map.PositUnite.TryGetValue(u, out t);
-                Rectangle r = GetChildren(mapGrid, 0, t.Item2);
-                r.Opacity = 0.6;
-                */
-                
-                // récupération de la position de l'unité sélectionnée
-                
+                var u = _selectedUnit.Tag as VueUniteI;
 
-                // partie.map.Dim donne les dimensions
-                for (int i = 0; i < move.Count; i++)
-                {
-                    // le placement des suggestions est à adapter à la taille de la carte
-                    Rectangle r = GetChildren(mapGrid, moves[i], 1);
-                    r.Opacity = 0.6;
-                    mapGrid.Children.Add(r);
+                // récupération des mouvements possibles
+                List<int> moves = partie.Carte.CarteW.getMoves(u.Unite.Legion.Ligne, u.Unite.Legion.Colonne, partie.Carte.Dim);
+                
+                foreach(int i in moves){
+                
+                    var rect = new Rectangle();
+                    rect.StrokeThickness = 5;
+                    rect.Stroke = Brushes.Green;
+
+                    Grid.SetRow(rect, i / partie.Carte.Dim);
+                    Grid.SetColumn(rect, i % partie.Carte.Dim);
+
+                    //affichage des mouvements
+                    mapGrid.Children.Add(rect);
+
+                    _suggestions.Add(rect);
                 }
                
                     // TODO
                    //afficher tous les mouvements possibles
-                   //pouvoir sélectionner plusieurs unités
-                   //mettre chaque unité dans une liste
-
             }
 
             e.Handled = true;
+        }
+
+        /**
+         * Allows to remove all of the suggestions showed on the map
+         */
+        public void deleteSuggestions()
+        {
+            foreach (Rectangle rect in _suggestions)
+            {
+                mapGrid.Children.Remove(rect);
+            }
         }
 
         /**
