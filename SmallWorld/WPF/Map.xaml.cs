@@ -466,14 +466,14 @@ namespace WPF
             StackPanel stack = new StackPanel();
             stack.Orientation = Orientation.Horizontal;
             if (u.Deplacement > 0)
-                stack.Background = new SolidColorBrush(Colors.LightGray);
+                stack.Background = new SolidColorBrush(Colors.Green);
             else
                 stack.Background = new SolidColorBrush(Colors.DarkGray);
 
             Label lbLife = new Label();
             lbLife.Content = "Vie : " + u.Vie;
             Label lbPoint = new Label();
-            lbPoint.Content = "Point : " + u.rapporterPoints();
+            lbPoint.Content = "Points : " + u.rapporterPoints();
             Label lbOff = new Label();
             lbOff.Content = "Attaque : " + u.Attaque;
             Label lbDeff = new Label();
