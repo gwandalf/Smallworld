@@ -23,7 +23,8 @@ namespace Wrapper {
 		~CarteWrapper(void);
 
 		void generateCases(int nbTypes);
-		void placeUnites(int begin, int end, int lig, int col);
+		int getPlace(int num, int coord);
+		void placeUnites(int begin, int end, int lig);
 		int getDim();
 		int getCases(int x, int y);
 		System::Collections::Generic::List<int>^ getMoves(int ligne, int colonne, int size);

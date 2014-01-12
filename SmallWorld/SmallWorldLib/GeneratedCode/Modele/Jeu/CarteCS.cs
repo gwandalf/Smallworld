@@ -177,7 +177,7 @@ namespace Modele.Jeu
                 {
                     u.Carte = this;
                     u.setBonusMalusPoints(true);
-                    u.placeOnMap(loc[i], loc[i]);
+                    u.placeOnMap(carteW.getPlace(i, 0), carteW.getPlace(i, 1));
                     u.setBonusMalusPoints(false);
                 }
                 i++;

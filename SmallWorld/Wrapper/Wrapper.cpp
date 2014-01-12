@@ -10,9 +10,10 @@ CarteWrapper::CarteWrapper(int dim, int army_length) { myCarte = Carte_New(dim, 
 CarteWrapper::~CarteWrapper(void) { Carte_Delete(myCarte); }
 
 void CarteWrapper::generateCases(int nbTypes) { myCarte->generateCases(nbTypes); }
-void CarteWrapper::placeUnites(int begin, int end, int lig, int col) { myCarte->placeUnites(begin, end, lig, col); }
+void CarteWrapper::placeUnites(int begin, int end, int lig) { myCarte->placeUnites(begin, end, lig); }
 int CarteWrapper::getDim() {return myCarte->getDim();}
 int CarteWrapper::getCases(int x, int y) {return myCarte->getCases(x, y);}
+int CarteWrapper::getPlace(int num, int coord) {return myCarte->getPlace(num, coord);}
 System::Collections::Generic::List<int>^ CarteWrapper::getMoves(int x, int y, int z) {
 	System::Collections::Generic::List<int>^ lMoves = gcnew System::Collections::Generic::List<int>();
 	int * moves = myCarte->getMoves(x, y, z);

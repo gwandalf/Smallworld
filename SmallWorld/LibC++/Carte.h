@@ -38,6 +38,7 @@ class DLL Carte
 	vector<int> nbCases;
 	vector<vector<PositUnite>> positUnite;
 	vector<Sommet*> nodes;
+	int places[2][2];
 
 public:
 	static const enum {DESERT, PLAINE, FORET, MONTAGNE, EAU};
@@ -51,8 +52,9 @@ public:
 	int choose(int nb);
 	void addNode(int x, int y);
 	void unlinkNode(int x, int y);
-	void placeUnites(int begin, int end, int lig, int col);
+	void placeUnites(int x, int y, int num);
 	int getDim();
+	int getPlace(int num, int coord) { return places[num][coord]; }
 	int getCases(int x, int y);
 	int* getMoves(int ligne, int colonne, int size);
 };

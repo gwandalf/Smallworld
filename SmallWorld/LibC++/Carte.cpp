@@ -36,8 +36,8 @@ Carte::Carte(int dim, int army_length)
 		this->dim = DIMMAX;
 	generateCases(NBTYPES);
 	positUnite = vector<vector<PositUnite>>();
-	placeUnites(0, army_length, 0, 0);
-	placeUnites(army_length, 2*army_length, this->dim - 1, this->dim - 1);
+	placeUnites(0, 0, 0);
+	placeUnites(dim-1, dim-1, 1);
 }
 
 /**
@@ -209,15 +209,65 @@ void Carte::unlinkNode(int x, int y)
 * \param[in] col : column reference
 * 
 */
-void Carte::placeUnites(int begin, int end, int lig, int col) {
-	positUnite.push_back(vector<PositUnite>());
-	for(int i = begin ; i < end ; i++) {
-		PositUnite pu;
-		pu.col = col;
-		pu.lig = lig;
-		pu.unite = i;
-		positUnite.back().push_back(pu);
+void Carte::placeUnites(int x, int y, int num)
+{
+	int sx = x;
+	int sy = y;
+	int x1 = x;
+	int y1 = y;
+	int x2 = x;
+	int y2 = y;
+	bool i = false;
+	bool suivant = true;
+	bool trouve = false;
+	while(suivant && !trouve)
+	{
+		if(cases[x][y]->getTerrain() != EAU)
+			trouve = true;
+		else
+		{
+			if(i)
+			{
+				switch(num)
+				{
+				case 0:
+					x1--;
+					break;
+				case 1:
+					x1++;
+					break;
+				}
+				x = x1;
+				y = y1;
+			}
+			else
+			{
+				switch(num)
+				{
+				case 0:
+					y2--;
+					break;
+				case 1:
+					y2++;
+					break;
+				}
+				x = x2;
+				y = y2;
+			}
+		}
+		suivant = (x > -1 && x < dim && y > -1 && y < dim && !i);
+		i = !i;
 	}
+	if(trouve)
+	{
+		places[num][0] = x;
+		places[num][1] = y;
+	}
+	else if(num == 0)
+		placeUnites(sx+1, sy+1, num);
+	else
+		placeUnites(sx-1, sy-1, num);
+
 }
 
 int Carte::getDim() {return dim;}
