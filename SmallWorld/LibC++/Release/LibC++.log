@@ -21,28 +21,4 @@ c:\users\gwendal\git\smallworld\smallworld\libc++\Carte.h(40): warning C4251: 'C
               _Ty=Sommet *
           ]
 Carte.cpp(28): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-  Legion.cpp
-  Sommet.cpp
-  Source.cpp
-c:\users\gwendal\git\smallworld\smallworld\libc++\Carte.h(37): warning C4251: 'Carte::legions' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
-          with
-          [
-              _Ty=Legion
-          ]
-c:\users\gwendal\git\smallworld\smallworld\libc++\Carte.h(38): warning C4251: 'Carte::nbCases' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
-          with
-          [
-              _Ty=int
-          ]
-c:\users\gwendal\git\smallworld\smallworld\libc++\Carte.h(39): warning C4251: 'Carte::positUnite' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
-          with
-          [
-              _Ty=std::vector<PositUnite>
-          ]
-c:\users\gwendal\git\smallworld\smallworld\libc++\Carte.h(40): warning C4251: 'Carte::nodes' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
-          with
-          [
-              _Ty=Sommet *
-          ]
-  Unite.cpp
   LibC++.vcxproj -> C:\Users\Gwendal\git\Smallworld\SmallWorld\Release\LibC++.lib

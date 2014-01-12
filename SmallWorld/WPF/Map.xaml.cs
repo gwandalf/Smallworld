@@ -41,7 +41,8 @@ namespace WPF
         Partie partie;
         Rectangle selectedVisual;
         StackPanel _selectedUnit;
-        List<Rectangle> _suggestions;
+        VueCase[,] _suggestions;
+        List<VueCase> buff_sug;
 
         public Map(PartieI p, string nameP1, string nameP2)
         {
@@ -51,7 +52,8 @@ namespace WPF
             partie.Joueurs[0].Nom = nameP1;
             partie.Joueurs[1].Nom = nameP2;
             partie.Carte.PropertyChanged += new PropertyChangedEventHandler(carte_PropertyChanged);
-            _suggestions = new List<Rectangle>();
+            _suggestions = new VueCase[p.Carte.Dim, p.Carte.Dim];
+            buff_sug = new List<VueCase>();
         }
 
         private void partie_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -64,12 +66,24 @@ namespace WPF
 
         private void carte_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            LegionI i = partie.Carte.TmpLegion;
-            VueLegionI view = i.makeView();
-            var rect = createRectangle(i.Ligne, i.Colonne, view);
-            view.Rectangle = rect;
-            view.PropertyChanged += new PropertyChangedEventHandler(redraw);
-            mapGrid.Children.Add(rect);
+            if (e.PropertyName.Equals("Legion"))
+            {
+                LegionI i = partie.Carte.TmpLegion;
+                VueLegionI view = i.makeView();
+                var rect = createRectangle(i.Ligne, i.Colonne, view);
+                view.Rectangle = rect;
+                view.PropertyChanged += new PropertyChangedEventHandler(redraw);
+                mapGrid.Children.Add(rect);
+            }
+            else
+            {
+                string[] pos = e.PropertyName.Split(';');
+                Rectangle rectangle =  _suggestions[Convert.ToInt32(pos[0]), Convert.ToInt32(pos[1])].Rectangle;
+                rectangle.Stroke = Brushes.Green;
+                rectangle.StrokeThickness = 5;
+                //mapGrid.Children.Add(rectangle);
+                buff_sug.Add(_suggestions[Convert.ToInt32(pos[0]), Convert.ToInt32(pos[1])]);
+            }
         }
 
         private FabriqueI createFabrique(Nation nation)
@@ -129,6 +143,8 @@ namespace WPF
                 {
                     AffichableI tile = map.makeView(l, c);
                     var rect = createRectangle(l, c, tile);
+                    tile.Rectangle = rect;
+                    _suggestions[l,c] = (VueCase)tile;
                     mapGrid.Children.Add(rect);
                 }
             }
@@ -229,15 +245,25 @@ namespace WPF
             int row = Grid.GetRow(rectangle);
             int column = Grid.GetColumn(rectangle);
 
-            if (selectedVisual != null)
+            for (int i = 0 ; i < buff_sug.Count; i++)
             {
-                deleteSuggestions();
-
-                if (!map.isEmpty(Grid.GetRow(selectedVisual), Grid.GetColumn(selectedVisual)))
-                    selectedVisual.StrokeThickness = 2;
+                if (!map.isEmpty(Grid.GetRow(buff_sug[i].Rectangle), Grid.GetColumn(buff_sug[i].Rectangle)))
+                    buff_sug[i].Rectangle.StrokeThickness = 2;
                 else
-                    selectedVisual.StrokeThickness = 1;
+                    buff_sug[i].Rectangle.StrokeThickness = 1;
+                buff_sug[i].Rectangle.Stroke = Brushes.Gray;
             }
+            buff_sug = new List<VueCase>();
+
+                if (selectedVisual != null)
+                {
+                    deleteSuggestions();
+
+                    if (!map.isEmpty(Grid.GetRow(selectedVisual), Grid.GetColumn(selectedVisual)))
+                        selectedVisual.StrokeThickness = 2;
+                    else
+                        selectedVisual.StrokeThickness = 1;
+                }
             selectedVisual = rectangle;
             selectedVisual.Tag = tile;
             rectangle.StrokeThickness = 3;
@@ -245,7 +271,7 @@ namespace WPF
 
             //affiche les unités sur la case
             //unitInfoPanel.Content = getListUnitInt(row, column);
-
+            updateUnitInfo(null);
             tile.mouseLeftButtonDown();
             updateInfo();
             //Affichage des unités présentes à l'endroit
@@ -296,33 +322,41 @@ namespace WPF
         */
         private void updateUnitInfo(LegionI legion)
         {
-           
-            //avec la position on trouve a qui appartient les unites (utile pour permettre de jouer
-            //on recupère la liste des unites présentes à cet endroit
-            List<UniteI> nonEmptyList = legion.Unites;
-
-            unitInfoPanel.Children.Clear();
-
-            if (nonEmptyList.Count > 0)
+            if (legion != null)
             {
-                Label lbl = new Label();
-                lbl.Content = "Il y a " + nonEmptyList.Count + " unités sur cette case : ";
-                unitInfoPanel.Children.Add(lbl);
+                //avec la position on trouve a qui appartient les unites (utile pour permettre de jouer
+                //on recupère la liste des unites présentes à cet endroit
+                List<UniteI> nonEmptyList = legion.Unites;
 
-                foreach (Unite u in nonEmptyList)
+                unitInfoPanel.Children.Clear();
+
+                if (nonEmptyList.Count > 0)
                 {
-                    StackPanel stack = getUnitDescription(u);
-                    VueUniteI view = u.makeView();
-                    //we add a reference to the unit in the stack
-                    stack.Tag = view;
-                    view.Description.BorderThickness = new Thickness(2);
-                    view.Description.Child = stack;
-                    view.Description.Margin = new Thickness(10);
+                    Label lbl = new Label();
+                    lbl.Content = "Il y a " + nonEmptyList.Count + " unités sur cette case : ";
+                    unitInfoPanel.Children.Add(lbl);
 
-                    unitInfoPanel.Children.Add(view.Description);
-                    //TODO
-                    //if (les unites séletionnés appartiennt au joueur courant && u.Deplacement > 0)
+                    foreach (Unite u in nonEmptyList)
+                    {
+                        StackPanel stack = getUnitDescription(u);
+                        VueUniteI view = u.makeView();
+                        //we add a reference to the unit in the stack
+                        stack.Tag = view;
+                        view.Description.BorderThickness = new Thickness(2);
+                        view.Description.Child = stack;
+                        view.Description.Margin = new Thickness(10);
+
+                        unitInfoPanel.Children.Add(view.Description);
+                        //TODO
+                        //if (les unites séletionnés appartiennt au joueur courant && u.Deplacement > 0)
                         stack.MouseDown += unitStackPanel_MouseDown;
+                    }
+                }
+                else
+                {
+                    Label lbl = new Label();
+                    lbl.Content = "Aucune unité sur cette case";
+                    unitInfoPanel.Children.Add(lbl);
                 }
             }
             else
@@ -346,7 +380,7 @@ namespace WPF
                 var u = _selectedUnit.Tag as VueUniteI;
 
                 // récupération des mouvements possibles
-                List<int> moves = partie.Carte.CarteW.getMoves(u.Unite.Legion.Ligne, u.Unite.Legion.Colonne, partie.Carte.Dim);
+               /* List<int> moves = partie.Carte.CarteW.getMoves(u.Unite.Legion.Ligne, u.Unite.Legion.Colonne, partie.Carte.Dim);
                 
                 foreach(int i in moves){
                 
@@ -360,9 +394,9 @@ namespace WPF
                     //affichage des mouvements
                     mapGrid.Children.Add(rect);
 
-                    _suggestions.Add(rect);
+                    //_suggestions.Add(rect);
                 }
-               
+               */
                     // TODO
                    //afficher tous les mouvements possibles
             }
@@ -375,10 +409,10 @@ namespace WPF
          */
         public void deleteSuggestions()
         {
-            foreach (Rectangle rect in _suggestions)
-            {
-                mapGrid.Children.Remove(rect);
-            }
+            //foreach (Rectangle rect in _suggestions)
+            //{
+              //  mapGrid.Children.Remove(rect);
+            //}
         }
 
         /**

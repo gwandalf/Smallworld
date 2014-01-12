@@ -36,6 +36,7 @@ namespace Modele.Jeu.Unit
         public override void selectionner()
         {
             unite.Carte.Selected = unite;
+            unite.suggerer();
         }
 
         public override void deplacement()

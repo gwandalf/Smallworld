@@ -133,6 +133,8 @@ namespace Modele.Jeu
 
         void setBonusMalusPoints(bool on);
 
+        void suggerer();
+
 	}
 }
 

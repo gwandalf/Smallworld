@@ -88,7 +88,10 @@ void Carte::generateCases(int nbTypes)
 					(j == 0 && i > 0)))			//or on the left side, we must verify if ther is not isolated island
 				{
 					if(isolatedRegion())
-						cases[i][j]->setTerrain(choose(nbTypes - 1)); // if the placement of the 'sea' case creates an island, we choose another type
+					{
+						cases[i][j] = new Sommet(choose(nbTypes - 1)); // if the placement of the 'sea' case creates an island, we choose another type
+						addNode(i, j);
+					}
 				}
 			}
 		}

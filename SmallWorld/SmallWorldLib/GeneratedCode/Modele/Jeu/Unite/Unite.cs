@@ -34,7 +34,7 @@ namespace Modele.Jeu
 	{
 
         public static ImageBrush ICON = new ImageBrush(new BitmapImage(new Uri(@"..\..\Resources\zelda.png", UriKind.Relative)));
-        public static int DEPL = 3;
+        public static int DEPL = 1;
 
         protected ImageBrush icon;
         public ImageBrush Icon
@@ -321,6 +321,8 @@ namespace Modele.Jeu
         }
 
         public abstract void setBonusMalusPoints(bool on);
+
+        public abstract void suggerer();
 
 	}
 }

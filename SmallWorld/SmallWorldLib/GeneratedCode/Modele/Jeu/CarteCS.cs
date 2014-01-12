@@ -208,7 +208,7 @@ namespace Modele.Jeu
             List<Tuple<int, int>> res = new List<Tuple<int, int>>();
             for (int i = 0; i < adders.Count; i++)
             {
-                Tuple<int, int> t = new Tuple<int, int>(unite.Position.Item1 + adders[i].Item1, unite.Position.Item2 + adders[i].Item2);
+                Tuple<int, int> t = new Tuple<int, int>(unite.Legion.Ligne + adders[i].Item1, unite.Legion.Colonne + adders[i].Item2);
                 if (t.Item1 < Dim && t.Item2 < Dim && t.Item1 >= 0 && t.Item2 >= 0)
                     res.Add(t);
             }
@@ -336,6 +336,11 @@ namespace Modele.Jeu
         {
             legions = new List<LegionI>();
 
+        }
+
+        public void suggerer(int x, int y)
+        {
+            OnPropertyChanged("" + x + ";" + y);
         }
 
 	}

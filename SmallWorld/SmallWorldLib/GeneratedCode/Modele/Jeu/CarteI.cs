@@ -105,6 +105,8 @@ namespace Modele.Jeu
         void generateCases();
 
         void linkJoueurs(List<Joueur.Joueur> joueurs);
+
+        void suggerer(int x, int y);
 	}
 }
 

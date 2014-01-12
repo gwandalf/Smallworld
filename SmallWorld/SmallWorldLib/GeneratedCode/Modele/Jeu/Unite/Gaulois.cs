@@ -70,6 +70,16 @@ namespace Modele.Jeu
             }
         }
 
+        public override void suggerer()
+        {
+            List<Tuple<int, int>> adj = carte.getListeAdjacents(this);
+            for (int i = 0; i < adj.Count; i++)
+            {
+                if (carte.Cases[adj[i].Item1][adj[i].Item2] == carte.Fabrique.Plaine)
+                    carte.suggerer(adj[i].Item1, adj[i].Item2);
+            }
+        }
+
 	}
 }
 
