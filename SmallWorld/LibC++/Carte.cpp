@@ -1,5 +1,6 @@
 #pragma once
 #include <cstdlib>
+#include <ctime>
 #include "Carte.h"
 
 using namespace std;
@@ -23,6 +24,10 @@ Carte::Carte(void)
 */
 Carte::Carte(int dim, int army_length)
 {
+	srand(time(0));
+	nbCases = vector<int>(NBTYPES);
+	for(int i = 0 ; i < NBTYPES ; i++)
+		nbCases[i] = (dim*dim) / NBTYPES;
 	if(dim <= DIMMAX)
 		this->dim = dim;
 	else
@@ -51,11 +56,46 @@ Carte::~Carte(void)
 * TODO : améliorer l'algorithme pour avoir au moins une fois chaque type de case
 *
 */
-void Carte::generateCases(int nbTypes) {
-	for(int i = 0 ; i < dim ; i++) {
+void Carte::generateCases(int nbTypes)
+{
+	for(int i = 0 ; i < dim ; i++)
+	{
 		for(int j = 0 ; j < dim ; j++)
-			cases[i][j] = rand() % nbTypes;
+		{
+			cases[i][j] = choose(nbTypes);
+			if(cases[i][j] == EAU &&						//if we place a 'sea' case
+				((j == dim - 1 && i > 0) ||		//on the right side, ...
+				 (i == dim - 1) ||				//on the bottom side, ...
+				 (j == 0 && i > 0)))			//or on the left side, we must verify if ther is not isolated island
+			{
+				if(isolatedRegion())
+					cases[i][j] = choose(nbTypes - 1); // if the placement of the 'sea' case creates an island, we choose another type
+			}
+		}
 	}
+}
+
+//TODO : completer
+bool Carte::isolatedRegion()
+{
+	return false;
+}
+
+int Carte::choose(int nb)
+{
+	bool famine = true;
+	for(int i = 0 ; i < NBTYPES && famine ; i++)
+	{
+		if(nbCases[i] != 0)
+			famine = false;
+	}
+	int res = rand() % nb;
+	if(famine)
+		return res;
+	while(nbCases[res] == 0)
+		res = rand() % nb;
+	nbCases[res]--;
+	return res;
 }
 
 /**
