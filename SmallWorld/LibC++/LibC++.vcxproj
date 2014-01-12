@@ -64,11 +64,13 @@
   <ItemGroup>
     <ClInclude Include="Carte.h" />
     <ClInclude Include="Legion.h" />
+    <ClInclude Include="Sommet.h" />
     <ClInclude Include="Unite.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Carte.cpp" />
     <ClCompile Include="Legion.cpp" />
+    <ClCompile Include="Sommet.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Unite.cpp" />
   </ItemGroup>

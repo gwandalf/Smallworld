@@ -1,22 +1,6 @@
 ﻿Le fichier projet contient ToolsVersion="12.0". Cet ensemble d'outils est inconnu ou manquant. Vous pouvez résoudre cela en installant le .NET Framework approprié pour cet ensemble d'outils. Projet traité comme si ToolsVersion="4.0".
 Le fichier projet contient ToolsVersion="12.0". Cet ensemble d'outils est inconnu ou manquant. Vous pouvez résoudre cela en installant le .NET Framework approprié pour cet ensemble d'outils. Projet traité comme si ToolsVersion="4.0".
 Le fichier projet contient ToolsVersion="12.0". Cet ensemble d'outils est inconnu ou manquant. Vous pouvez résoudre cela en installant le .NET Framework approprié pour cet ensemble d'outils. Projet traité comme si ToolsVersion="4.0".
-  Wrapper.cpp
-c:\users\gwendal\git\smallworld\smallworld\wrapper\..\LibC++\Carte.h(36): warning C4251: 'Carte::legions' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
-          with
-          [
-              _Ty=Legion
-          ]
-c:\users\gwendal\git\smallworld\smallworld\wrapper\..\LibC++\Carte.h(37): warning C4251: 'Carte::nbCases' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
-          with
-          [
-              _Ty=int
-          ]
-c:\users\gwendal\git\smallworld\smallworld\wrapper\..\LibC++\Carte.h(38): warning C4251: 'Carte::positUnite' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
-          with
-          [
-              _Ty=std::vector<PositUnite>
-          ]
 Le fichier projet contient ToolsVersion="12.0". Cet ensemble d'outils est inconnu ou manquant. Vous pouvez résoudre cela en installant le .NET Framework approprié pour cet ensemble d'outils. Projet traité comme si ToolsVersion="4.0".
   LibC++.lib(Source.obj) : .netmodule ou module MSIL compilé avec /GL trouvé ; redémarrage de l'édition de liens avec /LTCG ; ajoutez /LTCG à la ligne de commande de l'édition de liens pour améliorer les performances de l'Éditeur de liens
      CrÚation de la bibliothÞque C:\Users\Gwendal\git\Smallworld\SmallWorld\Release\Wrapper.lib et de l'objet C:\Users\Gwendal\git\Smallworld\SmallWorld\Release\Wrapper.exp

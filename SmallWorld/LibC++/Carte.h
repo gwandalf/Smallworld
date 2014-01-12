@@ -1,5 +1,6 @@
 #pragma once
 #include "Legion.h"
+#include "Sommet.h"
 #include <vector>
 #include <iterator>
 #define NBTYPES 5
@@ -31,11 +32,12 @@ struct PositUnite
 */
 class DLL Carte
 {
-	int cases[DIMMAX][DIMMAX]; //an integer represents a type of case ("Foret, Eau, Plaine, Montagne, Desert")
+	Sommet* cases[DIMMAX][DIMMAX]; //an integer represents a type of case ("Foret, Eau, Plaine, Montagne, Desert")
 	int dim; //dimension of the map
 	vector<Legion> legions; //vector of all the different armies
 	vector<int> nbCases;
 	vector<vector<PositUnite>> positUnite;
+	vector<Sommet*> nodes;
 
 public:
 	static const enum {DESERT, PLAINE, FORET, MONTAGNE, EAU};
@@ -47,6 +49,8 @@ public:
 	void generateCases(int nbTypes);
 	bool isolatedRegion();
 	int choose(int nb);
+	void addNode(int x, int y);
+	void unlinkNode(int x, int y);
 	void placeUnites(int begin, int end, int lig, int col);
 	int getDim();
 	int getCases(int x, int y);

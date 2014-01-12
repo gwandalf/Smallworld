@@ -1,6 +1,7 @@
 #pragma once
 #include <cstdlib>
 #include <ctime>
+#include <queue>
 #include "Carte.h"
 
 using namespace std;
@@ -26,6 +27,7 @@ Carte::Carte(int dim, int army_length)
 {
 	srand(time(0));
 	nbCases = vector<int>(NBTYPES);
+	nodes = vector<Sommet*>();
 	for(int i = 0 ; i < NBTYPES ; i++)
 		nbCases[i] = (dim*dim) / NBTYPES;
 	if(dim <= DIMMAX)
@@ -45,6 +47,13 @@ Carte::Carte(int dim, int army_length)
 */
 Carte::~Carte(void)
 {
+	for(int i = 0 ; i < dim ; i++)
+	{
+		for(int j = 0 ; j < dim ; j++)
+		{
+			delete cases[i][j];
+		}
+	}
 }
 
 /**
@@ -62,14 +71,25 @@ void Carte::generateCases(int nbTypes)
 	{
 		for(int j = 0 ; j < dim ; j++)
 		{
-			cases[i][j] = choose(nbTypes);
-			if(cases[i][j] == EAU &&						//if we place a 'sea' case
-				((j == dim - 1 && i > 0) ||		//on the right side, ...
-				 (i == dim - 1) ||				//on the bottom side, ...
-				 (j == 0 && i > 0)))			//or on the left side, we must verify if ther is not isolated island
+			cases[i][j] = new Sommet(0);
+			addNode(i, j);
+		}
+	}
+	for(int i = 0 ; i < dim ; i++)
+	{
+		for(int j = 0 ; j < dim ; j++)
+		{
+			cases[i][j]->setTerrain(choose(nbTypes));
+			if(cases[i][j]->getTerrain() == EAU)
 			{
-				if(isolatedRegion())
-					cases[i][j] = choose(nbTypes - 1); // if the placement of the 'sea' case creates an island, we choose another type
+				unlinkNode(i, j);
+				if(((j == dim - 1 && i > 0) ||		//on the right side, ...
+					(i == dim - 1) ||				//on the bottom side, ...
+					(j == 0 && i > 0)))			//or on the left side, we must verify if ther is not isolated island
+				{
+					if(isolatedRegion())
+						cases[i][j]->setTerrain(choose(nbTypes - 1)); // if the placement of the 'sea' case creates an island, we choose another type
+				}
 			}
 		}
 	}
@@ -78,7 +98,39 @@ void Carte::generateCases(int nbTypes)
 //TODO : completer
 bool Carte::isolatedRegion()
 {
-	return false;
+	queue<Sommet*> f;
+	nodes[0]->setFlag(true);
+	f.push(nodes[0]);
+	while(!f.empty())
+	{
+		Sommet* x = f.front();
+		f.pop();
+		x->setVisite(true);
+		vector<Sommet*>::iterator deb = x->getAdjacents().begin();
+		vector<Sommet*>::iterator fin = x->getAdjacents().end();
+		vector<Sommet*>::iterator it;
+		for(it = deb ; it != fin ; it++)
+		{
+          Sommet* z = (*it);
+          if(!z->getFlag())
+		  {
+              z->setFlag(true);
+              f.push(z);
+		  }
+		}
+	}
+	bool res = false;
+	vector<Sommet*>::iterator deb = nodes.begin();
+	vector<Sommet*>::iterator fin = nodes.end();
+	vector<Sommet*>::iterator it;
+	for(it = deb ; it != fin && !res ; it++)
+	{
+		if(!(*it)->getVisite())
+			res = true;
+		(*it)->setFlag(false);
+		(*it)->setVisite(false);
+	}
+	return res;
 }
 
 int Carte::choose(int nb)
@@ -96,6 +148,56 @@ int Carte::choose(int nb)
 		res = rand() % nb;
 	nbCases[res]--;
 	return res;
+}
+
+void Carte::addNode(int x, int y)
+{
+	if(cases[x][y] != NULL)
+	{
+		nodes.push_back(cases[x][y]);
+		if(x-1 >= 0)
+		{
+			cases[x][y]->getAdjacents().push_back(cases[x-1][y]);
+			cases[x-1][y]->getAdjacents().push_back(cases[x][y]);
+		}
+		if(y-1 >= 0)
+		{
+			cases[x][y]->getAdjacents().push_back(cases[x][y-1]);
+			cases[x][y-1]->getAdjacents().push_back(cases[x][y]);
+		}
+	}
+}
+
+void Carte::unlinkNode(int x, int y)
+{
+	vector<Sommet*>::iterator deb = cases[x][y]->getAdjacents().begin();
+	vector<Sommet*>::iterator fin = cases[x][y]->getAdjacents().end();
+	vector<Sommet*>::iterator it;
+	for(it = deb ; it != fin ; it++)
+	{
+		vector<Sommet*>::iterator debit = cases[x][y]->getAdjacents().begin();
+		vector<Sommet*>::iterator finit = cases[x][y]->getAdjacents().end();
+		vector<Sommet*>::iterator itit;
+		for(itit = debit ; itit != finit ; itit++)
+		{
+			if(*itit == cases[x][y])
+			{
+				(*it)->getAdjacents().erase(itit);
+				break;
+			}
+		}
+	}
+	vector<Sommet*>::iterator debn = nodes.begin();
+	vector<Sommet*>::iterator finn = nodes.end();
+	vector<Sommet*>::iterator itn;
+	for(itn = debn ; itn != finn ; itn++)
+	{
+		if(*itn == cases[x][y])
+		{
+			nodes.erase(itn);
+			break;
+		}
+	}
 }
 
 /**
@@ -131,7 +233,7 @@ int Carte::getDim() {return dim;}
 */
 int Carte::getCases(int x, int y) {
 	if(x < DIMMAX && y < DIMMAX)
-		return cases[x][y];
+		return cases[x][y]->getTerrain();
 	else
 		return -1;
 }
