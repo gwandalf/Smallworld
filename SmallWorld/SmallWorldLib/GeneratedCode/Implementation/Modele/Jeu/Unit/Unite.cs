@@ -36,6 +36,10 @@ namespace Implementation.Modele.Jeu.Unit
 	{
 
         public static ImageBrush ICON = new ImageBrush(new BitmapImage(new Uri(@"..\..\Resources\zelda.png", UriKind.Relative)));
+
+        /// <summary>
+        /// basic statistics
+        /// </summary>
         public static int DEPL = 1;
         public static double VIE = 2.0;
         public static double ATTAQUE = 2.0;
@@ -51,11 +55,15 @@ namespace Implementation.Modele.Jeu.Unit
         public double Vie
 		{
             get { return vie; }
+            
+            //the HP decrementation proportionaly affects power and defense
             set 
             {
                 vie = value;
                 attaque = (vie / VIE) * ATTAQUE;
                 defense = (vie / VIE) * DEFENSE;
+
+                //the unit automatically dies when it has 0 HP
                 if (vie == 0.0)
                 {
                     automate.mourir();
@@ -149,12 +157,17 @@ namespace Implementation.Modele.Jeu.Unit
             legion = null;
         }
 
-
+        //on selection (delegated to the states-transition machine)
 		public virtual void selectionner()
 		{
             automate.selectionner();
 		}
 
+        /// <summary>
+        /// move the unit to the specifed position
+        /// </summary>
+        /// <param name="lig"> x </param>
+        /// <param name="col"> y </param>
 		public virtual void deplacer(int lig, int col)
 		{
             int distance = deplacementPossible(lig, col);
@@ -170,6 +183,13 @@ namespace Implementation.Modele.Jeu.Unit
             }
 		}
 
+        /// <summary>
+        /// find out if the position is reachable
+        /// By default, a unit can't walk on watter
+        /// </summary>
+        /// <param name="lig"> target line </param>
+        /// <param name="col"> target column </param>
+        /// <returns> distance if possible, else -1 </returns>
         public virtual int deplacementPossible(int lig, int col)
         {
             int res = Math.Abs(legion.Ligne - lig) + Math.Abs(legion.Colonne - col);
@@ -179,6 +199,14 @@ namespace Implementation.Modele.Jeu.Unit
                 return -1;
         }
 
+        /// <summary>
+        /// find out if an attack is possible
+        /// An attack is possible if the target is adjacent and if moving to the position is possible
+        /// Obviously, you can't attack your army...
+        /// </summary>
+        /// <param name="lig"> line of the target </param>
+        /// <param name="col"> column of the target </param>
+        /// <returns> true if the attack is possible, else false </returns>
         public virtual bool attaquePossible(int lig, int col)
         {
             int distance = Math.Abs(legion.Ligne - lig) + Math.Abs(legion.Colonne - col);
@@ -191,18 +219,32 @@ namespace Implementation.Modele.Jeu.Unit
             return false;
         }
 
+        /// <summary>
+        /// algorithm which decides of the result of a battle
+        /// </summary>
+        /// <param name="lig"> target line </param>
+        /// <param name="col"> target column </param>
         public virtual void attaquer(int lig, int col)
 		{
             if (attaquePossible(lig, col))
             {
                 Random rand = new Random();
+
+                //the defensor is the units which have the best defense in the targetted legion
                 UniteI defenseur = carte.getLegion(lig, col).getBestDefensor();
+
+                //nb : number of "rounds" for this battle
+                //randomly chosen between 3 and (max HP of the two battling units + 2)
                 double bmax = Math.Max(vie, defenseur.Vie + 2.0);
                 int nb = rand.Next(3, (int)bmax);
                 int i = 0;
+
+                //the units fight until nb is reached or a unit dies
                 while (i < nb && vie > 0 && defenseur.Vie > 0)
                 {
+                    //probability for the attacking one to loose 1HP
                     double proba = 0.5 + (1.0 - attaque / defenseur.Defense) / 2;
+
                     Random r = new Random();
                     double de = r.NextDouble();
                     if (de < proba)
@@ -211,34 +253,11 @@ namespace Implementation.Modele.Jeu.Unit
                         defenseur.Vie--;
                     i++;
                 }
+
+                //if the attacking unit is the winner and if the targetted case is now empty, it moves to the case
                 if (vie > 0 && carte.getLegion(lig, col) == null)
                     deplacer(lig, col);
             }
-		}
-
-		public virtual List<Tuple<int,int>> getChoixCases()
-		{
-			throw new System.NotImplementedException();
-		}
-
-		public virtual List<Tuple<int,int>> deplacementsPossibles()
-		{
-			throw new System.NotImplementedException();
-		}
-
-		public virtual void engagement(UniteI defenseur)
-		{
-			throw new System.NotImplementedException();
-		}
-
-		public virtual int getNbTours(UniteI defenseur)
-		{
-			throw new System.NotImplementedException();
-		}
-
-		public virtual UniteI combat(UniteI defenseur)
-		{
-			throw new System.NotImplementedException();
 		}
 
 		public virtual void afficher()
@@ -257,6 +276,9 @@ namespace Implementation.Modele.Jeu.Unit
             return cases[legion.Ligne][legion.Colonne].Points;
         }
 
+        /// <summary>
+        /// removes this unit of the map
+        /// </summary>
         public virtual void removeOfMap()
         {
             legion.Unites.Remove(this);
@@ -306,8 +328,15 @@ namespace Implementation.Modele.Jeu.Unit
             return res;
         }
 
+        /// <summary>
+        /// define rules of bonus and malus
+        /// </summary>
+        /// <param name="on"> activated or not </param>
         public abstract void setBonusMalusPoints(bool on);
 
+        /// <summary>
+        /// suggested cases
+        /// </summary>
         public abstract void suggerer();
 
 	}

@@ -82,6 +82,7 @@ namespace Implementation.Modele.Jeu.Unit
             }
         }
 
+        //current state
         private EtatUnite courant;
         public EtatUnite Courant
         {

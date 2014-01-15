@@ -24,11 +24,6 @@ namespace Implementation.Modele.Jeu.Unit
 	{
         public static ImageBrush ICON = new ImageBrush(new BitmapImage(new Uri(@"..\..\Resources\gaulois.gif", UriKind.Relative)));
 
-		public override List<Tuple<int,int>> getChoixCases()
-		{
-			throw new System.NotImplementedException();
-		}
-
         protected int deplacementPlaine;
 
         /**
@@ -42,6 +37,8 @@ namespace Implementation.Modele.Jeu.Unit
             deplacementPlaine = 1;
 		}
 
+        //same behaviour as the default's one.
+        //However, the moving on a case of type PLAINE is considered free
         public override int deplacementPossible(int lig, int col)
         {
             int res = Math.Abs(legion.Ligne - lig) + Math.Abs(legion.Colonne - col);
@@ -53,6 +50,9 @@ namespace Implementation.Modele.Jeu.Unit
                 return -1;
         }
 
+        //special rules :
+        //  * No points given on mountains
+        //  * Bonus on land
         public override void setBonusMalusPoints(bool on)
         {
             if (on)
@@ -67,6 +67,7 @@ namespace Implementation.Modele.Jeu.Unit
             }
         }
 
+        //suggestion of cases of type PLAINE when a unit is to be moved
         public override void suggerer()
         {
             List<Tuple<int, int>> adj = carte.getListeAdjacents(this);

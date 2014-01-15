@@ -14,6 +14,7 @@ namespace Implementation.Modele.Jeu.Unit
         {
             set
             {
+                //when the turn switches, the new state is "playable"
                 turn = value;
                 if (turn)
                     automate.Courant = automate.Jouable;

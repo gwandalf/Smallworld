@@ -10,6 +10,9 @@ using Interfaces.Modele.Jeu.Unit;
 
 namespace Implementation.Modele.Jeu.Unit
 {
+    /// <summary>
+    /// abstraction of a state
+    /// </summary>
     [XmlInclude(typeof(TourAdverse))]
     [XmlInclude(typeof(Jouable))]
     [XmlInclude(typeof(NonJouable))]
@@ -26,6 +29,7 @@ namespace Implementation.Modele.Jeu.Unit
             set { unite = value; }
         }
 
+        //event if the turn switches
         protected Boolean turn;
         public virtual Boolean Turn
         {
@@ -54,18 +58,26 @@ namespace Implementation.Modele.Jeu.Unit
             turn = false;
         }
 
+        //the default behaviour is to do nothing. That is why the methods are not abstracts.
+
+        //event at the arrival in the state
         public virtual void arrivee()
         {
         }
 
+        //event if the user tries to select the unit
         public virtual void selectionner()
         {
         }
 
+        //event if a move is performed
         public virtual void deplacement()
         {
         }
 
+        /// <summary>
+        /// whatever the sate is, if a unit dies, it goes to the corresponding state
+        /// </summary>
         public virtual void mourir()
         {
             automate.Courant = automate.Morte;

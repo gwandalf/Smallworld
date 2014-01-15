@@ -7,6 +7,9 @@ using Interfaces.Modele.Jeu.Unit;
 
 namespace Implementation.Modele.Jeu.Unit
 {
+    /// <summary>
+    /// state of a unit which is in its turn but was already played
+    /// </summary>
     [Serializable]
     public class NonJouable : EtatUnite
     {
@@ -14,6 +17,7 @@ namespace Implementation.Modele.Jeu.Unit
         {
             set
             {
+                //if the turn switches, the new state is "adversary's turn"
                 turn = value;
                 if (!turn)
                 {
@@ -35,6 +39,7 @@ namespace Implementation.Modele.Jeu.Unit
         {
         }
 
+        //incrementation of a counter for the player to be notified when all of its units were played
         public override void arrivee()
         {
             unite.Joueur.NbUnitesNonJouables++;

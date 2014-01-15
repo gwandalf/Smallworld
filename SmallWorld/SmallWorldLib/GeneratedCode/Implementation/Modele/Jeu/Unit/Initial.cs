@@ -8,6 +8,9 @@ using Interfaces.Modele.Jeu.Unit;
 
 namespace Implementation.Modele.Jeu.Unit
 {
+    /// <summary>
+    /// Initial state. It only moves the units of the different armies to their respective state : playable or waiting for their turn
+    /// </summary>
     [Serializable]
     public class Initial : EtatUnite
     {

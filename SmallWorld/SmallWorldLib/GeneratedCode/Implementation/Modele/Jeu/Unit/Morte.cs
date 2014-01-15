@@ -26,6 +26,7 @@ namespace Implementation.Modele.Jeu.Unit
         {
         }
 
+        //whenever a unit dies, it is removed of the map
         public override void arrivee()
         {
             unite.removeOfMap();

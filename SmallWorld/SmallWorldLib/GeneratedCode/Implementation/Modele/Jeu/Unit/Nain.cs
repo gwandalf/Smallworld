@@ -24,11 +24,6 @@ namespace Implementation.Modele.Jeu.Unit
 	{
         public static ImageBrush ICON = new ImageBrush(new BitmapImage(new Uri(@"..\..\Resources\dwarf.png", UriKind.Relative)));
 
-		public override List<Tuple<int,int>> getChoixCases()
-		{
-			throw new System.NotImplementedException();
-		}
-
         /**
          * \fn public Nain()
          * \brief constructor directly from superclass
@@ -39,6 +34,7 @@ namespace Implementation.Modele.Jeu.Unit
             icon = ICON;
 		}
 
+        //in addition to the default predicate, a dwarf can move on all cases of type mountain if it's current position is on a mountain
         public override int deplacementPossible(int lig, int col)
         {
             int res;
@@ -52,6 +48,8 @@ namespace Implementation.Modele.Jeu.Unit
                 return -1;
         }
 
+        // * Bonus in forests
+        // * doesn't give points on land
         public override void setBonusMalusPoints(bool on)
         {
             if (on)
@@ -66,6 +64,7 @@ namespace Implementation.Modele.Jeu.Unit
             }
         }
 
+        //the suggested cases are of type mountain and forest
         public override void suggerer()
         {
             List<Tuple<int, int>> adj = carte.getListeAdjacents(this);
