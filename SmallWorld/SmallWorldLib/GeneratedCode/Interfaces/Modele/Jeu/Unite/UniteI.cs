@@ -27,7 +27,7 @@ namespace Interfaces.Modele.Jeu.Unit
             get;
         }
 
-        int Vie
+        double Vie
         {
             get;
             set;
@@ -39,13 +39,13 @@ namespace Interfaces.Modele.Jeu.Unit
             set;
         }
 
-        int Attaque
+        double Attaque
         {
             get;
             set;
         }
 
-        int Defense
+        double Defense
         {
             get;
             set;

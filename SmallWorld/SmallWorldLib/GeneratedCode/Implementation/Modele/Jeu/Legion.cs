@@ -92,7 +92,7 @@ namespace Implementation.Modele.Jeu
         public UniteI getBestDefensor()
         {
             UniteI res = null;
-            int defense = 0;
+            double defense = 0.0;
             foreach (UniteI u in unites)
             {
                 if (u.Defense > defense)

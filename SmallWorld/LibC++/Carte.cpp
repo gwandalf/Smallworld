@@ -88,10 +88,7 @@ void Carte::generateCases(int nbTypes)
 			{
 				VisiteurConnexite vis;
 				if(vis.isolatedRegion(this))
-				{
 					cases[i][j]->setTerrain(choose(nbTypes-1)); // if the placement of the 'sea' case creates an island, we choose another type
-					addNode(i, j);
-				}
 			}
 		}
 	}

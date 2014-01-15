@@ -37,6 +37,9 @@ namespace Implementation.Modele.Jeu.Unit
 
         public static ImageBrush ICON = new ImageBrush(new BitmapImage(new Uri(@"..\..\Resources\zelda.png", UriKind.Relative)));
         public static int DEPL = 1;
+        public static double VIE = 2.0;
+        public static double ATTAQUE = 2.0;
+        public static double DEFENSE = 1.0;
 
         protected ImageBrush icon;
         public ImageBrush Icon
@@ -44,20 +47,16 @@ namespace Implementation.Modele.Jeu.Unit
             get { return icon; }
         }
 
-        protected int id;
-        public int ID
-        {
-            get { return id; }
-        }
-
-		protected int vie;
-        public int Vie
+		protected double vie;
+        public double Vie
 		{
             get { return vie; }
             set 
-            { 
+            {
                 vie = value;
-                if (vie == 0)
+                attaque = (vie / VIE) * ATTAQUE;
+                defense = (vie / VIE) * DEFENSE;
+                if (vie == 0.0)
                 {
                     automate.mourir();
                 }
@@ -76,15 +75,15 @@ namespace Implementation.Modele.Jeu.Unit
             }
 		}
 
-        protected int attaque;
-        public int Attaque
+        protected double attaque;
+        public double Attaque
         {
             get { return attaque; }
             set { attaque = value; }
         }
 
-        protected int defense;
-        public int Defense
+        protected double defense;
+        public double Defense
         {
             get { return defense; }
             set { defense = value; }
@@ -141,10 +140,10 @@ namespace Implementation.Modele.Jeu.Unit
          */
         public Unite()
         {
-            vie = 2;
+            vie = VIE;
             deplacement = DEPL;
-            attaque = 2;
-            defense = 1;
+            attaque = ATTAQUE;
+            defense = DEFENSE;
             icon = ICON;
             turn = false;
             legion = null;
@@ -198,14 +197,12 @@ namespace Implementation.Modele.Jeu.Unit
             {
                 Random rand = new Random();
                 UniteI defenseur = carte.getLegion(lig, col).getBestDefensor();
-                int bmax = Math.Max(vie, defenseur.Vie + 2);
-                int nb = rand.Next(3, bmax);
+                double bmax = Math.Max(vie, defenseur.Vie + 2.0);
+                int nb = rand.Next(3, (int)bmax);
                 int i = 0;
                 while (i < nb && vie > 0 && defenseur.Vie > 0)
                 {
-                    double attD = attaque;
-                    double defD = defenseur.Defense;
-                    double proba = 0.5 + (1.0 - attD / defD) / 2;
+                    double proba = 0.5 + (1.0 - attaque / defenseur.Defense) / 2;
                     Random r = new Random();
                     double de = r.NextDouble();
                     if (de < proba)
