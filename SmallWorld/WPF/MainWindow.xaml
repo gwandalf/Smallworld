@@ -5,12 +5,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="WPF.MainWindow"
         WindowStartupLocation="CenterScreen"
         Title="SmallWorld" Height="400" Width="300">
-   <!--
+   
     <Window.Background>
-        <ImageBrush ImageSource="sw2.jpg"/>
+        <ImageBrush ImageSource="pack://application:,,,/Resources/sw2.jpg"/>
     </Window.Background>
-    -->
-    
     <Window.Resources>
         <wpf:NegatingConverter x:Key="NegatingConverter"/>
         <wpf:SelectedIndexToTextLabelColorConverter x:Key="SelectedIndexToTextLabelColorConverter"/>

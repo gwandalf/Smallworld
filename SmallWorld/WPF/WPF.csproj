@@ -168,9 +168,6 @@
     <Resource Include="computer-game-icone-3768.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="world-map-old.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\desert.png" />
   </ItemGroup>
   <ItemGroup>
@@ -187,6 +184,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\sea.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\sw2.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\world-map-old.jpg" />

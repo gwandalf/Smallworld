@@ -123,6 +123,16 @@ namespace SmallWorldLib.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap sw2 {
+            get {
+                object obj = ResourceManager.GetObject("sw2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap world_map_old {
             get {
                 object obj = ResourceManager.GetObject("world_map_old", resourceCulture);

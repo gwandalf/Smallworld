@@ -4,7 +4,14 @@
 # User-specific files
 *.suo
 *.user
+*.obj
+*.pch
 *.sln.docstates
+*.pdb
+*.dll
+*.log
+*.force
+*.txt
 
 # Build results
 [Dd]ebug/
