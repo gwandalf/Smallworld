@@ -1,132 +1,132 @@
 <?xml version="1.0"?>
 <Partie xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <NombreTours>5</NombreTours>
+  <NombreTours>4</NombreTours>
   <Joueurs>
     <Joueur>
-      <Points>0</Points>
+      <Points>4</Points>
       <Unites>
         <Unite xsi:type="Nain">
           <Vie>2</Vie>
-          <Deplacement>3</Deplacement>
+          <Deplacement>1</Deplacement>
           <Attaque>2</Attaque>
           <Defense>1</Defense>
           <Automate>
-            <Courant xsi:type="Initial" />
+            <Courant xsi:type="Jouable" />
           </Automate>
-          <Turn>false</Turn>
+          <Turn>true</Turn>
           <Legion>
             <Ligne>0</Ligne>
+            <Colonne>1</Colonne>
+          </Legion>
+        </Unite>
+        <Unite xsi:type="Nain">
+          <Vie>2</Vie>
+          <Deplacement>1</Deplacement>
+          <Attaque>2</Attaque>
+          <Defense>1</Defense>
+          <Automate>
+            <Courant xsi:type="Jouable" />
+          </Automate>
+          <Turn>true</Turn>
+          <Legion>
+            <Ligne>1</Ligne>
             <Colonne>0</Colonne>
           </Legion>
         </Unite>
         <Unite xsi:type="Nain">
           <Vie>2</Vie>
-          <Deplacement>3</Deplacement>
+          <Deplacement>1</Deplacement>
           <Attaque>2</Attaque>
           <Defense>1</Defense>
           <Automate>
-            <Courant xsi:type="Initial" />
+            <Courant xsi:type="Jouable" />
           </Automate>
-          <Turn>false</Turn>
+          <Turn>true</Turn>
           <Legion>
-            <Ligne>0</Ligne>
+            <Ligne>1</Ligne>
             <Colonne>0</Colonne>
           </Legion>
         </Unite>
         <Unite xsi:type="Nain">
           <Vie>2</Vie>
-          <Deplacement>3</Deplacement>
+          <Deplacement>1</Deplacement>
           <Attaque>2</Attaque>
           <Defense>1</Defense>
           <Automate>
-            <Courant xsi:type="Initial" />
+            <Courant xsi:type="Jouable" />
           </Automate>
-          <Turn>false</Turn>
+          <Turn>true</Turn>
           <Legion>
             <Ligne>0</Ligne>
-            <Colonne>0</Colonne>
-          </Legion>
-        </Unite>
-        <Unite xsi:type="Nain">
-          <Vie>2</Vie>
-          <Deplacement>3</Deplacement>
-          <Attaque>2</Attaque>
-          <Defense>1</Defense>
-          <Automate>
-            <Courant xsi:type="Initial" />
-          </Automate>
-          <Turn>false</Turn>
-          <Legion>
-            <Ligne>0</Ligne>
-            <Colonne>0</Colonne>
-          </Legion>
-        </Unite>
-      </Unites>
-      <Turn>false</Turn>
-      <NbUnitesNonJouables>0</NbUnitesNonJouables>
-      <Nom>Joueur 1</Nom>
-    </Joueur>
-    <Joueur>
-      <Points>8</Points>
-      <Unites>
-        <Unite xsi:type="Viking">
-          <Vie>2</Vie>
-          <Deplacement>3</Deplacement>
-          <Attaque>2</Attaque>
-          <Defense>1</Defense>
-          <Automate>
-            <Courant xsi:type="Jouable" />
-          </Automate>
-          <Turn>true</Turn>
-          <Legion>
-            <Ligne>4</Ligne>
-            <Colonne>4</Colonne>
-          </Legion>
-        </Unite>
-        <Unite xsi:type="Viking">
-          <Vie>2</Vie>
-          <Deplacement>3</Deplacement>
-          <Attaque>2</Attaque>
-          <Defense>1</Defense>
-          <Automate>
-            <Courant xsi:type="Jouable" />
-          </Automate>
-          <Turn>true</Turn>
-          <Legion>
-            <Ligne>4</Ligne>
-            <Colonne>4</Colonne>
-          </Legion>
-        </Unite>
-        <Unite xsi:type="Viking">
-          <Vie>2</Vie>
-          <Deplacement>3</Deplacement>
-          <Attaque>2</Attaque>
-          <Defense>1</Defense>
-          <Automate>
-            <Courant xsi:type="Jouable" />
-          </Automate>
-          <Turn>true</Turn>
-          <Legion>
-            <Ligne>4</Ligne>
-            <Colonne>4</Colonne>
-          </Legion>
-        </Unite>
-        <Unite xsi:type="Viking">
-          <Vie>2</Vie>
-          <Deplacement>3</Deplacement>
-          <Attaque>2</Attaque>
-          <Defense>1</Defense>
-          <Automate>
-            <Courant xsi:type="Jouable" />
-          </Automate>
-          <Turn>true</Turn>
-          <Legion>
-            <Ligne>4</Ligne>
-            <Colonne>4</Colonne>
+            <Colonne>1</Colonne>
           </Legion>
         </Unite>
       </Unites>
       <Turn>true</Turn>
+      <NbUnitesNonJouables>0</NbUnitesNonJouables>
+      <Nom>Joueur 1</Nom>
+    </Joueur>
+    <Joueur>
+      <Points>2</Points>
+      <Unites>
+        <Unite xsi:type="Viking">
+          <Vie>2</Vie>
+          <Deplacement>1</Deplacement>
+          <Attaque>2</Attaque>
+          <Defense>1</Defense>
+          <Automate>
+            <Courant xsi:type="TourAdverse" />
+          </Automate>
+          <Turn>false</Turn>
+          <Legion>
+            <Ligne>3</Ligne>
+            <Colonne>4</Colonne>
+          </Legion>
+        </Unite>
+        <Unite xsi:type="Viking">
+          <Vie>2</Vie>
+          <Deplacement>1</Deplacement>
+          <Attaque>2</Attaque>
+          <Defense>1</Defense>
+          <Automate>
+            <Courant xsi:type="TourAdverse" />
+          </Automate>
+          <Turn>false</Turn>
+          <Legion>
+            <Ligne>4</Ligne>
+            <Colonne>3</Colonne>
+          </Legion>
+        </Unite>
+        <Unite xsi:type="Viking">
+          <Vie>2</Vie>
+          <Deplacement>1</Deplacement>
+          <Attaque>2</Attaque>
+          <Defense>1</Defense>
+          <Automate>
+            <Courant xsi:type="TourAdverse" />
+          </Automate>
+          <Turn>false</Turn>
+          <Legion>
+            <Ligne>4</Ligne>
+            <Colonne>3</Colonne>
+          </Legion>
+        </Unite>
+        <Unite xsi:type="Viking">
+          <Vie>2</Vie>
+          <Deplacement>1</Deplacement>
+          <Attaque>2</Attaque>
+          <Defense>1</Defense>
+          <Automate>
+            <Courant xsi:type="TourAdverse" />
+          </Automate>
+          <Turn>false</Turn>
+          <Legion>
+            <Ligne>3</Ligne>
+            <Colonne>4</Colonne>
+          </Legion>
+        </Unite>
+      </Unites>
+      <Turn>false</Turn>
       <NbUnitesNonJouables>0</NbUnitesNonJouables>
       <Nom>Joueur 2</Nom>
     </Joueur>
@@ -136,41 +136,41 @@
       <ArrayOfInt>
         <int>1</int>
         <int>2</int>
-        <int>4</int>
-        <int>0</int>
-        <int>4</int>
-      </ArrayOfInt>
-      <ArrayOfInt>
-        <int>4</int>
-        <int>3</int>
         <int>3</int>
         <int>2</int>
-        <int>4</int>
-      </ArrayOfInt>
-      <ArrayOfInt>
-        <int>0</int>
-        <int>0</int>
-        <int>1</int>
         <int>2</int>
-        <int>1</int>
       </ArrayOfInt>
       <ArrayOfInt>
         <int>1</int>
         <int>0</int>
         <int>2</int>
-        <int>2</int>
+        <int>1</int>
         <int>1</int>
       </ArrayOfInt>
       <ArrayOfInt>
-        <int>1</int>
-        <int>4</int>
-        <int>2</int>
         <int>3</int>
+        <int>4</int>
+        <int>0</int>
         <int>2</int>
+        <int>1</int>
+      </ArrayOfInt>
+      <ArrayOfInt>
+        <int>3</int>
+        <int>3</int>
+        <int>0</int>
+        <int>0</int>
+        <int>0</int>
+      </ArrayOfInt>
+      <ArrayOfInt>
+        <int>4</int>
+        <int>4</int>
+        <int>4</int>
+        <int>4</int>
+        <int>3</int>
       </ArrayOfInt>
     </CodeCases>
     <Dim>5</Dim>
   </Carte>
-  <First>1</First>
-  <Current>1</Current>
+  <First>0</First>
+  <Current>0</Current>
 </Partie>

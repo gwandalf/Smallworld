@@ -12,47 +12,40 @@ VisiteurConnexite::~VisiteurConnexite(void)
 
 void VisiteurConnexite::visitCarte(Carte* carte)
 {
-	carte->accept(this);
+	carte->getNodes()[0]->accept(this);
 }
 
 void VisiteurConnexite::visitNode(Sommet* node)
 {
+	//mark this node as visited
+	node->setFlag(true);
 
-}
-
-bool VisiteurConnexite::isolatedRegion(Carte carte)
-{
-	queue<Sommet*> f;
-	carte.getNodes()[0]->setFlag(true);
-	f.push(carte.getNodes()[0]);
-	while(!f.empty())
+	//visit of its neighbours
+	vector<Sommet*>::iterator it;
+	vector<Sommet*>& adj = node->getAdjacents();
+	for(it = adj.begin() ; it != adj.end() ; it++)
 	{
-		Sommet* x = f.front();
-		f.pop();
-		x->setVisite(true);
-		vector<Sommet*>::iterator deb = x->getAdjacents().begin();
-		vector<Sommet*>::iterator fin = x->getAdjacents().end();
-		vector<Sommet*>::iterator it;
-		for(it = deb ; it != fin ; it++)
+		Sommet* z = (*it);
+        if(!z->getFlag())
 		{
-          Sommet* z = (*it);
-          if(!z->getFlag())
-		  {
-              z->setFlag(true);
-              f.push(z);
-		  }
+            z->setFlag(true);
+            z->accept(this);
 		}
 	}
+}
+
+bool VisiteurConnexite::isolatedRegion(Carte* carte)
+{
 	bool res = false;
-	vector<Sommet*>::iterator deb = carte.getNodes().begin();
-	vector<Sommet*>::iterator fin = carte.getNodes().end();
+	visitCarte(carte);
+	vector<Sommet*>::iterator deb = carte->getNodes().begin();
+	vector<Sommet*>::iterator fin = carte->getNodes().end();
 	vector<Sommet*>::iterator it;
 	for(it = deb ; it != fin && !res ; it++)
 	{
-		if(!(*it)->getVisite())
+		if(!(*it)->getFlag() && (*it)->getTerrain() != Carte::EAU)
 			res = true;
 		(*it)->setFlag(false);
-		(*it)->setVisite(false);
 	}
 	return res;
 }

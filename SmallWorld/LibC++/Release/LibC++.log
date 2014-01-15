@@ -1,62 +1,89 @@
-﻿La génération a démarré 15/01/2014 15:54:14.
-     1>Projet "C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\LibC++\LibC++.vcxproj" sur le nœud 2 (Rebuild cible(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Carte.cpp Legion.cpp Sommet.cpp Source.cpp Unite.cpp
-         Carte.cpp
-     1>c:\users\eric\documents\github\smallworld\smallworld\libc++\Carte.h(37): warning C4251: 'Carte::legions' : class 'std::vector<Legion,std::allocator<_Ty>>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
-                 with
-                 [
-                     _Ty=Legion
-                 ]
-     1>c:\users\eric\documents\github\smallworld\smallworld\libc++\Carte.h(38): warning C4251: 'Carte::nbCases' : class 'std::vector<int,std::allocator<_Ty>>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
-                 with
-                 [
-                     _Ty=int
-                 ]
-     1>c:\users\eric\documents\github\smallworld\smallworld\libc++\Carte.h(39): warning C4251: 'Carte::positUnite' : class 'std::vector<std::vector<PositUnite,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
-                 with
-                 [
-                     _Ty=PositUnite
-                 ]
-     1>c:\users\eric\documents\github\smallworld\smallworld\libc++\Carte.h(40): warning C4251: 'Carte::nodes' : class 'std::vector<Sommet *,std::allocator<_Ty>>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
-                 with
-                 [
-                     _Ty=Sommet *
-                 ]
-     1>Carte.cpp(28): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-         Legion.cpp
-         Sommet.cpp
-         Source.cpp
-     1>c:\users\eric\documents\github\smallworld\smallworld\libc++\Carte.h(37): warning C4251: 'Carte::legions' : class 'std::vector<Legion,std::allocator<_Ty>>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
-                 with
-                 [
-                     _Ty=Legion
-                 ]
-     1>c:\users\eric\documents\github\smallworld\smallworld\libc++\Carte.h(38): warning C4251: 'Carte::nbCases' : class 'std::vector<int,std::allocator<_Ty>>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
-                 with
-                 [
-                     _Ty=int
-                 ]
-     1>c:\users\eric\documents\github\smallworld\smallworld\libc++\Carte.h(39): warning C4251: 'Carte::positUnite' : class 'std::vector<std::vector<PositUnite,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
-                 with
-                 [
-                     _Ty=PositUnite
-                 ]
-     1>c:\users\eric\documents\github\smallworld\smallworld\libc++\Carte.h(40): warning C4251: 'Carte::nodes' : class 'std::vector<Sommet *,std::allocator<_Ty>>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
-                 with
-                 [
-                     _Ty=Sommet *
-                 ]
-         Unite.cpp
-       Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\Release\LibC++.lib" /NOLOGO /LTCG Release\Carte.obj
-         Release\Legion.obj
-         Release\Sommet.obj
-         Release\Source.obj
-         Release\Unite.obj
-         LibC++.vcxproj -> C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\Release\LibC++.lib
-     1>Génération du projet "C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\LibC++\LibC++.vcxproj" terminée (Rebuild cible(s)).
-
-La génération a réussi.
-
-Temps écoulé 00:00:02.96
+﻿Le fichier projet contient ToolsVersion="12.0". Cet ensemble d'outils est inconnu ou manquant. Vous pouvez résoudre cela en installant le .NET Framework approprié pour cet ensemble d'outils. Projet traité comme si ToolsVersion="4.0".
+  Carte.cpp
+c:\users\gwendal\git\smallworld\smallworld\libc++\Carte.h(39): warning C4251: 'Carte::legions' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
+          with
+          [
+              _Ty=Legion
+          ]
+c:\users\gwendal\git\smallworld\smallworld\libc++\Carte.h(40): warning C4251: 'Carte::nbCases' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
+          with
+          [
+              _Ty=int
+          ]
+c:\users\gwendal\git\smallworld\smallworld\libc++\Carte.h(41): warning C4251: 'Carte::positUnite' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
+          with
+          [
+              _Ty=std::vector<PositUnite>
+          ]
+c:\users\gwendal\git\smallworld\smallworld\libc++\Carte.h(42): warning C4251: 'Carte::nodes' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
+          with
+          [
+              _Ty=Sommet *
+          ]
+Carte.cpp(29): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+  Legion.cpp
+  Sommet.cpp
+c:\users\gwendal\git\smallworld\smallworld\libc++\Carte.h(39): warning C4251: 'Carte::legions' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
+          with
+          [
+              _Ty=Legion
+          ]
+c:\users\gwendal\git\smallworld\smallworld\libc++\Carte.h(40): warning C4251: 'Carte::nbCases' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
+          with
+          [
+              _Ty=int
+          ]
+c:\users\gwendal\git\smallworld\smallworld\libc++\Carte.h(41): warning C4251: 'Carte::positUnite' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
+          with
+          [
+              _Ty=std::vector<PositUnite>
+          ]
+c:\users\gwendal\git\smallworld\smallworld\libc++\Carte.h(42): warning C4251: 'Carte::nodes' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
+          with
+          [
+              _Ty=Sommet *
+          ]
+  Source.cpp
+c:\users\gwendal\git\smallworld\smallworld\libc++\Carte.h(39): warning C4251: 'Carte::legions' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
+          with
+          [
+              _Ty=Legion
+          ]
+c:\users\gwendal\git\smallworld\smallworld\libc++\Carte.h(40): warning C4251: 'Carte::nbCases' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
+          with
+          [
+              _Ty=int
+          ]
+c:\users\gwendal\git\smallworld\smallworld\libc++\Carte.h(41): warning C4251: 'Carte::positUnite' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
+          with
+          [
+              _Ty=std::vector<PositUnite>
+          ]
+c:\users\gwendal\git\smallworld\smallworld\libc++\Carte.h(42): warning C4251: 'Carte::nodes' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
+          with
+          [
+              _Ty=Sommet *
+          ]
+  Unite.cpp
+  VisiteurConnexite.cpp
+c:\users\gwendal\git\smallworld\smallworld\libc++\Carte.h(39): warning C4251: 'Carte::legions' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
+          with
+          [
+              _Ty=Legion
+          ]
+c:\users\gwendal\git\smallworld\smallworld\libc++\Carte.h(40): warning C4251: 'Carte::nbCases' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
+          with
+          [
+              _Ty=int
+          ]
+c:\users\gwendal\git\smallworld\smallworld\libc++\Carte.h(41): warning C4251: 'Carte::positUnite' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
+          with
+          [
+              _Ty=std::vector<PositUnite>
+          ]
+c:\users\gwendal\git\smallworld\smallworld\libc++\Carte.h(42): warning C4251: 'Carte::nodes' : class 'std::vector<_Ty>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Carte'
+          with
+          [
+              _Ty=Sommet *
+          ]
+  LibC++.vcxproj -> C:\Users\Gwendal\git\Smallworld\SmallWorld\Release\LibC++.lib

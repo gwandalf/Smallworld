@@ -10,12 +10,13 @@
  **/
 class VisiteurConnexite
 {
+	vector<Sommet*> _visites;
 public:
 	VisiteurConnexite(void);
 	~VisiteurConnexite(void);
 
 	void visitCarte(Carte* carte);
 	void visitNode(Sommet* node);
-	bool isolatedRegion(Carte carte);
+	bool isolatedRegion(Carte* carte);
 };
 

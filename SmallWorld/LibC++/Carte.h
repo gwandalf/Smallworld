@@ -43,7 +43,7 @@ class DLL Carte
 	int places[2][2];
 
 public:
-	static const enum {DESERT, PLAINE, FORET, MONTAGNE, EAU};
+	static const enum TYPE {DESERT, PLAINE, FORET, MONTAGNE, EAU};
 
 	Carte(void);
 	Carte(int dim, int army_length);
@@ -59,7 +59,6 @@ public:
 	inline vector<Sommet*>& getNodes() { return nodes; }
 	int getPlace(int num, int coord) { return places[num][coord]; }
 	int getCases(int x, int y);
-	void accept(VisiteurConnexite* vis);
 	int* getMoves(int ligne, int colonne, int size);
 };
 

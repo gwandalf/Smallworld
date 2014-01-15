@@ -289,7 +289,7 @@ namespace Implementation.Modele.Jeu
                             cases[j].Add(fabrique.Desert);
                             break;
                         case 1:
-                            cases[j].Add(fabrique.Eau);
+                            cases[j].Add(fabrique.Plaine);
                             break;
                         case 2:
                             cases[j].Add(fabrique.Foret);
@@ -298,7 +298,7 @@ namespace Implementation.Modele.Jeu
                             cases[j].Add(fabrique.Montagne);
                             break;
                         case 4:
-                            cases[j].Add(fabrique.Plaine);
+                            cases[j].Add(fabrique.Eau);
                             break;
                         default: break;
                     }

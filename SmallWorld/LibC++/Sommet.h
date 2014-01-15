@@ -1,12 +1,12 @@
 #pragma once
 #include <vector>
 using namespace std;
+class VisiteurConnexite;
 class Sommet
 {
 	vector<Sommet*> _adjacents;
 	int _terrain;
 	bool _flag;
-	bool _visite;
 public:
 	Sommet(int terrain = 0);
 	~Sommet(void);
@@ -15,7 +15,6 @@ public:
 	inline void setTerrain(int terrain) { _terrain = terrain; }
 	inline bool getFlag() { return _flag; }
 	inline void setFlag(bool flag) { _flag = flag; }
-	inline bool getVisite() { return _visite; }
-	inline void setVisite(bool visite) { _visite = visite; }
+	void accept(VisiteurConnexite* vis);
 };
 

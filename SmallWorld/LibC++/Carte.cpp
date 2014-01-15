@@ -68,6 +68,7 @@ Carte::~Carte(void)
 */
 void Carte::generateCases(int nbTypes)
 {
+	//creation of all the cases, initialized as DESERT
 	for(int i = 0 ; i < dim ; i++)
 	{
 		for(int j = 0 ; j < dim ; j++)
@@ -76,6 +77,8 @@ void Carte::generateCases(int nbTypes)
 			addNode(i, j);
 		}
 	}
+
+	//choose of the type
 	for(int i = 0 ; i < dim ; i++)
 	{
 		for(int j = 0 ; j < dim ; j++)
@@ -83,16 +86,11 @@ void Carte::generateCases(int nbTypes)
 			cases[i][j]->setTerrain(choose(nbTypes));
 			if(cases[i][j]->getTerrain() == EAU)
 			{
-				unlinkNode(i, j);
-				if(((j == dim - 1 && i > 0) ||		//on the right side, ...
-					(i == dim - 1) ||				//on the bottom side, ...
-					(j == 0 && i > 0)))			//or on the left side, we must verify if ther is not isolated island
+				VisiteurConnexite vis;
+				if(vis.isolatedRegion(this))
 				{
-					if(isolatedRegion())
-					{
-						cases[i][j] = new Sommet(choose(nbTypes - 1)); // if the placement of the 'sea' case creates an island, we choose another type
-						addNode(i, j);
-					}
+					cases[i][j]->setTerrain(choose(nbTypes-1)); // if the placement of the 'sea' case creates an island, we choose another type
+					addNode(i, j);
 				}
 			}
 		}
@@ -252,11 +250,6 @@ int Carte::getCases(int x, int y) {
 		return cases[x][y]->getTerrain();
 	else
 		return -1;
-}
-
-void Carte::accept(VisiteurConnexite* vis)
-{
-	vis->visitNode(nodes[0]);
 }
 
 // TODO!
