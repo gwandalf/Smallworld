@@ -1,2 +1,1 @@
 C:\Users\Gwendal\git\Smallworld\SmallWorld\test\obj\Debug\test.csprojResolveAssemblyReference.cache
-C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\test\obj\Debug\test.csprojResolveAssemblyReference.cache

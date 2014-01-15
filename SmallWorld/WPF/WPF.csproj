@@ -168,36 +168,33 @@
     <Resource Include="computer-game-icone-3768.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="world-map-old.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\desert.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\forest.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\montagne.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\neige.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\plaine.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\sea.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\world-map-old.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="sw2.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\sw2.jpg" />
+    <Resource Include="Resources\desert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\forest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\montagne.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\neige.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\plaine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\sea.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\sw2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\world-map-old.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

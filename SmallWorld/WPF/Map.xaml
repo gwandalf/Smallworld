@@ -8,6 +8,7 @@
         <Cursor x:Key="Cursor1">Arrow</Cursor>
     </Window.Resources>
 
+  
     <Window.Background>
         <!--<ImageBrush ImageSource="pack://application:,,,/Resources/world-map-old.jpg""/>-->
         <ImageBrush ImageSource="pack://application:,,,/Resources/world-map-old.jpg"/>

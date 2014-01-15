@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("computer-game-icone-3768.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/world-map-old.jpg")]
 
 
