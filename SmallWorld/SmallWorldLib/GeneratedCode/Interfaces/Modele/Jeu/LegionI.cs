@@ -37,5 +37,7 @@ namespace Interfaces.Modele.Jeu
         void afficher();
 
         void detruireLegion();
+
+        UniteI getBestDefensor();
     }
 }

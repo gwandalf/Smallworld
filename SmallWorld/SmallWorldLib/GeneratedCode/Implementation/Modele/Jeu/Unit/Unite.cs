@@ -105,12 +105,6 @@ namespace Implementation.Modele.Jeu.Unit
             get { return carte; }
             set { carte = value; }
         }
-        /*
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(string name)
-        {
-            PropertyChanged(this, new PropertyChangedEventArgs(name));
-        }*/
 
         protected AutomateUnite automate;
         public AutomateUnite Automate
@@ -198,13 +192,30 @@ namespace Implementation.Modele.Jeu.Unit
             return false;
         }
 
-        //TODO doit etre modifiee : remplacer par l'algorithme du poly
-		public virtual void attaquer(int lig, int col)
+        public virtual void attaquer(int lig, int col)
 		{
             if (attaquePossible(lig, col))
             {
-                LegionI leg = carte.getLegion(lig, col);
-                leg.Unites[0].Vie = 0;
+                Random rand = new Random();
+                UniteI defenseur = carte.getLegion(lig, col).getBestDefensor();
+                int bmax = Math.Max(vie, defenseur.Vie + 2);
+                int nb = rand.Next(3, bmax);
+                int i = 0;
+                while (i < nb && vie > 0 && defenseur.Vie > 0)
+                {
+                    double attD = attaque;
+                    double defD = defenseur.Defense;
+                    double proba = 0.5 + (1.0 - attD / defD) / 2;
+                    Random r = new Random();
+                    double de = r.NextDouble();
+                    if (de < proba)
+                        Vie--;
+                    else
+                        defenseur.Vie--;
+                    i++;
+                }
+                if (vie > 0 && carte.getLegion(lig, col) == null)
+                    deplacer(lig, col);
             }
 		}
 

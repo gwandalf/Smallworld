@@ -88,5 +88,20 @@ namespace Implementation.Modele.Jeu
         {
             OnPropertyChanged("DetruireLegion");
         }
+
+        public UniteI getBestDefensor()
+        {
+            UniteI res = null;
+            int defense = 0;
+            foreach (UniteI u in unites)
+            {
+                if (u.Defense > defense)
+                {
+                    res = u;
+                    defense = u.Defense;
+                }
+            }
+            return res;
+        }
     }
 }
