@@ -12,13 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Modele.Jeu;
-using Modele.Creation;
-using SmallWorldLib.GeneratedCode;
-using SmallWorldLib.GeneratedCode.Vue;
+using Implementation.Modele.Jeu;
+using Implementation.Modele.Jeu.Unit;
+using Interfaces.Modele.Jeu.Unit;
+using Implementation.Modele.Creation;
+using Interfaces.Modele.Jeu;
+using Interfaces.Modele.Creation;
+using Implementation.Vue;
+using Interfaces.Vue;
 using Wrapper;
 using System.ComponentModel;
-using Modele.Jeu.Joueur;
 using System.Windows.Controls.Primitives;
 namespace WPF
 {

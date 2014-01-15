@@ -11,8 +11,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Modele.Creation;
-using Modele.Jeu;
+using Implementation.Modele.Creation;
+using Implementation.Modele.Jeu;
+using Implementation.Modele.Jeu.Unit;
+using Interfaces.Modele.Creation;
+using Interfaces.Modele.Jeu;
 
 namespace WPF
 {
