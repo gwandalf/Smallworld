@@ -19,19 +19,6 @@ using Interfaces.Modele.Jeu;
 
 namespace WPF
 {
-    public enum GameType : int
-    {
-        DEMO,
-        NORMAL,
-        SMALL,
-    }
-    public enum Nation : int
-    {
-
-        GAUL,
-        NAIN,
-        VIKING,
-    }
     /// <summary>
     /// 
     /// </summary>
@@ -45,32 +32,12 @@ namespace WPF
 
         public MainWindow()
         {
-            InitializeComponent();
-            initializeMapTags();
-            initializeNationTags();
 
             //initialisation of the elements used to build the party
             game = GameInitiator.INSTANCE;
             fabriques = new List<FabriqueI>(2);
             fabriques.Add(null);
             fabriques.Add(null);
-        }
-
-        private void initializeMapTags()
-        {
-            this.DemoItem.Tag = GameType.DEMO;
-            this.SmallItem.Tag = GameType.SMALL;
-            this.NormalItem.Tag = GameType.NORMAL;
-        }
-
-        private void initializeNationTags()
-        {
-            this.Nain1.Tag = Nation.NAIN;
-            this.Nain2.Tag = Nation.NAIN;
-            this.Gaul1.Tag = Nation.GAUL;
-            this.Gaul2.Tag = Nation.GAUL;
-            this.Viking1.Tag = Nation.VIKING;
-            this.Viking2.Tag = Nation.VIKING;
         }
 
         private void StartUpButton_Click(object sender, RoutedEventArgs e)
@@ -96,20 +63,7 @@ namespace WPF
                     "Type de jeu non reconnu",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            /*
-            //We start the game only if both nations are selected.
-            if (ComboBoxNationPlayer1.SelectedIndex > -1 && ComboBoxNationPlayer2.SelectedIndex > -1)
-            {
-                // We retrieve game type with the tag
-                ComboBoxItem itemGame = (ComboBoxItem)GameTypeComboBox.SelectedItem;
-                ComboBoxItem itemNation1 = (ComboBoxItem)ComboBoxNationPlayer1.SelectedItem;
-                ComboBoxItem itemNation2 = (ComboBoxItem)ComboBoxNationPlayer2.SelectedItem;
-            */
-            /*    
-            win.Show();
-                this.Close();
-            }
-             * */
+            
         }
 
         private void labelPlayer1_GotFocus(object sender, RoutedEventArgs e)

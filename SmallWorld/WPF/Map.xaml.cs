@@ -24,7 +24,7 @@ using Wrapper;
 using System.ComponentModel;
 using System.Windows.Controls.Primitives;
 namespace WPF
-{
+{/*
     public enum Tile : int
     {
         DESERT = 1,
@@ -32,15 +32,13 @@ namespace WPF
         LOWLAND,
         MOUTAIN,
         SEA,
-    }
+    }*/
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class Map : Window
     {
-        CarteI map;/*
-        MonteurPartie mp;
-        ImageFactory imageBrushFactory = new ImageFactory();*/
+        CarteI map;
         Partie partie;
         Rectangle selectedVisual;
         StackPanel _selectedUnit;
@@ -84,25 +82,10 @@ namespace WPF
                 Rectangle rectangle =  _suggestions[Convert.ToInt32(pos[0]), Convert.ToInt32(pos[1])].Rectangle;
                 rectangle.Stroke = Brushes.Green;
                 rectangle.StrokeThickness = 5;
-                //mapGrid.Children.Add(rectangle);
                 buff_sug.Add(_suggestions[Convert.ToInt32(pos[0]), Convert.ToInt32(pos[1])]);
             }
         }
-
-        private FabriqueI createFabrique(Nation nation)
-        {
-            switch (nation)
-            {
-                case Nation.GAUL:
-                    return new Fabrique<Gaulois>();
-                case Nation.NAIN:
-                    return new Fabrique<Nain>();
-                case Nation.VIKING:
-                    return new Fabrique<Viking>();
-                default:
-                    return null;
-            }
-        }
+        
         private Partie config(List<FabriqueI> fu, MonteurPartie mp)
         {
             GameInitiator.INSTANCE.FabriquesUnite = fu;
@@ -124,7 +107,6 @@ namespace WPF
         private void Window_MouseLeftButtonDown(object sender, RoutedEventArgs e)
         {
             //le bouton gauche a été pressé
-            //détecter l'endroit et faire quelque chose
             InfoLabel.Content = "Aucune unité";
             if (selectedVisual != null)
                 InfoLabel.Content = "unité présente";
@@ -215,27 +197,11 @@ namespace WPF
             rectangle.StrokeThickness = 1;
 
             rectangle.MouseLeftButtonDown += new MouseButtonEventHandler(rectangle_MouseLeftButtonDown);
-
-            // a utiliser pour les déplacements
-            rectangle.MouseRightButtonDown += new MouseButtonEventHandler(rectangle_MouseRightButtonDown);
             return rectangle;
         }
 
-        private void rectangle_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            //TODO
-        }
-
-
-        /*
-            protected void btnUpdateTestTBL_OnClick(object sender, RoutedEventArgs e)
-            {
-                this.popup1.IsOpen = true;
-            }
-        */
-
         /// <summary>
-        /// Called after each click on the map
+        /// Called after each click on the map : click on an item (unit or case) and do delegates the action to it
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -260,7 +226,6 @@ namespace WPF
 
                 if (selectedVisual != null)
                 {
-                    deleteSuggestions();
 
                     if (!map.isEmpty(Grid.GetRow(selectedVisual), Grid.GetColumn(selectedVisual)))
                         selectedVisual.StrokeThickness = 2;
@@ -273,38 +238,11 @@ namespace WPF
             InfoLabel.Content = String.Format("[{0:00} - {1:00}] {2}", row, column, tile);
 
             //affiche les unités sur la case
-            //unitInfoPanel.Content = getListUnitInt(row, column);
             updateUnitInfo(null);
             tile.mouseLeftButtonDown();
             updateInfo();
-            //Affichage des unités présentes à l'endroit
             e.Handled = true;
         }
-
-        /// <summary>
-        /// Give a a list of Unite at a postion
-        /// TODO ERREUR
-        /// </summary>
-        /// <param name="u"></param>
-        /// <returns></returns>
-       /* private List<Unite> getListUnit(LegionI legion)
-        {
-            List<Unite> list = new List<Unite>();
-
-            //pour chaque unité on regarde si elle est en position en paramètre
-            foreach (UniteI u in map.PositUnite.Keys)
-            {
-                //j'essaye d'avoir la position de chaque unité
-                Tuple<int, int> t;
-                map.PositUnite.TryGetValue(u, out t);
-                if (t.Item1 == row && t.Item2 == column)
-                {
-                    list.Add((Unite)u);
-                }
-                    
-            }
-            return list;
-        }*/
 
         /// <summary>
         /// Called after each turn, allows to update informations displayed about the state of game
@@ -350,8 +288,6 @@ namespace WPF
                         view.Description.Margin = new Thickness(10);
 
                         unitInfoPanel.Children.Add(view.Description);
-                        //TODO
-                        //if (les unites séletionnés appartiennt au joueur courant && u.Deplacement > 0)
                         stack.MouseDown += unitStackPanel_MouseDown;
                     }
                 }
@@ -381,41 +317,9 @@ namespace WPF
 
             if (_selectedUnit != null){
                 var u = _selectedUnit.Tag as VueUniteI;
-
-                // récupération des mouvements possibles
-               /* List<int> moves = partie.Carte.CarteW.getMoves(u.Unite.Legion.Ligne, u.Unite.Legion.Colonne, partie.Carte.Dim);
-                
-                foreach(int i in moves){
-                
-                    var rect = new Rectangle();
-                    rect.StrokeThickness = 5;
-                    rect.Stroke = Brushes.Green;
-
-                    Grid.SetRow(rect, i / partie.Carte.Dim);
-                    Grid.SetColumn(rect, i % partie.Carte.Dim);
-
-                    //affichage des mouvements
-                    mapGrid.Children.Add(rect);
-
-                    //_suggestions.Add(rect);
-                }
-               */
-                    // TODO
-                   //afficher tous les mouvements possibles
             }
 
             e.Handled = true;
-        }
-
-        /**
-         * Allows to remove all of the suggestions showed on the map
-         */
-        public void deleteSuggestions()
-        {
-            //foreach (Rectangle rect in _suggestions)
-            //{
-              //  mapGrid.Children.Remove(rect);
-            //}
         }
 
         /**
@@ -425,18 +329,17 @@ namespace WPF
         {
             if (_selectedUnit != null)
             {
-//<<<<<<< HEAD
+
                 Border parent = (Border)_selectedUnit.Parent;
                 parent.BorderThickness = new Thickness(2);
                 foreach (Label lbl in _selectedUnit.Children)
                     lbl.FontWeight = FontWeights.Normal;
-//=======
+
                 NbTurnsLeft.Content = "Tours restants : " + partie.NombreTours;
                 Units1Label.Content = "Tour : " + partie.Joueurs[0].Turn;
                 Units2Label.Content = "Tour : " + partie.Joueurs[1].Turn;
                 Points1Label.Content = "Points : " + partie.Joueurs[0].Points;
                 Points2Label.Content = "Points : " + partie.Joueurs[1].Points;
-//>>>>>>> 75d3522b4005ead6fdfafeca058886dd623bfcce
                 
             }
 
@@ -444,8 +347,7 @@ namespace WPF
             /*
             * Evite la sélection d'une unité par le joueur adverse lors du changement de tour
             */
-           // if (si je joueur courant a des unites a la position donnée) TODO
-            //{
+           
                 if (selectedUnit != _selectedUnit)
                 {
                     Border parent = (Border)selectedUnit.Parent;
@@ -458,7 +360,7 @@ namespace WPF
                 else
                     _selectedUnit = null;
                 view.mouseLeftButtonDown();
-           // }
+          
         }
 
         /*
