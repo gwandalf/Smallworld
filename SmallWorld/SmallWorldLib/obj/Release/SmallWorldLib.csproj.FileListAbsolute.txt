@@ -7,3 +7,12 @@ C:\Users\Gwendal\git\Smallworld\SmallWorld\SmallWorldLib\obj\Release\SmallWorldL
 C:\Users\Gwendal\git\Smallworld\SmallWorld\SmallWorldLib\obj\Release\SmallWorldLib.pdb
 C:\Users\Gwendal\git\Smallworld\SmallWorld\SmallWorldLib\obj\Release\SmallWorldLib.Properties.Resources.resources
 C:\Users\Gwendal\git\Smallworld\SmallWorld\SmallWorldLib\obj\Release\SmallWorldLib.csproj.GenerateResource.Cache
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\SmallWorldLib\bin\Release\SmallWorldLib.dll
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\SmallWorldLib\bin\Release\SmallWorldLib.pdb
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\SmallWorldLib\bin\Release\Wrapper.dll
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\SmallWorldLib\bin\Release\Wrapper.pdb
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\SmallWorldLib\obj\Release\SmallWorldLib.csprojResolveAssemblyReference.cache
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\SmallWorldLib\obj\Release\SmallWorldLib.Properties.Resources.resources
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\SmallWorldLib\obj\Release\SmallWorldLib.csproj.GenerateResource.Cache
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\SmallWorldLib\obj\Release\SmallWorldLib.dll
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\SmallWorldLib\obj\Release\SmallWorldLib.pdb

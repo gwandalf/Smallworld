@@ -469,7 +469,7 @@ namespace WPF
             StackPanel stack = new StackPanel();
             stack.Orientation = Orientation.Horizontal;
             if (u.Deplacement > 0)
-                stack.Background = new SolidColorBrush(Colors.Green);
+                stack.Background = new SolidColorBrush(Colors.Beige);
             else
                 stack.Background = new SolidColorBrush(Colors.DarkGray);
 

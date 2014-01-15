@@ -5,11 +5,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="WPF.MainWindow"
         WindowStartupLocation="CenterScreen"
         Title="SmallWorld" Height="400" Width="300">
-    <!--
+   <!--
     <Window.Background>
         <ImageBrush ImageSource="sw2.jpg"/>
     </Window.Background>
     -->
+    
     <Window.Resources>
         <wpf:NegatingConverter x:Key="NegatingConverter"/>
         <wpf:SelectedIndexToTextLabelColorConverter x:Key="SelectedIndexToTextLabelColorConverter"/>
@@ -28,7 +29,7 @@
         </Grid.ColumnDefinitions>
 
         <Button Margin="40" x:Name="StartUpButton" Content="Lancer Partie"  VerticalAlignment="Bottom" Width="120" IsCancel="True" Click="StartUpButton_Click" Height="24"  Grid.Row="3" Grid.Column="0"/>
-        <Button Margin="5" x:Name="ChargerButton" Content="Charger Partie ..."  VerticalAlignment="Bottom" Width="120" IsCancel="True" Click="ChargerButton_Click" Height="24"  Grid.Row="4" Grid.Column="0"/>
+        <Button Margin="5" x:Name="ChargerButton" Content="Charger Partie..."  VerticalAlignment="Bottom" Width="120" IsCancel="True" Click="ChargerButton_Click" Height="24"  Grid.Row="4" Grid.Column="0"/>
 
         <ComboBox x:Name="GameTypeComboBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="150" Margin="10"  Grid.Row="0" Grid.Column="0">
             <ComboBoxItem x:Name="DemoItem" IsSelected="True" Content="Carte Demo (5x5)" Selected="DemoItem_Selected"/>

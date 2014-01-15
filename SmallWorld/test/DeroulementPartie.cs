@@ -2,8 +2,10 @@
 using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Modele.Jeu;
-using Modele.Creation;
+using Implementation.Modele.Jeu;
+using Implementation.Modele.Creation;
+using Implementation.Modele.Jeu.Unit;
+using Interfaces.Modele.Creation;
 
 namespace test
 {

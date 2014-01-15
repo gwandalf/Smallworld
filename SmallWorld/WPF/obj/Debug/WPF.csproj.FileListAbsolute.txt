@@ -19,3 +19,7 @@ C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\obj\Debug\WPF.Propertie
 C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\obj\Debug\WPF.csproj.GenerateResource.Cache
 C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\obj\Debug\WPF.exe
 C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\obj\Debug\WPF.pdb
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\obj\Debug\Load.g.cs
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\obj\Debug\SaveAs.g.cs
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\obj\Debug\Load.baml
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\WPF\obj\Debug\SaveAs.baml

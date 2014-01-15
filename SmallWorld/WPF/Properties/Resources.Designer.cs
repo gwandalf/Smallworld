@@ -63,59 +63,9 @@ namespace WPF.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap desert {
+        internal static System.Drawing.Bitmap world_map_old {
             get {
-                object obj = ResourceManager.GetObject("desert", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap forest {
-            get {
-                object obj = ResourceManager.GetObject("forest", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap montagne {
-            get {
-                object obj = ResourceManager.GetObject("montagne", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap neige {
-            get {
-                object obj = ResourceManager.GetObject("neige", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap plaine {
-            get {
-                object obj = ResourceManager.GetObject("plaine", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap sea {
-            get {
-                object obj = ResourceManager.GetObject("sea", resourceCulture);
+                object obj = ResourceManager.GetObject("world_map_old", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
