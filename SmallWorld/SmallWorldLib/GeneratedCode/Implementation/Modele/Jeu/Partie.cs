@@ -95,11 +95,6 @@ namespace Implementation.Modele.Jeu
             this.joueurs[first].Turn = true;
 		}
 
-		public virtual void afficherUnites(List<UniteI> unites)
-		{
-			throw new System.NotImplementedException();
-		}
-
         /// <summary>
         /// the method allow to figure out who is the winner
         /// </summary>
@@ -116,6 +111,10 @@ namespace Implementation.Modele.Jeu
             }
 		}
 
+        /// <summary>
+        /// finds out if a player is "dead"
+        /// </summary>
+        /// <returns> the winner if there is one, else null </returns>
         public JoueurI determinerSurvivant()
         {
             JoueurI gagnant = null;
@@ -124,9 +123,9 @@ namespace Implementation.Modele.Jeu
             {
                 if (joueurs[i].Unites.Count > 0)
                 {
-                    if (gagnant == null)
+                    if (gagnant == null) //a player is alive ? Maybe it's the winner...
                         gagnant = joueurs[i];
-                    else
+                    else //it means that both are alive, so there is not a winner yet
                     {
                         gagnant = null;
                         break;
@@ -136,6 +135,10 @@ namespace Implementation.Modele.Jeu
             return gagnant;
         }
 
+        /// <summary>
+        /// finds out which player have the greatest amount of points
+        /// </summary>
+        /// <returns> the winner </returns>
         public JoueurI determinerMeneur()
         {
             JoueurI gagnant = joueurs[0];
@@ -147,22 +150,32 @@ namespace Implementation.Modele.Jeu
             return gagnant;
         }
 
+        //when a player ends his turn, he notifies the game, which switches the turns
         public void update(object sender, PropertyChangedEventArgs e)
         {
             finTour();
         }
 
+        /// <summary>
+        /// switches the turn or end the game if there is a winner
+        /// </summary>
         public virtual void finTour()
         {
             if (gagnant == null)
             {
                 int former = current;
                 current = (current + 1) % joueurs.Count;
+
+                //decrements the number of turns if both players played their turn
                 if (current == first)
                     nombreTours--;
                 JoueurI winner = determinerGagnant();
+
+                //if there is not a winner, the turn switches
                 if (winner == null)
                     joueurs[former].passerMain(joueurs[current]);
+
+                    //else, the result is shown
                 else
                 {
                     joueurs[former].Turn = false;

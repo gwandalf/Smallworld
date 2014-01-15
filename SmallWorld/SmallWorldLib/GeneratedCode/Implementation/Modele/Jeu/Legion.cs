@@ -89,6 +89,10 @@ namespace Implementation.Modele.Jeu
             OnPropertyChanged("DetruireLegion");
         }
 
+        /// <summary>
+        /// look for the unit which have the best defense
+        /// </summary>
+        /// <returns> the unit which have the best defense </returns>
         public UniteI getBestDefensor()
         {
             UniteI res = null;

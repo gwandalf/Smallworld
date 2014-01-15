@@ -26,6 +26,7 @@ namespace Implementation.Modele.Jeu
     [Serializable]
 	public class CarteCS : CarteI
 	{
+        //wrapper with dll library
         private CarteWrapper carteW;
         [XmlIgnoreAttribute]
         public CarteWrapper CarteW
@@ -34,6 +35,7 @@ namespace Implementation.Modele.Jeu
             set { carteW = value; }
         }
 
+        //representation of the types of the cases by numbers
         private List<List<int>> codeCases;
         public List<List<int>> CodeCases
         {
@@ -41,6 +43,7 @@ namespace Implementation.Modele.Jeu
             set { codeCases = value; }
         }
 
+        //dimension of the map
         private int dim;
         public int Dim
         {
@@ -48,6 +51,7 @@ namespace Implementation.Modele.Jeu
             set { dim = value; }
         }
 
+        //fly-wheight factory of the cases
 		private FabriqueCaseI fabrique;
         [XmlIgnoreAttribute]
         public FabriqueCaseI Fabrique
@@ -56,6 +60,7 @@ namespace Implementation.Modele.Jeu
             set { fabrique = value; }
 		}
 
+        //cases, seen as "real" cases (not numbers)
         private List<List<CaseI>> cases;
         [XmlIgnoreAttribute]
         public List<List<CaseI>> Cases
@@ -63,6 +68,7 @@ namespace Implementation.Modele.Jeu
             get { return cases; }
         }
 
+        //unit currently selected
         private UniteI selected;
         [XmlIgnoreAttribute]
         public UniteI Selected
@@ -153,6 +159,8 @@ namespace Implementation.Modele.Jeu
                     }
                 }
             }
+
+            //units placement
             int i = 0;
             foreach (Joueur j in joueurs)
             {
@@ -200,26 +208,7 @@ namespace Implementation.Modele.Jeu
 
 		public virtual void deplacer(UniteI unite, int lig, int col)
 		{
-            //Il y a t-il des vérifications à faire dans la méthode
-            unite.deplacer(lig, col);
-		}
-
-		public virtual bool verifCaseAttaquable(JoueurI joueur, int lig, int col)
-		{
-            //on vérifie qu'il y a des unités de l'autre joueur sur la case donnée
-            //Pour le joueur qui attaque, il faut vérifier que son unité peut se déplacer ou attaquer?
-			throw new System.NotImplementedException();
-		}
-
-		public virtual void lancerCombat(UniteI unite, int lig, int col)
-		{
-            // si c'est une case attaque, alors bataillllle
-			throw new System.NotImplementedException();
-		}
-
-		public virtual Unite getDefenseur(int lig, int col)
-		{
-			throw new System.NotImplementedException();
+             unite.deplacer(lig, col);
 		}
 
         /// <summary>
@@ -243,16 +232,17 @@ namespace Implementation.Modele.Jeu
             return res;
 		}
 
-		public virtual void addUnite(UniteI unite)
-		{
-			throw new System.NotImplementedException();
-		}
-
         public VueCaseI makeView(int l, int c)
         {
             return new VueCase(this, l, c);
         }
 
+        /// <summary>
+        /// we look for an existing legion at the specified case
+        /// </summary>
+        /// <param name="lig"> line </param>
+        /// <param name="col"> column </param>
+        /// <returns> a pointer to the legion if found, else null </returns>
         public LegionI getLegion(int lig, int col)
         {
             LegionI res = null;
@@ -268,6 +258,10 @@ namespace Implementation.Modele.Jeu
             return res;
         }
 
+        /// <summary>
+        /// add a legion to the list
+        /// </summary>
+        /// <param name="legion"> legion to add </param>
         public void ajouterLegion(LegionI legion)
         {
             legions.Add(legion);
@@ -275,6 +269,10 @@ namespace Implementation.Modele.Jeu
             OnPropertyChanged("Legion");
         }
 
+        /// <summary>
+        /// association of the cases to the respective numbers
+        /// usefull for the loading of a saved game
+        /// </summary>
         public void generateCases()
         {
             cases = new List<List<CaseI>>(this.Dim);
@@ -306,6 +304,10 @@ namespace Implementation.Modele.Jeu
             } 
         }
 
+        /// <summary>
+        /// make the unsaved links (used by the saver)
+        /// </summary>
+        /// <param name="joueurs"> players of the game </param>
         public void linkJoueurs(List<Joueur> joueurs)
         {
             int i = 0;
@@ -334,6 +336,7 @@ namespace Implementation.Modele.Jeu
 
         }
 
+        //suggest the specified case
         public void suggerer(int x, int y)
         {
             OnPropertyChanged("" + x + ";" + y);

@@ -41,8 +41,6 @@ namespace Interfaces.Modele.Jeu
             get;
         }
 
-		void afficherUnites(List<UniteI> unites);
-
 		JoueurI determinerGagnant();
 
         /**
