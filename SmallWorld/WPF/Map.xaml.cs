@@ -325,13 +325,13 @@ namespace WPF
         */
         private void updateUnitInfo(LegionI legion)
         {
+            //effacer le contenu precedent
+            unitInfoPanel.Children.Clear();
             if (legion != null)
             {
                 //avec la position on trouve a qui appartient les unites (utile pour permettre de jouer
                 //on recupère la liste des unites présentes à cet endroit
                 List<UniteI> nonEmptyList = legion.Unites;
-
-                unitInfoPanel.Children.Clear();
 
                 if (nonEmptyList.Count > 0)
                 {
