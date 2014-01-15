@@ -53,7 +53,6 @@ public:
 	bool isolatedRegion();
 	int choose(int nb);
 	void addNode(int x, int y);
-	void unlinkNode(int x, int y);
 	void placeUnites(int x, int y, int num);
 	int getDim();
 	inline vector<Sommet*>& getNodes() { return nodes; }

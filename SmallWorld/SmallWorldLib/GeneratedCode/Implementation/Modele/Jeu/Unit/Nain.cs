@@ -71,7 +71,8 @@ namespace Implementation.Modele.Jeu.Unit
             List<Tuple<int, int>> adj = carte.getListeAdjacents(this);
             for (int i = 0; i < adj.Count; i++)
             {
-                if (carte.Cases[adj[i].Item1][adj[i].Item2] == carte.Fabrique.Foret)
+                if (carte.Cases[adj[i].Item1][adj[i].Item2] == carte.Fabrique.Montagne 
+                    || carte.Cases[adj[i].Item1][adj[i].Item2] == carte.Fabrique.Foret)
                     carte.suggerer(adj[i].Item1, adj[i].Item2);
             }
         }

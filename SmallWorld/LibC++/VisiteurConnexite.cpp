@@ -12,7 +12,10 @@ VisiteurConnexite::~VisiteurConnexite(void)
 
 void VisiteurConnexite::visitCarte(Carte* carte)
 {
-	carte->getNodes()[0]->accept(this);
+	int i = 0;
+	while(carte->getNodes()[i]->getTerrain() == Carte::EAU)
+		i++;
+	carte->getNodes()[i]->accept(this);
 }
 
 void VisiteurConnexite::visitNode(Sommet* node)

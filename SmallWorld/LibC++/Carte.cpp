@@ -83,12 +83,13 @@ void Carte::generateCases(int nbTypes)
 	{
 		for(int j = 0 ; j < dim ; j++)
 		{
+			
 			cases[i][j]->setTerrain(choose(nbTypes));
 			if(cases[i][j]->getTerrain() == EAU)
 			{
 				VisiteurConnexite vis;
 				if(vis.isolatedRegion(this))
-					cases[i][j]->setTerrain(choose(nbTypes-1)); // if the placement of the 'sea' case creates an island, we choose another type
+					cases[i][j]->setTerrain(choose(nbTypes-1));
 			}
 		}
 	}
@@ -125,38 +126,6 @@ void Carte::addNode(int x, int y)
 		{
 			cases[x][y]->getAdjacents().push_back(cases[x][y-1]);
 			cases[x][y-1]->getAdjacents().push_back(cases[x][y]);
-		}
-	}
-}
-
-void Carte::unlinkNode(int x, int y)
-{
-	vector<Sommet*>::iterator deb = cases[x][y]->getAdjacents().begin();
-	vector<Sommet*>::iterator fin = cases[x][y]->getAdjacents().end();
-	vector<Sommet*>::iterator it;
-	for(it = deb ; it != fin ; it++)
-	{
-		vector<Sommet*>::iterator debit = cases[x][y]->getAdjacents().begin();
-		vector<Sommet*>::iterator finit = cases[x][y]->getAdjacents().end();
-		vector<Sommet*>::iterator itit;
-		for(itit = debit ; itit != finit ; itit++)
-		{
-			if(*itit == cases[x][y])
-			{
-				(*it)->getAdjacents().erase(itit);
-				break;
-			}
-		}
-	}
-	vector<Sommet*>::iterator debn = nodes.begin();
-	vector<Sommet*>::iterator finn = nodes.end();
-	vector<Sommet*>::iterator itn;
-	for(itn = debn ; itn != finn ; itn++)
-	{
-		if(*itn == cases[x][y])
-		{
-			nodes.erase(itn);
-			break;
 		}
 	}
 }
