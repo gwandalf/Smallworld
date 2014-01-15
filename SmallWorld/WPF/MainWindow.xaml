@@ -7,10 +7,9 @@
         Title="SmallWorld" Height="400" Width="300">
    <!--
     <Window.Background>
-        <ImageBrush ImageSource="sw2.jpg"/>
+        <ImageBrush ImageSource="pack://application:,,,/Resources/sw2.jpg"/>
     </Window.Background>
     -->
-    
     <Window.Resources>
         <wpf:NegatingConverter x:Key="NegatingConverter"/>
         <wpf:SelectedIndexToTextLabelColorConverter x:Key="SelectedIndexToTextLabelColorConverter"/>
