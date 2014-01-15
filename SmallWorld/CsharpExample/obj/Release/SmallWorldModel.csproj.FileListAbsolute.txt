@@ -1,1 +1,2 @@
 C:\Users\Gwendal\git\Smallworld\SmallWorld\CsharpExample\obj\Release\SmallWorldModel.csprojResolveAssemblyReference.cache
+C:\Users\Eric\Documents\GitHub\Smallworld\SmallWorld\CsharpExample\obj\Release\SmallWorldModel.csprojResolveAssemblyReference.cache

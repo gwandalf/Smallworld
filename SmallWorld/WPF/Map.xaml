@@ -8,13 +8,14 @@
         <Cursor x:Key="Cursor1">Arrow</Cursor>
     </Window.Resources>
 
-    <!--Window.Background>
-        <ImageBrush ImageSource="sw2.jpg"/>
-    </Window.Background-->
+    <Window.Background>
+        <!--<ImageBrush ImageSource="pack://application:,,,/Resources/world-map-old.jpg""/>-->
+        <ImageBrush ImageSource="pack://application:,,,/Resources/world-map-old.jpg"/>
+    </Window.Background>
     
     <DockPanel x:Name="panel">
         <StackPanel DockPanel.Dock="Bottom">
-            <Grid VerticalAlignment="Center">
+            <Grid VerticalAlignment="Center" Background="Beige">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="4*"></RowDefinition>
                 </Grid.RowDefinitions>
