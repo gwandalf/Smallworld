@@ -78,15 +78,7 @@ namespace Interfaces.Modele.Jeu
 
 		void deplacer(UniteI unite, int lig, int col);
 
-		void lancerCombat(UniteI unite, int lig, int col);
-
-		bool verifCaseAttaquable(JoueurI joueur, int lig, int col);
-
-		Unite getDefenseur(int lig, int col);
-
 		bool isEmpty(int lig, int col);
-
-		void addUnite(UniteI unite);
 
         VueCaseI makeView(int l, int c);
 

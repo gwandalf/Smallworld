@@ -14,22 +14,5 @@ void CarteWrapper::placeUnites(int begin, int end, int lig) { myCarte->placeUnit
 int CarteWrapper::getDim() {return myCarte->getDim();}
 int CarteWrapper::getCases(int x, int y) {return myCarte->getCases(x, y);}
 int CarteWrapper::getPlace(int num, int coord) {return myCarte->getPlace(num, coord);}
-System::Collections::Generic::List<int>^ CarteWrapper::getMoves(int x, int y, int z) {
-	System::Collections::Generic::List<int>^ lMoves = gcnew System::Collections::Generic::List<int>();
-	int * moves = myCarte->getMoves(x, y, z);
-	//We skip the weight for now
-	int j = 0;
-	int i = 0;
-			while (j != 3){
-				//if (moves[i] != -1){
-					lMoves->Add(moves[i++]);
-					j++;
-				//}
-				//i++;
-			}
-	
 
-	delete [] moves;
-	return lMoves;
-}
 CarteWrapper::!CarteWrapper() { Carte_Delete(myCarte); }

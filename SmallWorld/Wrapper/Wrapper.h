@@ -27,7 +27,6 @@ namespace Wrapper {
 		void placeUnites(int begin, int end, int lig);
 		int getDim();
 		int getCases(int x, int y);
-		System::Collections::Generic::List<int>^ getMoves(int ligne, int colonne, int size);
 
 	private:
 		Carte* myCarte;

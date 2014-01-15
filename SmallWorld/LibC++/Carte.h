@@ -1,5 +1,4 @@
 #pragma once
-#include "Legion.h"
 #include "Sommet.h"
 #include <vector>
 #include <iterator>
@@ -29,7 +28,6 @@ class DLL Carte
 {
 	Sommet* cases[DIMMAX][DIMMAX]; //an integer represents a type of case ("Foret, Eau, Plaine, Montagne, Desert")
 	int dim; //dimension of the map
-	vector<Legion> legions; //vector of all the different armies
 	vector<int> nbCases; //number of cases of each type that remain to be placed
 	vector<Sommet*> nodes; //set of the cases, seen as nodes of a graph (the map)
 	int places[2][2]; //used to store the starting position of the players
