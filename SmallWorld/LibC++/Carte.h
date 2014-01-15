@@ -24,6 +24,8 @@ struct PositUnite
 	int unite;
 };
 
+class VisiteurConnexite;
+
 /**
 *
 * \class Carte
@@ -54,8 +56,10 @@ public:
 	void unlinkNode(int x, int y);
 	void placeUnites(int x, int y, int num);
 	int getDim();
+	inline vector<Sommet*>& getNodes() { return nodes; }
 	int getPlace(int num, int coord) { return places[num][coord]; }
 	int getCases(int x, int y);
+	void accept(VisiteurConnexite* vis);
 	int* getMoves(int ligne, int colonne, int size);
 };
 

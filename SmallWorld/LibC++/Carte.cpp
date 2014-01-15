@@ -3,6 +3,7 @@
 #include <ctime>
 #include <queue>
 #include "Carte.h"
+#include "VisiteurConnexite.h"
 
 using namespace std;
 
@@ -96,44 +97,6 @@ void Carte::generateCases(int nbTypes)
 			}
 		}
 	}
-}
-
-//TODO : completer
-bool Carte::isolatedRegion()
-{
-	queue<Sommet*> f;
-	nodes[0]->setFlag(true);
-	f.push(nodes[0]);
-	while(!f.empty())
-	{
-		Sommet* x = f.front();
-		f.pop();
-		x->setVisite(true);
-		vector<Sommet*>::iterator deb = x->getAdjacents().begin();
-		vector<Sommet*>::iterator fin = x->getAdjacents().end();
-		vector<Sommet*>::iterator it;
-		for(it = deb ; it != fin ; it++)
-		{
-          Sommet* z = (*it);
-          if(!z->getFlag())
-		  {
-              z->setFlag(true);
-              f.push(z);
-		  }
-		}
-	}
-	bool res = false;
-	vector<Sommet*>::iterator deb = nodes.begin();
-	vector<Sommet*>::iterator fin = nodes.end();
-	vector<Sommet*>::iterator it;
-	for(it = deb ; it != fin && !res ; it++)
-	{
-		if(!(*it)->getVisite())
-			res = true;
-		(*it)->setFlag(false);
-		(*it)->setVisite(false);
-	}
-	return res;
 }
 
 int Carte::choose(int nb)
@@ -289,6 +252,11 @@ int Carte::getCases(int x, int y) {
 		return cases[x][y]->getTerrain();
 	else
 		return -1;
+}
+
+void Carte::accept(VisiteurConnexite* vis)
+{
+	vis->visitNode(nodes[0]);
 }
 
 // TODO!

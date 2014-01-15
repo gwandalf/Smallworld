@@ -66,6 +66,7 @@
     <ClInclude Include="Legion.h" />
     <ClInclude Include="Sommet.h" />
     <ClInclude Include="Unite.h" />
+    <ClInclude Include="VisiteurConnexite.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Carte.cpp" />
@@ -73,6 +74,7 @@
     <ClCompile Include="Sommet.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Unite.cpp" />
+    <ClCompile Include="VisiteurConnexite.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
