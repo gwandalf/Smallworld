@@ -26,17 +26,23 @@ Carte::Carte(void)
 */
 Carte::Carte(int dim, int army_length)
 {
+	//initializations
 	srand(time(0));
 	nbCases = vector<int>(NBTYPES);
 	nodes = vector<Sommet*>();
+
+	//each case must be put (dim*dim) / NBTYPES times, for the map to be well balanced
 	for(int i = 0 ; i < NBTYPES ; i++)
 		nbCases[i] = (dim*dim) / NBTYPES;
 	if(dim <= DIMMAX)
 		this->dim = dim;
 	else
 		this->dim = DIMMAX;
+
+	//generation of the map
 	generateCases(NBTYPES);
-	positUnite = vector<vector<PositUnite>>();
+
+	//players placement
 	placeUnites(0, 0, 0);
 	placeUnites(dim-1, dim-1, 1);
 }
@@ -63,7 +69,6 @@ Carte::~Carte(void)
 *
 * \param[in] nbTypes : number of types of the cases
 * 
-* TODO : améliorer l'algorithme pour avoir au moins une fois chaque type de case
 *
 */
 void Carte::generateCases(int nbTypes)
@@ -85,6 +90,11 @@ void Carte::generateCases(int nbTypes)
 		{
 			
 			cases[i][j]->setTerrain(choose(nbTypes));
+
+			/*
+			If a placed case is of type EAU, we verifiy if it doesn't create an unreachable case.
+			If it is the case, we simply choose another type of case
+			*/
 			if(cases[i][j]->getTerrain() == EAU)
 			{
 				VisiteurConnexite vis;
@@ -95,8 +105,11 @@ void Carte::generateCases(int nbTypes)
 	}
 }
 
+//choose a random number between 0 and nb (not included)
+//the number will be associated to its corresponding type of case
 int Carte::choose(int nb)
 {
+	//find out if it remains available types of cases
 	bool famine = true;
 	for(int i = 0 ; i < NBTYPES && famine ; i++)
 	{
@@ -104,14 +117,19 @@ int Carte::choose(int nb)
 			famine = false;
 	}
 	int res = rand() % nb;
+
+	//if there are not, we simply choose the number and that's all...
 	if(famine)
 		return res;
+
+	//else, we look for a type of case which is available
 	while(nbCases[res] == 0)
 		res = rand() % nb;
 	nbCases[res]--;
 	return res;
 }
 
+//makes links between the case located at (x, y) and the adjacents cases
 void Carte::addNode(int x, int y)
 {
 	if(cases[x][y] != NULL)
@@ -131,12 +149,15 @@ void Carte::addNode(int x, int y)
 }
 
 /**
-* \fn void Carte::placeUnites(int army_length, int lig, int col)
+* \fn void Carte::placeUnites(int x, int y, int num)
 * \brief algorithm placing the unites on the map
 * 
-* \param[in] army_length : number of unites in the army
-* \param[in] lig : line reference
-* \param[in] col : column reference
+* By default, the algorithm places the player at the given position.
+* But if the case is of type EAU, it finds out the nearest available position.
+*
+* \param[in] x : line suggested
+* \param[in] y : column suggested
+* \param[in] num : id of the player
 * 
 */
 void Carte::placeUnites(int x, int y, int num)
@@ -156,20 +177,24 @@ void Carte::placeUnites(int x, int y, int num)
 			trouve = true;
 		else
 		{
+			//the algorithm alternates between a research on the first position's line and the first position's column
+			//this "complication" is due to the fact that we choose the nearest position
 			if(i)
 			{
 				switch(num)
 				{
-				case 0:
+				case 0:     //case in which the player is first placed at the top-right corner of the map
 					x1--;
 					break;
-				case 1:
+				case 1:		//case in which the player is first placed at the bottom-left corner of the map
 					x1++;
 					break;
 				}
+				//let's try with this position...
 				x = x1;
 				y = y1;
 			}
+
 			else
 			{
 				switch(num)
@@ -185,6 +210,7 @@ void Carte::placeUnites(int x, int y, int num)
 				y = y2;
 			}
 		}
+		//tests if the border of the map is reached.
 		suivant = (x > -1 && x < dim && y > -1 && y < dim && !i);
 		i = !i;
 	}
@@ -193,6 +219,7 @@ void Carte::placeUnites(int x, int y, int num)
 		places[num][0] = x;
 		places[num][1] = y;
 	}
+	//In case of reached border, we look for a bit farer position...
 	else if(num == 0)
 		placeUnites(sx+1, sy+1, num);
 	else
@@ -217,105 +244,6 @@ int Carte::getCases(int x, int y) {
 	else
 		return -1;
 }
-
-// TODO!
-//trouver les bons mouvements
-// doit savoir quels sont les terrains environnants
-// combien il y a d'ennemis à côté et leur caractéristiques
-// suggère 3 emplacements au maximum
-/*
-	0 : DESERT
-	1 : WATER
-	2 : FOREST
-	3 : MOUNTAIN
-	4 : LOWLAND
-
-	0 : VICKING
-	1 : NAIN
-	2 : GAULOIS
-*/
-
-
-int* Carte::getMoves(int line, int column, int size) {
-	// on doit connaitre la position de l'unité séléctionnée (line,column)
-	// En fonction de cela, on garde les cases accessibles physiquement accessibles ( bords de la map) (taille de la carte)
-	// on enlève en fonction de l'unité, les cases inaccessibles (getCases()...)
-	// Si il y a plus de 3 solutions, on sélectionne les meilleures en fonction des ennemis présents
-
-	// Au max 3 coordonnées seront renvoyées sous la forme d'un tableau [][]
-
-	int pos = line * size + column;
-
-	int x = pos / size;
-	int y = pos%size;
-
-	//(i*taille + j);
-			
-	int i = 0;
-	// 9 emplacements (pour simplifier), mais seulement 4 possibles
-	int * cases = new int[4];
-	
-	// l'unité est n'est pas tout en haut de la carte
-
-	if (pos > size){
-		cases[i++] = pos - size;
-		//OK quand unite en bas, pas ok quand unite en haut
-	}
-	/*
-	if (line == 0){
-		// pas de déplacement vers le haut
-		cases[0] = cases[1] = cases[2] = -1;
-	}
-	*/
-	// l'unité n'est pas tout en bas de la carte
-	if (pos <= size*(size-1)){
-		cases[i++] = pos + size;
-		//OK quand unite en haut, pas ok quand unite en bas
-	}
-	/*
-	if (line == dim){
-		//pas de déplacement vers le bas
-		cases[dim] = cases[dim + 1] = cases[dim + 2] = -1;
-	}
-	*/
-	// l'unité n'est pas à gauche de la carte
-	/*
-	if ((pos % size) == 1){
-		cases[i++] = pos - 1;
-	}
-	*/
-	/*
-	if (column == 0){
-		// pas de déplacement a gauche
-		cases[0] = cases[1] = cases[2] = -1;
-	}
-	*/
-	// l'unité n'est pas à droite de la carte
-	/*
-	if ((pos % (size-1)) != 0){
-		cases[i++] = pos + 1;
-	}
-	*/
-	/*
-	if (column == dim){
-		// pas de déplacement à droite
-		cases[dim] = cases[1 + dim] = cases[2 + dim] = -1;
-	}
-	*/
-	/*
-	cases[0] = 200;
-	cases[1] = 201;
-	cases[2] = 202;
-	*/
-	return cases;
-	
-}
-
-//vérifier si il y a de l'eau a coté
-
-//trouver le nombre d'unités à une certaine position
-
-//calculer le nombre de points
 
 
 EXTERNC DLL Carte* Carte_New_default(){return new Carte();}

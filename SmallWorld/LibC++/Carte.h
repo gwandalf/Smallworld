@@ -17,13 +17,6 @@
 
 using namespace std;
 
-struct PositUnite
-{
-	int lig;
-	int col;
-	int unite;
-};
-
 class VisiteurConnexite;
 
 /**
@@ -37,10 +30,9 @@ class DLL Carte
 	Sommet* cases[DIMMAX][DIMMAX]; //an integer represents a type of case ("Foret, Eau, Plaine, Montagne, Desert")
 	int dim; //dimension of the map
 	vector<Legion> legions; //vector of all the different armies
-	vector<int> nbCases;
-	vector<vector<PositUnite>> positUnite;
-	vector<Sommet*> nodes;
-	int places[2][2];
+	vector<int> nbCases; //number of cases of each type that remain to be placed
+	vector<Sommet*> nodes; //set of the cases, seen as nodes of a graph (the map)
+	int places[2][2]; //used to store the starting position of the players
 
 public:
 	static const enum TYPE {DESERT, PLAINE, FORET, MONTAGNE, EAU};
@@ -58,7 +50,6 @@ public:
 	inline vector<Sommet*>& getNodes() { return nodes; }
 	int getPlace(int num, int coord) { return places[num][coord]; }
 	int getCases(int x, int y);
-	int* getMoves(int ligne, int colonne, int size);
 };
 
 

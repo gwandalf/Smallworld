@@ -10,7 +10,6 @@
  **/
 class VisiteurConnexite
 {
-	vector<Sommet*> _visites;
 public:
 	VisiteurConnexite(void);
 	~VisiteurConnexite(void);

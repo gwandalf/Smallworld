@@ -10,21 +10,28 @@ using Implementation.Modele.Jeu;
 
 namespace Implementation.Modele.Creation
 {
+    /// <summary>
+    /// object which save and restore the stae of the game
+    /// </summary>
+    /// <remarks> Singleton </remarks>
     public sealed class Saver
     {
         public static readonly Saver INSTANCE = new Saver();
 
+        //path of the saves files
         private string path;
         public string Path
         {
             get { return path; }
         }
 
+        //names of the saves files
         private string[] files;
         public string[] Files
         {
             get
             {
+                //parsing of the paths
                 if (files == null)
                 {
                     string[] brut;
@@ -46,6 +53,7 @@ namespace Implementation.Modele.Creation
             path = "..\\..\\Resources\\Saves\\";
         }
 
+        //save a game
         public void ToXML(Object p, string name)
         {
             XmlDocument xmlDoc = new XmlDocument();
@@ -59,6 +67,7 @@ namespace Implementation.Modele.Creation
             }
         }
 
+        //load a game
         public Partie charger(string name)
         {
             var serializer = new XmlSerializer(typeof(Partie));

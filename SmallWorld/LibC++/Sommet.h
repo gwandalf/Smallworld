@@ -4,9 +4,9 @@ using namespace std;
 class VisiteurConnexite;
 class Sommet
 {
-	vector<Sommet*> _adjacents;
-	int _terrain;
-	bool _flag;
+	vector<Sommet*> _adjacents; //list of adajcents cases
+	int _terrain; //type (DESERT, FORET, PLAINE, MONTAGNE, EAU)
+	bool _flag; //used to mark as visited
 public:
 	Sommet(int terrain = 0);
 	~Sommet(void);
